@@ -1,0 +1,297 @@
+{
+  "x-generator": "OSIsoft.NSwag v1.6.0 (NJsonSchema v10.3.1.0 (Newtonsoft.Json v12.0.0.0))",
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Identity.Storage.CloudControllers.Api.Communities.Roles",
+    "version": "20210209.01"
+  },
+  "paths": {
+    "/api/v1/Communities/{communityId}/Roles": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Get instanced Community Roles for a Community.",
+        "operationId": "Roles_Get Instanced Community Roles",
+        "parameters": [
+          {
+            "name": "communityId",
+            "in": "path",
+            "required": true,
+            "description": "Id of Community.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of instanced Roles for this Community.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Role"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "BadRequest.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Tenant not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-authorized-roles": [
+          "Community Member"
+        ]
+      }
+    },
+    "/cluster/v1/Communities/{communityId}/Roles": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Get instanced Community Roles for a Community.",
+        "operationId": "Roles_Get Instanced Community Roles All",
+        "parameters": [
+          {
+            "name": "communityId",
+            "in": "path",
+            "required": true,
+            "description": "Id of Community.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of instanced Roles for this Community.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Role"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "BadRequest.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Tenant not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-authorized-roles": [
+          "Community Member"
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Role": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "guid",
+            "nullable": true
+          },
+          "Name": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 0,
+            "nullable": true
+          },
+          "Description": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 0,
+            "nullable": true
+          },
+          "RoleScope": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/RoleScope"
+              }
+            ]
+          },
+          "TenantId": {
+            "type": "string",
+            "format": "guid",
+            "deprecated": true,
+            "x-deprecatedMessage": "TenantId will be removed in the next release. Please remove references to it.",
+            "nullable": true
+          },
+          "CommunityId": {
+            "type": "string",
+            "format": "guid",
+            "nullable": true
+          },
+          "RoleTypeId": {
+            "type": "string",
+            "format": "guid",
+            "nullable": true
+          }
+        }
+      },
+      "RoleScope": {
+        "type": "integer",
+        "description": "",
+        "x-enumNames": [
+          "Account",
+          "Community",
+          "Cluster"
+        ],
+        "enum": [
+          1,
+          2,
+          3
+        ]
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "description": "Object returned whenever there is an error.",
+        "example": {
+          "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
+          "Error": "Error message.",
+          "Reason": "Reason that caused error.",
+          "Resolution": "Possible solution for the error."
+        },
+        "additionalProperties": {
+          "nullable": true
+        },
+        "required": [
+          "OperationId",
+          "Error",
+          "Reason",
+          "Resolution"
+        ],
+        "properties": {
+          "OperationId": {
+            "type": "string",
+            "description": "Gets or sets operationId of action that caused the Error.",
+            "minLength": 1
+          },
+          "Error": {
+            "type": "string",
+            "description": "Gets or sets error description.",
+            "minLength": 1
+          },
+          "Reason": {
+            "type": "string",
+            "description": "Gets or sets reason for the Error.",
+            "minLength": 1
+          },
+          "Resolution": {
+            "type": "string",
+            "description": "Gets or sets what can be done to resolve the Error.",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

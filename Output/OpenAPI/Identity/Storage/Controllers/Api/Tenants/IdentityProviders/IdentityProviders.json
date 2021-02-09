@@ -1,0 +1,1885 @@
+{
+  "x-generator": "OSIsoft.NSwag v1.6.0 (NJsonSchema v10.3.1.0 (Newtonsoft.Json v12.0.0.0))",
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Identity.Storage.Controllers.Api.Tenants.IdentityProviders.IdentityProviders",
+    "version": "20210209.01"
+  },
+  "paths": {
+    "/api/v1/Tenants/{tenantId}/IdentityProviders": {
+      "get": {
+        "tags": [
+          "IdentityProviders"
+        ],
+        "summary": "Get all Identity Providers from a Tenant.",
+        "operationId": "IdentityProviders_Get Tenant Identity Providers",
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "description": "Id of Tenant.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Query to execute. Currently not supported.",
+            "schema": {
+              "type": "string",
+              "default": "",
+              "nullable": true
+            },
+            "x-position": 2
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Number of Identity Providers to skip.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            },
+            "x-position": 3
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "Maximum number of Identity Providers to return.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            },
+            "x-position": 4
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Identity Providers found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/IdentityProvider"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Tenant not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-authorized-roles": [
+          "Account Member",
+          "Cluster Operator",
+          "Cluster Support"
+        ],
+        "x-strict-roles": [
+          "Account Administrator"
+        ]
+      },
+      "head": {
+        "tags": [
+          "IdentityProviders"
+        ],
+        "summary": "Return total number of Identity Providers in a Tenant. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.",
+        "operationId": "IdentityProviders_Get Tenant Identity Providers Header",
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "description": "Id of Tenant.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Identity Provider headers for Tenant."
+          },
+          "401": {
+            "description": "Unauthorized."
+          },
+          "403": {
+            "description": "Forbidden."
+          },
+          "404": {
+            "description": "Tenant not found."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        },
+        "x-authorized-roles": [
+          "Account Member",
+          "Cluster Operator",
+          "Cluster Support"
+        ],
+        "x-strict-roles": [
+          "Account Administrator"
+        ]
+      },
+      "post": {
+        "tags": [
+          "IdentityProviders"
+        ],
+        "summary": "Add an existing Identity Provider to a Tenant. This Identity Provider will be available in the Home Realm Discovery Page for users to sign-in or sign-up.",
+        "operationId": "IdentityProviders_Add Tenant Identity Provider",
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "description": "Id of Tenant.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "identityProviderAdd",
+          "description": "IdentityProviderAdd object.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/IdentityProviderAdd"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "201": {
+            "description": "Identity Provider created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IdentityProvider"
+                }
+              }
+            }
+          },
+          "302": {
+            "description": "Found."
+          },
+          "400": {
+            "description": "Missing or invalid inputs.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Tenant not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Operation timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Identity Provider already exists in Tenant.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-authorized-roles": [
+          "Account Administrator"
+        ]
+      }
+    },
+    "/api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}": {
+      "get": {
+        "tags": [
+          "IdentityProviders"
+        ],
+        "summary": "Get an Identity Provider from a Tenant.",
+        "operationId": "IdentityProviders_Get Tenant Identity Provider",
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "description": "Id of Tenant.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "identityProviderId",
+            "in": "path",
+            "required": true,
+            "description": "Id of Identity Provider.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Identity Provider specified.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IdentityProvider"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "IdentityProvider or Tenant not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-authorized-roles": [
+          "Account Member",
+          "Cluster Operator",
+          "Cluster Support"
+        ],
+        "x-strict-roles": [
+          "Account Administrator"
+        ]
+      },
+      "head": {
+        "tags": [
+          "IdentityProviders"
+        ],
+        "summary": "Validate that a Identity Provider exists in the Tenant. This endpoint is identical to the GET one but it does not return any objects in the body.",
+        "operationId": "IdentityProviders_Get Tenant Identity Provider Header",
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "description": "Id of Tenant.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "identityProviderId",
+            "in": "path",
+            "required": true,
+            "description": "Id of Identity Provider.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Header for Identity Provider."
+          },
+          "401": {
+            "description": "Unauthorized."
+          },
+          "403": {
+            "description": "Forbidden."
+          },
+          "404": {
+            "description": "IdentityProvider or Tenant not found."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        },
+        "x-authorized-roles": [
+          "Account Member",
+          "Cluster Operator",
+          "Cluster Support"
+        ],
+        "x-strict-roles": [
+          "Account Administrator"
+        ]
+      },
+      "delete": {
+        "tags": [
+          "IdentityProviders"
+        ],
+        "summary": "Remove an Identity Provider from a Tenant. Users provisioned with this Identity Provider will remain in the Tenant, but will not be able to authenticate. An administrator cannot remove the Identity Provider they are signed in with.",
+        "operationId": "IdentityProviders_Remove Tenant Identity Provider",
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "description": "Id of Tenant.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "identityProviderId",
+            "in": "path",
+            "required": true,
+            "description": "Id of Identity Provider.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No content."
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "IdentityProvider or Tenant not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Operation timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-authorized-roles": [
+          "Account Administrator"
+        ]
+      }
+    },
+    "/api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Consent": {
+      "get": {
+        "tags": [
+          "IdentityProviders"
+        ],
+        "summary": "Get an Identity Provider Consent from a Tenant.",
+        "operationId": "IdentityProviders_Get Tenant Identity Provider Consent",
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "description": "Id of Tenant.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "identityProviderId",
+            "in": "path",
+            "required": true,
+            "description": "Id of Identity Provider.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Identity Provider Consent.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IdentityProviderConsent"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "IdentityProvider or Tenant not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-authorized-roles": [
+          "Account Member",
+          "Cluster Operator",
+          "Cluster Support"
+        ],
+        "x-strict-roles": [
+          "Account Administrator"
+        ]
+      },
+      "head": {
+        "tags": [
+          "IdentityProviders"
+        ],
+        "summary": "Get header for an Identity Provider to check if any additional consent data exists.",
+        "operationId": "IdentityProviders_Get Tenant Identity Provider Consent Header",
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "description": "Id of Tenant.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "identityProviderId",
+            "in": "path",
+            "required": true,
+            "description": "Id of Identity Provider.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok if the Identity Provider Consent exists."
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "IdentityProvider or Tenant not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-authorized-roles": [
+          "Account Member",
+          "Cluster Operator",
+          "Cluster Support"
+        ],
+        "x-strict-roles": [
+          "Account Administrator"
+        ]
+      },
+      "post": {
+        "tags": [
+          "IdentityProviders"
+        ],
+        "summary": "Update an Identity Provider consent related to Deeper Integration.",
+        "operationId": "IdentityProviders_Update Tenant Identity Provider Consent",
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "description": "Id of Tenant.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "identityProviderId",
+            "in": "path",
+            "required": true,
+            "description": "Id of Identity Provider.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 2
+          }
+        ],
+        "requestBody": {
+          "x-name": "identityProviderConsent",
+          "description": "Identity Provider Consent.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/IdentityProviderConsent"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true,
+          "x-position": 3
+        },
+        "responses": {
+          "200": {
+            "description": "Identity Provider Consent.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IdentityProviderConsent"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing or invalid inputs.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Tenant not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Operation timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-authorized-roles": [
+          "Account Administrator",
+          "Cluster Operator"
+        ]
+      }
+    },
+    "/api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/groups": {
+      "get": {
+        "tags": [
+          "IdentityProviders"
+        ],
+        "summary": "Get the groups based on the query parameters. Currently, Azure Active Directory provider is the only provider that supports this endpoint.",
+        "operationId": "IdentityProviders_Get Identity Provider Groups",
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "description": "Tenant Id.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "identityProviderId",
+            "in": "path",
+            "required": true,
+            "description": "Identity Provider Id.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "required": true,
+            "description": "Start of user name or Email to search for.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 3
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "Sets the page size of results.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            },
+            "x-position": 4
+          },
+          {
+            "name": "skipToken",
+            "in": "query",
+            "description": "Retrieves the next page of results from result sets that span multiple pages.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 5
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of groups found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IdentityProviderResultsOfIdentityProviderGroup"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing or invalid inputs.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Tenant not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Operation timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-authorized-roles": [
+          "Account Administrator"
+        ]
+      }
+    },
+    "/api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Groups": {
+      "post": {
+        "tags": [
+          "IdentityProviders"
+        ],
+        "summary": "Get the groups based on the Ids. Currently, Azure Active Directory provider is the only provider that supports this endpoint.",
+        "operationId": "IdentityProviders_Get Identity Provider Groups By Ids",
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "description": "Tenant Id.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "identityProviderId",
+            "in": "path",
+            "required": true,
+            "description": "Identity Provider Id.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 2
+          }
+        ],
+        "requestBody": {
+          "x-name": "groupIds",
+          "description": "Group Id list.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "required": true,
+          "x-position": 3
+        },
+        "responses": {
+          "200": {
+            "description": "List of groups.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IdentityProviderResultsOfIdentityProviderGroup"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing or invalid inputs.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Tenant not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Operation timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-authorized-roles": [
+          "Account Administrator",
+          "Cluster Operator",
+          "Cluster Support"
+        ]
+      }
+    },
+    "/api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/groups/{groupId}/members": {
+      "get": {
+        "tags": [
+          "IdentityProviders"
+        ],
+        "summary": "Get the members in a group. Currently, Azure Active Directory provider is the only provider that supports this endpoint.",
+        "operationId": "IdentityProviders_Get Identity Provider Members In A Group",
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "description": "Tenant Id.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "identityProviderId",
+            "in": "path",
+            "required": true,
+            "description": "Identity Provider Id.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "description": "External Id of the group.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 3
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "Sets the page size of results.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            },
+            "x-position": 4
+          },
+          {
+            "name": "skipToken",
+            "in": "query",
+            "description": "Retrieves the next page of results from result sets that span multiple pages.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 5
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of members.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IdentityProviderMembers"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing or invalid inputs.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Tenant not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Operation timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-authorized-roles": [
+          "Account Administrator"
+        ]
+      }
+    },
+    "/api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/users": {
+      "get": {
+        "tags": [
+          "IdentityProviders"
+        ],
+        "summary": "Get the users based on the query parameters. Currently, Azure Active Directory provider is the only provider that supports this endpoint.",
+        "operationId": "IdentityProviders_Get Identity Provider Users",
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "description": "Tenant Id.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "identityProviderId",
+            "in": "path",
+            "required": true,
+            "description": "Identity Provider Id.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "required": true,
+            "description": "Start of user name or Email to search for.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 3
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "Sets the page size of results.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            },
+            "x-position": 4
+          },
+          {
+            "name": "skipToken",
+            "in": "query",
+            "description": "Retrieves the next page of results from result sets that span multiple pages.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 5
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of users found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IdentityProviderResultsOfIdentityProviderUser"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing or invalid inputs.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Tenant not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Operation timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-authorized-roles": [
+          "Account Administrator"
+        ]
+      }
+    },
+    "/api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Users/{userId}/Groups": {
+      "get": {
+        "tags": [
+          "IdentityProviders"
+        ],
+        "summary": "Get the groups a user is a member of. Currently, Azure Active Directory provider is the only provider that supports this endpoint.",
+        "operationId": "IdentityProviders_Get Identity Provider Groups For User",
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "description": "Tenant Id.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "identityProviderId",
+            "in": "path",
+            "required": true,
+            "description": "Identity Provider Id.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "description": "Id of the user.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 3
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Indexes into a result set.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            },
+            "x-position": 4
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "Sets the page size of results.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            },
+            "x-position": 5
+          },
+          {
+            "name": "timeout",
+            "in": "query",
+            "description": "The maximum time to allow for searching groups before returning the groups.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            },
+            "x-position": 6
+          },
+          {
+            "name": "skipToken",
+            "in": "query",
+            "description": "Retrieves the next page of results from result sets that span multiple pages.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 7
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of groups user is a member of.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IdentityProviderResultsOfIdentityProviderGroup"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing or invalid inputs.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Tenant not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Operation timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-authorized-roles": [
+          "Account Administrator"
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "IdentityProvider": {
+        "type": "object",
+        "description": "The model for an Identity Provider in Identity Storage.",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "string",
+            "description": "Gets or sets id of an identity provider.",
+            "format": "guid"
+          },
+          "DisplayName": {
+            "type": "string",
+            "description": "Gets or sets identity provider display name to use.",
+            "nullable": true
+          },
+          "Scheme": {
+            "type": "string",
+            "description": "Gets or sets the name of the cookie handler that will temporarily store the outcome of the external authentication.",
+            "nullable": true
+          },
+          "UserIdClaimType": {
+            "type": "string",
+            "description": "Gets or sets type of claim.",
+            "nullable": true
+          },
+          "ClientId": {
+            "type": "string",
+            "description": "Gets or sets the ClientId of the identity provider.",
+            "nullable": true
+          },
+          "IsConfigured": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether the identity provider has been configured."
+          },
+          "Capabilities": {
+            "description": "Gets or sets the Capabilities of the identity provider.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/IdentityProviderCapabilities"
+              }
+            ]
+          }
+        }
+      },
+      "IdentityProviderCapabilities": {
+        "type": "object",
+        "description": "The model for the Capabilities of an Identity Provider in Identity Storage.",
+        "additionalProperties": false,
+        "properties": {
+          "User": {
+            "description": "Gets or sets user level capabilities",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/IdentityProviderUserCapabilites"
+              }
+            ]
+          },
+          "Group": {
+            "description": "Gets or sets group level capabilities",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/IdentityProviderGroupCapabilites"
+              }
+            ]
+          }
+        }
+      },
+      "IdentityProviderUserCapabilites": {
+        "type": "object",
+        "description": "The model for the user level capabilities of an Identity Provider in Identity Storage.",
+        "additionalProperties": false,
+        "properties": {
+          "SignIn": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether user sign-in is supported."
+          },
+          "Invitation": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether authorization via the invitation flow is supported."
+          },
+          "Search": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether user search is supported."
+          }
+        }
+      },
+      "IdentityProviderGroupCapabilites": {
+        "type": "object",
+        "description": "The model for the group level capabilities of an Identity Provider in Identity Storage.",
+        "additionalProperties": false,
+        "properties": {
+          "Authorize": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether authorization via groups is supported."
+          },
+          "Search": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether group search is supported."
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "description": "Object returned whenever there is an error.",
+        "example": {
+          "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
+          "Error": "Error message.",
+          "Reason": "Reason that caused error.",
+          "Resolution": "Possible solution for the error."
+        },
+        "additionalProperties": {
+          "nullable": true
+        },
+        "required": [
+          "OperationId",
+          "Error",
+          "Reason",
+          "Resolution"
+        ],
+        "properties": {
+          "OperationId": {
+            "type": "string",
+            "description": "Gets or sets operationId of action that caused the Error.",
+            "minLength": 1
+          },
+          "Error": {
+            "type": "string",
+            "description": "Gets or sets error description.",
+            "minLength": 1
+          },
+          "Reason": {
+            "type": "string",
+            "description": "Gets or sets reason for the Error.",
+            "minLength": 1
+          },
+          "Resolution": {
+            "type": "string",
+            "description": "Gets or sets what can be done to resolve the Error.",
+            "minLength": 1
+          }
+        }
+      },
+      "IdentityProviderConsent": {
+        "type": "object",
+        "description": "The model for an Identity Provider Consent in Identity Storage.",
+        "additionalProperties": {
+          "nullable": true
+        },
+        "properties": {
+          "Scheme": {
+            "type": "string",
+            "description": "Gets or sets the scheme of the Identity Provider.",
+            "nullable": true
+          }
+        }
+      },
+      "IdentityProviderAdd": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ConsentInformation"
+          },
+          {
+            "type": "object",
+            "description": "Object for adding an Identity Provider.",
+            "additionalProperties": false,
+            "properties": {
+              "IdentityProviderId": {
+                "type": "string",
+                "description": "Gets or sets Identity Provider Id to Add.",
+                "format": "guid"
+              },
+              "AzureActiveDirectorySendConsent": {
+                "type": "boolean",
+                "description": "Gets or sets a value indicating whether send consent email for Azure Active Directory."
+              }
+            }
+          }
+        ]
+      },
+      "ConsentInformation": {
+        "type": "object",
+        "description": "Information about the recipient of the Azure Active Directory consent email.",
+        "additionalProperties": false,
+        "properties": {
+          "AzureActiveDirectoryConsentEmail": {
+            "type": "string",
+            "description": "Gets or sets address to email consent.",
+            "format": "email",
+            "nullable": true
+          },
+          "AzureActiveDirectoryConsentGivenName": {
+            "type": "string",
+            "description": "Gets or sets preferred name to use in the consent email.",
+            "nullable": true
+          },
+          "AzureActiveDirectoryConsentSurname": {
+            "type": "string",
+            "description": "Gets or sets preferred surname to use in the consent email.",
+            "nullable": true
+          },
+          "AzureActiveDirectoryTenant": {
+            "type": "string",
+            "description": "Gets or sets Azure Active Directory Domain Name (e.g. mydomain.onmicrosoft.com).",
+            "nullable": true
+          },
+          "AzureActiveDirectoryConsentTypes": {
+            "type": "string",
+            "description": "Gets or sets Azure Active Directory Consent Types. Valid Consent Type combinations include \u0022SignIn\u0022 and \u0022SignIn;ReadAllUsersGroups\u0022.",
+            "nullable": true
+          }
+        }
+      },
+      "IdentityProviderResultsOfIdentityProviderUser": {
+        "type": "object",
+        "description": "Result object for Identity Provider access users/groups.",
+        "additionalProperties": false,
+        "properties": {
+          "Results": {
+            "type": "array",
+            "description": "List of users/groups.",
+            "items": {
+              "$ref": "#/components/schemas/IdentityProviderUser"
+            }
+          },
+          "SkipToken": {
+            "type": "string",
+            "description": "Skip token for paging.",
+            "nullable": true
+          }
+        }
+      },
+      "IdentityProviderUser": {
+        "type": "object",
+        "description": "Base class for Identity provider access user.",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "string",
+            "description": "Gets or sets Id of user."
+          },
+          "GivenName": {
+            "type": "string",
+            "description": "Gets or sets given name of user.",
+            "nullable": true
+          },
+          "Surname": {
+            "type": "string",
+            "description": "Gets or sets surname of user.",
+            "nullable": true
+          },
+          "Name": {
+            "type": "string",
+            "description": "Gets or sets name of user.",
+            "nullable": true
+          },
+          "Email": {
+            "type": "string",
+            "description": "Gets or sets email of user.",
+            "format": "email",
+            "nullable": true
+          }
+        }
+      },
+      "IdentityProviderResultsOfIdentityProviderGroup": {
+        "type": "object",
+        "description": "Result object for Identity Provider access users/groups.",
+        "additionalProperties": false,
+        "properties": {
+          "Results": {
+            "type": "array",
+            "description": "List of users/groups.",
+            "items": {
+              "$ref": "#/components/schemas/IdentityProviderGroup"
+            }
+          },
+          "SkipToken": {
+            "type": "string",
+            "description": "Skip token for paging.",
+            "nullable": true
+          }
+        }
+      },
+      "IdentityProviderGroup": {
+        "type": "object",
+        "description": "Base class for Identity Provider access group.",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "string",
+            "description": "Gets or sets the Object Id of IdentityProviderGroup."
+          },
+          "Name": {
+            "type": "string",
+            "description": "Gets or sets group name of IdentityProviderGroup.",
+            "nullable": true
+          },
+          "Email": {
+            "type": "string",
+            "description": "Gets or sets the email address of the IdentityProviderGroup.",
+            "format": "email",
+            "nullable": true
+          }
+        }
+      },
+      "IdentityProviderMembers": {
+        "type": "object",
+        "description": "Class to hold members in a group.",
+        "additionalProperties": false,
+        "properties": {
+          "Users": {
+            "type": "array",
+            "description": "List of users.",
+            "items": {
+              "$ref": "#/components/schemas/IdentityProviderUser"
+            }
+          },
+          "Groups": {
+            "type": "array",
+            "description": "List of groups.",
+            "items": {
+              "$ref": "#/components/schemas/IdentityProviderGroup"
+            }
+          },
+          "SkipToken": {
+            "type": "string",
+            "description": "Skip token for paging.",
+            "nullable": true
+          }
+        }
+      }
+    }
+  }
+}
