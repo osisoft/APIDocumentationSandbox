@@ -1,0 +1,415 @@
+{
+  "x-generator": "OSIsoft.NSwag v1.6.0 (NJsonSchema v10.3.1.0 (Newtonsoft.Json v12.0.0.0))",
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Identity.Storage.Controllers.Ops.IdentityProviders",
+    "version": "20210209.01"
+  },
+  "paths": {
+    "/api/v1/IdentityProviders/{identityProviderId}/Consent": {
+      "get": {
+        "tags": [
+          "IdentityProviders"
+        ],
+        "summary": "Returns an IdentityProviderConsent object.",
+        "operationId": "IdentityProviders_Get Identity Provider Consent",
+        "parameters": [
+          {
+            "name": "identityProviderId",
+            "in": "path",
+            "required": true,
+            "description": "Id of provider.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "idpTenantDomain",
+            "in": "query",
+            "description": "Identity Provider Tenant Domain. Mutually exclusive to idpTenantId. Currently only supports AAD Domain.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          },
+          {
+            "name": "idpTenantId",
+            "in": "query",
+            "description": "Identity Provider Tenant Id. Mutually exclusive to idpTenantDomain. Currently only supports AAD Tenant Id.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 3
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Output format.",
+            "schema": {
+              "default": 0,
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/AadIdentityProviderConsentOutputFormat"
+                }
+              ]
+            },
+            "x-position": 4
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "IdentityProviderConsent object.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IdentityProvider"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing or invalid inputs.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Identity Provider or specified Aad Tenant not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-authorized-roles": [
+          "Cluster Operator",
+          "Cluster Support"
+        ]
+      }
+    },
+    "/ops/v1/IdentityProviders/{identityProviderId}/Consent": {
+      "get": {
+        "tags": [
+          "IdentityProviders"
+        ],
+        "summary": "Returns an IdentityProviderConsent object.",
+        "operationId": "IdentityProviders_Get Identity Provider Consent2",
+        "parameters": [
+          {
+            "name": "identityProviderId",
+            "in": "path",
+            "required": true,
+            "description": "Id of provider.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "idpTenantDomain",
+            "in": "query",
+            "description": "Identity Provider Tenant Domain. Mutually exclusive to idpTenantId. Currently only supports AAD Domain.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          },
+          {
+            "name": "idpTenantId",
+            "in": "query",
+            "description": "Identity Provider Tenant Id. Mutually exclusive to idpTenantDomain. Currently only supports AAD Tenant Id.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 3
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Output format.",
+            "schema": {
+              "default": 0,
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/AadIdentityProviderConsentOutputFormat"
+                }
+              ]
+            },
+            "x-position": 4
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "IdentityProviderConsent object.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IdentityProvider"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing or invalid inputs.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Identity Provider or specified Aad Tenant not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-authorized-roles": [
+          "Cluster Operator",
+          "Cluster Support"
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "IdentityProvider": {
+        "type": "object",
+        "description": "The model for an Identity Provider in Identity Storage.",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "string",
+            "description": "Gets or sets id of an identity provider.",
+            "format": "guid"
+          },
+          "DisplayName": {
+            "type": "string",
+            "description": "Gets or sets identity provider display name to use.",
+            "nullable": true
+          },
+          "Scheme": {
+            "type": "string",
+            "description": "Gets or sets the name of the cookie handler that will temporarily store the outcome of the external authentication.",
+            "nullable": true
+          },
+          "UserIdClaimType": {
+            "type": "string",
+            "description": "Gets or sets type of claim.",
+            "nullable": true
+          },
+          "ClientId": {
+            "type": "string",
+            "description": "Gets or sets the ClientId of the identity provider.",
+            "nullable": true
+          },
+          "IsConfigured": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether the identity provider has been configured."
+          },
+          "Capabilities": {
+            "description": "Gets or sets the Capabilities of the identity provider.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/IdentityProviderCapabilities"
+              }
+            ]
+          }
+        }
+      },
+      "IdentityProviderCapabilities": {
+        "type": "object",
+        "description": "The model for the Capabilities of an Identity Provider in Identity Storage.",
+        "additionalProperties": false,
+        "properties": {
+          "User": {
+            "description": "Gets or sets user level capabilities",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/IdentityProviderUserCapabilites"
+              }
+            ]
+          },
+          "Group": {
+            "description": "Gets or sets group level capabilities",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/IdentityProviderGroupCapabilites"
+              }
+            ]
+          }
+        }
+      },
+      "IdentityProviderUserCapabilites": {
+        "type": "object",
+        "description": "The model for the user level capabilities of an Identity Provider in Identity Storage.",
+        "additionalProperties": false,
+        "properties": {
+          "SignIn": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether user sign-in is supported."
+          },
+          "Invitation": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether authorization via the invitation flow is supported."
+          },
+          "Search": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether user search is supported."
+          }
+        }
+      },
+      "IdentityProviderGroupCapabilites": {
+        "type": "object",
+        "description": "The model for the group level capabilities of an Identity Provider in Identity Storage.",
+        "additionalProperties": false,
+        "properties": {
+          "Authorize": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether authorization via groups is supported."
+          },
+          "Search": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether group search is supported."
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "description": "Object returned whenever there is an error.",
+        "example": {
+          "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
+          "Error": "Error message.",
+          "Reason": "Reason that caused error.",
+          "Resolution": "Possible solution for the error."
+        },
+        "additionalProperties": {
+          "nullable": true
+        },
+        "required": [
+          "OperationId",
+          "Error",
+          "Reason",
+          "Resolution"
+        ],
+        "properties": {
+          "OperationId": {
+            "type": "string",
+            "description": "Gets or sets operationId of action that caused the Error.",
+            "minLength": 1
+          },
+          "Error": {
+            "type": "string",
+            "description": "Gets or sets error description.",
+            "minLength": 1
+          },
+          "Reason": {
+            "type": "string",
+            "description": "Gets or sets reason for the Error.",
+            "minLength": 1
+          },
+          "Resolution": {
+            "type": "string",
+            "description": "Gets or sets what can be done to resolve the Error.",
+            "minLength": 1
+          }
+        }
+      },
+      "AadIdentityProviderConsentOutputFormat": {
+        "type": "integer",
+        "description": "",
+        "x-enumNames": [
+          "DumpAll",
+          "AadTenantSharingSummary"
+        ],
+        "enum": [
+          0,
+          1
+        ]
+      }
+    }
+  }
+}

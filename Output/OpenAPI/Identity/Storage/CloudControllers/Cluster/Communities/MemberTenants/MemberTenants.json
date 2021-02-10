@@ -1,0 +1,639 @@
+{
+  "x-generator": "OSIsoft.NSwag v1.6.0 (NJsonSchema v10.3.1.0 (Newtonsoft.Json v12.0.0.0))",
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Identity.Storage.CloudControllers.Cluster.Communities.MemberTenants.MemberTenants",
+    "version": "20210209.01"
+  },
+  "paths": {
+    "/cluster/Communities/{communityId}/MemberTenants": {
+      "get": {
+        "tags": [
+          "MemberTenants"
+        ],
+        "summary": "Gets the list of all Tenants and its count of Users in a Community.",
+        "operationId": "MemberTenants_Get All Member Tenants Info",
+        "parameters": [
+          {
+            "name": "communityId",
+            "in": "path",
+            "required": true,
+            "description": "Id of the Community.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A \u0060IEnumerable\u00601\u0060 representing info for each Tenant of a Community.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MemberTenant"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "BadRequest.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Community Not Found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-authorized-roles": []
+      },
+      "head": {
+        "tags": [
+          "MemberTenants"
+        ],
+        "summary": "Gets the number of Member Tenants in a Community.",
+        "operationId": "MemberTenants_Get All Member Tenants Info Header",
+        "parameters": [
+          {
+            "name": "communityId",
+            "in": "path",
+            "required": true,
+            "description": "Id of the Community.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A count of total Community Tenants in a Community."
+          },
+          "400": {
+            "description": "BadRequest.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Community Not Found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-authorized-roles": []
+      }
+    },
+    "/cluster/Communities/{communityId}/MemberTenants/{memberTenantId}": {
+      "get": {
+        "tags": [
+          "MemberTenants"
+        ],
+        "summary": "Gets the Member Tenant info for a Member Tenant in a Community.",
+        "operationId": "MemberTenants_Get Member Tenant Info",
+        "parameters": [
+          {
+            "name": "communityId",
+            "in": "path",
+            "required": true,
+            "description": "Id of the Community.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "memberTenantId",
+            "in": "path",
+            "required": true,
+            "description": "Id of the specified community Member Tenant.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A \u0060MemberTenant\u0060 representing info for a single Tenant of a Community.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MemberTenant"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "BadRequest.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Tenant or Community Not Found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-authorized-roles": []
+      },
+      "post": {
+        "tags": [
+          "MemberTenants"
+        ],
+        "summary": "Adds a Member Tenant to a Community.",
+        "operationId": "MemberTenants_Add Member Tenant To Community",
+        "parameters": [
+          {
+            "name": "communityId",
+            "in": "path",
+            "required": true,
+            "description": "Id of Community.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "memberTenantId",
+            "in": "path",
+            "required": true,
+            "description": "Id of Member Tenant.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 2
+          }
+        ],
+        "requestBody": {
+          "x-name": "memberTenant",
+          "description": "Member Tenant to be added.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MemberTenantAdd"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true,
+          "x-position": 3
+        },
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Role"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "BadRequest.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Community, Tenant, or User not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Operation timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Tenant already exists in Community.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-authorized-roles": []
+      },
+      "delete": {
+        "tags": [
+          "MemberTenants"
+        ],
+        "summary": "Removes a Member Tenant from a Community.",
+        "operationId": "MemberTenants_Remove Member Tenant From Community",
+        "parameters": [
+          {
+            "name": "communityId",
+            "in": "path",
+            "required": true,
+            "description": "Id of Community.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "memberTenantId",
+            "in": "path",
+            "required": true,
+            "description": "Id of Member Tenant.",
+            "schema": {
+              "type": "string",
+              "format": "guid"
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No content."
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Member Tenant not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Operation timed out.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-authorized-roles": []
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "MemberTenant": {
+        "type": "object",
+        "description": "Object representing a Member Tenant within a Community.",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "string",
+            "description": "Gets or sets id for this Community Member Tenant.",
+            "format": "guid"
+          },
+          "TenantName": {
+            "type": "string",
+            "description": "Gets or sets short identifier for Tenant."
+          },
+          "UserCount": {
+            "type": "integer",
+            "description": "Gets or sets the Community users count for this Member Tenant.",
+            "format": "int32"
+          },
+          "ClientCount": {
+            "type": "integer",
+            "description": "Gets or sets the Community client count for this Member Tenant. Placeholder for PBI: 164204 and 158844",
+            "format": "int32"
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "description": "Object returned whenever there is an error.",
+        "example": {
+          "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c",
+          "Error": "Error message.",
+          "Reason": "Reason that caused error.",
+          "Resolution": "Possible solution for the error."
+        },
+        "additionalProperties": {
+          "nullable": true
+        },
+        "required": [
+          "OperationId",
+          "Error",
+          "Reason",
+          "Resolution"
+        ],
+        "properties": {
+          "OperationId": {
+            "type": "string",
+            "description": "Gets or sets operationId of action that caused the Error.",
+            "minLength": 1
+          },
+          "Error": {
+            "type": "string",
+            "description": "Gets or sets error description.",
+            "minLength": 1
+          },
+          "Reason": {
+            "type": "string",
+            "description": "Gets or sets reason for the Error.",
+            "minLength": 1
+          },
+          "Resolution": {
+            "type": "string",
+            "description": "Gets or sets what can be done to resolve the Error.",
+            "minLength": 1
+          }
+        }
+      },
+      "Role": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "guid",
+            "nullable": true
+          },
+          "Name": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 0,
+            "nullable": true
+          },
+          "Description": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 0,
+            "nullable": true
+          },
+          "RoleScope": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/RoleScope"
+              }
+            ]
+          },
+          "TenantId": {
+            "type": "string",
+            "format": "guid",
+            "deprecated": true,
+            "x-deprecatedMessage": "TenantId will be removed in the next release. Please remove references to it.",
+            "nullable": true
+          },
+          "CommunityId": {
+            "type": "string",
+            "format": "guid",
+            "nullable": true
+          },
+          "RoleTypeId": {
+            "type": "string",
+            "format": "guid",
+            "nullable": true
+          }
+        }
+      },
+      "RoleScope": {
+        "type": "integer",
+        "description": "",
+        "x-enumNames": [
+          "Account",
+          "Community",
+          "Cluster"
+        ],
+        "enum": [
+          1,
+          2,
+          3
+        ]
+      },
+      "MemberTenantAdd": {
+        "type": "object",
+        "description": "Object used to add a Member Tenant to a Community.",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "string",
+            "description": "Gets or sets Id of Tenant being invited.",
+            "format": "guid"
+          },
+          "AcceptingUserId": {
+            "type": "string",
+            "description": "Gets or sets Id of User accepting invitation on behalf of Tenant.",
+            "format": "guid"
+          }
+        }
+      }
+    }
+  }
+}
