@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-identity-providers v20210304.3
+title: Identity/tenants-identity-providers v20210308.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -941,15 +941,15 @@ The model for the Capabilities of an Identity Provider in Identity Storage.
 
 ```
 
-The model for the user level capabilities of an Identity Provider in Identity Storage.
+The model for the user level capabilities of an identity provider in identity storage.
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|SignIn|boolean|false|false|Gets or sets a value indicating whether user sign-in is supported.|
-|Invitation|boolean|false|false|Gets or sets a value indicating whether authorization via the invitation flow is supported.|
-|Search|boolean|false|false|Gets or sets a value indicating whether user search is supported.|
+|SignIn|boolean|false|false|Value indicating whether user log in is supported.|
+|Invitation|boolean|false|false|Value indicating whether authorization via the invitation flow is supported.|
+|Search|boolean|false|false|Value indicating whether user search is supported.|
 
 <h2 id="tocS_IdentityProviderGroupCapabilites">IdentityProviderGroupCapabilites</h2>
 
@@ -966,14 +966,14 @@ The model for the user level capabilities of an Identity Provider in Identity St
 
 ```
 
-The model for the group level capabilities of an Identity Provider in Identity Storage.
+The model for the group level capabilities of an identity provider in identity storage.
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Authorize|boolean|false|false|Gets or sets a value indicating whether authorization via groups is supported.|
-|Search|boolean|false|false|Gets or sets a value indicating whether group search is supported.|
+|Authorize|boolean|false|false|Value indicating whether authorization via groups is supported.|
+|Search|boolean|false|false|Value indicating whether group search is supported.|
 
 <h2 id="tocS_ErrorResponse">ErrorResponse</h2>
 
@@ -1000,10 +1000,10 @@ Object returned whenever there is an error.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
-|Error|string|true|false|Gets or sets error description.|
-|Reason|string|true|false|Gets or sets reason for the Error.|
-|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
+|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
+|Error|string|true|false|Error description.|
+|Reason|string|true|false|Reason for the error.|
+|Resolution|string|true|false|Resolution needed to resolve the Error.|
 
 <h2 id="tocS_IdentityProviderConsent">IdentityProviderConsent</h2>
 
@@ -1113,17 +1113,17 @@ Result object for Identity Provider access users/groups.
 
 ```
 
-Base class for Identity provider access user.
+Base class for identity provider access user.
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|string|false|false|Gets or sets Id of user.|
-|GivenName|string|false|true|Gets or sets given name of user.|
-|Surname|string|false|true|Gets or sets surname of user.|
-|Name|string|false|true|Gets or sets name of user.|
-|Email|email|false|true|Gets or sets email of user.|
+|Id|string|false|false|User unique identifier.|
+|GivenName|string|false|true|Given name of the user.|
+|Surname|string|false|true|Surname of the user.|
+|Name|string|false|true|Name of the user.|
+|Email|email|false|true|Email of the user.|
 
 <h2 id="tocS_IdentityProviderResultsOfIdentityProviderGroup">IdentityProviderResultsOfIdentityProviderGroup</h2>
 
@@ -1173,16 +1173,16 @@ Result object for Identity Provider access users/groups.
 
 ```
 
-Base class for Identity Provider access group.
+Base class for identity provider access group.
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|string|false|false|Gets or sets the Object Id of IdentityProviderGroup.|
-|Name|string|false|true|Gets or sets group name of IdentityProviderGroup.|
-|Email|email|false|true|Gets or sets the email address of the IdentityProviderGroup.|
-|IsClusterManagementAllowed|boolean|false|true|Gets or sets whether group can manage cluster roles.|
+|Id|string|false|false|Object unique identifier of IdentityProviderGroup.|
+|Name|string|false|true|Group name of the IdentityProviderGroup.|
+|Email|email|false|true|Email address of the IdentityProviderGroup.|
+|IsClusterManagementAllowed|boolean|false|true|Validates if group can manage cluster roles.|
 
 <h2 id="tocS_IdentityProviderMembers">IdentityProviderMembers</h2>
 

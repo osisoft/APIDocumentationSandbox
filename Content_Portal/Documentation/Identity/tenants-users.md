@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-users v20210304.3
+title: Identity/tenants-users v20210308.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -154,7 +154,7 @@ Allowed for these roles: <br/><br/>
 
 <a id="opIdUsers_Get Users Header"></a>
 
-Returns tthe otal number of users in a tenant. Optionally, check based on a list of requested users. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
+Returns the total number of users in a tenant. Optionally, check based on a list of requested users. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 ```text 
@@ -1146,11 +1146,11 @@ MultiStatusResponse objects returned in a 207 response.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|false|true|Gets or sets operationId that resulted in this error.|
-|Error|string|false|true|Gets or sets string message describing the error.|
-|Reason|string|false|true|Gets or sets reason that caused the error.|
-|ChildErrors|[[MultiStatusResponseChildError](#schemamultistatusresponsechilderror)]|false|true|Gets or sets list of ChildErrors.|
-|Data|[[User](#schemauser)]|false|true|Gets or sets data.|
+|OperationId|string|false|true|Operation unique identifier that resulted in this error.|
+|Error|string|false|true|Message describing the error.|
+|Reason|string|false|true|Reason that caused the error.|
+|ChildErrors|[[MultiStatusResponseChildError](#schemamultistatusresponsechilderror)]|false|true|List of child errors.|
+|Data|[[User](#schemauser)]|false|true|Data representing users.|
 
 <h2 id="tocS_MultiStatusResponseChildError">MultiStatusResponseChildError</h2>
 
@@ -1179,12 +1179,12 @@ ChildError objects returned in a 207 response.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
-|Error|string|true|false|Gets or sets error description.|
-|Reason|string|true|false|Gets or sets reason for the Error.|
-|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
-|StatusCode|int32|false|false|Gets or sets hTTP status code.|
-|ModelId|string|false|true|Gets or sets model ID.|
+|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
+|Error|string|true|false|Error description.|
+|Reason|string|true|false|Reason for the error.|
+|Resolution|string|true|false|Resolution needed to resolve the Error.|
+|StatusCode|int32|false|false|Http status code.|
+|ModelId|string|false|true|Model Id.|
 
 <h2 id="tocS_ErrorResponse">ErrorResponse</h2>
 
@@ -1211,10 +1211,10 @@ Object returned whenever there is an error.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
-|Error|string|true|false|Gets or sets error description.|
-|Reason|string|true|false|Gets or sets reason for the Error.|
-|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
+|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
+|Error|string|true|false|Error description.|
+|Reason|string|true|false|Reason for the error.|
+|Resolution|string|true|false|Resolution needed to resolve the Error.|
 
 <h2 id="tocS_UserStatus">UserStatus</h2>
 
@@ -1245,14 +1245,14 @@ Object returned whenever there is an error.
 
 ```
 
-Object used when getting User status.
+Object used when getting user status.
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|InvitationStatus|[UserInvitationStatus](#schemauserinvitationstatus)|false|false|Gets or sets status of user invitation. Can be: InvitationAccepted (0), NoInvitation (1), InvitationNotSent (2), InvitationSent (3), InvitationExpired (4).|
-|User|[User](#schemauser)|false|true|Gets or sets user information.|
+|InvitationStatus|[UserInvitationStatus](#schemauserinvitationstatus)|false|false|Status of user invitation. Can be: InvitationAccepted (0), NoInvitation (1), InvitationNotSent (2), InvitationSent (3), InvitationExpired (4).|
+|User|[User](#schemauser)|false|true|User information.|
 
 <h2 id="tocS_UserInvitationStatus">UserInvitationStatus</h2>
 
@@ -1365,11 +1365,11 @@ MultiStatusResponse objects returned in a 207 response.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|false|true|Gets or sets operationId that resulted in this error.|
-|Error|string|false|true|Gets or sets string message describing the error.|
-|Reason|string|false|true|Gets or sets reason that caused the error.|
-|ChildErrors|[[MultiStatusResponseChildError](#schemamultistatusresponsechilderror)]|false|true|Gets or sets list of ChildErrors.|
-|Data|[[UserStatus](#schemauserstatus)]|false|true|Gets or sets data.|
+|OperationId|string|false|true|Operation unique identifier that resulted in this error.|
+|Error|string|false|true|Message describing the error.|
+|Reason|string|false|true|Reason that caused the error.|
+|ChildErrors|[[MultiStatusResponseChildError](#schemamultistatusresponsechilderror)]|false|true|List of child errors.|
+|Data|[[UserStatus](#schemauserstatus)]|false|true|Data representing user statuses.|
 
 <h2 id="tocS_UserCreateOrUpdate2">UserCreateOrUpdate2</h2>
 

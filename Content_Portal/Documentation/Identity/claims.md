@@ -1,5 +1,5 @@
 ---
-title: Identity/claims v20210304.3
+title: Identity/claims v20210308.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -259,7 +259,7 @@ Allowed for these roles: <br/><br/>
 
 <a id="opIdClaims_Put Identity Provider Claim"></a>
 
-Creates a new identity provider claim for an identity provider on a tenant.
+Updates a new identity provider claim for an identity provider on a tenant.
 
 ### Request
 ```text 
@@ -424,10 +424,10 @@ Object returned whenever there is an error.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
-|Error|string|true|false|Gets or sets error description.|
-|Reason|string|true|false|Gets or sets reason for the Error.|
-|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
+|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
+|Error|string|true|false|Error description.|
+|Reason|string|true|false|Reason for the error.|
+|Resolution|string|true|false|Resolution needed to resolve the Error.|
 
 <h2 id="tocS_IdentityProviderClaimCreate">IdentityProviderClaimCreate</h2>
 

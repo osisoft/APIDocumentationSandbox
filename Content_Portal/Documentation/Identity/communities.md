@@ -1,5 +1,5 @@
 ---
-title: Identity/communities v20210304.3
+title: Identity/communities v20210308.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -47,7 +47,7 @@ GET /api/v1/tenants/{tenantId}/Communities
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[Community](#schemacommunity)[]|Returns the current communities for the tenant. This is a set of objects of type `Community`.|
-|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request.|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request due to invalid syntax.|
 |401|None|Unauthorized. The client has not been authenticated.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
 |408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
@@ -107,7 +107,7 @@ The community information to create.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |201|[Community](#schemacommunity)|Returns the created community of type `Community`.|
-|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request.|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request due to invalid syntax.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized. The client has not been authenticated.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
 |408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
@@ -168,7 +168,7 @@ GET /api/v1/tenants/{tenantId}/Communities/{communityId}
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[Community](#schemacommunity)|Returns the current communities for the tenant. This is a set of objects of type `Community`.|
-|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request.|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request due to invalid syntax.|
 |401|None|Unauthorized. The client has not been authenticated.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
 |408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
@@ -240,7 +240,7 @@ The community object that contains the attributes to use for the update.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|None|Success. The community tenant was updated.|
-|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request.|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request due to invalid syntax.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized. The client has not been authenticated.|
 |404|[ErrorResponse](#schemaerrorresponse)|Not Found. The requested community tenant was not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
@@ -290,7 +290,7 @@ DELETE /api/v1/tenants/{tenantId}/Communities/{communityId}
 |Status Code|Body Type|Description|
 |---|---|---|
 |204|None|No Content. The community was successfully deleted.|
-|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request.|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request due to invalid syntax.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized. The client has not been authenticated.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
 |404|[ErrorResponse](#schemaerrorresponse)|Not Found. The community was not found.|
@@ -443,10 +443,10 @@ Object returned whenever there is an error.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
-|Error|string|true|false|Gets or sets error description.|
-|Reason|string|true|false|Gets or sets reason for the Error.|
-|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
+|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
+|Error|string|true|false|Error description.|
+|Reason|string|true|false|Reason for the error.|
+|Resolution|string|true|false|Resolution needed to resolve the Error.|
 
 <h2 id="tocS_CreateCommunityInput">CreateCommunityInput</h2>
 

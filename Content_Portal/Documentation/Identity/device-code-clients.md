@@ -1,5 +1,5 @@
 ---
-title: Identity/device-code-clients v20210304.3
+title: Identity/device-code-clients v20210308.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,7 +14,7 @@ generator: osisoft.widdershins v1.0.5
 <h1 id="identity-device-code-clients-device-code-clients">Device Code Clients</h1>
 Device Code clients are used in browserless or input constrained devices. These clients are issued an ID. Device Code clients are not issued secrets.
 
-Object used for Device Code Clients.
+Object used for device code clients.
 
 ### Properties
 |Property Name|Data Type|Description|
@@ -24,9 +24,9 @@ Object used for Device Code Clients.
 |Enabled|boolean|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
 |AccessTokenLifetime|int32|Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
 |Tags|string[]|Tags for OSIsoft internal use only.|
-|DeviceCodeLifetime|int32|Gets or sets the lifetime of device codes in seconds.|
-|ClientUri|string|Gets or sets URI to a page with information about client (used on consent screen).|
-|LogoUri|string|Gets or sets URI to client logo (used on consent screen).|
+|DeviceCodeLifetime|int32|Lifetime of device codes in seconds.|
+|ClientUri|string|URI to a page with information about client (used on consent screen).|
+|LogoUri|string|URI to client logo (used on consent screen).|
 
 ```json
 {
@@ -482,7 +482,7 @@ Allowed for these roles: <br/><br/>
 
 ```
 
-Object used for Device Code Clients.
+Object used for device code clients.
 
 ### Properties
 
@@ -493,9 +493,9 @@ Object used for Device Code Clients.
 |Enabled|boolean|false|true|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
 |AccessTokenLifetime|int32|false|true|Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
 |Tags|string[]|false|true|Tags for OSIsoft internal use only.|
-|DeviceCodeLifetime|int32|false|true|Gets or sets the lifetime of device codes in seconds.|
-|ClientUri|string|false|true|Gets or sets URI to a page with information about client (used on consent screen).|
-|LogoUri|string|false|true|Gets or sets URI to client logo (used on consent screen).|
+|DeviceCodeLifetime|int32|false|true|Lifetime of device codes in seconds.|
+|ClientUri|string|false|true|URI to a page with information about client (used on consent screen).|
+|LogoUri|string|false|true|URI to client logo (used on consent screen).|
 
 <h2 id="tocS_ErrorResponse">ErrorResponse</h2>
 
@@ -522,10 +522,10 @@ Object returned whenever there is an error.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
-|Error|string|true|false|Gets or sets error description.|
-|Reason|string|true|false|Gets or sets reason for the Error.|
-|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
+|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
+|Error|string|true|false|Error description.|
+|Reason|string|true|false|Reason for the error.|
+|Resolution|string|true|false|Resolution needed to resolve the Error.|
 
 <h2 id="tocS_ClientCredentialClient">ClientCredentialClient</h2>
 

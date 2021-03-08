@@ -1,5 +1,5 @@
 ---
-title: Identity/hybrid-clients v20210304.3
+title: Identity/hybrid-clients v20210308.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -827,17 +827,17 @@ Allowed for these roles: <br/><br/>
 
 ```
 
-Secret information returned after a Hybrid Client is created.
+Secret information returned after a hybrid client is created.
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Secret|string|false|true|Gets or sets client secret.|
-|Id|int32|false|false|Gets or sets secret Id.|
-|Description|string|false|true|Gets or sets description for the initial secret for the client.|
-|ExpirationDate|date-time|false|true|Gets or sets expiration date for the initial secret for the client.|
-|Client|[HybridClient](#schemahybridclient)|false|true|Gets or sets Hybrid Client object created.|
+|Secret|string|false|true|Client secret.|
+|Id|int32|false|false|Secret unique identifier.|
+|Description|string|false|true|Description for the initial secret for the client.|
+|ExpirationDate|date-time|false|true|Expiration date for the initial secret for the client.|
+|Client|[HybridClient](#schemahybridclient)|false|true|Created hybrid client object.|
 
 <h2 id="tocS_HybridClient">HybridClient</h2>
 
@@ -912,10 +912,10 @@ Object returned whenever there is an error.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
-|Error|string|true|false|Gets or sets error description.|
-|Reason|string|true|false|Gets or sets reason for the Error.|
-|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
+|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
+|Error|string|true|false|Error description.|
+|Reason|string|true|false|Reason for the error.|
+|Resolution|string|true|false|Resolution needed to resolve the Error.|
 
 <h2 id="tocS_HybridClientCreate">HybridClientCreate</h2>
 

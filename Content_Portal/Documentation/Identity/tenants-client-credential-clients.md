@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-client-credential-clients v20210304.3
+title: Identity/tenants-client-credential-clients v20210308.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -789,17 +789,17 @@ Allowed for these roles: <br/><br/>
 
 ```
 
-Secret information returned after a Client Credential Client is created.
+Secret information returned after a client credential client is created.
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Secret|string|false|true|Gets or sets client secret.|
-|Id|int32|false|false|Gets or sets secret Id.|
-|Description|string|false|true|Gets or sets description for the initial secret for the client.|
-|ExpirationDate|date-time|false|true|Gets or sets expiration date for the initial secret for the client.|
-|Client|[ClientCredentialClient](#schemaclientcredentialclient)|false|true|Gets or sets client Client Credential Client created.|
+|Secret|string|false|true|Client secret.|
+|Id|int32|false|false|Secret unique identifier.|
+|Description|string|false|true|Description for the initial secret for the client.|
+|ExpirationDate|date-time|false|true|Expiration date for the initial secret for the client.|
+|Client|[ClientCredentialClient](#schemaclientcredentialclient)|false|true|Created client credential client.|
 
 <h2 id="tocS_ClientCredentialClient">ClientCredentialClient</h2>
 
@@ -862,10 +862,10 @@ Object returned whenever there is an error.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
-|Error|string|true|false|Gets or sets error description.|
-|Reason|string|true|false|Gets or sets reason for the Error.|
-|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
+|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
+|Error|string|true|false|Error description.|
+|Reason|string|true|false|Reason for the error.|
+|Resolution|string|true|false|Resolution needed to resolve the Error.|
 
 <h2 id="tocS_ClientCredentialClientCreate">ClientCredentialClientCreate</h2>
 
@@ -955,11 +955,11 @@ MultiStatusResponse objects returned in a 207 response.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|false|true|Gets or sets operationId that resulted in this error.|
-|Error|string|false|true|Gets or sets string message describing the error.|
-|Reason|string|false|true|Gets or sets reason that caused the error.|
-|ChildErrors|[[MultiStatusResponseChildError](#schemamultistatusresponsechilderror)]|false|true|Gets or sets list of ChildErrors.|
-|Data|[[ClientCredentialClient](#schemaclientcredentialclient)]|false|true|Gets or sets data.|
+|OperationId|string|false|true|Operation unique identifier that resulted in this error.|
+|Error|string|false|true|Message describing the error.|
+|Reason|string|false|true|Reason that caused the error.|
+|ChildErrors|[[MultiStatusResponseChildError](#schemamultistatusresponsechilderror)]|false|true|List of child errors.|
+|Data|[[ClientCredentialClient](#schemaclientcredentialclient)]|false|true|Data representing client credential client.|
 
 <h2 id="tocS_MultiStatusResponseChildError">MultiStatusResponseChildError</h2>
 
@@ -988,12 +988,12 @@ ChildError objects returned in a 207 response.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
-|Error|string|true|false|Gets or sets error description.|
-|Reason|string|true|false|Gets or sets reason for the Error.|
-|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
-|StatusCode|int32|false|false|Gets or sets hTTP status code.|
-|ModelId|string|false|true|Gets or sets model ID.|
+|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
+|Error|string|true|false|Error description.|
+|Reason|string|true|false|Reason for the error.|
+|Resolution|string|true|false|Resolution needed to resolve the Error.|
+|StatusCode|int32|false|false|Http status code.|
+|ModelId|string|false|true|Model Id.|
 
 <h2 id="tocS_ClientCredentialClient2">ClientCredentialClient2</h2>
 

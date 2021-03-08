@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-invitations v20210304.3
+title: Identity/tenants-invitations v20210308.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -408,10 +408,10 @@ Object returned whenever there is an error.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
-|Error|string|true|false|Gets or sets error description.|
-|Reason|string|true|false|Gets or sets reason for the Error.|
-|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
+|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
+|Error|string|true|false|Error description.|
+|Reason|string|true|false|Reason for the error.|
+|Resolution|string|true|false|Resolution needed to resolve the Error.|
 
 <h2 id="tocS_InvitationCreateOrUpdate">InvitationCreateOrUpdate</h2>
 
@@ -430,14 +430,14 @@ Object returned whenever there is an error.
 
 ```
 
-Object used to create or update an Invitation.
+Object used to create or update an invitation.
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|ExpiresDateTime|date-time|false|true|Gets or sets invitation expiration date. Must be in the future. Maximum allowed is two month in the future. Defaults to 21 days on creation. It should be in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) and either include a *Z* at the end to represent UTC timezone or include the offset in hours. If neither is present time will be treated in the local time zone of the server.|
-|State|[InvitationStates](#schemainvitationstates)|false|true|Gets or sets set the state of invitation. For OSISoft internal use only.|
-|SendInvitation|boolean|false|true|Gets or sets send an invitation email. Invitation will be sent to the ContactEmail in the User this invitation is attached to. Default is true.|
-|IdentityProviderId|guid|false|true|Gets or sets Identity Provider to use for accepting this invitation. Required when creating an Invitation.|
+|ExpiresDateTime|date-time|false|true|Invitation expiration date. Must be in the future. Maximum allowed is two month in the future. Defaults to 21 days on creation. It should be in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) and either include a *Z* at the end to represent UTC timezone or include the offset in hours. If neither is present time will be treated in the local time zone of the server.|
+|State|[InvitationStates](#schemainvitationstates)|false|true|State of invitation. For OSISoft internal use only.|
+|SendInvitation|boolean|false|true|Send an invitation email. Invitation will be sent to the contact email in the user this invitation is attached to. Default is true.|
+|IdentityProviderId|guid|false|true|Identity provider to use for accepting this invitation. Required when creating an invitation.|
 

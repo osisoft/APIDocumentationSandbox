@@ -1,5 +1,5 @@
 ---
-title: Identity/claim-type-names v20210304.3
+title: Identity/claim-type-names v20210308.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -203,15 +203,15 @@ Allowed for these roles: <br/><br/>
 
 ```
 
-Claim Type Name associated with an Identity Provider.
+Claim type name associated with an identity provider.
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|guid|false|false|Gets or sets the ID for this Claim Type Name.|
-|TypeName|string|false|true|Gets or sets the Claim Type Name.|
-|IdentityProviderId|guid|false|false|Gets or sets the Identity Provider Id associated with this Claim Type Name.|
+|Id|guid|false|false|Claim type name unique identifier.|
+|TypeName|string|false|true|Claim Type Name.|
+|IdentityProviderId|guid|false|false|Identity provider unique identifier associated with this claim type name.|
 
 <h2 id="tocS_ErrorResponse">ErrorResponse</h2>
 
@@ -238,10 +238,10 @@ Object returned whenever there is an error.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
-|Error|string|true|false|Gets or sets error description.|
-|Reason|string|true|false|Gets or sets reason for the Error.|
-|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
+|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
+|Error|string|true|false|Error description.|
+|Reason|string|true|false|Reason for the error.|
+|Resolution|string|true|false|Resolution needed to resolve the Error.|
 
 <h2 id="tocS_IdentityProviderClaim">IdentityProviderClaim</h2>
 

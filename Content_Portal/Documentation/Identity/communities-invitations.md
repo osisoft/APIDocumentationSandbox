@@ -1,5 +1,5 @@
 ---
-title: Identity/communities-invitations v20210304.3
+title: Identity/communities-invitations v20210308.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -62,12 +62,11 @@ The invitation action.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|None|Created. The invitation was processed.|
-|202|None|Accepted. The invitation action was processed and the notification accepted.|
-|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request.|
+|202|None|None|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request due to invalid syntax.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized. The client has not been authenticated.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
-|404|[ErrorResponse](#schemaerrorresponse)|Not Found. The requested item was not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
+|404|[ErrorResponse](#schemaerrorresponse)|None|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it doesn't know how to handle.|
 
 ### Example response body
@@ -119,11 +118,10 @@ Only Tenant Administrators can accept a Community Invitation, so this API allows
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[CommunityInvitationDetails](#schemacommunityinvitationdetails)|The `CommunityInvitationDetails`.|
-|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request.|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request due to invalid syntax.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized. The client has not been authenticated.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
-|404|[ErrorResponse](#schemaerrorresponse)|Not Found. The requested item was not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
+|404|[ErrorResponse](#schemaerrorresponse)|None|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it doesn't know how to handle.|
 
 ### Example response body
@@ -180,12 +178,11 @@ The invitation action.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|None|Created. The invitation was processed.|
-|202|None|Accepted. The invitation action was processed and the notification accepted.|
-|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request.|
+|202|None|None|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request due to invalid syntax.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized. The client has not been authenticated.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
-|404|[ErrorResponse](#schemaerrorresponse)|Not Found. The requested item was not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
+|404|[ErrorResponse](#schemaerrorresponse)|None|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it doesn't know how to handle.|
 
 ### Example response body
@@ -237,11 +234,10 @@ Only Tenant Administrators can accept a Community Invitation, so this API allows
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[CommunityInvitationDetails](#schemacommunityinvitationdetails)|The `CommunityInvitationDetails`.|
-|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request.|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request due to invalid syntax.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized. The client has not been authenticated.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
-|404|[ErrorResponse](#schemaerrorresponse)|Not Found. The requested item was not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
+|404|[ErrorResponse](#schemaerrorresponse)|None|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it doesn't know how to handle.|
 
 ### Example response body
@@ -285,11 +281,10 @@ GET /api/v1/tenants/{tenantId}/communities/{communityId}/invitations
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[CommunityInvitation](#schemacommunityinvitation)[]|Returns the invitations associated with a specific community. This is a set of objects of type `CommunityInvitation`.|
-|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request.|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request due to invalid syntax.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized. The client has not been authenticated.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
-|404|[ErrorResponse](#schemaerrorresponse)|Not Found. The requested item was not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
+|404|[ErrorResponse](#schemaerrorresponse)|None|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it doesn't know how to handle.|
 
 ### Example response body
@@ -349,11 +344,10 @@ The invitation to create.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |201|[CommunityInvitation](#schemacommunityinvitation)|Returns the created invitation of type `CommunityInvitation`.|
-|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request.|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request due to invalid syntax.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized. The client has not been authenticated.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
-|404|[ErrorResponse](#schemaerrorresponse)|Not Found. The requested item was not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
+|404|[ErrorResponse](#schemaerrorresponse)|None|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it doesn't know how to handle.|
 
 ### Example response body
@@ -408,11 +402,10 @@ GET /api/v1/tenants/{tenantId}/communities/{communityId}/invitations/{invitation
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[CommunityInvitation](#schemacommunityinvitation)|Returns the invitation of type `CommunityInvitation`.|
-|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request.|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request due to invalid syntax.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized. The client has not been authenticated.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
-|404|[ErrorResponse](#schemaerrorresponse)|Not Found. The requested item was not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
+|404|[ErrorResponse](#schemaerrorresponse)|Not Found. The requested invitation was not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it doesn't know how to handle.|
 
 ### Example response body
@@ -466,11 +459,10 @@ DELETE /api/v1/tenants/{tenantId}/communities/{communityId}/invitations/{invitat
 |Status Code|Body Type|Description|
 |---|---|---|
 |204|None|No Content. The invitation has been deleted.|
-|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request.|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request due to invalid syntax.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized. The client has not been authenticated.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
-|404|[ErrorResponse](#schemaerrorresponse)|Not Found. The requested item was not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
+|404|[ErrorResponse](#schemaerrorresponse)|None|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it doesn't know how to handle.|
 
 ### Example response body
@@ -493,56 +485,6 @@ Allowed for these roles: <br/><br/>
 <b>Authorized Roles</b> 
 <ul>
 <li>Community Administrator</li>
-<li>Tenant Administrator</li>
-</ul>
-
----
-## List Community Invitations By Tenant
-
-<a id="opIdInvitations_List Community Invitations By Tenant"></a>
-
-Gets the community invitations for a specific invited tenant. Only invitations in the Accepted state are returned. By using this call you can then determine the communities to which a tenant has been invited via the the returned CommunityInvitation.CommunityId attribute.
-
-### Request
-```text 
-GET /api/v1/tenants/{tenantId}/communityinvitations
-```
-
-<h3 id="invitations_list-community-invitations-by-tenant-parameters">Parameters</h3>
-
-`string tenantId`<br/>The id of the invited tenant.<br/><br/>
-
-<h3 id="invitations_list-community-invitations-by-tenant-responses">Responses</h3>
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|[CommunityInvitation](#schemacommunityinvitation)[]|Returns the Accepted community invitations associated with a specific tenant. These are of type `CommunityInvitation`.|
-|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized. The client has not been authenticated.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
-|404|[ErrorResponse](#schemaerrorresponse)|Not Found. The requested item was not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it doesn't know how to handle.|
-
-### Example response body
-> 400 Response
-
-```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "property1": null,
-  "property2": null
-}
-```
-
-### Authorization
-
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
-<ul>
 <li>Tenant Administrator</li>
 </ul>
 
@@ -574,23 +516,23 @@ Allowed for these roles: <br/><br/>
 
 ```
 
-The Community Invitation Output Data Transfer Object.
+The community invitation output data transfer object.
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|guid|false|false|Gets or sets unique Invitation Id.|
-|Issued|date-time|false|false|Gets or sets Invitation issuing timestamp.|
-|Expires|date-time|false|false|Gets or sets Invitation expiration timestamp.|
-|Accepted|date-time|false|true|Gets or sets Invitation accepted timestamp.|
-|State|[CommunityInvitationState](#schemacommunityinvitationstate)|false|false|Gets or sets Invitation state.|
-|IssuingTenantId|guid|false|false|Gets or sets ID of the Tenant that issued the Invitation.|
-|InvitedTenantId|guid|false|true|Gets or sets ID of the Tenant that is invited.|
-|CommunityId|guid|false|false|Gets or sets ID of the Community whom the Invitation was issued to.|
-|CommunityName|string|false|true|Gets or sets name of the Community for which the Invitation was issued.|
-|InvitationRecipient|string|false|true|Gets or sets the email address of the recipient that shall be notified to accept the Invitation.|
-|CommunityModeratorRecipients|string[]|false|true|Gets or sets the list of email addresses of recipients that shall be notified to confirm the invited Tenant.|
+|Id|guid|false|false|Invitation unique identifier.|
+|Issued|date-time|false|false|Invitation issued timestamp.|
+|Expires|date-time|false|false|Invitation expiration timestamp.|
+|Accepted|date-time|false|true|Invitation accepted timestamp.|
+|State|[CommunityInvitationState](#schemacommunityinvitationstate)|false|false|Invitation state.|
+|IssuingTenantId|guid|false|false|Tenant unique identifier that issued the invitation.|
+|InvitedTenantId|guid|false|true|Tenant unique identifier that is invited.|
+|CommunityId|guid|false|false|Community unique identifier whom the invitation was issued to.|
+|CommunityName|string|false|true|Community name for which the invitation was issued.|
+|InvitationRecipient|string|false|true|Email address of the recipient that shall be notified to accept the invitation.|
+|CommunityModeratorRecipients|string[]|false|true|List of email addresses of recipients that shall be notified to confirm the invited tenant.|
 
 <h2 id="tocS_CommunityInvitationState">CommunityInvitationState</h2>
 
@@ -637,10 +579,10 @@ Object returned whenever there is an error.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
-|Error|string|true|false|Gets or sets error description.|
-|Reason|string|true|false|Gets or sets reason for the Error.|
-|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
+|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
+|Error|string|true|false|Error description.|
+|Reason|string|true|false|Reason for the error.|
+|Resolution|string|true|false|Resolution needed to resolve the Error.|
 
 <h2 id="tocS_CreateInvitationInput">CreateInvitationInput</h2>
 
@@ -685,16 +627,16 @@ The input object to Create Invitation.
 
 ```
 
-Summary of a Community Invitation.
+Summary of a community invitation.
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|CommunityName|string|false|true|Gets or sets the Name of the Community.|
-|CommunityId|guid|false|false|Gets or sets the Id of the Community.|
-|TenantAlreadyMemberOfCommunity|boolean|false|false|Gets or sets whether the invited Tenant is already part of the Community.|
-|InvitationState|[CommunityInvitationState](#schemacommunityinvitationstate)|false|false|Gets or sets the Invitation State.|
+|CommunityName|string|false|true|Community name.|
+|CommunityId|guid|false|false|Community unique identifier.|
+|TenantAlreadyMemberOfCommunity|boolean|false|false|Validates if the invited tenant is already part of the community.|
+|InvitationState|[CommunityInvitationState](#schemacommunityinvitationstate)|false|false|Invitation state.|
 
 <h2 id="tocS_ProcessInvitationInput">ProcessInvitationInput</h2>
 
