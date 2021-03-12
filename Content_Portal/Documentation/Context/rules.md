@@ -1,5 +1,5 @@
 ---
-title: Context/rules v20210310.1
+title: Context/rules v20210311.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,30 +7,15 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.5
+generator: osisoft.widdershins v1.0.6
 
 ---
 
-<h1 id="context-rules-rules">Rules</h1>
+[[_TOC_]]
+
+# Rules
 Interacts with the IRuleStore and IAuthorizationService to process requests. 
 
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
----
 ## List Rules
 
 <a id="opIdRules_List Rules"></a>
@@ -40,19 +25,21 @@ Gets all `RuleModel` objects from the `IRuleStore` the requesting `Identity` has
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules
+?Skip={Skip}&Count={Count}&KeepOldMetadata={KeepOldMetadata}
 ```
 
-<h3 id="rules_list-rules-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
-`[optional] integer Skip`<br/>An Int32 to determine how many results to skip. Defaults to DefaultSkip<br/><br/>`[optional] integer Count`<br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata`<br/>A Boolean to determine whether or not existing metadata should be kept.<br/><br/>
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
+`[optional] integer Skip`
+<br/>An Int32 to determine how many results to skip. Defaults to DefaultSkip<br/><br/>`[optional] integer Count`
+<br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata`
+<br/>A Boolean to determine whether or not existing metadata should be kept.
+Defaults to false.<br/><br/>
 
-#### Detailed descriptions
-
-**KeepOldMetadata**: A Boolean to determine whether or not existing metadata should be kept.
-Defaults to false.
-
-<h3 id="rules_list-rules-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -61,7 +48,7 @@ Defaults to false.
 |403|[ResponseBody](#schemaresponsebody)|Forbidden.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -169,6 +156,7 @@ Defaults to false.
 ```
 
 ---
+
 ## Create Rule With Server Generated Id2
 
 <a id="opIdRules_Create Rule With Server Generated Id2"></a>
@@ -178,6 +166,7 @@ Creates a `RuleModel` object with a server generated `Id` in the `IRuleStore`.
 ### Request
 ```text 
 POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules
+
 ```
 
 ### Request Body
@@ -214,11 +203,13 @@ The RuleModel object to create.<br/>
 }
 ```
 
-<h3 id="rules_create-rule-with-server-generated-id2-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
 
-<h3 id="rules_create-rule-with-server-generated-id2-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -228,7 +219,7 @@ The RuleModel object to create.<br/>
 |409|[ResponseBody](#schemaresponsebody)|A non-equivalent rule with the same id already exists.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 201 Response
 
 ```json
@@ -322,6 +313,7 @@ The RuleModel object to create.<br/>
 ```
 
 ---
+
 ## Get Rule2
 
 <a id="opIdRules_Get Rule2"></a>
@@ -331,13 +323,18 @@ Gets the specified rule.
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
+
 ```
 
-<h3 id="rules_get-rule2-parameters">Parameters</h3>
+### Parameters
 
-`any routeOptions`<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`<br/><br/>`string namespaceId`<br/><br/>`string ruleId`<br/><br/>
+`any routeOptions`
+<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string ruleId`
+<br/><br/>
 
-<h3 id="rules_get-rule2-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -346,7 +343,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
 |404|[ResponseBody](#schemaresponsebody)|The specified rule was not found.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -425,6 +422,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
 ```
 
 ---
+
 ## Create Rule2
 
 <a id="opIdRules_Create Rule2"></a>
@@ -434,6 +432,7 @@ Gets or creates a `RuleModel` object with the specified id in the `IRuleStore`.
 ### Request
 ```text 
 POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
+
 ```
 
 ### Request Body
@@ -470,11 +469,15 @@ The RuleModel object.<br/>
 }
 ```
 
-<h3 id="rules_create-rule2-parameters">Parameters</h3>
+### Parameters
 
-`any routeOptions`<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`<br/><br/>`string namespaceId`<br/><br/>`string ruleId`<br/><br/>
+`any routeOptions`
+<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string ruleId`
+<br/><br/>
 
-<h3 id="rules_create-rule2-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -485,7 +488,7 @@ The RuleModel object.<br/>
 |409|[ResponseBody](#schemaresponsebody)|A non-equivalent rule with the specified id already exists.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 201 Response
 
 ```json
@@ -579,6 +582,7 @@ The RuleModel object.<br/>
 ```
 
 ---
+
 ## Create Or Update Rule2
 
 <a id="opIdRules_Create Or Update Rule2"></a>
@@ -588,6 +592,7 @@ Creates or updates the specified rule in the `IRuleStore`.
 ### Request
 ```text 
 PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
+?Skip={Skip}&Count={Count}&KeepOldMetadata={KeepOldMetadata}
 ```
 
 ### Request Body
@@ -624,17 +629,20 @@ The RuleModel object to create or update.<br/>
 }
 ```
 
-<h3 id="rules_create-or-update-rule2-parameters">Parameters</h3>
+### Parameters
 
-`any routeOptions`<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`<br/><br/>`string namespaceId`<br/><br/>`string ruleId`<br/><br/>
-`[optional] integer Skip`<br/>An Int32 to determine how many results to skip. Defaults to DefaultSkip<br/><br/>`[optional] integer Count`<br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata`<br/>A Boolean to determine whether or not existing metadata should be kept.<br/><br/>
+`any routeOptions`
+<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string ruleId`
+<br/><br/>
+`[optional] integer Skip`
+<br/>An Int32 to determine how many results to skip. Defaults to DefaultSkip<br/><br/>`[optional] integer Count`
+<br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata`
+<br/>A Boolean to determine whether or not existing metadata should be kept.
+Defaults to false.<br/><br/>
 
-#### Detailed descriptions
-
-**KeepOldMetadata**: A Boolean to determine whether or not existing metadata should be kept.
-Defaults to false.
-
-<h3 id="rules_create-or-update-rule2-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -644,7 +652,7 @@ Defaults to false.
 |403|[ResponseBody](#schemaresponsebody)|Forbidden.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -755,6 +763,7 @@ Defaults to false.
 ```
 
 ---
+
 ## Delete Rule2
 
 <a id="opIdRules_Delete Rule2"></a>
@@ -764,19 +773,23 @@ Deletes the specified rule from the `IRuleStore`.
 ### Request
 ```text 
 DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
+?Skip={Skip}&Count={Count}&KeepOldMetadata={KeepOldMetadata}
 ```
 
-<h3 id="rules_delete-rule2-parameters">Parameters</h3>
+### Parameters
 
-`any routeOptions`<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`<br/><br/>`string namespaceId`<br/><br/>`string ruleId`<br/><br/>
-`[optional] integer Skip`<br/>An Int32 to determine how many results to skip. Defaults to DefaultSkip<br/><br/>`[optional] integer Count`<br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata`<br/>A Boolean to determine whether or not existing metadata should be kept.<br/><br/>
+`any routeOptions`
+<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string ruleId`
+<br/><br/>
+`[optional] integer Skip`
+<br/>An Int32 to determine how many results to skip. Defaults to DefaultSkip<br/><br/>`[optional] integer Count`
+<br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata`
+<br/>A Boolean to determine whether or not existing metadata should be kept.
+Defaults to false.<br/><br/>
 
-#### Detailed descriptions
-
-**KeepOldMetadata**: A Boolean to determine whether or not existing metadata should be kept.
-Defaults to false.
-
-<h3 id="rules_delete-rule2-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -785,7 +798,7 @@ Defaults to false.
 |404|[ResponseBody](#schemaresponsebody)|The specified rule was not found.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 403 Response
 
 ```json
@@ -832,6 +845,7 @@ Defaults to false.
 ```
 
 ---
+
 ## Execute Rule2
 
 <a id="opIdRules_Execute Rule2"></a>
@@ -841,13 +855,18 @@ Executes the specified rule.
 ### Request
 ```text 
 POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/execute
+
 ```
 
-<h3 id="rules_execute-rule2-parameters">Parameters</h3>
+### Parameters
 
-`any routeOptions`<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`<br/><br/>`string namespaceId`<br/><br/>`string ruleId`<br/><br/>
+`any routeOptions`
+<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string ruleId`
+<br/><br/>
 
-<h3 id="rules_execute-rule2-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -856,7 +875,7 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/exe
 |404|[ResponseBody](#schemaresponsebody)|The specified rule was not found.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 403 Response
 
 ```json
@@ -903,6 +922,7 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/exe
 ```
 
 ---
+
 ## List Rules All
 
 <a id="opIdRules_List Rules All"></a>
@@ -912,19 +932,21 @@ Gets all `RuleModel` objects from the `IRuleStore` the requesting `Identity` has
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules
+?Skip={Skip}&Count={Count}&KeepOldMetadata={KeepOldMetadata}
 ```
 
-<h3 id="rules_list-rules-all-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
-`[optional] integer Skip`<br/>An Int32 to determine how many results to skip. Defaults to DefaultSkip<br/><br/>`[optional] integer Count`<br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata`<br/>A Boolean to determine whether or not existing metadata should be kept.<br/><br/>
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
+`[optional] integer Skip`
+<br/>An Int32 to determine how many results to skip. Defaults to DefaultSkip<br/><br/>`[optional] integer Count`
+<br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata`
+<br/>A Boolean to determine whether or not existing metadata should be kept.
+Defaults to false.<br/><br/>
 
-#### Detailed descriptions
-
-**KeepOldMetadata**: A Boolean to determine whether or not existing metadata should be kept.
-Defaults to false.
-
-<h3 id="rules_list-rules-all-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -933,7 +955,7 @@ Defaults to false.
 |403|[ResponseBody](#schemaresponsebody)|Forbidden.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -1041,6 +1063,7 @@ Defaults to false.
 ```
 
 ---
+
 ## Create Rule With Server Generated Id
 
 <a id="opIdRules_Create Rule With Server Generated Id"></a>
@@ -1050,6 +1073,7 @@ Creates a `RuleModel` object with a server generated `Id` in the `IRuleStore`.
 ### Request
 ```text 
 POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules
+
 ```
 
 ### Request Body
@@ -1086,11 +1110,13 @@ The RuleModel object to create.<br/>
 }
 ```
 
-<h3 id="rules_create-rule-with-server-generated-id-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
 
-<h3 id="rules_create-rule-with-server-generated-id-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -1100,7 +1126,7 @@ The RuleModel object to create.<br/>
 |409|[ResponseBody](#schemaresponsebody)|A non-equivalent rule with the same id already exists.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 201 Response
 
 ```json
@@ -1194,6 +1220,7 @@ The RuleModel object to create.<br/>
 ```
 
 ---
+
 ## Get Rule
 
 <a id="opIdRules_Get Rule"></a>
@@ -1203,13 +1230,18 @@ Gets the specified rule.
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}
+
 ```
 
-<h3 id="rules_get-rule-parameters">Parameters</h3>
+### Parameters
 
-`any routeOptions`<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`<br/><br/>`string namespaceId`<br/><br/>`string ruleId`<br/><br/>
+`any routeOptions`
+<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string ruleId`
+<br/><br/>
 
-<h3 id="rules_get-rule-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -1218,7 +1250,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}
 |404|[ResponseBody](#schemaresponsebody)|The specified rule was not found.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -1297,6 +1329,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}
 ```
 
 ---
+
 ## Create Rule
 
 <a id="opIdRules_Create Rule"></a>
@@ -1306,6 +1339,7 @@ Gets or creates a `RuleModel` object with the specified id in the `IRuleStore`.
 ### Request
 ```text 
 POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}
+
 ```
 
 ### Request Body
@@ -1342,11 +1376,15 @@ The RuleModel object.<br/>
 }
 ```
 
-<h3 id="rules_create-rule-parameters">Parameters</h3>
+### Parameters
 
-`any routeOptions`<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`<br/><br/>`string namespaceId`<br/><br/>`string ruleId`<br/><br/>
+`any routeOptions`
+<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string ruleId`
+<br/><br/>
 
-<h3 id="rules_create-rule-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -1357,7 +1395,7 @@ The RuleModel object.<br/>
 |409|[ResponseBody](#schemaresponsebody)|A non-equivalent rule with the specified id already exists.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 201 Response
 
 ```json
@@ -1451,6 +1489,7 @@ The RuleModel object.<br/>
 ```
 
 ---
+
 ## Create Or Update Rule
 
 <a id="opIdRules_Create Or Update Rule"></a>
@@ -1460,6 +1499,7 @@ Creates or updates the specified rule in the `IRuleStore`.
 ### Request
 ```text 
 PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}
+?Skip={Skip}&Count={Count}&KeepOldMetadata={KeepOldMetadata}
 ```
 
 ### Request Body
@@ -1496,17 +1536,20 @@ The RuleModel object to create or update.<br/>
 }
 ```
 
-<h3 id="rules_create-or-update-rule-parameters">Parameters</h3>
+### Parameters
 
-`any routeOptions`<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`<br/><br/>`string namespaceId`<br/><br/>`string ruleId`<br/><br/>
-`[optional] integer Skip`<br/>An Int32 to determine how many results to skip. Defaults to DefaultSkip<br/><br/>`[optional] integer Count`<br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata`<br/>A Boolean to determine whether or not existing metadata should be kept.<br/><br/>
+`any routeOptions`
+<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string ruleId`
+<br/><br/>
+`[optional] integer Skip`
+<br/>An Int32 to determine how many results to skip. Defaults to DefaultSkip<br/><br/>`[optional] integer Count`
+<br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata`
+<br/>A Boolean to determine whether or not existing metadata should be kept.
+Defaults to false.<br/><br/>
 
-#### Detailed descriptions
-
-**KeepOldMetadata**: A Boolean to determine whether or not existing metadata should be kept.
-Defaults to false.
-
-<h3 id="rules_create-or-update-rule-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -1516,7 +1559,7 @@ Defaults to false.
 |403|[ResponseBody](#schemaresponsebody)|Forbidden.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -1627,6 +1670,7 @@ Defaults to false.
 ```
 
 ---
+
 ## Delete Rule
 
 <a id="opIdRules_Delete Rule"></a>
@@ -1636,19 +1680,23 @@ Deletes the specified rule from the `IRuleStore`.
 ### Request
 ```text 
 DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}
+?Skip={Skip}&Count={Count}&KeepOldMetadata={KeepOldMetadata}
 ```
 
-<h3 id="rules_delete-rule-parameters">Parameters</h3>
+### Parameters
 
-`any routeOptions`<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`<br/><br/>`string namespaceId`<br/><br/>`string ruleId`<br/><br/>
-`[optional] integer Skip`<br/>An Int32 to determine how many results to skip. Defaults to DefaultSkip<br/><br/>`[optional] integer Count`<br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata`<br/>A Boolean to determine whether or not existing metadata should be kept.<br/><br/>
+`any routeOptions`
+<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string ruleId`
+<br/><br/>
+`[optional] integer Skip`
+<br/>An Int32 to determine how many results to skip. Defaults to DefaultSkip<br/><br/>`[optional] integer Count`
+<br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata`
+<br/>A Boolean to determine whether or not existing metadata should be kept.
+Defaults to false.<br/><br/>
 
-#### Detailed descriptions
-
-**KeepOldMetadata**: A Boolean to determine whether or not existing metadata should be kept.
-Defaults to false.
-
-<h3 id="rules_delete-rule-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -1657,7 +1705,7 @@ Defaults to false.
 |404|[ResponseBody](#schemaresponsebody)|The specified rule was not found.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 403 Response
 
 ```json
@@ -1704,6 +1752,7 @@ Defaults to false.
 ```
 
 ---
+
 ## Execute Rule
 
 <a id="opIdRules_Execute Rule"></a>
@@ -1713,13 +1762,18 @@ Executes the specified rule.
 ### Request
 ```text 
 POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/execute
+
 ```
 
-<h3 id="rules_execute-rule-parameters">Parameters</h3>
+### Parameters
 
-`any routeOptions`<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`<br/><br/>`string namespaceId`<br/><br/>`string ruleId`<br/><br/>
+`any routeOptions`
+<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string ruleId`
+<br/><br/>
 
-<h3 id="rules_execute-rule-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -1728,7 +1782,7 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/
 |404|[ResponseBody](#schemaresponsebody)|The specified rule was not found.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 403 Response
 
 ```json
@@ -1774,45 +1828,15 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/
 }
 ```
 
+---
 # Definitions
 
-<h2 id="tocS_RuleModel">RuleModel</h2>
+## RuleModel
 
 <a id="schemarulemodel"></a>
 <a id="schema_RuleModel"></a>
 <a id="tocSrulemodel"></a>
 <a id="tocsrulemodel"></a>
-
-```json
-{
-  "Id": "ruleId",
-  "Name": "name",
-  "Description": "description",
-  "AutomationId": "00000000-0000-0000-0000-000000000000",
-  "Expressions": [
-    {
-      "Field": "Id",
-      "Pattern": "{id}"
-    }
-  ],
-  "Outputs": [
-    {
-      "Field": "Metadata",
-      "Value": {
-        "key": "{id}"
-      }
-    }
-  ],
-  "ValueMappings": {
-    "{id}": {
-      "key": "value"
-    }
-  },
-  "CreationTime": "0001-01-01T00:00:00",
-  "ModifiedTime": "0001-01-01T00:00:00"
-}
-
-```
 
 ### Properties
 
@@ -1828,12 +1852,53 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/
 |CreationTime|date-time|false|false|None|
 |ModifiedTime|date-time|false|false|None|
 
-<h2 id="tocS_RuleExpression">RuleExpression</h2>
+```json
+{
+  "Id": "ruleId",
+  "Name": "name",
+  "Description": "description",
+  "AutomationId": "00000000-0000-0000-0000-000000000000",
+  "Expressions": [
+    {
+      "Field": "Id",
+      "Pattern": "{id}"
+    }
+  ],
+  "Outputs": [
+    {
+      "Field": "Metadata",
+      "Value": {
+        "key": "{id}"
+      }
+    }
+  ],
+  "ValueMappings": {
+    "{id}": {
+      "key": "value"
+    }
+  },
+  "CreationTime": "0001-01-01T00:00:00",
+  "ModifiedTime": "0001-01-01T00:00:00"
+}
+
+```
+
+---
+
+## RuleExpression
 
 <a id="schemaruleexpression"></a>
 <a id="schema_RuleExpression"></a>
 <a id="tocSruleexpression"></a>
 <a id="tocsruleexpression"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Field|string|false|true|None|
+|Pattern|string|false|true|None|
+|Specifications|[[Specification](#schemaspecification)]|false|true|None|
 
 ```json
 {
@@ -1859,20 +1924,26 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Field|string|false|true|None|
-|Pattern|string|false|true|None|
-|Specifications|[[Specification](#schemaspecification)]|false|true|None|
-
-<h2 id="tocS_Specification">Specification</h2>
+## Specification
 
 <a id="schemaspecification"></a>
 <a id="schema_Specification"></a>
 <a id="tocSspecification"></a>
 <a id="tocsspecification"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Type|[SpecificationType](#schemaspecificationtype)|false|false|None|
+|Value|string|false|true|None|
+|Name|string|false|true|None|
+|CharacterType|[CharacterType](#schemacharactertype)|false|false|None|
+|CharacterLength|int32|false|true|Null represents the longest string length within the group.|
+|RequiredDelimiters|string[]|false|true|None|
+|ValueMappings|object|false|true|None|
 
 ```json
 {
@@ -1892,19 +1963,9 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Type|[SpecificationType](#schemaspecificationtype)|false|false|None|
-|Value|string|false|true|None|
-|Name|string|false|true|None|
-|CharacterType|[CharacterType](#schemacharactertype)|false|false|None|
-|CharacterLength|int32|false|true|Null represents the longest string length within the group.|
-|RequiredDelimiters|string[]|false|true|None|
-|ValueMappings|object|false|true|None|
-
-<h2 id="tocS_SpecificationType">SpecificationType</h2>
+## SpecificationType
 
 <a id="schemaspecificationtype"></a>
 <a id="schema_SpecificationType"></a>
@@ -1921,7 +1982,9 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/
 |Literal|Literal|
 |Delimiter|Delimiter|
 
-<h2 id="tocS_CharacterType">CharacterType</h2>
+---
+
+## CharacterType
 
 <a id="schemacharactertype"></a>
 <a id="schema_CharacterType"></a>
@@ -1936,12 +1999,21 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/
 |Letter|Letter|
 |Digit|Digit|
 
-<h2 id="tocS_RuleOutput">RuleOutput</h2>
+---
+
+## RuleOutput
 
 <a id="schemaruleoutput"></a>
 <a id="schema_RuleOutput"></a>
 <a id="tocSruleoutput"></a>
 <a id="tocsruleoutput"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Field|string|false|true|None|
+|Value|any|false|true|None|
 
 ```json
 {
@@ -1951,19 +2023,24 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Field|string|false|true|None|
-|Value|any|false|true|None|
-
-<h2 id="tocS_ResponseBody">ResponseBody</h2>
+## ResponseBody
 
 <a id="schemaresponsebody"></a>
 <a id="schema_ResponseBody"></a>
 <a id="tocSresponsebody"></a>
 <a id="tocsresponsebody"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|false|true|None|
+|Error|string|false|true|None|
+|Reason|string|false|true|None|
+|Resolution|string|false|true|None|
+|Parameters|object|false|true|None|
 
 ```json
 {
@@ -1979,22 +2056,20 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|OperationId|string|false|true|None|
-|Error|string|false|true|None|
-|Reason|string|false|true|None|
-|Resolution|string|false|true|None|
-|Parameters|object|false|true|None|
-
-<h2 id="tocS_RuleRouteOptions">RuleRouteOptions</h2>
+## RuleRouteOptions
 
 <a id="schemarulerouteoptions"></a>
 <a id="schema_RuleRouteOptions"></a>
 <a id="tocSrulerouteoptions"></a>
 <a id="tocsrulerouteoptions"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|RuleId|string|false|true|The id of a rule.|
 
 ```json
 {
@@ -2003,9 +2078,5 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/
 
 ```
 
-### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|RuleId|string|false|true|The id of a rule.|
+---
 

@@ -1,5 +1,5 @@
 ---
-title: Context/preview-controllers-suggestion v20210310.1
+title: Context/preview-controllers-suggestion v20210311.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,29 +7,14 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.5
+generator: osisoft.widdershins v1.0.6
 
 ---
 
-<h1 id="context-preview-controllers-suggestion-suggestion">Suggestion</h1>
+[[_TOC_]]
 
-	
+# Suggestion
 
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
----
 ## Get Suggestion
 
 <a id="opIdSuggestion_Get Suggestion"></a>
@@ -39,6 +24,7 @@ Creates a `SuggestionResult` of a metadata `RuleModel` object.
 ### Request
 ```text 
 POST /api/v1/tenants/{tenantid}/namespaces/{namespaceid}/suggestion/metadatarules
+
 ```
 
 ### Request Body
@@ -75,11 +61,13 @@ The RuleModel object to create suggestions for.<br/>
 }
 ```
 
-<h3 id="suggestion_get-suggestion-parameters">Parameters</h3>
+### Parameters
 
-`string tenantid`<br/><br/>`string namespaceid`<br/><br/>
+`string tenantid`
+<br/><br/>`string namespaceid`
+<br/><br/>
 
-<h3 id="suggestion_get-suggestion-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -89,7 +77,7 @@ The RuleModel object to create suggestions for.<br/>
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 |503|[ResponseBody](#schemaresponsebody)|Dependent service error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -167,14 +155,21 @@ The RuleModel object to create suggestions for.<br/>
 }
 ```
 
+---
 # Definitions
 
-<h2 id="tocS_SuggestionResult">SuggestionResult</h2>
+## SuggestionResult
 
 <a id="schemasuggestionresult"></a>
 <a id="schema_SuggestionResult"></a>
 <a id="tocSsuggestionresult"></a>
 <a id="tocssuggestionresult"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Results|object|false|true|None|
 
 ```json
 {
@@ -192,18 +187,24 @@ The RuleModel object to create suggestions for.<br/>
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Results|object|false|true|None|
-
-<h2 id="tocS_ResponseBody">ResponseBody</h2>
+## ResponseBody
 
 <a id="schemaresponsebody"></a>
 <a id="schema_ResponseBody"></a>
 <a id="tocSresponsebody"></a>
 <a id="tocsresponsebody"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|false|true|None|
+|Error|string|false|true|None|
+|Reason|string|false|true|None|
+|Resolution|string|false|true|None|
+|Parameters|object|false|true|None|
 
 ```json
 {
@@ -219,22 +220,28 @@ The RuleModel object to create suggestions for.<br/>
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|OperationId|string|false|true|None|
-|Error|string|false|true|None|
-|Reason|string|false|true|None|
-|Resolution|string|false|true|None|
-|Parameters|object|false|true|None|
-
-<h2 id="tocS_RuleModel">RuleModel</h2>
+## RuleModel
 
 <a id="schemarulemodel"></a>
 <a id="schema_RuleModel"></a>
 <a id="tocSrulemodel"></a>
 <a id="tocsrulemodel"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|string|false|true|None|
+|Name|string|false|true|None|
+|Description|string|false|true|None|
+|AutomationId|string|false|true|None|
+|Expressions|[[RuleExpression](#schemaruleexpression)]|false|true|None|
+|Outputs|[[RuleOutput](#schemaruleoutput)]|false|true|None|
+|ValueMappings|object|false|true|None|
+|CreationTime|date-time|false|false|None|
+|ModifiedTime|date-time|false|false|None|
 
 ```json
 {
@@ -267,26 +274,22 @@ The RuleModel object to create suggestions for.<br/>
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Id|string|false|true|None|
-|Name|string|false|true|None|
-|Description|string|false|true|None|
-|AutomationId|string|false|true|None|
-|Expressions|[[RuleExpression](#schemaruleexpression)]|false|true|None|
-|Outputs|[[RuleOutput](#schemaruleoutput)]|false|true|None|
-|ValueMappings|object|false|true|None|
-|CreationTime|date-time|false|false|None|
-|ModifiedTime|date-time|false|false|None|
-
-<h2 id="tocS_RuleExpression">RuleExpression</h2>
+## RuleExpression
 
 <a id="schemaruleexpression"></a>
 <a id="schema_RuleExpression"></a>
 <a id="tocSruleexpression"></a>
 <a id="tocsruleexpression"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Field|string|false|true|None|
+|Pattern|string|false|true|None|
+|Specifications|[[Specification](#schemaspecification)]|false|true|None|
 
 ```json
 {
@@ -312,20 +315,26 @@ The RuleModel object to create suggestions for.<br/>
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Field|string|false|true|None|
-|Pattern|string|false|true|None|
-|Specifications|[[Specification](#schemaspecification)]|false|true|None|
-
-<h2 id="tocS_Specification">Specification</h2>
+## Specification
 
 <a id="schemaspecification"></a>
 <a id="schema_Specification"></a>
 <a id="tocSspecification"></a>
 <a id="tocsspecification"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Type|[SpecificationType](#schemaspecificationtype)|false|false|None|
+|Value|string|false|true|None|
+|Name|string|false|true|None|
+|CharacterType|[CharacterType](#schemacharactertype)|false|false|None|
+|CharacterLength|int32|false|true|Null represents the longest string length within the group.|
+|RequiredDelimiters|string[]|false|true|None|
+|ValueMappings|object|false|true|None|
 
 ```json
 {
@@ -345,19 +354,9 @@ The RuleModel object to create suggestions for.<br/>
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Type|[SpecificationType](#schemaspecificationtype)|false|false|None|
-|Value|string|false|true|None|
-|Name|string|false|true|None|
-|CharacterType|[CharacterType](#schemacharactertype)|false|false|None|
-|CharacterLength|int32|false|true|Null represents the longest string length within the group.|
-|RequiredDelimiters|string[]|false|true|None|
-|ValueMappings|object|false|true|None|
-
-<h2 id="tocS_SpecificationType">SpecificationType</h2>
+## SpecificationType
 
 <a id="schemaspecificationtype"></a>
 <a id="schema_SpecificationType"></a>
@@ -374,7 +373,9 @@ The RuleModel object to create suggestions for.<br/>
 |Literal|Literal|
 |Delimiter|Delimiter|
 
-<h2 id="tocS_CharacterType">CharacterType</h2>
+---
+
+## CharacterType
 
 <a id="schemacharactertype"></a>
 <a id="schema_CharacterType"></a>
@@ -389,12 +390,21 @@ The RuleModel object to create suggestions for.<br/>
 |Letter|Letter|
 |Digit|Digit|
 
-<h2 id="tocS_RuleOutput">RuleOutput</h2>
+---
+
+## RuleOutput
 
 <a id="schemaruleoutput"></a>
 <a id="schema_RuleOutput"></a>
 <a id="tocSruleoutput"></a>
 <a id="tocsruleoutput"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Field|string|false|true|None|
+|Value|any|false|true|None|
 
 ```json
 {
@@ -404,10 +414,5 @@ The RuleModel object to create suggestions for.<br/>
 
 ```
 
-### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Field|string|false|true|None|
-|Value|any|false|true|None|
+---
 

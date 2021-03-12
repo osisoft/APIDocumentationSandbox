@@ -1,5 +1,5 @@
 ---
-title: Context/acl v20210310.1
+title: Context/acl v20210311.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,27 +7,14 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.5
+generator: osisoft.widdershins v1.0.6
 
 ---
 
-<h1 id="context-acl-acl">Acl</h1>
+[[_TOC_]]
 
-	
+# Acl
 
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
----
 ## Get Collection Acl2
 
 <a id="opIdAcl_Get Collection Acl2"></a>
@@ -37,13 +24,16 @@ Gets the `AccessControlList` for the rules collection.
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/assetrules
+
 ```
 
-<h3 id="acl_get-collection-acl2-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
 
-<h3 id="acl_get-collection-acl2-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -51,7 +41,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/assetrules
 |403|[ResponseBody](#schemaresponsebody)|Forbidden.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -100,6 +90,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/assetrules
 ```
 
 ---
+
 ## Set Collection Acl2
 
 <a id="opIdAcl_Set Collection Acl2"></a>
@@ -109,6 +100,7 @@ Replaces the `AccessControlList` for the rules collection.
 ### Request
 ```text 
 PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/assetrules
+
 ```
 
 ### Request Body
@@ -127,11 +119,13 @@ The ACL.<br/>
 }
 ```
 
-<h3 id="acl_set-collection-acl2-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
 
-<h3 id="acl_set-collection-acl2-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -140,7 +134,7 @@ The ACL.<br/>
 |403|[ResponseBody](#schemaresponsebody)|Forbidden.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -204,6 +198,7 @@ The ACL.<br/>
 ```
 
 ---
+
 ## Get Collection Acl
 
 <a id="opIdAcl_Get Collection Acl"></a>
@@ -213,13 +208,16 @@ Gets the `AccessControlList` for the rules collection.
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/metadatarules
+
 ```
 
-<h3 id="acl_get-collection-acl-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
 
-<h3 id="acl_get-collection-acl-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -227,7 +225,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/metadataru
 |403|[ResponseBody](#schemaresponsebody)|Forbidden.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -276,6 +274,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/metadataru
 ```
 
 ---
+
 ## Set Collection Acl
 
 <a id="opIdAcl_Set Collection Acl"></a>
@@ -285,6 +284,7 @@ Replaces the `AccessControlList` for the rules collection.
 ### Request
 ```text 
 PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/metadatarules
+
 ```
 
 ### Request Body
@@ -303,11 +303,13 @@ The ACL.<br/>
 }
 ```
 
-<h3 id="acl_set-collection-acl-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
 
-<h3 id="acl_set-collection-acl-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -316,7 +318,7 @@ The ACL.<br/>
 |403|[ResponseBody](#schemaresponsebody)|Forbidden.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -380,6 +382,7 @@ The ACL.<br/>
 ```
 
 ---
+
 ## Get Acl2
 
 <a id="opIdAcl_Get Acl2"></a>
@@ -389,13 +392,18 @@ Gets the `AccessControlList` of the specified rule.
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/accesscontrol
+
 ```
 
-<h3 id="acl_get-acl2-parameters">Parameters</h3>
+### Parameters
 
-`any routeOptions`<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`<br/><br/>`string namespaceId`<br/><br/>`string ruleId`<br/><br/>
+`any routeOptions`
+<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string ruleId`
+<br/><br/>
 
-<h3 id="acl_get-acl2-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -404,7 +412,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/acce
 |404|[ResponseBody](#schemaresponsebody)|The specified rule was not found.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -468,6 +476,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/acce
 ```
 
 ---
+
 ## Set Acl2
 
 <a id="opIdAcl_Set Acl2"></a>
@@ -477,6 +486,7 @@ Replaces the `AccessControlList` of the specified rule.
 ### Request
 ```text 
 PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/accesscontrol
+
 ```
 
 ### Request Body
@@ -495,11 +505,15 @@ The ACL object.<br/>
 }
 ```
 
-<h3 id="acl_set-acl2-parameters">Parameters</h3>
+### Parameters
 
-`any routeOptions`<br/>The uri route parameters.<br/><br/>`string tenantId`<br/><br/>`string namespaceId`<br/><br/>`string ruleId`<br/><br/>
+`any routeOptions`
+<br/>The uri route parameters.<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string ruleId`
+<br/><br/>
 
-<h3 id="acl_set-acl2-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -509,7 +523,7 @@ The ACL object.<br/>
 |404|[ResponseBody](#schemaresponsebody)|The specified rule was not found.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -588,6 +602,7 @@ The ACL object.<br/>
 ```
 
 ---
+
 ## Get Acl
 
 <a id="opIdAcl_Get Acl"></a>
@@ -597,13 +612,18 @@ Gets the `AccessControlList` of the specified rule.
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/accesscontrol
+
 ```
 
-<h3 id="acl_get-acl-parameters">Parameters</h3>
+### Parameters
 
-`any routeOptions`<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`<br/><br/>`string namespaceId`<br/><br/>`string ruleId`<br/><br/>
+`any routeOptions`
+<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string ruleId`
+<br/><br/>
 
-<h3 id="acl_get-acl-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -612,7 +632,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/a
 |404|[ResponseBody](#schemaresponsebody)|The specified rule was not found.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -676,6 +696,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/a
 ```
 
 ---
+
 ## Set Acl
 
 <a id="opIdAcl_Set Acl"></a>
@@ -685,6 +706,7 @@ Replaces the `AccessControlList` of the specified rule.
 ### Request
 ```text 
 PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/accesscontrol
+
 ```
 
 ### Request Body
@@ -703,11 +725,15 @@ The ACL object.<br/>
 }
 ```
 
-<h3 id="acl_set-acl-parameters">Parameters</h3>
+### Parameters
 
-`any routeOptions`<br/>The uri route parameters.<br/><br/>`string tenantId`<br/><br/>`string namespaceId`<br/><br/>`string ruleId`<br/><br/>
+`any routeOptions`
+<br/>The uri route parameters.<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string ruleId`
+<br/><br/>
 
-<h3 id="acl_set-acl-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -717,7 +743,7 @@ The ACL object.<br/>
 |404|[ResponseBody](#schemaresponsebody)|The specified rule was not found.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -795,14 +821,21 @@ The ACL object.<br/>
 }
 ```
 
+---
 # Definitions
 
-<h2 id="tocS_AccessControlList">AccessControlList</h2>
+## AccessControlList
 
 <a id="schemaaccesscontrollist"></a>
 <a id="schema_AccessControlList"></a>
 <a id="tocSaccesscontrollist"></a>
 <a id="tocsaccesscontrollist"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|RoleTrusteeAccessControlEntries|[[AccessControlEntry](#schemaaccesscontrolentry)]|false|true|None|
 
 ```json
 {
@@ -821,18 +854,22 @@ The ACL object.<br/>
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|RoleTrusteeAccessControlEntries|[[AccessControlEntry](#schemaaccesscontrolentry)]|false|true|None|
-
-<h2 id="tocS_AccessControlEntry">AccessControlEntry</h2>
+## AccessControlEntry
 
 <a id="schemaaccesscontrolentry"></a>
 <a id="schema_AccessControlEntry"></a>
 <a id="tocSaccesscontrolentry"></a>
 <a id="tocsaccesscontrolentry"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Trustee|[Trustee](#schematrustee)|false|true|None|
+|AccessType|[AccessType](#schemaaccesstype)|false|false|None|
+|AccessRights|int64|false|false|None|
 
 ```json
 {
@@ -847,20 +884,22 @@ The ACL object.<br/>
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Trustee|[Trustee](#schematrustee)|false|true|None|
-|AccessType|[AccessType](#schemaaccesstype)|false|false|None|
-|AccessRights|int64|false|false|None|
-
-<h2 id="tocS_Trustee">Trustee</h2>
+## Trustee
 
 <a id="schematrustee"></a>
 <a id="schema_Trustee"></a>
 <a id="tocStrustee"></a>
 <a id="tocstrustee"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Type|[TrusteeType](#schematrusteetype)|false|false|None|
+|ObjectId|string|false|true|None|
+|TenantId|string|false|true|None|
 
 ```json
 {
@@ -871,15 +910,9 @@ The ACL object.<br/>
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Type|[TrusteeType](#schematrusteetype)|false|false|None|
-|ObjectId|string|false|true|None|
-|TenantId|string|false|true|None|
-
-<h2 id="tocS_TrusteeType">TrusteeType</h2>
+## TrusteeType
 
 <a id="schematrusteetype"></a>
 <a id="schema_TrusteeType"></a>
@@ -894,7 +927,9 @@ The ACL object.<br/>
 |Client|2|
 |Role|3|
 
-<h2 id="tocS_AccessType">AccessType</h2>
+---
+
+## AccessType
 
 <a id="schemaaccesstype"></a>
 <a id="schema_AccessType"></a>
@@ -908,12 +943,24 @@ The ACL object.<br/>
 |Allowed|0|
 |Denied|1|
 
-<h2 id="tocS_ResponseBody">ResponseBody</h2>
+---
+
+## ResponseBody
 
 <a id="schemaresponsebody"></a>
 <a id="schema_ResponseBody"></a>
 <a id="tocSresponsebody"></a>
 <a id="tocsresponsebody"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|false|true|None|
+|Error|string|false|true|None|
+|Reason|string|false|true|None|
+|Resolution|string|false|true|None|
+|Parameters|object|false|true|None|
 
 ```json
 {
@@ -929,22 +976,20 @@ The ACL object.<br/>
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|OperationId|string|false|true|None|
-|Error|string|false|true|None|
-|Reason|string|false|true|None|
-|Resolution|string|false|true|None|
-|Parameters|object|false|true|None|
-
-<h2 id="tocS_RuleRouteOptions">RuleRouteOptions</h2>
+## RuleRouteOptions
 
 <a id="schemarulerouteoptions"></a>
 <a id="schema_RuleRouteOptions"></a>
 <a id="tocSrulerouteoptions"></a>
 <a id="tocsrulerouteoptions"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|RuleId|string|false|true|The id of a rule.|
 
 ```json
 {
@@ -953,9 +998,5 @@ The ACL object.<br/>
 
 ```
 
-### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|RuleId|string|false|true|The id of a rule.|
+---
 

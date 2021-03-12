@@ -1,5 +1,5 @@
 ---
-title: Context/access-rights v20210310.1
+title: Context/access-rights v20210311.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,17 +7,14 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.5
+generator: osisoft.widdershins v1.0.6
 
 ---
 
-<h1 id="context-access-rights-access-rights">Access Rights</h1>
+[[_TOC_]]
 
-	
+# Access Rights
 
-	
-
----
 ## List Access Rights
 
 <a id="opIdAccessRights_List Access Rights"></a>
@@ -27,13 +24,18 @@ Gets a list of the `CommonAccessRights` the requesting `Identity` has on the spe
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/accessrights
+
 ```
 
-<h3 id="accessrights_list-access-rights-parameters">Parameters</h3>
+### Parameters
 
-`any routeOptions`<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`<br/><br/>`string namespaceId`<br/><br/>`string ruleId`<br/><br/>
+`any routeOptions`
+<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string ruleId`
+<br/><br/>
 
-<h3 id="accessrights_list-access-rights-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -42,7 +44,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/acce
 |404|[ResponseBody](#schemaresponsebody)|The specified rule was not found.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -100,6 +102,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/acce
 ```
 
 ---
+
 ## List Access Rights All
 
 <a id="opIdAccessRights_List Access Rights All"></a>
@@ -109,13 +112,18 @@ Gets a list of the `CommonAccessRights` the requesting `Identity` has on the spe
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/accessrights
+
 ```
 
-<h3 id="accessrights_list-access-rights-all-parameters">Parameters</h3>
+### Parameters
 
-`any routeOptions`<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`<br/><br/>`string namespaceId`<br/><br/>`string ruleId`<br/><br/>
+`any routeOptions`
+<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string ruleId`
+<br/><br/>
 
-<h3 id="accessrights_list-access-rights-all-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -124,7 +132,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/a
 |404|[ResponseBody](#schemaresponsebody)|The specified rule was not found.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -181,28 +189,15 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/a
 }
 ```
 
+---
 # Definitions
 
-<h2 id="tocS_ResponseBody">ResponseBody</h2>
+## ResponseBody
 
 <a id="schemaresponsebody"></a>
 <a id="schema_ResponseBody"></a>
 <a id="tocSresponsebody"></a>
 <a id="tocsresponsebody"></a>
-
-```json
-{
-  "OperationId": "00000000-0000-0000-0000-000000000000",
-  "Error": "Error message.",
-  "Reason": "Reason that caused the error.",
-  "Resolution": "Possible resolution for the error.",
-  "Parameters": {
-    "key1": "value1",
-    "key2": "value2"
-  }
-}
-
-```
 
 ### Properties
 
@@ -214,12 +209,34 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/a
 |Resolution|string|false|true|None|
 |Parameters|object|false|true|None|
 
-<h2 id="tocS_RuleRouteOptions">RuleRouteOptions</h2>
+```json
+{
+  "OperationId": "00000000-0000-0000-0000-000000000000",
+  "Error": "Error message.",
+  "Reason": "Reason that caused the error.",
+  "Resolution": "Possible resolution for the error.",
+  "Parameters": {
+    "key1": "value1",
+    "key2": "value2"
+  }
+}
+
+```
+
+---
+
+## RuleRouteOptions
 
 <a id="schemarulerouteoptions"></a>
 <a id="schema_RuleRouteOptions"></a>
 <a id="tocSrulerouteoptions"></a>
 <a id="tocsrulerouteoptions"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|RuleId|string|false|true|The id of a rule.|
 
 ```json
 {
@@ -228,9 +245,5 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/a
 
 ```
 
-### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|RuleId|string|false|true|The id of a rule.|
+---
 

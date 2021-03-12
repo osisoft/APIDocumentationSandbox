@@ -1,5 +1,5 @@
 ---
-title: Context/admin v20210310.1
+title: Context/admin v20210311.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,17 +7,14 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.5
+generator: osisoft.widdershins v1.0.6
 
 ---
 
-<h1 id="context-admin-admin">Admin</h1>
+[[_TOC_]]
 
-	
+# Admin
 
-	
-
----
 ## Get Statistics2
 
 <a id="opIdAdmin_Get Statistics2"></a>
@@ -27,13 +24,16 @@ Gets the `StoreStatistics` on the `IRuleStore`.
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/statistics
+
 ```
 
-<h3 id="admin_get-statistics2-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
 
-<h3 id="admin_get-statistics2-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -41,7 +41,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/statist
 |403|[ResponseBody](#schemaresponsebody)|Forbidden.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -81,6 +81,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/statist
 ```
 
 ---
+
 ## Get Statistics
 
 <a id="opIdAdmin_Get Statistics"></a>
@@ -90,13 +91,16 @@ Gets the `StoreStatistics` on the `IRuleStore`.
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/admin/metadatarules/statistics
+
 ```
 
-<h3 id="admin_get-statistics-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
 
-<h3 id="admin_get-statistics-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -104,7 +108,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/admin/metadatarules/stat
 |403|[ResponseBody](#schemaresponsebody)|Forbidden.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -143,21 +147,15 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/admin/metadatarules/stat
 }
 ```
 
+---
 # Definitions
 
-<h2 id="tocS_StoreStatistics">StoreStatistics</h2>
+## StoreStatistics
 
 <a id="schemastorestatistics"></a>
 <a id="schema_StoreStatistics"></a>
 <a id="tocSstorestatistics"></a>
 <a id="tocsstorestatistics"></a>
-
-```json
-{
-  "RuleCount": 0
-}
-
-```
 
 Statistics on the rule store from /admin/metadatarules/statistics.
 
@@ -167,26 +165,21 @@ Statistics on the rule store from /admin/metadatarules/statistics.
 |---|---|---|---|---|
 |RuleCount|int32|false|false|The total number of rules.|
 
-<h2 id="tocS_ResponseBody">ResponseBody</h2>
+```json
+{
+  "RuleCount": 0
+}
+
+```
+
+---
+
+## ResponseBody
 
 <a id="schemaresponsebody"></a>
 <a id="schema_ResponseBody"></a>
 <a id="tocSresponsebody"></a>
 <a id="tocsresponsebody"></a>
-
-```json
-{
-  "OperationId": "00000000-0000-0000-0000-000000000000",
-  "Error": "Error message.",
-  "Reason": "Reason that caused the error.",
-  "Resolution": "Possible resolution for the error.",
-  "Parameters": {
-    "key1": "value1",
-    "key2": "value2"
-  }
-}
-
-```
 
 ### Properties
 
@@ -197,4 +190,20 @@ Statistics on the rule store from /admin/metadatarules/statistics.
 |Reason|string|false|true|None|
 |Resolution|string|false|true|None|
 |Parameters|object|false|true|None|
+
+```json
+{
+  "OperationId": "00000000-0000-0000-0000-000000000000",
+  "Error": "Error message.",
+  "Reason": "Reason that caused the error.",
+  "Resolution": "Possible resolution for the error.",
+  "Parameters": {
+    "key1": "value1",
+    "key2": "value2"
+  }
+}
+
+```
+
+---
 

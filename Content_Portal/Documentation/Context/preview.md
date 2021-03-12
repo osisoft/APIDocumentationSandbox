@@ -1,5 +1,5 @@
 ---
-title: Context/preview v20210310.1
+title: Context/preview v20210311.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,33 +7,14 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.5
+generator: osisoft.widdershins v1.0.6
 
 ---
 
-<h1 id="context-preview-preview">Preview</h1>
+[[_TOC_]]
 
-	
+# Preview
 
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
----
 ## Get Preview
 
 <a id="opIdPreview_Get Preview"></a>
@@ -43,6 +24,7 @@ Creates a `RulePreviewResult` of a metadata `RuleModel` object.
 ### Request
 ```text 
 POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
+?Skip={Skip}&Count={Count}
 ```
 
 ### Request Body
@@ -79,20 +61,18 @@ The RuleModel object to preview.<br/>
 }
 ```
 
-<h3 id="preview_get-preview-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
-`[optional] integer Skip`<br/>An Int32 specifying the number of results to skip.<br/><br/>`[optional] integer Count`<br/>An Int32 specifying the number of results to return.<br/><br/>
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
+`[optional] integer Skip`
+<br/>An Int32 specifying the number of results to skip.
+Defaults to 0.<br/><br/>`[optional] integer Count`
+<br/>An Int32 specifying the number of results to return.
+Defaults to 100.<br/><br/>
 
-#### Detailed descriptions
-
-**Skip**: An Int32 specifying the number of results to skip.
-Defaults to 0.
-
-**Count**: An Int32 specifying the number of results to return.
-Defaults to 100.
-
-<h3 id="preview_get-preview-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -102,7 +82,7 @@ Defaults to 100.
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 |503|[ResponseBody](#schemaresponsebody)|Dependent service error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -186,14 +166,22 @@ Defaults to 100.
 }
 ```
 
+---
 # Definitions
 
-<h2 id="tocS_RulePreviewResult">RulePreviewResult</h2>
+## RulePreviewResult
 
 <a id="schemarulepreviewresult"></a>
 <a id="schema_RulePreviewResult"></a>
 <a id="tocSrulepreviewresult"></a>
 <a id="tocsrulepreviewresult"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Results|[[StreamPreviewData](#schemastreampreviewdata)]|false|true|None|
+|Statistics|[RulePreviewStatistics](#schemarulepreviewstatistics)|false|true|None|
 
 ```json
 {
@@ -217,19 +205,23 @@ Defaults to 100.
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Results|[[StreamPreviewData](#schemastreampreviewdata)]|false|true|None|
-|Statistics|[RulePreviewStatistics](#schemarulepreviewstatistics)|false|true|None|
-
-<h2 id="tocS_StreamPreviewData">StreamPreviewData</h2>
+## StreamPreviewData
 
 <a id="schemastreampreviewdata"></a>
 <a id="schema_StreamPreviewData"></a>
 <a id="tocSstreampreviewdata"></a>
 <a id="tocsstreampreviewdata"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Name|string|false|true|None|
+|Id|string|false|true|None|
+|Description|string|false|true|None|
+|Metadata|object|false|true|None|
 
 ```json
 {
@@ -244,21 +236,23 @@ Defaults to 100.
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Name|string|false|true|None|
-|Id|string|false|true|None|
-|Description|string|false|true|None|
-|Metadata|object|false|true|None|
-
-<h2 id="tocS_RulePreviewStatistics">RulePreviewStatistics</h2>
+## RulePreviewStatistics
 
 <a id="schemarulepreviewstatistics"></a>
 <a id="schema_RulePreviewStatistics"></a>
 <a id="tocSrulepreviewstatistics"></a>
 <a id="tocsrulepreviewstatistics"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|StreamsAffected|int32|false|false|None|
+|NewMetadataKeys|int32|false|false|None|
+|NewMetadataValues|int32|false|false|None|
+|TotalResults|int32|false|false|None|
 
 ```json
 {
@@ -270,21 +264,24 @@ Defaults to 100.
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|StreamsAffected|int32|false|false|None|
-|NewMetadataKeys|int32|false|false|None|
-|NewMetadataValues|int32|false|false|None|
-|TotalResults|int32|false|false|None|
-
-<h2 id="tocS_ResponseBody">ResponseBody</h2>
+## ResponseBody
 
 <a id="schemaresponsebody"></a>
 <a id="schema_ResponseBody"></a>
 <a id="tocSresponsebody"></a>
 <a id="tocsresponsebody"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|false|true|None|
+|Error|string|false|true|None|
+|Reason|string|false|true|None|
+|Resolution|string|false|true|None|
+|Parameters|object|false|true|None|
 
 ```json
 {
@@ -300,22 +297,28 @@ Defaults to 100.
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|OperationId|string|false|true|None|
-|Error|string|false|true|None|
-|Reason|string|false|true|None|
-|Resolution|string|false|true|None|
-|Parameters|object|false|true|None|
-
-<h2 id="tocS_RuleModel">RuleModel</h2>
+## RuleModel
 
 <a id="schemarulemodel"></a>
 <a id="schema_RuleModel"></a>
 <a id="tocSrulemodel"></a>
 <a id="tocsrulemodel"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|string|false|true|None|
+|Name|string|false|true|None|
+|Description|string|false|true|None|
+|AutomationId|string|false|true|None|
+|Expressions|[[RuleExpression](#schemaruleexpression)]|false|true|None|
+|Outputs|[[RuleOutput](#schemaruleoutput)]|false|true|None|
+|ValueMappings|object|false|true|None|
+|CreationTime|date-time|false|false|None|
+|ModifiedTime|date-time|false|false|None|
 
 ```json
 {
@@ -348,26 +351,22 @@ Defaults to 100.
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Id|string|false|true|None|
-|Name|string|false|true|None|
-|Description|string|false|true|None|
-|AutomationId|string|false|true|None|
-|Expressions|[[RuleExpression](#schemaruleexpression)]|false|true|None|
-|Outputs|[[RuleOutput](#schemaruleoutput)]|false|true|None|
-|ValueMappings|object|false|true|None|
-|CreationTime|date-time|false|false|None|
-|ModifiedTime|date-time|false|false|None|
-
-<h2 id="tocS_RuleExpression">RuleExpression</h2>
+## RuleExpression
 
 <a id="schemaruleexpression"></a>
 <a id="schema_RuleExpression"></a>
 <a id="tocSruleexpression"></a>
 <a id="tocsruleexpression"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Field|string|false|true|None|
+|Pattern|string|false|true|None|
+|Specifications|[[Specification](#schemaspecification)]|false|true|None|
 
 ```json
 {
@@ -393,20 +392,26 @@ Defaults to 100.
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Field|string|false|true|None|
-|Pattern|string|false|true|None|
-|Specifications|[[Specification](#schemaspecification)]|false|true|None|
-
-<h2 id="tocS_Specification">Specification</h2>
+## Specification
 
 <a id="schemaspecification"></a>
 <a id="schema_Specification"></a>
 <a id="tocSspecification"></a>
 <a id="tocsspecification"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Type|[SpecificationType](#schemaspecificationtype)|false|false|None|
+|Value|string|false|true|None|
+|Name|string|false|true|None|
+|CharacterType|[CharacterType](#schemacharactertype)|false|false|None|
+|CharacterLength|int32|false|true|Null represents the longest string length within the group.|
+|RequiredDelimiters|string[]|false|true|None|
+|ValueMappings|object|false|true|None|
 
 ```json
 {
@@ -426,19 +431,9 @@ Defaults to 100.
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Type|[SpecificationType](#schemaspecificationtype)|false|false|None|
-|Value|string|false|true|None|
-|Name|string|false|true|None|
-|CharacterType|[CharacterType](#schemacharactertype)|false|false|None|
-|CharacterLength|int32|false|true|Null represents the longest string length within the group.|
-|RequiredDelimiters|string[]|false|true|None|
-|ValueMappings|object|false|true|None|
-
-<h2 id="tocS_SpecificationType">SpecificationType</h2>
+## SpecificationType
 
 <a id="schemaspecificationtype"></a>
 <a id="schema_SpecificationType"></a>
@@ -455,7 +450,9 @@ Defaults to 100.
 |Literal|Literal|
 |Delimiter|Delimiter|
 
-<h2 id="tocS_CharacterType">CharacterType</h2>
+---
+
+## CharacterType
 
 <a id="schemacharactertype"></a>
 <a id="schema_CharacterType"></a>
@@ -470,12 +467,21 @@ Defaults to 100.
 |Letter|Letter|
 |Digit|Digit|
 
-<h2 id="tocS_RuleOutput">RuleOutput</h2>
+---
+
+## RuleOutput
 
 <a id="schemaruleoutput"></a>
 <a id="schema_RuleOutput"></a>
 <a id="tocSruleoutput"></a>
 <a id="tocsruleoutput"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Field|string|false|true|None|
+|Value|any|false|true|None|
 
 ```json
 {
@@ -485,10 +491,5 @@ Defaults to 100.
 
 ```
 
-### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Field|string|false|true|None|
-|Value|any|false|true|None|
+---
 

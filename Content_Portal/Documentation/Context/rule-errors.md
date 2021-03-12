@@ -1,5 +1,5 @@
 ---
-title: Context/rule-errors v20210310.1
+title: Context/rule-errors v20210311.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,19 +7,14 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.5
+generator: osisoft.widdershins v1.0.6
 
 ---
 
-<h1 id="context-rule-errors-rule-errors">Rule Errors</h1>
+[[_TOC_]]
 
-	
+# Rule Errors
 
-	
-
-	
-
----
 ## List Rule Errors By Rule Id
 
 <a id="opIdRuleErrors_List Rule Errors By Rule Id"></a>
@@ -29,13 +24,17 @@ Gets the `RuleErrorDto` objects for the specified ruleId.
 ### Request
 ```text 
 GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/errors
+
 ```
 
-<h3 id="ruleerrors_list-rule-errors-by-rule-id-parameters">Parameters</h3>
+### Parameters
 
-`string ruleId`<br/>The rule Id.<br/><br/>`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
+`string ruleId`
+<br/>The rule Id.<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
 
-<h3 id="ruleerrors_list-rule-errors-by-rule-id-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -44,7 +43,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{rule
 |404|[ResponseBody](#schemaresponsebody)|The specified rule was not found.|
 |500|[ResponseBody](#schemaresponsebody)|None|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -112,6 +111,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{rule
 ```
 
 ---
+
 ## Delete Rule Errors By Rule Id
 
 <a id="opIdRuleErrors_Delete Rule Errors By Rule Id"></a>
@@ -121,13 +121,17 @@ Deletes the `RuleErrorDto` objects associated with the specified rule.
 ### Request
 ```text 
 DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/errors
+
 ```
 
-<h3 id="ruleerrors_delete-rule-errors-by-rule-id-parameters">Parameters</h3>
+### Parameters
 
-`string ruleId`<br/>The rule Id.<br/><br/>`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
+`string ruleId`
+<br/>The rule Id.<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
 
-<h3 id="ruleerrors_delete-rule-errors-by-rule-id-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -136,7 +140,7 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{r
 |404|[ResponseBody](#schemaresponsebody)|The specified rule was not found.|
 |500|[ResponseBody](#schemaresponsebody)|None|
 
-### Example response body
+#### Example response body
 > 403 Response
 
 ```json
@@ -182,14 +186,25 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{r
 }
 ```
 
+---
 # Definitions
 
-<h2 id="tocS_RuleErrorDto">RuleErrorDto</h2>
+## RuleErrorDto
 
 <a id="schemaruleerrordto"></a>
 <a id="schema_RuleErrorDto"></a>
 <a id="tocSruleerrordto"></a>
 <a id="tocsruleerrordto"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|guid|false|false|None|
+|RuleId|string|false|true|None|
+|TimeGenerated|date-time|false|false|None|
+|ErrorDetails|string|false|true|None|
+|ErrorMessageType|[ErrorMessageType](#schemaerrormessagetype)|false|false|None|
 
 ```json
 {
@@ -202,17 +217,9 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{r
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Id|guid|false|false|None|
-|RuleId|string|false|true|None|
-|TimeGenerated|date-time|false|false|None|
-|ErrorDetails|string|false|true|None|
-|ErrorMessageType|[ErrorMessageType](#schemaerrormessagetype)|false|false|None|
-
-<h2 id="tocS_ErrorMessageType">ErrorMessageType</h2>
+## ErrorMessageType
 
 <a id="schemaerrormessagetype"></a>
 <a id="schema_ErrorMessageType"></a>
@@ -230,12 +237,24 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{r
 |ConflictBetweenStreams|4|
 |MissingMappings|5|
 
-<h2 id="tocS_ResponseBody">ResponseBody</h2>
+---
+
+## ResponseBody
 
 <a id="schemaresponsebody"></a>
 <a id="schema_ResponseBody"></a>
 <a id="tocSresponsebody"></a>
 <a id="tocsresponsebody"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|false|true|None|
+|Error|string|false|true|None|
+|Reason|string|false|true|None|
+|Resolution|string|false|true|None|
+|Parameters|object|false|true|None|
 
 ```json
 {
@@ -251,13 +270,5 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{r
 
 ```
 
-### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|OperationId|string|false|true|None|
-|Error|string|false|true|None|
-|Reason|string|false|true|None|
-|Resolution|string|false|true|None|
-|Parameters|object|false|true|None|
+---
 

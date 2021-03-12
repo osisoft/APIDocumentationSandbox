@@ -1,5 +1,5 @@
 ---
-title: Context/service-controllers-suggestion v20210310.1
+title: Context/service-controllers-suggestion v20210311.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,31 +7,14 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.5
+generator: osisoft.widdershins v1.0.6
 
 ---
 
-<h1 id="context-service-controllers-suggestion-suggestion">Suggestion</h1>
+[[_TOC_]]
 
-	
+# Suggestion
 
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
----
 ## Get Suggestion Results
 
 <a id="opIdSuggestion_Get Suggestion Results"></a>
@@ -41,13 +24,17 @@ Gets a `SuggestionResult`.
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadatarules
+?token={token}
 ```
 
-<h3 id="suggestion_get-suggestion-results-parameters">Parameters</h3>
+### Parameters
 
-`string token`<br/>A Guid which corresponds to a SuggestionResponse that has been created using the CancellationToken) method.<br/><br/>`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
+`string token`
+<br/>A Guid which corresponds to a SuggestionResponse that has been created using the CancellationToken) method.<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
 
-<h3 id="suggestion_get-suggestion-results-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -57,7 +44,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadatarules
 |404|[ResponseBody](#schemaresponsebody)|The specified suggestion was not found.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -137,6 +124,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadatarules
 ```
 
 ---
+
 ## Start Suggestion
 
 <a id="opIdSuggestion_Start Suggestion"></a>
@@ -146,6 +134,7 @@ Creates a `SuggestionResponse` for a `RuleModel` object.
 ### Request
 ```text 
 POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadatarules
+
 ```
 
 ### Request Body
@@ -182,11 +171,13 @@ The RuleModel object to create a suggestion for.<br/>
 }
 ```
 
-<h3 id="suggestion_start-suggestion-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
 
-<h3 id="suggestion_start-suggestion-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -197,7 +188,7 @@ The RuleModel object to create a suggestion for.<br/>
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 |503|[ResponseBody](#schemaresponsebody)|Dependent service error.|
 
-### Example response body
+#### Example response body
 > 202 Response
 
 ```json
@@ -283,6 +274,7 @@ The RuleModel object to create a suggestion for.<br/>
 ```
 
 ---
+
 ## Cancel Suggestion
 
 <a id="opIdSuggestion_Cancel Suggestion"></a>
@@ -292,13 +284,17 @@ Cancels a running suggestion query.
 ### Request
 ```text 
 DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadatarules
+?token={token}
 ```
 
-<h3 id="suggestion_cancel-suggestion-parameters">Parameters</h3>
+### Parameters
 
-`string token`<br/>A Guid which corresponds to a SuggestionResponse that has been created using the CancellationToken) method.<br/><br/>`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
+`string token`
+<br/>A Guid which corresponds to a SuggestionResponse that has been created using the CancellationToken) method.<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
 
-<h3 id="suggestion_cancel-suggestion-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -308,7 +304,7 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadataru
 |404|[ResponseBody](#schemaresponsebody)|The specified preview was not found.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 400 Response
 
 ```json
@@ -369,14 +365,22 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadataru
 }
 ```
 
+---
 # Definitions
 
-<h2 id="tocS_SuggestionResponse">SuggestionResponse</h2>
+## SuggestionResponse
 
 <a id="schemasuggestionresponse"></a>
 <a id="schema_SuggestionResponse"></a>
 <a id="tocSsuggestionresponse"></a>
 <a id="tocssuggestionresponse"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|SuggestionLink|string|false|true|None|
+|Expires|int32|false|false|None|
 
 ```json
 {
@@ -386,19 +390,24 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadataru
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|SuggestionLink|string|false|true|None|
-|Expires|int32|false|false|None|
-
-<h2 id="tocS_ResponseBody">ResponseBody</h2>
+## ResponseBody
 
 <a id="schemaresponsebody"></a>
 <a id="schema_ResponseBody"></a>
 <a id="tocSresponsebody"></a>
 <a id="tocsresponsebody"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|false|true|None|
+|Error|string|false|true|None|
+|Reason|string|false|true|None|
+|Resolution|string|false|true|None|
+|Parameters|object|false|true|None|
 
 ```json
 {
@@ -414,22 +423,28 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadataru
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|OperationId|string|false|true|None|
-|Error|string|false|true|None|
-|Reason|string|false|true|None|
-|Resolution|string|false|true|None|
-|Parameters|object|false|true|None|
-
-<h2 id="tocS_RuleModel">RuleModel</h2>
+## RuleModel
 
 <a id="schemarulemodel"></a>
 <a id="schema_RuleModel"></a>
 <a id="tocSrulemodel"></a>
 <a id="tocsrulemodel"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|string|false|true|None|
+|Name|string|false|true|None|
+|Description|string|false|true|None|
+|AutomationId|string|false|true|None|
+|Expressions|[[RuleExpression](#schemaruleexpression)]|false|true|None|
+|Outputs|[[RuleOutput](#schemaruleoutput)]|false|true|None|
+|ValueMappings|object|false|true|None|
+|CreationTime|date-time|false|false|None|
+|ModifiedTime|date-time|false|false|None|
 
 ```json
 {
@@ -462,26 +477,22 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadataru
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Id|string|false|true|None|
-|Name|string|false|true|None|
-|Description|string|false|true|None|
-|AutomationId|string|false|true|None|
-|Expressions|[[RuleExpression](#schemaruleexpression)]|false|true|None|
-|Outputs|[[RuleOutput](#schemaruleoutput)]|false|true|None|
-|ValueMappings|object|false|true|None|
-|CreationTime|date-time|false|false|None|
-|ModifiedTime|date-time|false|false|None|
-
-<h2 id="tocS_RuleExpression">RuleExpression</h2>
+## RuleExpression
 
 <a id="schemaruleexpression"></a>
 <a id="schema_RuleExpression"></a>
 <a id="tocSruleexpression"></a>
 <a id="tocsruleexpression"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Field|string|false|true|None|
+|Pattern|string|false|true|None|
+|Specifications|[[Specification](#schemaspecification)]|false|true|None|
 
 ```json
 {
@@ -507,20 +518,26 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadataru
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Field|string|false|true|None|
-|Pattern|string|false|true|None|
-|Specifications|[[Specification](#schemaspecification)]|false|true|None|
-
-<h2 id="tocS_Specification">Specification</h2>
+## Specification
 
 <a id="schemaspecification"></a>
 <a id="schema_Specification"></a>
 <a id="tocSspecification"></a>
 <a id="tocsspecification"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Type|[SpecificationType](#schemaspecificationtype)|false|false|None|
+|Value|string|false|true|None|
+|Name|string|false|true|None|
+|CharacterType|[CharacterType](#schemacharactertype)|false|false|None|
+|CharacterLength|int32|false|true|Null represents the longest string length within the group.|
+|RequiredDelimiters|string[]|false|true|None|
+|ValueMappings|object|false|true|None|
 
 ```json
 {
@@ -540,19 +557,9 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadataru
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Type|[SpecificationType](#schemaspecificationtype)|false|false|None|
-|Value|string|false|true|None|
-|Name|string|false|true|None|
-|CharacterType|[CharacterType](#schemacharactertype)|false|false|None|
-|CharacterLength|int32|false|true|Null represents the longest string length within the group.|
-|RequiredDelimiters|string[]|false|true|None|
-|ValueMappings|object|false|true|None|
-
-<h2 id="tocS_SpecificationType">SpecificationType</h2>
+## SpecificationType
 
 <a id="schemaspecificationtype"></a>
 <a id="schema_SpecificationType"></a>
@@ -569,7 +576,9 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadataru
 |Literal|Literal|
 |Delimiter|Delimiter|
 
-<h2 id="tocS_CharacterType">CharacterType</h2>
+---
+
+## CharacterType
 
 <a id="schemacharactertype"></a>
 <a id="schema_CharacterType"></a>
@@ -584,12 +593,21 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadataru
 |Letter|Letter|
 |Digit|Digit|
 
-<h2 id="tocS_RuleOutput">RuleOutput</h2>
+---
+
+## RuleOutput
 
 <a id="schemaruleoutput"></a>
 <a id="schema_RuleOutput"></a>
 <a id="tocSruleoutput"></a>
 <a id="tocsruleoutput"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Field|string|false|true|None|
+|Value|any|false|true|None|
 
 ```json
 {
@@ -599,19 +617,21 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadataru
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Field|string|false|true|None|
-|Value|any|false|true|None|
-
-<h2 id="tocS_SuggestionResult">SuggestionResult</h2>
+## SuggestionResult
 
 <a id="schemasuggestionresult"></a>
 <a id="schema_SuggestionResult"></a>
 <a id="tocSsuggestionresult"></a>
 <a id="tocssuggestionresult"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Status|string|false|true|None|
+|Result|object|false|true|None|
 
 ```json
 {
@@ -630,10 +650,5 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadataru
 
 ```
 
-### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Status|string|false|true|None|
-|Result|object|false|true|None|
+---
 
