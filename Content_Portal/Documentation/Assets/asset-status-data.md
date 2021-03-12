@@ -1,5 +1,5 @@
 ---
-title: Assets/asset-status-data v20210310.1
+title: Assets/asset-status-data v20210311.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,13 +7,14 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.5
+generator: osisoft.widdershins v1.0.6
 
 ---
 
-<h1 id="assets-asset-status-data-asset-status-data">Asset Status Data</h1>
+[[_TOC_]]
 
----
+# Asset Status Data
+
 ## Get Last Asset Status Data
 
 <a id="opIdAssetStatusData_Get Last Asset Status Data"></a>
@@ -21,19 +22,24 @@ generator: osisoft.widdershins v1.0.5
 ### Request
 ```text 
 GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}/status/last
+
 ```
 
-<h3 id="assetstatusdata_get-last-asset-status-data-parameters">Parameters</h3>
+### Parameters
 
-`string assetId`<br/><br/>`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
+`string assetId`
+<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
 
-<h3 id="assetstatusdata_get-last-asset-status-data-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|string|None|
 
 ---
+
 ## Get Last Status Data For Assets Bulk
 
 <a id="opIdAssetStatusData_Get Last Status Data For Assets Bulk"></a>
@@ -41,6 +47,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
 ### Request
 ```text 
 POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/bulk/assets/status/last
+
 ```
 
 ### Request Body
@@ -53,11 +60,13 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/bulk/assets/sta
 ]
 ```
 
-<h3 id="assetstatusdata_get-last-status-data-for-assets-bulk-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
 
-<h3 id="assetstatusdata_get-last-status-data-for-assets-bulk-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|

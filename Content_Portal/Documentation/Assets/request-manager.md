@@ -1,5 +1,5 @@
 ---
-title: Assets/request-manager v20210310.1
+title: Assets/request-manager v20210311.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,27 +7,14 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.5
+generator: osisoft.widdershins v1.0.6
 
 ---
 
-<h1 id="assets-request-manager-request-manager">Request Manager</h1>
+[[_TOC_]]
 
-	
+# Request Manager
 
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
----
 ## Get Assets
 
 <a id="opIdRequestManager_Get Assets"></a>
@@ -35,20 +22,28 @@ generator: osisoft.widdershins v1.0.5
 ### Request
 ```text 
 GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets
+?skip={skip}&count={count}&orderBy={orderBy}&query={query}
 ```
 
-<h3 id="requestmanager_get-assets-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
-`[optional] integer skip`<br/><br/>`[optional] integer count`<br/><br/>`[optional] string orderBy`<br/><br/>`[optional] string query`<br/><br/>
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
+`[optional] integer skip`
+<br/><br/>`[optional] integer count`
+<br/><br/>`[optional] string orderBy`
+<br/><br/>`[optional] string query`
+<br/><br/>
 
-<h3 id="requestmanager_get-assets-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|string|None|
 
 ---
+
 ## Create Assets
 
 <a id="opIdRequestManager_Create Assets"></a>
@@ -56,6 +51,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets
 ### Request
 ```text 
 POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets
+
 ```
 
 ### Request Body
@@ -104,17 +100,20 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets
 ]
 ```
 
-<h3 id="requestmanager_create-assets-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
 
-<h3 id="requestmanager_create-assets-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|string|None|
 
 ---
+
 ## Bulk Delete Assets
 
 <a id="opIdRequestManager_Bulk Delete Assets"></a>
@@ -122,6 +121,7 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets
 ### Request
 ```text 
 POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/bulk/assets/delete
+
 ```
 
 ### Request Body
@@ -134,17 +134,20 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/bulk/assets/del
 ]
 ```
 
-<h3 id="requestmanager_bulk-delete-assets-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
 
-<h3 id="requestmanager_bulk-delete-assets-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|string|None|
 
 ---
+
 ## Bulk Get Resolved Assets
 
 <a id="opIdRequestManager_Bulk Get Resolved Assets"></a>
@@ -152,6 +155,7 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/bulk/assets/del
 ### Request
 ```text 
 POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/bulk/assets/resolved
+?shapeId={shapeId}
 ```
 
 ### Request Body
@@ -164,18 +168,22 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/bulk/assets/res
 ]
 ```
 
-<h3 id="requestmanager_bulk-get-resolved-assets-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
-`[optional] string shapeId`<br/><br/>
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
+`[optional] string shapeId`
+<br/><br/>
 
-<h3 id="requestmanager_bulk-get-resolved-assets-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|string|None|
 
 ---
+
 ## Get Bulk Last Status Data For Assets
 
 <a id="opIdRequestManager_Get Bulk Last Status Data For Assets"></a>
@@ -183,6 +191,7 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/bulk/assets/res
 ### Request
 ```text 
 POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/bulk/assets/status/last
+
 ```
 
 ### Request Body
@@ -195,17 +204,20 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/bulk/assets/sta
 ]
 ```
 
-<h3 id="requestmanager_get-bulk-last-status-data-for-assets-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
 
-<h3 id="requestmanager_get-bulk-last-status-data-for-assets-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|string|None|
 
 ---
+
 ## Get Assets In Search Result Format
 
 <a id="opIdRequestManager_Get Assets In Search Result Format"></a>
@@ -213,27 +225,47 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/bulk/assets/sta
 ### Request
 ```text 
 GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/search/assets
+?skip={skip}&count={count}&orderBy={orderBy}&query={query}
 ```
 
-<h3 id="requestmanager_get-assets-in-search-result-format-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
-`[optional] integer skip`<br/><br/>`[optional] integer count`<br/><br/>`[optional] string orderBy`<br/><br/>`[optional] string query`<br/><br/>
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
+`[optional] integer skip`
+<br/><br/>`[optional] integer count`
+<br/><br/>`[optional] string orderBy`
+<br/><br/>`[optional] string query`
+<br/><br/>
 
-<h3 id="requestmanager_get-assets-in-search-result-format-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|string|None|
 
+---
 # Definitions
 
-<h2 id="tocS_AssetDto">AssetDto</h2>
+## AssetDto
 
 <a id="schemaassetdto"></a>
 <a id="schema_AssetDto"></a>
 <a id="tocSassetdto"></a>
 <a id="tocsassetdto"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|string|false|true|None|
+|AssetTypeId|string|false|true|None|
+|Name|string|false|true|None|
+|Description|string|false|true|None|
+|Metadata|[[MetadataDto](#schemametadatadto)]|false|true|None|
+|StreamReferences|[[StreamReferenceDto](#schemastreamreferencedto)]|false|true|None|
+|Status|[StatusMappingDto](#schemastatusmappingdto)|false|true|None|
 
 ```json
 {
@@ -276,24 +308,25 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/search/assets
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Id|string|false|true|None|
-|AssetTypeId|string|false|true|None|
-|Name|string|false|true|None|
-|Description|string|false|true|None|
-|Metadata|[[MetadataDto](#schemametadatadto)]|false|true|None|
-|StreamReferences|[[StreamReferenceDto](#schemastreamreferencedto)]|false|true|None|
-|Status|[StatusMappingDto](#schemastatusmappingdto)|false|true|None|
-
-<h2 id="tocS_MetadataDto">MetadataDto</h2>
+## MetadataDto
 
 <a id="schemametadatadto"></a>
 <a id="schema_MetadataDto"></a>
 <a id="tocSmetadatadto"></a>
 <a id="tocsmetadatadto"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|string|false|true|None|
+|Name|string|false|true|None|
+|Description|string|false|true|None|
+|SdsTypeCode|[SdsTypeCode](#schemasdstypecode)|false|false|None|
+|Value|any|false|true|None|
+|Uom|string|false|true|None|
 
 ```json
 {
@@ -307,18 +340,9 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/search/assets
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Id|string|false|true|None|
-|Name|string|false|true|None|
-|Description|string|false|true|None|
-|SdsTypeCode|[SdsTypeCode](#schemasdstypecode)|false|false|None|
-|Value|any|false|true|None|
-|Uom|string|false|true|None|
-
-<h2 id="tocS_SdsTypeCode">SdsTypeCode</h2>
+## SdsTypeCode
 
 <a id="schemasdstypecode"></a>
 <a id="schema_SdsTypeCode"></a>
@@ -419,12 +443,23 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/search/assets
 |NullableInt64Enum|NullableInt64Enum|
 |NullableUInt64Enum|NullableUInt64Enum|
 
-<h2 id="tocS_StreamReferenceDto">StreamReferenceDto</h2>
+---
+
+## StreamReferenceDto
 
 <a id="schemastreamreferencedto"></a>
 <a id="schema_StreamReferenceDto"></a>
 <a id="tocSstreamreferencedto"></a>
 <a id="tocsstreamreferencedto"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|string|false|true|None|
+|Name|string|false|true|None|
+|Description|string|false|true|None|
+|StreamId|string|true|false|None|
 
 ```json
 {
@@ -436,21 +471,24 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/search/assets
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Id|string|false|true|None|
-|Name|string|false|true|None|
-|Description|string|false|true|None|
-|StreamId|string|true|false|None|
-
-<h2 id="tocS_StatusMappingDto">StatusMappingDto</h2>
+## StatusMappingDto
 
 <a id="schemastatusmappingdto"></a>
 <a id="schema_StatusMappingDto"></a>
 <a id="tocSstatusmappingdto"></a>
 <a id="tocsstatusmappingdto"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Name|string|false|true|None|
+|Description|string|false|true|None|
+|StreamReferenceId|string|true|false|None|
+|StreamPropertyId|string|true|false|None|
+|ValueStatusMappings|[[ValueStatusMappingDto](#schemavaluestatusmappingdto)]|false|true|None|
 
 ```json
 {
@@ -469,22 +507,22 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/search/assets
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Name|string|false|true|None|
-|Description|string|false|true|None|
-|StreamReferenceId|string|true|false|None|
-|StreamPropertyId|string|true|false|None|
-|ValueStatusMappings|[[ValueStatusMappingDto](#schemavaluestatusmappingdto)]|false|true|None|
-
-<h2 id="tocS_ValueStatusMappingDto">ValueStatusMappingDto</h2>
+## ValueStatusMappingDto
 
 <a id="schemavaluestatusmappingdto"></a>
 <a id="schema_ValueStatusMappingDto"></a>
 <a id="tocSvaluestatusmappingdto"></a>
 <a id="tocsvaluestatusmappingdto"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Value|any|false|true|None|
+|Status|[StatusEnum](#schemastatusenum)|true|false|None|
+|DisplayName|string|false|true|None|
 
 ```json
 {
@@ -495,15 +533,9 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/search/assets
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Value|any|false|true|None|
-|Status|[StatusEnum](#schemastatusenum)|true|false|None|
-|DisplayName|string|false|true|None|
-
-<h2 id="tocS_StatusEnum">StatusEnum</h2>
+## StatusEnum
 
 <a id="schemastatusenum"></a>
 <a id="schema_StatusEnum"></a>
@@ -518,4 +550,6 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/search/assets
 |Good|1|
 |Warning|2|
 |Bad|3|
+
+---
 

@@ -1,5 +1,5 @@
 ---
-title: Assets/asset-types v20210310.1
+title: Assets/asset-types v20210311.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,37 +7,14 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.5
+generator: osisoft.widdershins v1.0.6
 
 ---
 
-<h1 id="assets-asset-types-asset-types">Asset Types</h1>
+[[_TOC_]]
 
-	
+# Asset Types
 
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
----
 ## Get Asset Types
 
 <a id="opIdAssetTypes_Get Asset Types"></a>
@@ -45,20 +22,27 @@ generator: osisoft.widdershins v1.0.5
 ### Request
 ```text 
 GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetTypes
+?skip={skip}&count={count}&query={query}
 ```
 
-<h3 id="assettypes_get-asset-types-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
-`[optional] integer skip`<br/><br/>`[optional] integer count`<br/><br/>`[optional] string query`<br/><br/>
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
+`[optional] integer skip`
+<br/><br/>`[optional] integer count`
+<br/><br/>`[optional] string query`
+<br/><br/>
 
-<h3 id="assettypes_get-asset-types-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|string|None|
 
 ---
+
 ## Create Asset Types
 
 <a id="opIdAssetTypes_Create Asset Types"></a>
@@ -66,6 +50,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetTypes
 ### Request
 ```text 
 POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetTypes
+
 ```
 
 ### Request Body
@@ -113,17 +98,20 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetTypes
 ]
 ```
 
-<h3 id="assettypes_create-asset-types-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
 
-<h3 id="assettypes_create-asset-types-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|string|None|
 
 ---
+
 ## Get Asset Type By Id
 
 <a id="opIdAssetTypes_Get Asset Type By Id"></a>
@@ -131,19 +119,24 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetTypes
 ### Request
 ```text 
 GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetTypes/{assetTypeId}
+
 ```
 
-<h3 id="assettypes_get-asset-type-by-id-parameters">Parameters</h3>
+### Parameters
 
-`string assetTypeId`<br/><br/>`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
+`string assetTypeId`
+<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
 
-<h3 id="assettypes_get-asset-type-by-id-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|string|None|
 
 ---
+
 ## Create Asset Type
 
 <a id="opIdAssetTypes_Create Asset Type"></a>
@@ -151,6 +144,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetTypes/{asse
 ### Request
 ```text 
 POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetTypes/{assetTypeId}
+
 ```
 
 ### Request Body
@@ -192,17 +186,21 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetTypes/{ass
 }
 ```
 
-<h3 id="assettypes_create-asset-type-parameters">Parameters</h3>
+### Parameters
 
-`string assetTypeId`<br/><br/>`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
+`string assetTypeId`
+<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
 
-<h3 id="assettypes_create-asset-type-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|string|None|
 
 ---
+
 ## Create Or Update Asset Type
 
 <a id="opIdAssetTypes_Create Or Update Asset Type"></a>
@@ -210,6 +208,7 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetTypes/{ass
 ### Request
 ```text 
 PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetTypes/{assetTypeId}
+
 ```
 
 ### Request Body
@@ -251,17 +250,21 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetTypes/{asse
 }
 ```
 
-<h3 id="assettypes_create-or-update-asset-type-parameters">Parameters</h3>
+### Parameters
 
-`string assetTypeId`<br/><br/>`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
+`string assetTypeId`
+<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
 
-<h3 id="assettypes_create-or-update-asset-type-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|string|None|
 
 ---
+
 ## Delete Asset Type
 
 <a id="opIdAssetTypes_Delete Asset Type"></a>
@@ -269,19 +272,24 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetTypes/{asse
 ### Request
 ```text 
 DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetTypes/{assetTypeId}
+
 ```
 
-<h3 id="assettypes_delete-asset-type-parameters">Parameters</h3>
+### Parameters
 
-`string assetTypeId`<br/><br/>`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
+`string assetTypeId`
+<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
 
-<h3 id="assettypes_delete-asset-type-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|string|None|
 
 ---
+
 ## Get Asset Type Acl By Id
 
 <a id="opIdAssetTypes_Get Asset Type Acl By Id"></a>
@@ -289,19 +297,24 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetTypes/{a
 ### Request
 ```text 
 GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/AssetTypes/{assetTypeId}/accesscontrol
+
 ```
 
-<h3 id="assettypes_get-asset-type-acl-by-id-parameters">Parameters</h3>
+### Parameters
 
-`string assetTypeId`<br/><br/>`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
+`string assetTypeId`
+<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
 
-<h3 id="assettypes_get-asset-type-acl-by-id-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|string|None|
 
 ---
+
 ## Update Asset Type Access Control
 
 <a id="opIdAssetTypes_Update Asset Type Access Control"></a>
@@ -309,6 +322,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/AssetTypes/{asse
 ### Request
 ```text 
 PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/AssetTypes/{assetTypeId}/accesscontrol
+
 ```
 
 ### Request Body
@@ -327,17 +341,21 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/AssetTypes/{asse
 }
 ```
 
-<h3 id="assettypes_update-asset-type-access-control-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/><br/>`string namespaceId`<br/><br/>`string assetTypeId`<br/><br/>
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string assetTypeId`
+<br/><br/>
 
-<h3 id="assettypes_update-asset-type-access-control-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|string|None|
 
 ---
+
 ## Get Asset Type Access Rights
 
 <a id="opIdAssetTypes_Get Asset Type Access Rights"></a>
@@ -345,19 +363,24 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/AssetTypes/{asse
 ### Request
 ```text 
 GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/AssetTypes/{assetTypeId}/accessrights
+
 ```
 
-<h3 id="assettypes_get-asset-type-access-rights-parameters">Parameters</h3>
+### Parameters
 
-`string assetTypeId`<br/><br/>`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
+`string assetTypeId`
+<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
 
-<h3 id="assettypes_get-asset-type-access-rights-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|string|None|
 
 ---
+
 ## Get Asset Type Owner
 
 <a id="opIdAssetTypes_Get Asset Type Owner"></a>
@@ -365,19 +388,24 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/AssetTypes/{asse
 ### Request
 ```text 
 GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/AssetTypes/{assetTypeId}/owner
+
 ```
 
-<h3 id="assettypes_get-asset-type-owner-parameters">Parameters</h3>
+### Parameters
 
-`string assetTypeId`<br/><br/>`string tenantId`<br/><br/>`string namespaceId`<br/><br/>
+`string assetTypeId`
+<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
 
-<h3 id="assettypes_get-asset-type-owner-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|string|None|
 
 ---
+
 ## Update Asset Type Owner
 
 <a id="opIdAssetTypes_Update Asset Type Owner"></a>
@@ -385,6 +413,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/AssetTypes/{asse
 ### Request
 ```text 
 PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/AssetTypes/{assetTypeId}/owner
+
 ```
 
 ### Request Body
@@ -399,24 +428,39 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/AssetTypes/{asse
 }
 ```
 
-<h3 id="assettypes_update-asset-type-owner-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/><br/>`string namespaceId`<br/><br/>`string assetTypeId`<br/><br/>
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string assetTypeId`
+<br/><br/>
 
-<h3 id="assettypes_update-asset-type-owner-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|string|None|
 
+---
 # Definitions
 
-<h2 id="tocS_AssetTypeDto">AssetTypeDto</h2>
+## AssetTypeDto
 
 <a id="schemaassettypedto"></a>
 <a id="schema_AssetTypeDto"></a>
 <a id="tocSassettypedto"></a>
 <a id="tocsassettypedto"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|string|false|true|None|
+|Name|string|false|true|None|
+|Description|string|false|true|None|
+|Metadata|[[MetadataDto](#schemametadatadto)]|false|true|None|
+|TypeReferences|[[TypeReferenceDto](#schematypereferencedto)]|false|true|None|
+|Status|[StatusMappingDto](#schemastatusmappingdto)|false|true|None|
 
 ```json
 {
@@ -458,6 +502,15 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/AssetTypes/{asse
 
 ```
 
+---
+
+## MetadataDto
+
+<a id="schemametadatadto"></a>
+<a id="schema_MetadataDto"></a>
+<a id="tocSmetadatadto"></a>
+<a id="tocsmetadatadto"></a>
+
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
@@ -465,16 +518,9 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/AssetTypes/{asse
 |Id|string|false|true|None|
 |Name|string|false|true|None|
 |Description|string|false|true|None|
-|Metadata|[[MetadataDto](#schemametadatadto)]|false|true|None|
-|TypeReferences|[[TypeReferenceDto](#schematypereferencedto)]|false|true|None|
-|Status|[StatusMappingDto](#schemastatusmappingdto)|false|true|None|
-
-<h2 id="tocS_MetadataDto">MetadataDto</h2>
-
-<a id="schemametadatadto"></a>
-<a id="schema_MetadataDto"></a>
-<a id="tocSmetadatadto"></a>
-<a id="tocsmetadatadto"></a>
+|SdsTypeCode|[SdsTypeCode](#schemasdstypecode)|false|false|None|
+|Value|any|false|true|None|
+|Uom|string|false|true|None|
 
 ```json
 {
@@ -488,18 +534,9 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/AssetTypes/{asse
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Id|string|false|true|None|
-|Name|string|false|true|None|
-|Description|string|false|true|None|
-|SdsTypeCode|[SdsTypeCode](#schemasdstypecode)|false|false|None|
-|Value|any|false|true|None|
-|Uom|string|false|true|None|
-
-<h2 id="tocS_SdsTypeCode">SdsTypeCode</h2>
+## SdsTypeCode
 
 <a id="schemasdstypecode"></a>
 <a id="schema_SdsTypeCode"></a>
@@ -600,12 +637,23 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/AssetTypes/{asse
 |NullableInt64Enum|NullableInt64Enum|
 |NullableUInt64Enum|NullableUInt64Enum|
 
-<h2 id="tocS_TypeReferenceDto">TypeReferenceDto</h2>
+---
+
+## TypeReferenceDto
 
 <a id="schematypereferencedto"></a>
 <a id="schema_TypeReferenceDto"></a>
 <a id="tocStypereferencedto"></a>
 <a id="tocstypereferencedto"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|StreamReferenceId|string|false|true|None|
+|StreamReferenceName|string|true|false|None|
+|Description|string|false|true|None|
+|TypeId|string|true|false|None|
 
 ```json
 {
@@ -617,21 +665,24 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/AssetTypes/{asse
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|StreamReferenceId|string|false|true|None|
-|StreamReferenceName|string|true|false|None|
-|Description|string|false|true|None|
-|TypeId|string|true|false|None|
-
-<h2 id="tocS_StatusMappingDto">StatusMappingDto</h2>
+## StatusMappingDto
 
 <a id="schemastatusmappingdto"></a>
 <a id="schema_StatusMappingDto"></a>
 <a id="tocSstatusmappingdto"></a>
 <a id="tocsstatusmappingdto"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Name|string|false|true|None|
+|Description|string|false|true|None|
+|StreamReferenceId|string|true|false|None|
+|StreamPropertyId|string|true|false|None|
+|ValueStatusMappings|[[ValueStatusMappingDto](#schemavaluestatusmappingdto)]|false|true|None|
 
 ```json
 {
@@ -650,22 +701,22 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/AssetTypes/{asse
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Name|string|false|true|None|
-|Description|string|false|true|None|
-|StreamReferenceId|string|true|false|None|
-|StreamPropertyId|string|true|false|None|
-|ValueStatusMappings|[[ValueStatusMappingDto](#schemavaluestatusmappingdto)]|false|true|None|
-
-<h2 id="tocS_ValueStatusMappingDto">ValueStatusMappingDto</h2>
+## ValueStatusMappingDto
 
 <a id="schemavaluestatusmappingdto"></a>
 <a id="schema_ValueStatusMappingDto"></a>
 <a id="tocSvaluestatusmappingdto"></a>
 <a id="tocsvaluestatusmappingdto"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Value|any|false|true|None|
+|Status|[StatusEnum](#schemastatusenum)|true|false|None|
+|DisplayName|string|false|true|None|
 
 ```json
 {
@@ -676,15 +727,9 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/AssetTypes/{asse
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Value|any|false|true|None|
-|Status|[StatusEnum](#schemastatusenum)|true|false|None|
-|DisplayName|string|false|true|None|
-
-<h2 id="tocS_StatusEnum">StatusEnum</h2>
+## StatusEnum
 
 <a id="schemastatusenum"></a>
 <a id="schema_StatusEnum"></a>
@@ -700,12 +745,22 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/AssetTypes/{asse
 |Warning|2|
 |Bad|3|
 
-<h2 id="tocS_Trustee">Trustee</h2>
+---
+
+## Trustee
 
 <a id="schematrustee"></a>
 <a id="schema_Trustee"></a>
 <a id="tocStrustee"></a>
 <a id="tocstrustee"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Type|[TrusteeType](#schematrusteetype)|false|false|None|
+|ObjectId|string|false|true|None|
+|TenantId|string|false|true|None|
 
 ```json
 {
@@ -716,15 +771,9 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/AssetTypes/{asse
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Type|[TrusteeType](#schematrusteetype)|false|false|None|
-|ObjectId|string|false|true|None|
-|TenantId|string|false|true|None|
-
-<h2 id="tocS_TrusteeType">TrusteeType</h2>
+## TrusteeType
 
 <a id="schematrusteetype"></a>
 <a id="schema_TrusteeType"></a>
@@ -739,12 +788,20 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/AssetTypes/{asse
 |Client|2|
 |Role|3|
 
-<h2 id="tocS_AccessControlList">AccessControlList</h2>
+---
+
+## AccessControlList
 
 <a id="schemaaccesscontrollist"></a>
 <a id="schema_AccessControlList"></a>
 <a id="tocSaccesscontrollist"></a>
 <a id="tocsaccesscontrollist"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|RoleTrusteeAccessControlEntries|[[AccessControlEntry](#schemaaccesscontrolentry)]|false|true|None|
 
 ```json
 {
@@ -763,18 +820,22 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/AssetTypes/{asse
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|RoleTrusteeAccessControlEntries|[[AccessControlEntry](#schemaaccesscontrolentry)]|false|true|None|
-
-<h2 id="tocS_AccessControlEntry">AccessControlEntry</h2>
+## AccessControlEntry
 
 <a id="schemaaccesscontrolentry"></a>
 <a id="schema_AccessControlEntry"></a>
 <a id="tocSaccesscontrolentry"></a>
 <a id="tocsaccesscontrolentry"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Trustee|[Trustee](#schematrustee)|false|true|None|
+|AccessType|[AccessType](#schemaaccesstype)|false|false|None|
+|AccessRights|int64|false|false|None|
 
 ```json
 {
@@ -789,15 +850,9 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/AssetTypes/{asse
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Trustee|[Trustee](#schematrustee)|false|true|None|
-|AccessType|[AccessType](#schemaaccesstype)|false|false|None|
-|AccessRights|int64|false|false|None|
-
-<h2 id="tocS_AccessType">AccessType</h2>
+## AccessType
 
 <a id="schemaaccesstype"></a>
 <a id="schema_AccessType"></a>
@@ -810,4 +865,6 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/AssetTypes/{asse
 |---|---|
 |Allowed|0|
 |Denied|1|
+
+---
 
