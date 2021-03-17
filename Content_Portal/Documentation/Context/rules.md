@@ -1,5 +1,5 @@
 ---
-title: Context/rules v20210312.1
+title: Context/rules v20210316.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,7 +14,7 @@ generator: osisoft.widdershins v1.0.6
 [[_TOC_]]
 
 # Rules
-Interacts with the IRuleStore and IAuthorizationService to process requests. 
+Interacts with the IRuleStore and IAuthorizationService to process requests.
 
 ## List Rules
 
