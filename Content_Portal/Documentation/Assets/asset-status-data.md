@@ -1,5 +1,5 @@
 ---
-title: Assets/asset-status-data v20210311.1
+title: Assets/asset-status-data v20210318.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -29,40 +29,6 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
 
 `string assetId`
 <br/><br/>`string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|string|None|
-
----
-
-## Get Last Status Data For Assets Bulk
-
-<a id="opIdAssetStatusData_Get Last Status Data For Assets Bulk"></a>
-
-### Request
-```text 
-POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/bulk/assets/status/last
-
-```
-
-### Request Body
-
-<br/>
-
-```json
-[
-  "string"
-]
-```
-
-### Parameters
-
-`string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
 

@@ -1,5 +1,5 @@
 ---
-title: Assets/request-manager v20210311.1
+title: Assets/request-manager v20210318.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -22,7 +22,7 @@ generator: osisoft.widdershins v1.0.6
 ### Request
 ```text 
 GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets
-?skip={skip}&count={count}&orderBy={orderBy}&query={query}
+?skip={skip}&count={count}&orderBy={orderBy}&query={query}&pageSize={pageSize}&maxPages={maxPages}&continuationToken={continuationToken}
 ```
 
 ### Parameters
@@ -34,6 +34,9 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets
 <br/><br/>`[optional] integer count`
 <br/><br/>`[optional] string orderBy`
 <br/><br/>`[optional] string query`
+<br/><br/>`[optional] integer pageSize`
+<br/><br/>`[optional] integer maxPages`
+<br/><br/>`[optional] string continuationToken`
 <br/><br/>
 
 ### Response
@@ -84,8 +87,6 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets
       }
     ],
     "Status": {
-      "Name": "string",
-      "Description": "string",
       "StreamReferenceId": "string",
       "StreamPropertyId": "string",
       "ValueStatusMappings": [
@@ -225,7 +226,7 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/bulk/assets/sta
 ### Request
 ```text 
 GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/search/assets
-?skip={skip}&count={count}&orderBy={orderBy}&query={query}
+?skip={skip}&count={count}&orderBy={orderBy}&query={query}&pageSize={pageSize}&maxPages={maxPages}&continuationToken={continuationToken}
 ```
 
 ### Parameters
@@ -237,6 +238,9 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/search/assets
 <br/><br/>`[optional] integer count`
 <br/><br/>`[optional] string orderBy`
 <br/><br/>`[optional] string query`
+<br/><br/>`[optional] integer pageSize`
+<br/><br/>`[optional] integer maxPages`
+<br/><br/>`[optional] string continuationToken`
 <br/><br/>
 
 ### Response
@@ -292,8 +296,6 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/search/assets
     }
   ],
   "Status": {
-    "Name": "string",
-    "Description": "string",
     "StreamReferenceId": "string",
     "StreamPropertyId": "string",
     "ValueStatusMappings": [
@@ -484,16 +486,12 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/search/assets
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Name|string|false|true|None|
-|Description|string|false|true|None|
 |StreamReferenceId|string|true|false|None|
 |StreamPropertyId|string|true|false|None|
 |ValueStatusMappings|[[ValueStatusMappingDto](#schemavaluestatusmappingdto)]|false|true|None|
 
 ```json
 {
-  "Name": "string",
-  "Description": "string",
   "StreamReferenceId": "string",
   "StreamPropertyId": "string",
   "ValueStatusMappings": [

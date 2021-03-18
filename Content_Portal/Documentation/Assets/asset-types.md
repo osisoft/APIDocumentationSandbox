@@ -1,5 +1,5 @@
 ---
-title: Assets/asset-types v20210311.1
+title: Assets/asset-types v20210318.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -82,8 +82,6 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetTypes
       }
     ],
     "Status": {
-      "Name": "string",
-      "Description": "string",
       "StreamReferenceId": "string",
       "StreamPropertyId": "string",
       "ValueStatusMappings": [
@@ -175,8 +173,6 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetTypes/{ass
     }
   ],
   "Status": {
-    "Name": "string",
-    "Description": "string",
     "StreamReferenceId": "string",
     "StreamPropertyId": "string",
     "ValueStatusMappings": [
@@ -239,8 +235,6 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetTypes/{asse
     }
   ],
   "Status": {
-    "Name": "string",
-    "Description": "string",
     "StreamReferenceId": "string",
     "StreamPropertyId": "string",
     "ValueStatusMappings": [
@@ -486,8 +480,6 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/AssetTypes/{asse
     }
   ],
   "Status": {
-    "Name": "string",
-    "Description": "string",
     "StreamReferenceId": "string",
     "StreamPropertyId": "string",
     "ValueStatusMappings": [
@@ -678,16 +670,12 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/AssetTypes/{asse
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Name|string|false|true|None|
-|Description|string|false|true|None|
 |StreamReferenceId|string|true|false|None|
 |StreamPropertyId|string|true|false|None|
 |ValueStatusMappings|[[ValueStatusMappingDto](#schemavaluestatusmappingdto)]|false|true|None|
 
 ```json
 {
-  "Name": "string",
-  "Description": "string",
   "StreamReferenceId": "string",
   "StreamPropertyId": "string",
   "ValueStatusMappings": [

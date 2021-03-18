@@ -1,5 +1,5 @@
 ---
-title: Assets/assets v20210311.1
+title: Assets/assets v20210318.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,105 +14,6 @@ generator: osisoft.widdershins v1.0.6
 [[_TOC_]]
 
 # Assets
-
-## Get Assets
-
-<a id="opIdAssets_Get Assets"></a>
-
-### Request
-```text 
-GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets
-?skip={skip}&count={count}&orderBy={orderBy}&query={query}
-```
-
-### Parameters
-
-`string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>
-`[optional] integer skip`
-<br/><br/>`[optional] integer count`
-<br/><br/>`[optional] string orderBy`
-<br/><br/>`[optional] string query`
-<br/><br/>
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|string|None|
-
----
-
-## Create Assets
-
-<a id="opIdAssets_Create Assets"></a>
-
-### Request
-```text 
-POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets
-
-```
-
-### Request Body
-
-<br/>
-
-```json
-[
-  {
-    "Id": "string",
-    "AssetTypeId": "string",
-    "Name": "string",
-    "Description": "string",
-    "Metadata": [
-      {
-        "Id": "string",
-        "Name": "string",
-        "Description": "string",
-        "SdsTypeCode": "Empty",
-        "Value": null,
-        "Uom": "string"
-      }
-    ],
-    "StreamReferences": [
-      {
-        "Id": "string",
-        "Name": "string",
-        "Description": "string",
-        "StreamId": "string"
-      }
-    ],
-    "Status": {
-      "Name": "string",
-      "Description": "string",
-      "StreamReferenceId": "string",
-      "StreamPropertyId": "string",
-      "ValueStatusMappings": [
-        {
-          "Value": null,
-          "Status": null,
-          "DisplayName": null
-        }
-      ]
-    }
-  }
-]
-```
-
-### Parameters
-
-`string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|string|None|
-
----
 
 ## Get Asset By Id
 
@@ -178,8 +79,6 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId
     }
   ],
   "Status": {
-    "Name": "string",
-    "Description": "string",
     "StreamReferenceId": "string",
     "StreamPropertyId": "string",
     "ValueStatusMappings": [
@@ -243,8 +142,6 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
     }
   ],
   "Status": {
-    "Name": "string",
-    "Description": "string",
     "StreamReferenceId": "string",
     "StreamPropertyId": "string",
     "ValueStatusMappings": [
@@ -446,69 +343,6 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
 |200|string|None|
 
 ---
-
-## Delete Assets
-
-<a id="opIdAssets_Delete Assets"></a>
-
-### Request
-```text 
-POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/bulk/assets/delete
-
-```
-
-### Request Body
-
-<br/>
-
-```json
-[
-  "string"
-]
-```
-
-### Parameters
-
-`string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|string|None|
-
----
-
-## Get Assets In Search Result Format
-
-<a id="opIdAssets_Get Assets In Search Result Format"></a>
-
-### Request
-```text 
-GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/search/assets
-?skip={skip}&count={count}&orderBy={orderBy}&query={query}
-```
-
-### Parameters
-
-`string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>
-`[optional] integer skip`
-<br/><br/>`[optional] integer count`
-<br/><br/>`[optional] string orderBy`
-<br/><br/>`[optional] string query`
-<br/><br/>
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|string|None|
-
----
 # Definitions
 
 ## Trustee
@@ -676,8 +510,6 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/search/assets
     }
   ],
   "Status": {
-    "Name": "string",
-    "Description": "string",
     "StreamReferenceId": "string",
     "StreamPropertyId": "string",
     "ValueStatusMappings": [
@@ -868,16 +700,12 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/search/assets
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Name|string|false|true|None|
-|Description|string|false|true|None|
 |StreamReferenceId|string|true|false|None|
 |StreamPropertyId|string|true|false|None|
 |ValueStatusMappings|[[ValueStatusMappingDto](#schemavaluestatusmappingdto)]|false|true|None|
 
 ```json
 {
-  "Name": "string",
-  "Description": "string",
   "StreamReferenceId": "string",
   "StreamPropertyId": "string",
   "ValueStatusMappings": [
