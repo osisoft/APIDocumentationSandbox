@@ -1,5 +1,5 @@
 ---
-title: Identity/invitation v20210308.1
+title: Identity/invitation v20210317.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,47 +7,15 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.5
+generator: osisoft.widdershins v1.0.6
 
 ---
 
-<h1 id="identity-invitation-invitation">Invitation</h1>
+[[_TOC_]]
+
+# Invitation
 Invitations are issued after the creation of a user object in OCS, to begin the provisioning process for a user with one of the identity providers in a tenant. There can only be one invitation for a user at a time. An invitation can expire, at which time the administrator can either delete it, or extend it. When creating an invitation a tenant administrator has the option to resend the invitation email to the contact email configured for the user the invitation is attached to. The email can be re-sent by updating the invitation. When an invitation expires the user cannot accept it. If the expiration date is extended the user can accept an invitation. Invitations that are past of their expiration date by more than two weeks will be deleted. The only way to provision a user after this, is to send a new invitation.
 
-Object for an invitation.
-
-### Properties
-|Property Name|Data Type|Description|
-|---|---|---|
-|Id|string|Invitation unique identifier.|
-|Issued|date-time|Invitation issuing timestamp.|
-|Expires|date-time|Invitation expiration timestamp.|
-|Accepted|date-time|Invitation accepted timestamp.|
-|State|[InvitationStates](#schemainvitationstates)|Invitation state. Can be None (0), InvitationEmailSent (1), InvitationAccepted (2).|
-|TenantId|guid|Unique identifier of the tenant the invitation belongs to.|
-|UserId|guid|Unique identifier of the user to whom the invitation was issued.|
-
-```json
-{
-  "Id": "string",
-  "Issued": "2019-08-24T14:15:22Z",
-  "Expires": "2019-08-24T14:15:22Z",
-  "Accepted": "2019-08-24T14:15:22Z",
-  "State": 0,
-  "TenantId": "string",
-  "UserId": "string"
-}
-```
-
-	
-
-	
-
-	
-
-	
-
----
 ## Get User Invitation
 
 <a id="opIdInvitation_Get User Invitation"></a>
@@ -57,13 +25,16 @@ Get invitation for a user.
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/Users/{userId}/Invitation
+
 ```
 
-<h3 id="invitation_get-user-invitation-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string userId`<br/>User unique identifier.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string userId`
+<br/>User unique identifier.<br/><br/>
 
-<h3 id="invitation_get-user-invitation-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -73,7 +44,7 @@ GET /api/v1/Tenants/{tenantId}/Users/{userId}/Invitation
 |404|[ErrorResponse](#schemaerrorresponse)|Invitation, user, or tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -90,13 +61,13 @@ GET /api/v1/Tenants/{tenantId}/Users/{userId}/Invitation
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Get User Invitation Header
 
 <a id="opIdInvitation_Get User Invitation Header"></a>
@@ -106,14 +77,18 @@ Validate that invitation exist for a user. This endpoint is identical to the GET
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/Users/{userId}/Invitation
+?includeExpiredInvitations={includeExpiredInvitations}
 ```
 
-<h3 id="invitation_get-user-invitation-header-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string userId`<br/>User unique identifier.<br/><br/>
-`[optional] boolean includeExpiredInvitations`<br/>Specify whether to include expired invitations.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string userId`
+<br/>User unique identifier.<br/><br/>
+`[optional] boolean includeExpiredInvitations`
+<br/>Specify whether to include expired invitations.<br/><br/>
 
-<h3 id="invitation_get-user-invitation-header-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -126,13 +101,13 @@ HEAD /api/v1/Tenants/{tenantId}/Users/{userId}/Invitation
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Create Invitation
 
 <a id="opIdInvitation_Create Invitation"></a>
@@ -142,6 +117,7 @@ Create an invitation for a user. Should use when no other invitation exists for 
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/Users/{userId}/Invitation
+
 ```
 
 ### Request Body
@@ -157,11 +133,13 @@ InvitationCreateOrUpdate object.<br/>
 }
 ```
 
-<h3 id="invitation_create-invitation-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string userId`<br/>User unique identifier.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string userId`
+<br/>User unique identifier.<br/><br/>
 
-<h3 id="invitation_create-invitation-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -175,7 +153,7 @@ InvitationCreateOrUpdate object.<br/>
 |409|[ErrorResponse](#schemaerrorresponse)|Invitation already exists.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 201 Response
 
 ```json
@@ -192,13 +170,13 @@ InvitationCreateOrUpdate object.<br/>
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Create Or Update Invitation
 
 <a id="opIdInvitation_Create Or Update Invitation"></a>
@@ -208,6 +186,7 @@ Create or update an invitation for a user.
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/Users/{userId}/Invitation
+
 ```
 
 ### Request Body
@@ -223,11 +202,13 @@ InvitationCreateOrUpdate object.<br/>
 }
 ```
 
-<h3 id="invitation_create-or-update-invitation-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string userId`<br/>User unique identifier.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string userId`
+<br/>User unique identifier.<br/><br/>
 
-<h3 id="invitation_create-or-update-invitation-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -241,7 +222,7 @@ InvitationCreateOrUpdate object.<br/>
 |409|[ErrorResponse](#schemaerrorresponse)|Invitation already exists.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -258,13 +239,13 @@ InvitationCreateOrUpdate object.<br/>
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Delete User Invitation
 
 <a id="opIdInvitation_Delete User Invitation"></a>
@@ -274,13 +255,16 @@ Delete an invitation for a user.
 ### Request
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/Users/{userId}/Invitation
+
 ```
 
-<h3 id="invitation_delete-user-invitation-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string userId`<br/>User unique identifier.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string userId`
+<br/>User unique identifier.<br/><br/>
 
-<h3 id="invitation_delete-user-invitation-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -291,7 +275,7 @@ DELETE /api/v1/Tenants/{tenantId}/Users/{userId}/Invitation
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 401 Response
 
 ```json
@@ -307,33 +291,20 @@ DELETE /api/v1/Tenants/{tenantId}/Users/{userId}/Invitation
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
+---
 # Definitions
 
-<h2 id="tocS_Invitation">Invitation</h2>
+## Invitation
 
 <a id="schemainvitation"></a>
 <a id="schema_Invitation"></a>
 <a id="tocSinvitation"></a>
 <a id="tocsinvitation"></a>
-
-```json
-{
-  "Id": "string",
-  "Issued": "2019-08-24T14:15:22Z",
-  "Expires": "2019-08-24T14:15:22Z",
-  "Accepted": "2019-08-24T14:15:22Z",
-  "State": 0,
-  "TenantId": "string",
-  "UserId": "string"
-}
-
-```
 
 Object for an invitation.
 
@@ -349,7 +320,22 @@ Object for an invitation.
 |TenantId|guid|false|false|Unique identifier of the tenant the invitation belongs to.|
 |UserId|guid|false|false|Unique identifier of the user to whom the invitation was issued.|
 
-<h2 id="tocS_InvitationStates">InvitationStates</h2>
+```json
+{
+  "Id": "string",
+  "Issued": "2019-08-24T14:15:22Z",
+  "Expires": "2019-08-24T14:15:22Z",
+  "Accepted": "2019-08-24T14:15:22Z",
+  "State": 0,
+  "TenantId": "string",
+  "UserId": "string"
+}
+
+```
+
+---
+
+## InvitationStates
 
 <a id="schemainvitationstates"></a>
 <a id="schema_InvitationStates"></a>
@@ -366,12 +352,25 @@ Invitation states.
 |InvitationEmailSent|1|
 |InvitationAccepted|2|
 
-<h2 id="tocS_ErrorResponse">ErrorResponse</h2>
+---
+
+## ErrorResponse
 
 <a id="schemaerrorresponse"></a>
 <a id="schema_ErrorResponse"></a>
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
+
+Object returned whenever there is an error.
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
+|Error|string|true|false|Error description.|
+|Reason|string|true|false|Reason for the error.|
+|Resolution|string|true|false|Resolution to resolve the error.|
 
 ```json
 {
@@ -385,23 +384,25 @@ Invitation states.
 
 ```
 
-Object returned whenever there is an error.
+---
 
-### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
-|Error|string|true|false|Error description.|
-|Reason|string|true|false|Reason for the error.|
-|Resolution|string|true|false|Resolution needed to resolve the Error.|
-
-<h2 id="tocS_InvitationCreateOrUpdate">InvitationCreateOrUpdate</h2>
+## InvitationCreateOrUpdate
 
 <a id="schemainvitationcreateorupdate"></a>
 <a id="schema_InvitationCreateOrUpdate"></a>
 <a id="tocSinvitationcreateorupdate"></a>
 <a id="tocsinvitationcreateorupdate"></a>
+
+Object used to create or update an invitation.
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|ExpiresDateTime|date-time|false|true|Invitation expiration date. Must be in the future. Maximum allowed is two months in the future. Defaults to 21 days on creation. It should be in [ISO 8601 format](https://www.iso.org/iso-8601-date-and-time-format.html) and either include a *Z* at the end to represent UTC time zone or include the offset in hours. If neither is present time will be treated in the local time zone of the server.|
+|State|[InvitationStates](#schemainvitationstates)|false|true|State of invitation. For OSIsoft internal use only.|
+|SendInvitation|boolean|false|true|Send an invitation email. Invitation will be sent to the contact email for the user this invitation is attached to. Default is true.|
+|IdentityProviderId|guid|false|true|Identity provider to use for accepting this invitation. Required when creating an invitation.|
 
 ```json
 {
@@ -413,14 +414,5 @@ Object returned whenever there is an error.
 
 ```
 
-Object used to create or update an invitation.
-
-### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|ExpiresDateTime|date-time|false|true|Invitation expiration date. Must be in the future. Maximum allowed is two month in the future. Defaults to 21 days on creation. It should be in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) and either include a *Z* at the end to represent UTC timezone or include the offset in hours. If neither is present time will be treated in the local time zone of the server.|
-|State|[InvitationStates](#schemainvitationstates)|false|true|State of invitation. For OSISoft internal use only.|
-|SendInvitation|boolean|false|true|Send an invitation email. Invitation will be sent to the contact email in the user this invitation is attached to. Default is true.|
-|IdentityProviderId|guid|false|true|Identity provider to use for accepting this invitation. Required when creating an invitation.|
+---
 

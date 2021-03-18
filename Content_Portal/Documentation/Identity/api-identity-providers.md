@@ -1,5 +1,5 @@
 ---
-title: Identity/api-identity-providers v20210308.1
+title: Identity/api-identity-providers v20210317.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,59 +7,15 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.5
+generator: osisoft.widdershins v1.0.6
 
 ---
 
-<h1 id="identity-api-identity-providers-identity-providers">Identity Providers</h1>
+[[_TOC_]]
+
+# Identity Providers
 APIs for getting a list of all supported identity providers.
 
-The model for an Identity Provider in Identity Storage.
-
-### Properties
-|Property Name|Data Type|Description|
-|---|---|---|
-|Id|guid|Identity provider unique identifier.|
-|DisplayName|string|Identity provider display name to use.|
-|Scheme|string|Name of the cookie handler that will temporarily store the outcome of the external authentication.|
-|UserIdClaimType|string|Type of claim.|
-|ClientId|string|Client Id of the identity provider.|
-|IsConfigured|boolean|Whether the identity provider has been configured.|
-|Capabilities|[IdentityProviderCapabilities](#schemaidentityprovidercapabilities)|Capabilities of the identity provider.|
-
-```json
-{
-  "Id": "string",
-  "DisplayName": "string",
-  "Scheme": "string",
-  "UserIdClaimType": "string",
-  "ClientId": "string",
-  "IsConfigured": true,
-  "Capabilities": {
-    "User": {
-      "SignIn": null,
-      "Invitation": null,
-      "Search": null
-    },
-    "Group": {
-      "Authorize": null,
-      "Search": null
-    }
-  }
-}
-```
-
-	
-
-	
-
-	
-
-	
-
-	
-
----
 ## List Identity Providers
 
 <a id="opIdIdentityProviders_List Identity Providers"></a>
@@ -69,13 +25,17 @@ Returns a list of identity provider objects.
 ### Request
 ```text 
 GET /api/v1/IdentityProviders
+?query={query}&skip={skip}&count={count}
 ```
 
-<h3 id="identityproviders_list-identity-providers-parameters">Parameters</h3>
+### Parameters
 
-`[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of identity providers to skip.<br/><br/>`[optional] integer count`<br/>Maximum number of identity providers to return.<br/><br/>
+`[optional] string query`
+<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`
+<br/>Number of identity providers to skip.<br/><br/>`[optional] integer count`
+<br/>Maximum number of identity providers to return.<br/><br/>
 
-<h3 id="identityproviders_list-identity-providers-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -85,29 +45,35 @@ GET /api/v1/IdentityProviders
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
-> 400 Response
+#### Example response body
+> 200 Response
 
 ```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "property1": null,
-  "property2": null
-}
+[
+  {
+    "Id": "string",
+    "DisplayName": "string",
+    "Scheme": "string",
+    "UserIdClaimType": "string",
+    "ClientId": "string",
+    "IsConfigured": true,
+    "Capabilities": {
+      "User": {},
+      "Group": {}
+    }
+  }
+]
 ```
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Member</li>
 </ul>
 
 ---
+
 ## Get Identity Providers Header
 
 <a id="opIdIdentityProviders_Get Identity Providers Header"></a>
@@ -117,9 +83,10 @@ Get the total number of identity providers.
 ### Request
 ```text 
 HEAD /api/v1/IdentityProviders
+
 ```
 
-<h3 id="identityproviders_get-identity-providers-header-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -131,13 +98,13 @@ HEAD /api/v1/IdentityProviders
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Get Identity Provider
 
 <a id="opIdIdentityProviders_Get Identity Provider"></a>
@@ -147,13 +114,15 @@ Returns an IdentityProvider object.
 ### Request
 ```text 
 GET /api/v1/IdentityProviders/{identityProviderId}
+
 ```
 
-<h3 id="identityproviders_get-identity-provider-parameters">Parameters</h3>
+### Parameters
 
-`string identityProviderId`<br/>Identity provider unique identifier.<br/><br/>
+`string identityProviderId`
+<br/>Identity provider unique identifier.<br/><br/>
 
-<h3 id="identityproviders_get-identity-provider-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -163,7 +132,7 @@ GET /api/v1/IdentityProviders/{identityProviderId}
 |404|[ErrorResponse](#schemaerrorresponse)|Identity provider not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -190,13 +159,13 @@ GET /api/v1/IdentityProviders/{identityProviderId}
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Member</li>
 </ul>
 
 ---
+
 ## Get Identity Provider Header
 
 <a id="opIdIdentityProviders_Get Identity Provider Header"></a>
@@ -206,13 +175,15 @@ Validates that a identity provider exists
 ### Request
 ```text 
 HEAD /api/v1/IdentityProviders/{identityProviderId}
+
 ```
 
-<h3 id="identityproviders_get-identity-provider-header-parameters">Parameters</h3>
+### Parameters
 
-`string identityProviderId`<br/>Identity provider unique identifier.<br/><br/>
+`string identityProviderId`
+<br/>Identity provider unique identifier.<br/><br/>
 
-<h3 id="identityproviders_get-identity-provider-header-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -224,13 +195,13 @@ HEAD /api/v1/IdentityProviders/{identityProviderId}
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Get Identity Provider By Scheme
 
 <a id="opIdIdentityProviders_Get Identity Provider By Scheme"></a>
@@ -240,13 +211,15 @@ Returns a list of identity provider objects that follow a scheme.
 ### Request
 ```text 
 GET /api/v1/IdentityProviders/schemes/{scheme}
+
 ```
 
-<h3 id="identityproviders_get-identity-provider-by-scheme-parameters">Parameters</h3>
+### Parameters
 
-`string scheme`<br/>Scheme name (for example, AAD or Google).<br/><br/>
+`string scheme`
+<br/>Scheme name (for example, AAD or Google).<br/><br/>
 
-<h3 id="identityproviders_get-identity-provider-by-scheme-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -256,7 +229,7 @@ GET /api/v1/IdentityProviders/schemes/{scheme}
 |404|[ErrorResponse](#schemaerrorresponse)|Identity provider not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -283,13 +256,13 @@ GET /api/v1/IdentityProviders/schemes/{scheme}
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Member</li>
 </ul>
 
 ---
+
 ## Get Identity Provider Scheme Header
 
 <a id="opIdIdentityProviders_Get Identity Provider Scheme Header"></a>
@@ -299,13 +272,15 @@ Validates that a scheme exists
 ### Request
 ```text 
 HEAD /api/v1/IdentityProviders/schemes/{scheme}
+
 ```
 
-<h3 id="identityproviders_get-identity-provider-scheme-header-parameters">Parameters</h3>
+### Parameters
 
-`string scheme`<br/>Scheme name (for example, AAD or Google).<br/><br/>
+`string scheme`
+<br/>Scheme name (for example, AAD or Google).<br/><br/>
 
-<h3 id="identityproviders_get-identity-provider-scheme-header-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -317,43 +292,20 @@ HEAD /api/v1/IdentityProviders/schemes/{scheme}
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
+---
 # Definitions
 
-<h2 id="tocS_IdentityProvider">IdentityProvider</h2>
+## IdentityProvider
 
 <a id="schemaidentityprovider"></a>
 <a id="schema_IdentityProvider"></a>
 <a id="tocSidentityprovider"></a>
 <a id="tocsidentityprovider"></a>
-
-```json
-{
-  "Id": "string",
-  "DisplayName": "string",
-  "Scheme": "string",
-  "UserIdClaimType": "string",
-  "ClientId": "string",
-  "IsConfigured": true,
-  "Capabilities": {
-    "User": {
-      "SignIn": null,
-      "Invitation": null,
-      "Search": null
-    },
-    "Group": {
-      "Authorize": null,
-      "Search": null
-    }
-  }
-}
-
-```
 
 The model for an Identity Provider in Identity Storage.
 
@@ -369,12 +321,46 @@ The model for an Identity Provider in Identity Storage.
 |IsConfigured|boolean|false|false|Whether the identity provider has been configured.|
 |Capabilities|[IdentityProviderCapabilities](#schemaidentityprovidercapabilities)|false|true|Capabilities of the identity provider.|
 
-<h2 id="tocS_IdentityProviderCapabilities">IdentityProviderCapabilities</h2>
+```json
+{
+  "Id": "string",
+  "DisplayName": "string",
+  "Scheme": "string",
+  "UserIdClaimType": "string",
+  "ClientId": "string",
+  "IsConfigured": true,
+  "Capabilities": {
+    "User": {
+      "SignIn": null,
+      "Invitation": null,
+      "Search": null
+    },
+    "Group": {
+      "Authorize": null,
+      "Search": null
+    }
+  }
+}
+
+```
+
+---
+
+## IdentityProviderCapabilities
 
 <a id="schemaidentityprovidercapabilities"></a>
 <a id="schema_IdentityProviderCapabilities"></a>
 <a id="tocSidentityprovidercapabilities"></a>
 <a id="tocsidentityprovidercapabilities"></a>
+
+The model for the capabilities of an identity provider.
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|User|[IdentityProviderUserCapabilites](#schemaidentityproviderusercapabilites)|false|true|User level capabilities.|
+|Group|[IdentityProviderGroupCapabilites](#schemaidentityprovidergroupcapabilites)|false|true|Group level capabilities.|
 
 ```json
 {
@@ -391,21 +377,24 @@ The model for an Identity Provider in Identity Storage.
 
 ```
 
-The model for the Capabilities of an Identity Provider in Identity Storage.
+---
 
-### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|User|[IdentityProviderUserCapabilites](#schemaidentityproviderusercapabilites)|false|true|Gets or sets user level capabilities|
-|Group|[IdentityProviderGroupCapabilites](#schemaidentityprovidergroupcapabilites)|false|true|Gets or sets group level capabilities|
-
-<h2 id="tocS_IdentityProviderUserCapabilites">IdentityProviderUserCapabilites</h2>
+## IdentityProviderUserCapabilites
 
 <a id="schemaidentityproviderusercapabilites"></a>
 <a id="schema_IdentityProviderUserCapabilites"></a>
 <a id="tocSidentityproviderusercapabilites"></a>
 <a id="tocsidentityproviderusercapabilites"></a>
+
+The model for the user level capabilities of an identity provider.
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|SignIn|boolean|false|false|Value indicating whether user log in is supported.|
+|Invitation|boolean|false|false|Value indicating whether authorization via the invitation flow is supported.|
+|Search|boolean|false|false|Value indicating whether user search is supported.|
 
 ```json
 {
@@ -416,22 +405,23 @@ The model for the Capabilities of an Identity Provider in Identity Storage.
 
 ```
 
-The model for the user level capabilities of an identity provider in identity storage.
+---
 
-### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|SignIn|boolean|false|false|Value indicating whether user log in is supported.|
-|Invitation|boolean|false|false|Value indicating whether authorization via the invitation flow is supported.|
-|Search|boolean|false|false|Value indicating whether user search is supported.|
-
-<h2 id="tocS_IdentityProviderGroupCapabilites">IdentityProviderGroupCapabilites</h2>
+## IdentityProviderGroupCapabilites
 
 <a id="schemaidentityprovidergroupcapabilites"></a>
 <a id="schema_IdentityProviderGroupCapabilites"></a>
 <a id="tocSidentityprovidergroupcapabilites"></a>
 <a id="tocsidentityprovidergroupcapabilites"></a>
+
+The model for the group level capabilities of an identity provider.
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Authorize|boolean|false|false|Value indicating whether authorization via groups is supported.|
+|Search|boolean|false|false|Value indicating whether group search is supported.|
 
 ```json
 {
@@ -441,21 +431,25 @@ The model for the user level capabilities of an identity provider in identity st
 
 ```
 
-The model for the group level capabilities of an identity provider in identity storage.
+---
 
-### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Authorize|boolean|false|false|Value indicating whether authorization via groups is supported.|
-|Search|boolean|false|false|Value indicating whether group search is supported.|
-
-<h2 id="tocS_ErrorResponse">ErrorResponse</h2>
+## ErrorResponse
 
 <a id="schemaerrorresponse"></a>
 <a id="schema_ErrorResponse"></a>
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
+
+Object returned whenever there is an error.
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
+|Error|string|true|false|Error description.|
+|Reason|string|true|false|Reason for the error.|
+|Resolution|string|true|false|Resolution to resolve the error.|
 
 ```json
 {
@@ -469,14 +463,5 @@ The model for the group level capabilities of an identity provider in identity s
 
 ```
 
-Object returned whenever there is an error.
-
-### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
-|Error|string|true|false|Error description.|
-|Reason|string|true|false|Reason for the error.|
-|Resolution|string|true|false|Resolution needed to resolve the Error.|
+---
 

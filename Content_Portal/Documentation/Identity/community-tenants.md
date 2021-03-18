@@ -1,5 +1,5 @@
 ---
-title: Identity/community-tenants v20210308.1
+title: Identity/community-tenants v20210317.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,20 +7,15 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.5
+generator: osisoft.widdershins v1.0.6
 
 ---
 
-<h1 id="identity-community-tenants-community-tenants">Community Tenants</h1>
+[[_TOC_]]
+
+# Community Tenants
 APIs for getting Member Tenants info in a Community.
 
-	
-
-	
-
-	
-
----
 ## Update Community Tenant By Id
 
 <a id="opIdCommunityTenants_Update Community Tenant By Id"></a>
@@ -30,6 +25,7 @@ Updates the state of a Community Tenant. It can be activated, paused, or removed
 ### Request
 ```text 
 PUT /api/v1/tenants/{tenantId}/communities/{communityId}/communitytenants/{communityTenantId}
+
 ```
 
 ### Request Body
@@ -42,11 +38,14 @@ The community tenant object that contains the attributes to use for the update.<
 }
 ```
 
-<h3 id="communitytenants_update-community-tenant-by-id-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>The id of the owning tenant.<br/><br/>`string communityId`<br/>The id of the community.<br/><br/>`string communityTenantId`<br/>The target community tenant in the the community to update.<br/><br/>
+`string tenantId`
+<br/>The id of the owning tenant.<br/><br/>`string communityId`
+<br/>The id of the community.<br/><br/>`string communityTenantId`
+<br/>The target community tenant in the the community to update.<br/><br/>
 
-<h3 id="communitytenants_update-community-tenant-by-id-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -58,7 +57,7 @@ The community tenant object that contains the attributes to use for the update.<
 |404|[ErrorResponse](#schemaerrorresponse)|Not Found. The requested community tenant was not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it doesn't know how to handle.|
 
-### Example response body
+#### Example response body
 > 400 Response
 
 ```json
@@ -74,14 +73,14 @@ The community tenant object that contains the attributes to use for the update.<
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Community Administrator</li>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Update Community Tenant By Id2
 
 <a id="opIdCommunityTenants_Update Community Tenant By Id2"></a>
@@ -91,6 +90,7 @@ Updates the state of a Community Tenant. It can be activated, paused, or removed
 ### Request
 ```text 
 PUT /api/v1/tenants/{tenantId}/communities/{communityId}/membertenants/{communityTenantId}
+
 ```
 
 ### Request Body
@@ -103,11 +103,14 @@ The community tenant object that contains the attributes to use for the update.<
 }
 ```
 
-<h3 id="communitytenants_update-community-tenant-by-id2-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>The id of the owning tenant.<br/><br/>`string communityId`<br/>The id of the community.<br/><br/>`string communityTenantId`<br/>The target community tenant in the the community to update.<br/><br/>
+`string tenantId`
+<br/>The id of the owning tenant.<br/><br/>`string communityId`
+<br/>The id of the community.<br/><br/>`string communityTenantId`
+<br/>The target community tenant in the the community to update.<br/><br/>
 
-<h3 id="communitytenants_update-community-tenant-by-id2-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -119,7 +122,7 @@ The community tenant object that contains the attributes to use for the update.<
 |404|[ErrorResponse](#schemaerrorresponse)|Not Found. The requested community tenant was not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it doesn't know how to handle.|
 
-### Example response body
+#### Example response body
 > 400 Response
 
 ```json
@@ -135,33 +138,21 @@ The community tenant object that contains the attributes to use for the update.<
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Community Administrator</li>
 <li>Tenant Administrator</li>
 </ul>
 
+---
 # Definitions
 
-<h2 id="tocS_ErrorResponse">ErrorResponse</h2>
+## ErrorResponse
 
 <a id="schemaerrorresponse"></a>
 <a id="schema_ErrorResponse"></a>
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
-
-```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "property1": null,
-  "property2": null
-}
-
-```
 
 Object returned whenever there is an error.
 
@@ -172,21 +163,28 @@ Object returned whenever there is an error.
 |OperationId|string|true|false|Operation unique identifier of action that caused the error.|
 |Error|string|true|false|Error description.|
 |Reason|string|true|false|Reason for the error.|
-|Resolution|string|true|false|Resolution needed to resolve the Error.|
+|Resolution|string|true|false|Resolution to resolve the error.|
 
-<h2 id="tocS_UpdateCommunityTenantInput">UpdateCommunityTenantInput</h2>
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
+}
+
+```
+
+---
+
+## UpdateCommunityTenantInput
 
 <a id="schemaupdatecommunitytenantinput"></a>
 <a id="schema_UpdateCommunityTenantInput"></a>
 <a id="tocSupdatecommunitytenantinput"></a>
 <a id="tocsupdatecommunitytenantinput"></a>
-
-```json
-{
-  "Status": "Undefined"
-}
-
-```
 
 The UpdateCommunityTenantInput Data Transfer Object. This is the model input for the UpdateCommunityTenantById controller endpoint.
 
@@ -196,7 +194,16 @@ The UpdateCommunityTenantInput Data Transfer Object. This is the model input for
 |---|---|---|---|---|
 |Status|[CommunityTenantStatus](#schemacommunitytenantstatus)|false|false|The new status of the CommunityTenant in Community.|
 
-<h2 id="tocS_CommunityTenantStatus">CommunityTenantStatus</h2>
+```json
+{
+  "Status": "Undefined"
+}
+
+```
+
+---
+
+## CommunityTenantStatus
 
 <a id="schemacommunitytenantstatus"></a>
 <a id="schema_CommunityTenantStatus"></a>
@@ -214,4 +221,6 @@ Represents a status of a Community Tenant.
 |Paused|Paused|
 |Active|Active|
 |Remove|Remove|
+
+---
 

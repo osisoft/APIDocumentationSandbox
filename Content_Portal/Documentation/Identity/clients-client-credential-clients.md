@@ -1,5 +1,5 @@
 ---
-title: Identity/clients-client-credential-clients v20210308.1
+title: Identity/clients-client-credential-clients v20210317.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,45 +7,15 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.5
+generator: osisoft.widdershins v1.0.6
 
 ---
 
-<h1 id="identity-clients-client-credential-clients-client-credential-clients">Client Credential Clients</h1>
+[[_TOC_]]
+
+# Client Credential Clients
 APIs for getting, adding, or removing Client Credential clients from Communities.
 
-	
-
-Object to get or update a client credential client.
-
-### Properties
-|Property Name|Data Type|Description|
-|---|---|---|
-|Id|string|Client unique identifier for this client. This unique identifier should be a GUID.|
-|Name|string|Name of client.|
-|Enabled|boolean|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
-|AccessTokenLifetime|int32|Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
-|Tags|string[]|Tags for OSIsoft internal use only.|
-|RoleIds|string[]|List of roles to be assigned to this client. Member role is always required. For security reasons we advise against assigning administrator role to a client.|
-
-```json
-{
-  "Id": "string",
-  "Name": "string",
-  "Enabled": true,
-  "AccessTokenLifetime": 0,
-  "Tags": [
-    "string"
-  ],
-  "RoleIds": [
-    "string"
-  ]
-}
-```
-
-	
-
----
 ## List Community Client Credential Clients
 
 <a id="opIdClientCredentialClients_List Community Client Credential Clients"></a>
@@ -55,13 +25,16 @@ Get Client Credential clients for a Community.
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/Communities/{communityId}/ClientCredentialClients
+
 ```
 
-<h3 id="clientcredentialclients_list-community-client-credential-clients-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Id of the Tenant that belongs to this Community.<br/><br/>`string communityId`<br/>Id of Community.<br/><br/>
+`string tenantId`
+<br/>Id of the Tenant that belongs to this Community.<br/><br/>`string communityId`
+<br/>Id of Community.<br/><br/>
 
-<h3 id="clientcredentialclients_list-community-client-credential-clients-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -72,30 +45,36 @@ GET /api/v1/Tenants/{tenantId}/Communities/{communityId}/ClientCredentialClients
 |404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
-> 400 Response
+#### Example response body
+> 200 Response
 
 ```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "property1": null,
-  "property2": null
-}
+[
+  {
+    "Id": "string",
+    "Name": "string",
+    "Enabled": true,
+    "AccessTokenLifetime": 0,
+    "Tags": [
+      "string"
+    ],
+    "RoleIds": [
+      "string"
+    ]
+  }
+]
 ```
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Community Member</li>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Get Community Client Credential Clients Count
 
 <a id="opIdClientCredentialClients_Get Community Client Credential Clients Count"></a>
@@ -105,13 +84,16 @@ Get Client Credential Client Count for a Community.
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/Communities/{communityId}/ClientCredentialClients
+
 ```
 
-<h3 id="clientcredentialclients_get-community-client-credential-clients-count-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Id of the Tenant that belongs to this Community.<br/><br/>`string communityId`<br/>Id of the Community.<br/><br/>
+`string tenantId`
+<br/>Id of the Tenant that belongs to this Community.<br/><br/>`string communityId`
+<br/>Id of the Community.<br/><br/>
 
-<h3 id="clientcredentialclients_get-community-client-credential-clients-count-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -122,7 +104,7 @@ HEAD /api/v1/Tenants/{tenantId}/Communities/{communityId}/ClientCredentialClient
 |404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 400 Response
 
 ```json
@@ -138,14 +120,14 @@ HEAD /api/v1/Tenants/{tenantId}/Communities/{communityId}/ClientCredentialClient
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Community Member</li>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Add Client Credential Client To Community
 
 <a id="opIdClientCredentialClients_Add Client Credential Client To Community"></a>
@@ -155,13 +137,17 @@ Add a Client Credential Client to a Community.
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/Communities/{communityId}/ClientCredentialClients/{clientId}
+
 ```
 
-<h3 id="clientcredentialclients_add-client-credential-client-to-community-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Id of the Tenant that belongs to this Community<br/><br/>`string communityId`<br/>Id of Community.<br/><br/>`string clientId`<br/>Id of the Client Credential Client to add to the specified Community.<br/><br/>
+`string tenantId`
+<br/>Id of the Tenant that belongs to this Community<br/><br/>`string communityId`
+<br/>Id of Community.<br/><br/>`string clientId`
+<br/>Id of the Client Credential Client to add to the specified Community.<br/><br/>
 
-<h3 id="clientcredentialclients_add-client-credential-client-to-community-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -172,7 +158,7 @@ PUT /api/v1/Tenants/{tenantId}/Communities/{communityId}/ClientCredentialClients
 |404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 201 Response
 
 ```json
@@ -192,8 +178,7 @@ PUT /api/v1/Tenants/{tenantId}/Communities/{communityId}/ClientCredentialClients
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Community Administrator</li>
 <li>Community Moderator</li>
@@ -201,6 +186,7 @@ Allowed for these roles: <br/><br/>
 </ul>
 
 ---
+
 ## Remove Client Credential Client From Community
 
 <a id="opIdClientCredentialClients_Remove Client Credential Client From Community"></a>
@@ -210,13 +196,17 @@ Remove a Client Credential Client from a Community.
 ### Request
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/Communities/{communityId}/ClientCredentialClients/{clientId}
+
 ```
 
-<h3 id="clientcredentialclients_remove-client-credential-client-from-community-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Id of the Tenant that belongs to this Community.<br/><br/>`string communityId`<br/>Id of Community.<br/><br/>`string clientId`<br/>Id of the Client Credential Client to remove from the specified Community.<br/><br/>
+`string tenantId`
+<br/>Id of the Tenant that belongs to this Community.<br/><br/>`string communityId`
+<br/>Id of Community.<br/><br/>`string clientId`
+<br/>Id of the Client Credential Client to remove from the specified Community.<br/><br/>
 
-<h3 id="clientcredentialclients_remove-client-credential-client-from-community-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -227,7 +217,7 @@ DELETE /api/v1/Tenants/{tenantId}/Communities/{communityId}/ClientCredentialClie
 |404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 400 Response
 
 ```json
@@ -243,22 +233,33 @@ DELETE /api/v1/Tenants/{tenantId}/Communities/{communityId}/ClientCredentialClie
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Community Administrator</li>
 <li>Community Moderator</li>
 <li>Tenant Administrator</li>
 </ul>
 
+---
 # Definitions
 
-<h2 id="tocS_ErrorResponse">ErrorResponse</h2>
+## ErrorResponse
 
 <a id="schemaerrorresponse"></a>
 <a id="schema_ErrorResponse"></a>
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
+
+Object returned whenever there is an error.
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
+|Error|string|true|false|Error description.|
+|Reason|string|true|false|Reason for the error.|
+|Resolution|string|true|false|Resolution to resolve the error.|
 
 ```json
 {
@@ -272,23 +273,27 @@ Allowed for these roles: <br/><br/>
 
 ```
 
-Object returned whenever there is an error.
+---
 
-### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
-|Error|string|true|false|Error description.|
-|Reason|string|true|false|Reason for the error.|
-|Resolution|string|true|false|Resolution needed to resolve the Error.|
-
-<h2 id="tocS_ClientCredentialClient">ClientCredentialClient</h2>
+## ClientCredentialClient
 
 <a id="schemaclientcredentialclient"></a>
 <a id="schema_ClientCredentialClient"></a>
 <a id="tocSclientcredentialclient"></a>
 <a id="tocsclientcredentialclient"></a>
+
+Object to get or update a client credential client.
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|string|false|true|Client unique identifier for this client. This unique identifier should be a GUID.|
+|Name|string|false|true|Name of client.|
+|Enabled|boolean|false|true|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
+|AccessTokenLifetime|int32|false|true|Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
+|Tags|string[]|false|true|Tags for OSIsoft internal use only.|
+|RoleIds|string[]|false|true|List of roles to be assigned to this client. Member role is always required. For security reasons we advise against assigning administrator role to a client.|
 
 ```json
 {
@@ -306,16 +311,5 @@ Object returned whenever there is an error.
 
 ```
 
-Object to get or update a client credential client.
-
-### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Id|string|false|true|Client unique identifier for this client. This unique identifier should be a GUID.|
-|Name|string|false|true|Name of client.|
-|Enabled|boolean|false|true|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
-|AccessTokenLifetime|int32|false|true|Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
-|Tags|string[]|false|true|Tags for OSIsoft internal use only.|
-|RoleIds|string[]|false|true|List of roles to be assigned to this client. Member role is always required. For security reasons we advise against assigning administrator role to a client.|
+---
 

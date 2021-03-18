@@ -1,5 +1,5 @@
 ---
-title: Identity/hybrid-clients-secrets v20210308.1
+title: Identity/hybrid-clients-secrets v20210317.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,26 +7,15 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.5
+generator: osisoft.widdershins v1.0.6
 
 ---
 
-<h1 id="identity-hybrid-clients-secrets-secrets">Secrets</h1>
+[[_TOC_]]
+
+# Secrets
 Secrets are used to authenticate both client credential clients and hybrid clients. A secret has an expiration date or can be created to never expire. We advise to avoid creating secrets that do not expire. After a secret expires it can no longer be used to authenticate the client. Any access token issued while a secret is still valid will be active until the token itself expires. The same applies to refresh tokens, which are issued to hybrid clients. Safe storage of secrets is your responsibility. OCS does not store secret values, so once lost there is no way to retrieve the value of a secret.
 
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
----
 ## List Hybrid Client Secrets
 
 <a id="opIdSecrets_List Hybrid Client Secrets"></a>
@@ -36,14 +25,20 @@ Gets all secrets for a hybrid client. Total number of secrets in the client set 
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets
+?query={query}&skip={skip}&count={count}
 ```
 
-<h3 id="secrets_list-hybrid-client-secrets-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>
-`[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of clients to skip.<br/><br/>`[optional] integer count`<br/>Maximum number of clients to return.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>
+`[optional] string query`
+<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`
+<br/>Number of clients to skip.<br/><br/>`[optional] integer count`
+<br/>Maximum number of clients to return.<br/><br/>
 
-<h3 id="secrets_list-hybrid-client-secrets-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -53,29 +48,29 @@ GET /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets
 |404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
-> 401 Response
+#### Example response body
+> 200 Response
 
 ```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "property1": null,
-  "property2": null
-}
+[
+  {
+    "Expiration": "2019-08-24T14:15:22Z",
+    "Expires": true,
+    "Description": "string",
+    "Id": 0
+  }
+]
 ```
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Get Hybrid Client Secrets Header
 
 <a id="opIdSecrets_Get Hybrid Client Secrets Header"></a>
@@ -85,13 +80,16 @@ Returns total number of secrets in a hybrid client. The value will be set in the
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets
+
 ```
 
-<h3 id="secrets_get-hybrid-client-secrets-header-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>
 
-<h3 id="secrets_get-hybrid-client-secrets-header-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -103,13 +101,13 @@ HEAD /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Add Hybrid Client Secret
 
 <a id="opIdSecrets_Add Hybrid Client Secret"></a>
@@ -119,6 +117,7 @@ Adds a new secret to a hybrid client. A client can have a maximum of 10 secrets.
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets
+
 ```
 
 ### Request Body
@@ -133,11 +132,13 @@ ClientSecretCreateOrUpdate object.<br/>
 }
 ```
 
-<h3 id="secrets_add-hybrid-client-secret-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>
 
-<h3 id="secrets_add-hybrid-client-secret-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -148,7 +149,7 @@ ClientSecretCreateOrUpdate object.<br/>
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 201 Response
 
 ```json
@@ -163,13 +164,13 @@ ClientSecretCreateOrUpdate object.<br/>
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Get Hybrid Client Secret
 
 <a id="opIdSecrets_Get Hybrid Client Secret"></a>
@@ -179,13 +180,17 @@ Gets a hybrid client secret.
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
+
 ```
 
-<h3 id="secrets_get-hybrid-client-secret-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>`integer secretId`<br/>Secret unique identifier.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>`integer secretId`
+<br/>Secret unique identifier.<br/><br/>
 
-<h3 id="secrets_get-hybrid-client-secret-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -195,7 +200,7 @@ GET /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
 |404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -209,13 +214,13 @@ GET /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Get Hybrid Client Secret Header
 
 <a id="opIdSecrets_Get Hybrid Client Secret Header"></a>
@@ -225,13 +230,17 @@ Validates that a secret unique identifier exists in the client. This endpoint is
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
+
 ```
 
-<h3 id="secrets_get-hybrid-client-secret-header-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>`integer secretId`<br/>Secret unique identifier.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>`integer secretId`
+<br/>Secret unique identifier.<br/><br/>
 
-<h3 id="secrets_get-hybrid-client-secret-header-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -243,13 +252,13 @@ HEAD /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Update Hybrid Client Secret
 
 <a id="opIdSecrets_Update Hybrid Client Secret"></a>
@@ -259,6 +268,7 @@ Updates a hybrid client secret. It can take up to one hour for the update to man
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
+
 ```
 
 ### Request Body
@@ -273,11 +283,14 @@ ClientSecretCreateOrUpdate object. Properties that are not set or are null will 
 }
 ```
 
-<h3 id="secrets_update-hybrid-client-secret-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>`integer secretId`<br/>Secret unique identifier.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>`integer secretId`
+<br/>Secret unique identifier.<br/><br/>
 
-<h3 id="secrets_update-hybrid-client-secret-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -289,7 +302,7 @@ ClientSecretCreateOrUpdate object. Properties that are not set or are null will 
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -303,13 +316,13 @@ ClientSecretCreateOrUpdate object. Properties that are not set or are null will 
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Delete Hybrid Client Secret
 
 <a id="opIdSecrets_Delete Hybrid Client Secret"></a>
@@ -319,13 +332,17 @@ Deletes a secret from a hybrid client. It can take up to one hour for deletion t
 ### Request
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
+
 ```
 
-<h3 id="secrets_delete-hybrid-client-secret-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>`integer secretId`<br/>Secret unique identifier.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>`integer secretId`
+<br/>Secret unique identifier.<br/><br/>
 
-<h3 id="secrets_delete-hybrid-client-secret-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -336,7 +353,7 @@ DELETE /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 401 Response
 
 ```json
@@ -352,13 +369,13 @@ DELETE /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## List V1 Preview Hybrid Client Secrets
 
 <a id="opIdSecrets_List V1 Preview Hybrid Client Secrets"></a>
@@ -368,14 +385,20 @@ Get all secrets for a hybrid client.
 ### Request
 ```text 
 GET /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}/Secrets
+?query={query}&skip={skip}&count={count}
 ```
 
-<h3 id="secrets_list-v1-preview-hybrid-client-secrets-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>
-`[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of clients to skip. From query.<br/><br/>`[optional] integer count`<br/>Maximum number of clients to return.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>
+`[optional] string query`
+<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`
+<br/>Number of clients to skip. From query.<br/><br/>`[optional] integer count`
+<br/>Maximum number of clients to return.<br/><br/>
 
-<h3 id="secrets_list-v1-preview-hybrid-client-secrets-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -385,29 +408,30 @@ GET /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}/Secrets
 |404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
-> 401 Response
+#### Example response body
+> 200 Response
 
 ```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "property1": null,
-  "property2": null
-}
+[
+  {
+    "Expiration": "2019-08-24T14:15:22Z",
+    "Expires": true,
+    "Description": "string",
+    "SecretId": "string",
+    "Id": "string"
+  }
+]
 ```
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Add V1 Preview Hybrid Client Secret
 
 <a id="opIdSecrets_Add V1 Preview Hybrid Client Secret"></a>
@@ -417,6 +441,7 @@ Add a new secret for a hybrid client.
 ### Request
 ```text 
 POST /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}/Secrets
+
 ```
 
 ### Request Body
@@ -431,11 +456,13 @@ Client secret to create.<br/>
 }
 ```
 
-<h3 id="secrets_add-v1-preview-hybrid-client-secret-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>
 
-<h3 id="secrets_add-v1-preview-hybrid-client-secret-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -446,7 +473,7 @@ Client secret to create.<br/>
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 201 Response
 
 ```json
@@ -463,13 +490,13 @@ Client secret to create.<br/>
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Get V1 Preview Hybrid Client Secret
 
 <a id="opIdSecrets_Get V1 Preview Hybrid Client Secret"></a>
@@ -479,13 +506,17 @@ Get a specific hybrid client secret.
 ### Request
 ```text 
 GET /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
+
 ```
 
-<h3 id="secrets_get-v1-preview-hybrid-client-secret-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>`integer secretId`<br/>Secret unique identifier.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>`integer secretId`
+<br/>Secret unique identifier.<br/><br/>
 
-<h3 id="secrets_get-v1-preview-hybrid-client-secret-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -495,7 +526,7 @@ GET /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretI
 |404|[ErrorResponse](#schemaerrorresponse)|Secret, client, or tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -510,13 +541,13 @@ GET /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretI
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Update V1 Preview Hybrid Client Secret
 
 <a id="opIdSecrets_Update V1 Preview Hybrid Client Secret"></a>
@@ -526,6 +557,7 @@ Update a hybrid client secret. Only secret description and secret expiration dat
 ### Request
 ```text 
 PUT /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
+
 ```
 
 ### Request Body
@@ -540,11 +572,14 @@ Client secret details.<br/>
 }
 ```
 
-<h3 id="secrets_update-v1-preview-hybrid-client-secret-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>`integer secretId`<br/>secretId.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>`integer secretId`
+<br/>secretId.<br/><br/>
 
-<h3 id="secrets_update-v1-preview-hybrid-client-secret-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -556,7 +591,7 @@ Client secret details.<br/>
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -571,20 +606,31 @@ Client secret details.<br/>
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
+---
 # Definitions
 
-<h2 id="tocS_ClientSecret">ClientSecret</h2>
+## ClientSecret
 
 <a id="schemaclientsecret"></a>
 <a id="schema_ClientSecret"></a>
 <a id="tocSclientsecret"></a>
 <a id="tocsclientsecret"></a>
+
+Client secret object.
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Expiration|date-time|false|true|Expiration date for the client secret. Will be null if the secret does not expire.|
+|Expires|boolean|false|true|Value indicating whether the secret expires. Defaults to true. If Expires is set to true (or null) and expiration is not null, expiration of this secret will be enforced. If Expires is set to true (or null) and expiration is null, a 400 error will be returned. If Expires is set to false and expiration is not null, a 400 error will be returned. If Expires is set to false and expiration is null, there will be no expiration of this secret.|
+|Description|string|false|true|Description for the client secret. We suggest being as descriptive as possible. This field will make identifying secrets easier.|
+|Id|int32|false|false|Unique identifier of this client secret.|
 
 ```json
 {
@@ -596,23 +642,25 @@ Allowed for these roles: <br/><br/>
 
 ```
 
-Client secret object.
+---
 
-### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Expiration|date-time|false|true|Expiration date for the client secret. Will be null if the secret does not expire.|
-|Expires|boolean|false|true|Determines if the secret expires. Defaults to true. If expires is set to true (or null) and expiration is not null, expiration of this secret will be enforced. If expires is set to true (or null) and expiration is null, a 400 error will be returned. If expires is set to false and expiration is not null, a 400 error will be returned. If expires is set to false and expiration is null, there will be no expiration of this secret.|
-|Description|string|false|true|Description for the client secret. We suggest being as descriptive as possible. This field will make identifying secrets easier.|
-|Id|int32|false|false|Secret unique identifier.|
-
-<h2 id="tocS_ErrorResponse">ErrorResponse</h2>
+## ErrorResponse
 
 <a id="schemaerrorresponse"></a>
 <a id="schema_ErrorResponse"></a>
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
+
+Object returned whenever there is an error.
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
+|Error|string|true|false|Error description.|
+|Reason|string|true|false|Reason for the error.|
+|Resolution|string|true|false|Resolution to resolve the error.|
 
 ```json
 {
@@ -626,23 +674,26 @@ Client secret object.
 
 ```
 
-Object returned whenever there is an error.
+---
 
-### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
-|Error|string|true|false|Error description.|
-|Reason|string|true|false|Reason for the error.|
-|Resolution|string|true|false|Resolution needed to resolve the Error.|
-
-<h2 id="tocS_ClientSecretResponse">ClientSecretResponse</h2>
+## ClientSecretResponse
 
 <a id="schemaclientsecretresponse"></a>
 <a id="schema_ClientSecretResponse"></a>
 <a id="tocSclientsecretresponse"></a>
 <a id="tocsclientsecretresponse"></a>
+
+Object returned after a client secret is created.
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|int32|false|false|Unique identifier of this client secret.|
+|Expiration|date-time|false|true|Expiration date for the client secret. Will be null if the secret does not expire.|
+|Expires|boolean|false|true|Value indicating whether the secret expires. Defaults to true. If Expires is set to true (or null) and expiration is not null, expiration of this secret will be enforced. If Expires is set to true (or null) and expiration is null, a 400 error will be returned. If Expires is set to false and expiration is not null, a 400 error will be returned. If Expires is set to false and expiration is null, there will be no expiration of this secret.|
+|Description|string|false|true|Description for the client secret. We suggest being as descriptive as possible. This field will make identifying secrets easier.|
+|Secret|string|false|true|Client secret.|
 
 ```json
 {
@@ -655,24 +706,24 @@ Object returned whenever there is an error.
 
 ```
 
-Object returned after a client secret is created.
+---
 
-### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Id|int32|false|false|Secret unique identifier.|
-|Expiration|date-time|false|true|Expiration date for the client secret. Will be null if the secret does not expire.|
-|Expires|boolean|false|true|Determines if the secret expires. Defaults to true. If expires is set to true (or null) and expiration is not null, expiration of this secret will be enforced. If expires is set to true (or null) and expiration is null, a 400 error will be returned. If expires is set to false and expiration is not null, a 400 error will be returned. If expires is set to false and expiration is null, there will be no expiration of this secret.|
-|Description|string|false|true|Description for the client secret. We suggest being as descriptive as possible. This field will make identifying secrets easier.|
-|Secret|string|false|true|Client secret.|
-
-<h2 id="tocS_ClientSecretCreateOrUpdate">ClientSecretCreateOrUpdate</h2>
+## ClientSecretCreateOrUpdate
 
 <a id="schemaclientsecretcreateorupdate"></a>
 <a id="schema_ClientSecretCreateOrUpdate"></a>
 <a id="tocSclientsecretcreateorupdate"></a>
 <a id="tocsclientsecretcreateorupdate"></a>
+
+Object to write a client secret.
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Expiration|date-time|false|true|Expiration date for the client secret. Will be null if the secret does not expire.|
+|Expires|boolean|false|true|Value indicating whether the secret expires. Defaults to true. If Expires is set to true (or null) and expiration is not null, expiration of this secret will be enforced. If Expires is set to true (or null) and expiration is null, a 400 error will be returned. If Expires is set to false and expiration is not null, a 400 error will be returned. If Expires is set to false and expiration is null, there will be no expiration of this secret.|
+|Description|string|false|true|Description for the client secret. We suggest being as descriptive as possible. This field will make identifying secrets easier.|
 
 ```json
 {
@@ -683,22 +734,24 @@ Object returned after a client secret is created.
 
 ```
 
-Object to write a client secret.
+---
+
+## ClientSecret2
+
+<a id="schemaclientsecret2"></a>
+<a id="schema_ClientSecret2"></a>
+<a id="tocSclientsecret2"></a>
+<a id="tocsclientsecret2"></a>
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
 |Expiration|date-time|false|true|Expiration date for the client secret. Will be null if the secret does not expire.|
-|Expires|boolean|false|true|Determines if the secret expires. Defaults to true. If expires is set to true (or null) and expiration is not null, expiration of this secret will be enforced. If expires is set to true (or null) and expiration is null, a 400 error will be returned. If expires is set to false and expiration is not null, a 400 error will be returned. If expires is set to false and expiration is null, there will be no expiration of this secret.|
+|Expires|boolean|false|true|Value indicating whether the secret expires. Defaults to true. If Expires is set to true (or null) and expiration is not null, expiration of this secret will be enforced. If Expires is set to true (or null) and expiration is null, a 400 error will be returned. If Expires is set to false and expiration is not null, a 400 error will be returned. If Expires is set to false and expiration is null, there will be no expiration of this secret.|
 |Description|string|false|true|Description for the client secret. We suggest being as descriptive as possible. This field will make identifying secrets easier.|
-
-<h2 id="tocS_ClientSecret2">ClientSecret2</h2>
-
-<a id="schemaclientsecret2"></a>
-<a id="schema_ClientSecret2"></a>
-<a id="tocSclientsecret2"></a>
-<a id="tocsclientsecret2"></a>
+|SecretId|string|false|true|None|
+|Id|string|false|true|None|
 
 ```json
 {
@@ -711,22 +764,26 @@ Object to write a client secret.
 
 ```
 
-### Properties
+---
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Expiration|date-time|false|true|Expiration date for the client secret. Will be null if the secret does not expire.|
-|Expires|boolean|false|true|Determines if the secret expires. Defaults to true. If expires is set to true (or null) and expiration is not null, expiration of this secret will be enforced. If expires is set to true (or null) and expiration is null, a 400 error will be returned. If expires is set to false and expiration is not null, a 400 error will be returned. If expires is set to false and expiration is null, there will be no expiration of this secret.|
-|Description|string|false|true|Description for the client secret. We suggest being as descriptive as possible. This field will make identifying secrets easier.|
-|SecretId|string|false|true|None|
-|Id|string|false|true|None|
-
-<h2 id="tocS_ClientSecretResponse2">ClientSecretResponse2</h2>
+## ClientSecretResponse2
 
 <a id="schemaclientsecretresponse2"></a>
 <a id="schema_ClientSecretResponse2"></a>
 <a id="tocSclientsecretresponse2"></a>
 <a id="tocsclientsecretresponse2"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|SecretId|string|false|true|None|
+|Id|string|false|true|None|
+|Expiration|date-time|false|true|Expiration date for the client secret. Will be null if the secret does not expire.|
+|Expires|boolean|false|true|Value indicating whether the secret expires. Defaults to true. If Expires is set to true (or null) and expiration is not null, expiration of this secret will be enforced. If Expires is set to true (or null) and expiration is null, a 400 error will be returned. If Expires is set to false and expiration is not null, a 400 error will be returned. If Expires is set to false and expiration is null, there will be no expiration of this secret.|
+|Description|string|false|true|Description for the client secret. We suggest being as descriptive as possible. This field will make identifying secrets easier.|
+|ClientSecret|string|false|true|None|
+|Secret|string|false|true|None|
 
 ```json
 {
@@ -741,15 +798,5 @@ Object to write a client secret.
 
 ```
 
-### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|SecretId|string|false|true|None|
-|Id|string|false|true|None|
-|Expiration|date-time|false|true|Expiration date for the client secret. Will be null if the secret does not expire.|
-|Expires|boolean|false|true|Determines if the secret expires. Defaults to true. If expires is set to true (or null) and expiration is not null, expiration of this secret will be enforced. If expires is set to true (or null) and expiration is null, a 400 error will be returned. If expires is set to false and expiration is not null, a 400 error will be returned. If expires is set to false and expiration is null, there will be no expiration of this secret.|
-|Description|string|false|true|Description for the client secret. We suggest being as descriptive as possible. This field will make identifying secrets easier.|
-|ClientSecret|string|false|true|None|
-|Secret|string|false|true|None|
+---
 

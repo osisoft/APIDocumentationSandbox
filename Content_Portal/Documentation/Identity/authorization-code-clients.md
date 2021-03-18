@@ -1,5 +1,5 @@
 ---
-title: Identity/authorization-code-clients v20210308.1
+title: Identity/authorization-code-clients v20210317.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,59 +7,15 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.5
+generator: osisoft.widdershins v1.0.6
 
 ---
 
-<h1 id="identity-authorization-code-clients-authorization-code-clients">Authorization Code Clients</h1>
-Authorization code clients are used in JavaScript/Browser (SPA) based applications or native mobile applications with the presence of a user. These clients are issued an unique identifier. Authorization code clients are not issued secrets or refresh tokens. 
+[[_TOC_]]
 
-Object used during Authorization Code Client creation.
+# Authorization Code Clients
+Authorization code clients are used in JavaScript/Browser (SPA) based applications or native mobile applications with the presence of a user. These clients are issued an unique identifier. Authorization code clients are not issued secrets or refresh tokens.
 
-### Properties
-|Property Name|Data Type|Description|
-|---|---|---|
-|RedirectUris|string[]|Allowed URIs to which return tokens or authorization codes can be returned. Wildcards are ignored. URIs must match exactly what you are redirecting to after login. If URIs do not match, the authentication process will fail with a bad_client error. Maximum 10 per client.|
-|PostLogoutRedirectUris|string[]|Allowed URIs to redirect to after logout. Wildcards are ignored. URIs must match exactly what you are redirecting to after logout. Maximum 10 per client.|
-|ClientUri|string|URI to a page with information about client (used on consent screen).|
-|LogoUri|string|URI to client logo (used on consent screen).|
-|Id|string|Client unique identifier for this client. This unique identifier should be a GUID.|
-|Name|string|Name of client.|
-|Enabled|boolean|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
-|AccessTokenLifetime|int32|Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
-|Tags|string[]|Tags for OSIsoft internal use only.|
-|AllowedCorsOrigins|string[]|Values used by the default CORS policy service implementations to build a CORS policy for JavaScript clients.|
-
-```json
-{
-  "RedirectUris": [
-    "string"
-  ],
-  "PostLogoutRedirectUris": [
-    "string"
-  ],
-  "ClientUri": "string",
-  "LogoUri": "string",
-  "Id": "string",
-  "Name": "string",
-  "Enabled": true,
-  "AccessTokenLifetime": 0,
-  "Tags": [
-    "string"
-  ],
-  "AllowedCorsOrigins": [
-    "string"
-  ]
-}
-```
-
-	
-
-	
-
-	
-
----
 ## List Authorization Code Clients
 
 <a id="opIdAuthorizationCodeClients_List Authorization Code Clients"></a>
@@ -69,14 +25,21 @@ Gets all authorization code clients from a tenant. Optionally, get a list of req
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/AuthorizationCodeClients
+?id={id}&tag={tag}&query={query}&skip={skip}&count={count}
 ```
 
-<h3 id="authorizationcodeclients_list-authorization-code-clients-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>
-`[optional] array id`<br/>Unordered list of Ids for all clients to get. Empty or whitespace Ids will be ignored.<br/><br/>`[optional] array tag`<br/>Only return clients that have these tags.<br/><br/>`[optional] string query`<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`<br/>Number of clients to skip. From query.<br/><br/>`[optional] integer count`<br/>Maximum number of clients to return.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>
+`[optional] array id`
+<br/>Unordered list of Ids for all clients to get. Empty or whitespace Ids will be ignored.<br/><br/>`[optional] array tag`
+<br/>Only return clients that have these tags.<br/><br/>`[optional] string query`
+<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`
+<br/>Number of clients to skip. From query.<br/><br/>`[optional] integer count`
+<br/>Maximum number of clients to return.<br/><br/>
 
-<h3 id="authorizationcodeclients_list-authorization-code-clients-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -86,35 +49,44 @@ GET /api/v1/Tenants/{tenantId}/AuthorizationCodeClients
 |404|[ErrorResponse](#schemaerrorresponse)|Tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
-> 401 Response
+#### Example response body
+> 200 Response
 
 ```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "property1": null,
-  "property2": null
-}
+[
+  {
+    "RedirectUris": [
+      "string"
+    ],
+    "PostLogoutRedirectUris": [
+      "string"
+    ],
+    "ClientUri": "string",
+    "LogoUri": "string",
+    "Id": "string",
+    "Name": "string",
+    "Enabled": true,
+    "AccessTokenLifetime": 0,
+    "Tags": [
+      "string"
+    ],
+    "AllowedCorsOrigins": [
+      "string"
+    ]
+  }
+]
 ```
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Self</li>
 <li>Tenant Member</li>
 </ul>
 
-<b>Strict Roles</b>
-<ul>
-<li>Tenant Administrator</li>
-</ul>
-
 ---
+
 ## Get Authorization Code Clients Header
 
 <a id="opIdAuthorizationCodeClients_Get Authorization Code Clients Header"></a>
@@ -124,14 +96,18 @@ Returns the total number of authorization code clients in a tenant. Optionally, 
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/AuthorizationCodeClients
+?id={id}&tag={tag}
 ```
 
-<h3 id="authorizationcodeclients_get-authorization-code-clients-header-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>
-`[optional] array id`<br/>Unordered list of Ids for all clients to get. Empty or whitespace Ids will be ignored.<br/><br/>`[optional] array tag`<br/>Only count clients that have these tags.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>
+`[optional] array id`
+<br/>Unordered list of Ids for all clients to get. Empty or whitespace Ids will be ignored.<br/><br/>`[optional] array tag`
+<br/>Only count clients that have these tags.<br/><br/>
 
-<h3 id="authorizationcodeclients_get-authorization-code-clients-header-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -143,19 +119,14 @@ HEAD /api/v1/Tenants/{tenantId}/AuthorizationCodeClients
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Self</li>
 <li>Tenant Member</li>
 </ul>
 
-<b>Strict Roles</b>
-<ul>
-<li>Tenant Administrator</li>
-</ul>
-
 ---
+
 ## Create Authorization Code Client
 
 <a id="opIdAuthorizationCodeClients_Create Authorization Code Client"></a>
@@ -165,6 +136,7 @@ Creates an authorization code client. No secret will be generated for this clien
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/AuthorizationCodeClients
+
 ```
 
 ### Request Body
@@ -194,11 +166,12 @@ New AuthorizationCodeClient object.<br/>
 }
 ```
 
-<h3 id="authorizationcodeclients_create-authorization-code-client-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>
 
-<h3 id="authorizationcodeclients_create-authorization-code-client-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -211,7 +184,7 @@ New AuthorizationCodeClient object.<br/>
 |409|[ErrorResponse](#schemaerrorresponse)|Client unique identifier already exists.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 201 Response
 
 ```json
@@ -239,13 +212,13 @@ New AuthorizationCodeClient object.<br/>
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Get Authorization Code Client
 
 <a id="opIdAuthorizationCodeClients_Get Authorization Code Client"></a>
@@ -255,13 +228,16 @@ Gets an authorization code client from tenant.
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/AuthorizationCodeClients/{clientId}
+
 ```
 
-<h3 id="authorizationcodeclients_get-authorization-code-client-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>
 
-<h3 id="authorizationcodeclients_get-authorization-code-client-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -271,7 +247,7 @@ GET /api/v1/Tenants/{tenantId}/AuthorizationCodeClients/{clientId}
 |404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -299,19 +275,14 @@ GET /api/v1/Tenants/{tenantId}/AuthorizationCodeClients/{clientId}
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Self</li>
 <li>Tenant Member</li>
 </ul>
 
-<b>Strict Roles</b>
-<ul>
-<li>Tenant Administrator</li>
-</ul>
-
 ---
+
 ## Get Authorization Code Client Header
 
 <a id="opIdAuthorizationCodeClients_Get Authorization Code Client Header"></a>
@@ -321,13 +292,16 @@ Validates that an authorization code client exists in tenant.
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/AuthorizationCodeClients/{clientId}
+
 ```
 
-<h3 id="authorizationcodeclients_get-authorization-code-client-header-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>
 
-<h3 id="authorizationcodeclients_get-authorization-code-client-header-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -337,7 +311,7 @@ HEAD /api/v1/Tenants/{tenantId}/AuthorizationCodeClients/{clientId}
 |404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -357,19 +331,14 @@ HEAD /api/v1/Tenants/{tenantId}/AuthorizationCodeClients/{clientId}
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Self</li>
 <li>Tenant Member</li>
 </ul>
 
-<b>Strict Roles</b>
-<ul>
-<li>Tenant Administrator</li>
-</ul>
-
 ---
+
 ## Update Authorization Code Client
 
 <a id="opIdAuthorizationCodeClients_Update Authorization Code Client"></a>
@@ -379,6 +348,7 @@ Updates an authorization code client. It can take up to one hour for update to m
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/AuthorizationCodeClients/{clientId}
+
 ```
 
 ### Request Body
@@ -408,11 +378,13 @@ Updated authorization code client values. Properties that are not set or are nul
 }
 ```
 
-<h3 id="authorizationcodeclients_update-authorization-code-client-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>
 
-<h3 id="authorizationcodeclients_update-authorization-code-client-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -424,7 +396,7 @@ Updated authorization code client values. Properties that are not set or are nul
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 200 Response
 
 ```json
@@ -452,13 +424,13 @@ Updated authorization code client values. Properties that are not set or are nul
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
+
 ## Delete Authorization Code Client
 
 <a id="opIdAuthorizationCodeClients_Delete Authorization Code Client"></a>
@@ -468,13 +440,16 @@ Deletes an authorization code client. It can take up to one hour for deletion to
 ### Request
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/AuthorizationCodeClients/{clientId}
+
 ```
 
-<h3 id="authorizationcodeclients_delete-authorization-code-client-parameters">Parameters</h3>
+### Parameters
 
-`string tenantId`<br/>Tenant unique identifier.<br/><br/>`string clientId`<br/>Client unique identifier.<br/><br/>
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>
 
-<h3 id="authorizationcodeclients_delete-authorization-code-client-responses">Responses</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -485,7 +460,7 @@ DELETE /api/v1/Tenants/{tenantId}/AuthorizationCodeClients/{clientId}
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-### Example response body
+#### Example response body
 > 401 Response
 
 ```json
@@ -501,20 +476,37 @@ DELETE /api/v1/Tenants/{tenantId}/AuthorizationCodeClients/{clientId}
 
 ### Authorization
 
-Allowed for these roles: <br/><br/>
-<b>Authorized Roles</b> 
+Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
 
+---
 # Definitions
 
-<h2 id="tocS_AuthorizationCodeClient">AuthorizationCodeClient</h2>
+## AuthorizationCodeClient
 
 <a id="schemaauthorizationcodeclient"></a>
 <a id="schema_AuthorizationCodeClient"></a>
 <a id="tocSauthorizationcodeclient"></a>
 <a id="tocsauthorizationcodeclient"></a>
+
+Object used during Authorization Code Client creation.
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|RedirectUris|string[]|false|true|Allowed URIs to which return tokens or authorization codes can be returned. Wildcards are ignored. URIs must match exactly what you are redirecting to after login. If URIs do not match, the authentication process will fail with a bad_client error. Maximum 10 per client.|
+|PostLogoutRedirectUris|string[]|false|true|Allowed URIs to redirect to after logout. Wildcards are ignored. URIs must match exactly what you are redirecting to after logout. Maximum 10 per client.|
+|ClientUri|string|false|true|URI to a page with information about client (used on consent screen).|
+|LogoUri|string|false|true|URI to client logo (used on consent screen).|
+|Id|string|false|true|Client unique identifier for this client. This unique identifier should be a GUID.|
+|Name|string|false|true|Name of client.|
+|Enabled|boolean|false|true|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
+|AccessTokenLifetime|int32|false|true|Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
+|Tags|string[]|false|true|Tags for OSIsoft internal use only.|
+|AllowedCorsOrigins|string[]|false|true|Values used by the default CORS policy service implementations to build a CORS policy for JavaScript clients.|
 
 ```json
 {
@@ -540,29 +532,25 @@ Allowed for these roles: <br/><br/>
 
 ```
 
-Object used during Authorization Code Client creation.
+---
 
-### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|RedirectUris|string[]|false|true|Allowed URIs to which return tokens or authorization codes can be returned. Wildcards are ignored. URIs must match exactly what you are redirecting to after login. If URIs do not match, the authentication process will fail with a bad_client error. Maximum 10 per client.|
-|PostLogoutRedirectUris|string[]|false|true|Allowed URIs to redirect to after logout. Wildcards are ignored. URIs must match exactly what you are redirecting to after logout. Maximum 10 per client.|
-|ClientUri|string|false|true|URI to a page with information about client (used on consent screen).|
-|LogoUri|string|false|true|URI to client logo (used on consent screen).|
-|Id|string|false|true|Client unique identifier for this client. This unique identifier should be a GUID.|
-|Name|string|false|true|Name of client.|
-|Enabled|boolean|false|true|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
-|AccessTokenLifetime|int32|false|true|Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
-|Tags|string[]|false|true|Tags for OSIsoft internal use only.|
-|AllowedCorsOrigins|string[]|false|true|Values used by the default CORS policy service implementations to build a CORS policy for JavaScript clients.|
-
-<h2 id="tocS_ErrorResponse">ErrorResponse</h2>
+## ErrorResponse
 
 <a id="schemaerrorresponse"></a>
 <a id="schema_ErrorResponse"></a>
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
+
+Object returned whenever there is an error.
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
+|Error|string|true|false|Error description.|
+|Reason|string|true|false|Reason for the error.|
+|Resolution|string|true|false|Resolution to resolve the error.|
 
 ```json
 {
@@ -576,23 +564,27 @@ Object used during Authorization Code Client creation.
 
 ```
 
-Object returned whenever there is an error.
+---
 
-### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
-|Error|string|true|false|Error description.|
-|Reason|string|true|false|Reason for the error.|
-|Resolution|string|true|false|Resolution needed to resolve the Error.|
-
-<h2 id="tocS_ClientCredentialClient">ClientCredentialClient</h2>
+## ClientCredentialClient
 
 <a id="schemaclientcredentialclient"></a>
 <a id="schema_ClientCredentialClient"></a>
 <a id="tocSclientcredentialclient"></a>
 <a id="tocsclientcredentialclient"></a>
+
+Object to get or update a client credential client.
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|string|false|true|Client unique identifier for this client. This unique identifier should be a GUID.|
+|Name|string|false|true|Name of client.|
+|Enabled|boolean|false|true|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
+|AccessTokenLifetime|int32|false|true|Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
+|Tags|string[]|false|true|Tags for OSIsoft internal use only.|
+|RoleIds|string[]|false|true|List of roles to be assigned to this client. Member role is always required. For security reasons we advise against assigning administrator role to a client.|
 
 ```json
 {
@@ -610,16 +602,5 @@ Object returned whenever there is an error.
 
 ```
 
-Object to get or update a client credential client.
-
-### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Id|string|false|true|Client unique identifier for this client. This unique identifier should be a GUID.|
-|Name|string|false|true|Name of client.|
-|Enabled|boolean|false|true|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
-|AccessTokenLifetime|int32|false|true|Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
-|Tags|string[]|false|true|Tags for OSIsoft internal use only.|
-|RoleIds|string[]|false|true|List of roles to be assigned to this client. Member role is always required. For security reasons we advise against assigning administrator role to a client.|
+---
 
