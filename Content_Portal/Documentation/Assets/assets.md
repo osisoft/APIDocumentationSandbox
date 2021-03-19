@@ -1,5 +1,5 @@
 ---
-title: Assets/assets v20210319.1
+title: Assets/assets v20210319.5
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,10 +14,13 @@ generator: osisoft.widdershins v1.0.6
 [[_TOC_]]
 
 # Assets
+The Assets API allows you to create, read, update, and delete assets. The asset feature supports the HTTP entity tag(ETag) and If-Match for conditional requests.When a GET call is performed, the HTTP response header includes an Etag which indicates what version of the asset resource will be retrieved. See Asset and AssetType Access Control API, Asset Centric Data API, and Assets Search API for additional API details.
 
 ## Get Asset By Id
 
 <a id="opIdAssets_Get Asset By Id"></a>
+
+GetAssetById
 
 ### Request
 ```text 
@@ -28,7 +31,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
 ### Parameters
 
 `string assetId`
-<br/><br/>`string tenantId`
+<br/>asset id<br/><br/>`string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
 
@@ -36,13 +39,15 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|string|None|
+|200|string|rr|
 
 ---
 
 ## Create Asset
 
 <a id="opIdAssets_Create Asset"></a>
+
+CreateAssetWithIdAsync
 
 ### Request
 ```text 
@@ -52,7 +57,7 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId
 
 ### Request Body
 
-<br/>
+s<br/>
 
 ```json
 {
@@ -91,7 +96,7 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId
 ### Parameters
 
 `string assetId`
-<br/><br/>`string tenantId`
+<br/>a<br/><br/>`string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
 
@@ -99,13 +104,15 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|string|None|
+|200|string|r|
 
 ---
 
 ## Create Or Update Asset
 
 <a id="opIdAssets_Create Or Update Asset"></a>
+
+CreateOrUpdateAssetAsync
 
 ### Request
 ```text 
@@ -115,7 +122,7 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
 
 ### Request Body
 
-<br/>
+d<br/>
 
 ```json
 {
@@ -154,7 +161,7 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
 ### Parameters
 
 `string assetId`
-<br/><br/>`string tenantId`
+<br/>a<br/><br/>`string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
 
@@ -162,13 +169,15 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|string|None|
+|200|string|e|
 
 ---
 
 ## Delete Asset
 
 <a id="opIdAssets_Delete Asset"></a>
+
+asDeleteAssetAsync
 
 ### Request
 ```text 
@@ -179,7 +188,7 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{asset
 ### Parameters
 
 `string assetId`
-<br/><br/>`string tenantId`
+<br/>a<br/><br/>`string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
 
@@ -187,13 +196,15 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{asset
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|string|None|
+|200|string|ee|
 
 ---
 
 ## Get Asset Acl
 
 <a id="opIdAssets_Get Asset Acl"></a>
+
+GetAssetAcl
 
 ### Request
 ```text 
@@ -204,7 +215,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
 ### Parameters
 
 `string assetId`
-<br/><br/>`string tenantId`
+<br/>asset id<br/><br/>`string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
 
@@ -212,13 +223,15 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|string|None|
+|200|string|testreutnsz|
 
 ---
 
 ## Update Asset Access Control
 
 <a id="opIdAssets_Update Asset Access Control"></a>
+
+UpdateAssetAclAsync
 
 ### Request
 ```text 
@@ -228,7 +241,7 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
 
 ### Request Body
 
-<br/>
+n<br/>
 
 ```json
 {
@@ -245,21 +258,23 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
 ### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string assetId`
-<br/><br/>
+<br/>t<br/><br/>`string namespaceId`
+<br/>n<br/><br/>`string assetId`
+<br/>a<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|string|None|
+|200|string|ret|
 
 ---
 
 ## Get Asset Access Rights
 
 <a id="opIdAssets_Get Asset Access Rights"></a>
+
+GetAssetAccessRights
 
 ### Request
 ```text 
@@ -270,7 +285,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
 ### Parameters
 
 `string assetId`
-<br/><br/>`string tenantId`
+<br/>asset id<br/><br/>`string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
 
@@ -278,13 +293,15 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|string|None|
+|200|string|r|
 
 ---
 
 ## Get Asset Owner
 
 <a id="opIdAssets_Get Asset Owner"></a>
+
+Get the owner Trustee of the specified asset.
 
 ### Request
 ```text 
@@ -295,7 +312,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
 ### Parameters
 
 `string assetId`
-<br/><br/>`string tenantId`
+<br/>The asset identifier.<br/><br/>`string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
 
@@ -303,13 +320,15 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|string|None|
+|200|string|If the asset identifier is valid, return the owner Trustee of the specified asset.|
 
 ---
 
 ## Update Asset Owner
 
 <a id="opIdAssets_Update Asset Owner"></a>
+
+UpdateAssetOwnerAsync
 
 ### Request
 ```text 
@@ -319,7 +338,7 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
 
 ### Request Body
 
-<br/>
+trustee trustee<br/>
 
 ```json
 {
@@ -332,9 +351,9 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
 ### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string assetId`
-<br/><br/>
+<br/>tenant id<br/><br/>`string namespaceId`
+<br/>namespace id<br/><br/>`string assetId`
+<br/>asset id asset id<br/><br/>
 
 ### Response
 
