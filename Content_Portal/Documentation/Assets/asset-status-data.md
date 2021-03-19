@@ -1,5 +1,5 @@
 ---
-title: Assets/asset-status-data v20210318.24
+title: Assets/asset-status-data v20210318.25
 language_tabs: []
 toc_footers: []
 includes: []
