@@ -1,5 +1,5 @@
 ---
-title: Assets/assets v20210319.6
+title: Assets/assets v20210319.7
 language_tabs: []
 toc_footers: []
 includes: []
@@ -20,7 +20,7 @@ The Assets API allows you to create, read, update, and delete assets. The asset 
 
 <a id="opIdAssets_Get Asset By Id"></a>
 
-GetAssetById
+Returns the specified asset and the version Etag in the HTTP response header.
 
 ### Request
 ```text 
