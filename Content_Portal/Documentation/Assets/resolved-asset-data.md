@@ -1,5 +1,5 @@
 ---
-title: Assets/resolved-asset-data v20210319.7
+title: Assets/resolved-asset-data v20210319.8
 language_tabs: []
 toc_footers: []
 includes: []

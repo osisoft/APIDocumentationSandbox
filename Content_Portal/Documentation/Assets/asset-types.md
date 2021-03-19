@@ -1,5 +1,5 @@
 ---
-title: Assets/asset-types v20210319.7
+title: Assets/asset-types v20210319.8
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,7 +14,7 @@ generator: osisoft.widdershins v1.0.6
 [[_TOC_]]
 
 # Asset Types
-The asset type API provides methods to create, read, update, and delete asset types. An asset type can be used to build many similar assets. Some of the key benefits of using an asset type as the base model for assets are: * Multiple similar assets can be created more quickly and with less effort. * Maintaining assets is simplified.
+The asset type API provides methods to create, read, update, and delete asset types. An asset type can be used to build many similar assets. Some of the key benefits of using an asset type as the base model for assets are: + Multiple similar assets can be created more quickly and with less effort. + Maintaining assets is simplified.
 
 ## Get Asset Types
 
