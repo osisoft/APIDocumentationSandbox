@@ -1,5 +1,5 @@
 ---
-title: Assets/asset-types v20210318.25
+title: Assets/asset-types v20210318.26
 language_tabs: []
 toc_footers: []
 includes: []
