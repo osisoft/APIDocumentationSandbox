@@ -1,5 +1,5 @@
 ---
-title: Context/service-controllers-suggestion v20210316.1
+title: Context/service-controllers-suggestion v20210319.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -193,7 +193,7 @@ The RuleModel object to create a suggestion for.<br/>
 
 ```json
 {
-  "SuggestionLink": "/api/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadatarules?Token=00000000-0000-0000-0000-000000000000",
+  "SuggestionLink": "/api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadatarules?Token=00000000-0000-0000-0000-000000000000",
   "Expires": 7200
 }
 ```
@@ -384,7 +384,7 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadataru
 
 ```json
 {
-  "SuggestionLink": "/api/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadatarules?Token=00000000-0000-0000-0000-000000000000",
+  "SuggestionLink": "/api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadatarules?Token=00000000-0000-0000-0000-000000000000",
   "Expires": 7200
 }
 

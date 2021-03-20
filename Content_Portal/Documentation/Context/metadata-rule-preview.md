@@ -1,5 +1,5 @@
 ---
-title: Context/metadata-rule-preview v20210316.1
+title: Context/metadata-rule-preview v20210319.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -31,10 +31,11 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
 
 `string token`
 <br/>A Guid which corresponds to a preview that has been created using the CancellationToken) method.<br/><br/>`integer skip`
-<br/>An Int32 to determine the number of preview results to skip.<br/><br/>`integer count`
-<br/>An Int32 to determine the number of preview results to return.<br/><br/>`string tenantId`
+<br/>An Int32 to determine the number of preview results to skip.<br/><br/>`string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
+`[optional] integer count`
+<br/>An Int32 to determine the number of preview results to return.<br/><br/>
 
 ### Response
 
@@ -214,7 +215,7 @@ The RuleModel object to preview.<br/>
 
 ```json
 {
-  "PreviewLink": "/api/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules?Token=00000000-0000-0000-0000-000000000000",
+  "PreviewLink": "/api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules?Token=00000000-0000-0000-0000-000000000000",
   "Expires": 7200
 }
 ```
