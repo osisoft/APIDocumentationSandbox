@@ -1,5 +1,5 @@
 ---
-title: Context/access-rights v20210319.1
+title: Context/access-rights v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Access Rights
 
@@ -24,10 +22,9 @@ Gets a list of the `CommonAccessRights` the requesting `Identity` has on the spe
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/accessrights
-
 ```
 
-### Parameters
+#### Parameters
 
 `any routeOptions`
 <br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
@@ -112,10 +109,9 @@ Gets a list of the `CommonAccessRights` the requesting `Identity` has on the spe
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/accessrights
-
 ```
 
-### Parameters
+#### Parameters
 
 `any routeOptions`
 <br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`

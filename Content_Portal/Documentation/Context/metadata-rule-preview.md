@@ -1,5 +1,5 @@
 ---
-title: Context/metadata-rule-preview v20210319.1
+title: Context/metadata-rule-preview v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Metadata Rule Preview
 
@@ -27,7 +25,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
 ?token={token}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string token`
 <br/>A Guid which corresponds to a preview that has been created using the CancellationToken) method.<br/><br/>`integer skip`
@@ -189,7 +187,7 @@ The RuleModel object to preview.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/><br/>`string namespaceId`
@@ -309,7 +307,7 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
 ?token={token}
 ```
 
-### Parameters
+#### Parameters
 
 `string token`
 <br/>A Guid which corresponds to a preview that has been created using the CancellationToken) method.<br/><br/>`string tenantId`

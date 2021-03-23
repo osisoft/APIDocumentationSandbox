@@ -1,5 +1,5 @@
 ---
-title: Context/rules v20210319.1
+title: Context/rules v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Rules
 Interacts with the IRuleStore and IAuthorizationService to process requests.
@@ -28,7 +26,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules
 ?Skip={Skip}&Count={Count}&KeepOldMetadata={KeepOldMetadata}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/><br/>`string namespaceId`
@@ -166,7 +164,6 @@ Creates a `RuleModel` object with a server generated `Id` in the `IRuleStore`.
 ### Request
 ```text 
 POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules
-
 ```
 
 ### Request Body
@@ -203,7 +200,7 @@ The RuleModel object to create.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/><br/>`string namespaceId`
@@ -323,10 +320,9 @@ Gets the specified rule.
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `any routeOptions`
 <br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
@@ -432,7 +428,6 @@ Gets or creates a `RuleModel` object with the specified id in the `IRuleStore`.
 ### Request
 ```text 
 POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
-
 ```
 
 ### Request Body
@@ -469,7 +464,7 @@ The RuleModel object.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `any routeOptions`
 <br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
@@ -629,7 +624,7 @@ The RuleModel object to create or update.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `any routeOptions`
 <br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
@@ -776,7 +771,7 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
 ?Skip={Skip}&Count={Count}&KeepOldMetadata={KeepOldMetadata}
 ```
 
-### Parameters
+#### Parameters
 
 `any routeOptions`
 <br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
@@ -855,10 +850,9 @@ Executes the specified rule.
 ### Request
 ```text 
 POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/execute
-
 ```
 
-### Parameters
+#### Parameters
 
 `any routeOptions`
 <br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
@@ -935,7 +929,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules
 ?Skip={Skip}&Count={Count}&KeepOldMetadata={KeepOldMetadata}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/><br/>`string namespaceId`
@@ -1073,7 +1067,6 @@ Creates a `RuleModel` object with a server generated `Id` in the `IRuleStore`.
 ### Request
 ```text 
 POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules
-
 ```
 
 ### Request Body
@@ -1110,7 +1103,7 @@ The RuleModel object to create.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/><br/>`string namespaceId`
@@ -1230,10 +1223,9 @@ Gets the specified rule.
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `any routeOptions`
 <br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
@@ -1339,7 +1331,6 @@ Gets or creates a `RuleModel` object with the specified id in the `IRuleStore`.
 ### Request
 ```text 
 POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}
-
 ```
 
 ### Request Body
@@ -1376,7 +1367,7 @@ The RuleModel object.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `any routeOptions`
 <br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
@@ -1536,7 +1527,7 @@ The RuleModel object to create or update.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `any routeOptions`
 <br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
@@ -1683,7 +1674,7 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId
 ?Skip={Skip}&Count={Count}&KeepOldMetadata={KeepOldMetadata}
 ```
 
-### Parameters
+#### Parameters
 
 `any routeOptions`
 <br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
@@ -1762,10 +1753,9 @@ Executes the specified rule.
 ### Request
 ```text 
 POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/execute
-
 ```
 
-### Parameters
+#### Parameters
 
 `any routeOptions`
 <br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`

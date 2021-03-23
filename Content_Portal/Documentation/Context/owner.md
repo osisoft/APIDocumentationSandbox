@@ -1,5 +1,5 @@
 ---
-title: Context/owner v20210319.1
+title: Context/owner v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Owner
 
@@ -24,10 +22,9 @@ Gets the `Trustee` of the specified rule.
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/owner
-
 ```
 
-### Parameters
+#### Parameters
 
 `any routeOptions`
 <br/>The uri route parameters.<br/><br/>`string tenantId`
@@ -111,7 +108,6 @@ Replaces the `Trustee` of the specified rule.
 ### Request
 ```text 
 PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/owner
-
 ```
 
 ### Request Body
@@ -126,7 +122,7 @@ The owner.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `any routeOptions`
 <br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
@@ -226,10 +222,9 @@ Gets the `Trustee` of the specified rule.
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/owner
-
 ```
 
-### Parameters
+#### Parameters
 
 `any routeOptions`
 <br/>The uri route parameters.<br/><br/>`string tenantId`
@@ -313,7 +308,6 @@ Replaces the `Trustee` of the specified rule.
 ### Request
 ```text 
 PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/owner
-
 ```
 
 ### Request Body
@@ -328,7 +322,7 @@ The owner.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `any routeOptions`
 <br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`

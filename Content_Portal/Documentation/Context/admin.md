@@ -1,5 +1,5 @@
 ---
-title: Context/admin v20210319.1
+title: Context/admin v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Admin
 
@@ -24,10 +22,9 @@ Gets the `StoreStatistics` on the `IRuleStore`.
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/statistics
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/><br/>`string namespaceId`
@@ -91,10 +88,9 @@ Gets the `StoreStatistics` on the `IRuleStore`.
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/admin/metadatarules/statistics
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/><br/>`string namespaceId`

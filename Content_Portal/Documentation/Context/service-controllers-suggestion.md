@@ -1,5 +1,5 @@
 ---
-title: Context/service-controllers-suggestion v20210319.1
+title: Context/service-controllers-suggestion v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Suggestion
 
@@ -27,7 +25,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadatarules
 ?token={token}
 ```
 
-### Parameters
+#### Parameters
 
 `string token`
 <br/>A Guid which corresponds to a SuggestionResponse that has been created using the CancellationToken) method.<br/><br/>`string tenantId`
@@ -134,7 +132,6 @@ Creates a `SuggestionResponse` for a `RuleModel` object.
 ### Request
 ```text 
 POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadatarules
-
 ```
 
 ### Request Body
@@ -171,7 +168,7 @@ The RuleModel object to create a suggestion for.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/><br/>`string namespaceId`
@@ -287,7 +284,7 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadataru
 ?token={token}
 ```
 
-### Parameters
+#### Parameters
 
 `string token`
 <br/>A Guid which corresponds to a SuggestionResponse that has been created using the CancellationToken) method.<br/><br/>`string tenantId`

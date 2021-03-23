@@ -1,5 +1,5 @@
 ---
-title: Context/preview-controllers-suggestion v20210319.1
+title: Context/preview-controllers-suggestion v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Suggestion
 
@@ -24,7 +22,6 @@ Creates a `SuggestionResult` of a metadata `RuleModel` object.
 ### Request
 ```text 
 POST /api/v1/tenants/{tenantid}/namespaces/{namespaceid}/suggestion/metadatarules
-
 ```
 
 ### Request Body
@@ -61,7 +58,7 @@ The RuleModel object to create suggestions for.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantid`
 <br/><br/>`string namespaceid`

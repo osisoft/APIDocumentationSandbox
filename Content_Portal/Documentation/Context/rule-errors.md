@@ -1,5 +1,5 @@
 ---
-title: Context/rule-errors v20210319.1
+title: Context/rule-errors v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Rule Errors
 
@@ -24,10 +22,9 @@ Gets the `RuleErrorDto` objects for the specified ruleId.
 ### Request
 ```text 
 GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/errors
-
 ```
 
-### Parameters
+#### Parameters
 
 `string ruleId`
 <br/>The rule Id.<br/><br/>`string tenantId`
@@ -121,10 +118,9 @@ Deletes the `RuleErrorDto` objects associated with the specified rule.
 ### Request
 ```text 
 DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/errors
-
 ```
 
-### Parameters
+#### Parameters
 
 `string ruleId`
 <br/>The rule Id.<br/><br/>`string tenantId`
