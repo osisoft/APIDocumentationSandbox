@@ -1,5 +1,5 @@
 ---
-title: Asset-Rule-Service/asset-change-data v20210319.1
+title: Asset-Rule-Service/asset-change-data v20210322.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Asset Change Data
 
@@ -22,10 +20,9 @@ generator: osisoft.widdershins v1.0.6
 ### Request
 ```text 
 GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/changedata/asset/{assetId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string assetId`
 <br/><br/>`string tenantId`
@@ -172,7 +169,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules
 ?Skip={Skip}&Count={Count}
 ```
 
-### Parameters
+#### Parameters
 
 `string ruleId`
 <br/><br/>`string tenantId`
@@ -337,10 +334,9 @@ Defaults to 100.<br/><br/>
 ### Request
 ```text 
 GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/changedata/rule/{ruleId}/statistics
-
 ```
 
-### Parameters
+#### Parameters
 
 `string ruleId`
 <br/><br/>`string tenantId`
@@ -404,10 +400,9 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules
 ### Request
 ```text 
 GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/changedata/stream/{streamId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string streamId`
 <br/><br/>`string tenantId`
