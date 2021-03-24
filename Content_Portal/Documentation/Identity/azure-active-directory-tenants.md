@@ -1,5 +1,5 @@
 ---
-title: Identity/azure-active-directory-tenants v20210317.1
+title: Identity/azure-active-directory-tenants v20210324.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,18 +7,16 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Azure Active Directory Tenants
 An Azure Active Directory (AAD) Tenant is used to map an existing [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/) Tenant from Azure to OSIsoft Cloud Services. We only allow one Azure Active Directory Tenant per OSIsoft Cloud Services Tenant.
 
-## List Aad Tenants For Tenant
+## List All AAD Tenants from OCS Tenant
 
-<a id="opIdAzureActiveDirectoryTenants_List Aad Tenants For Tenant"></a>
+<a id="opIdAzureActiveDirectoryTenants_List All AAD Tenants from OCS Tenant"></a>
 
 Get all Azure Active Directory Tenants from an OSIsoft Cloud Services Tenant.
 
@@ -28,7 +26,7 @@ GET /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants
 ?query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of OSIsoft Cloud Services Tenant.<br/><br/>
@@ -68,19 +66,18 @@ Allowed for these roles:
 
 ---
 
-## Get Aad Tenants Header For Tenant
+## Get Total Count of AAD Tenant in Tenant
 
-<a id="opIdAzureActiveDirectoryTenants_Get Aad Tenants Header For Tenant"></a>
+<a id="opIdAzureActiveDirectoryTenants_Get Total Count of AAD Tenant in Tenant"></a>
 
 Return total number of Azure Active Directory tenants in a OSIsoft Cloud Services Tenant. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of OSIsoft Cloud Services Tenant.<br/><br/>
@@ -105,19 +102,18 @@ Allowed for these roles:
 
 ---
 
-## Get Aad Tenant For Tenant
+## Get AAD Tenant from OCS Tenant
 
-<a id="opIdAzureActiveDirectoryTenants_Get Aad Tenant For Tenant"></a>
+<a id="opIdAzureActiveDirectoryTenants_Get AAD Tenant from OCS Tenant"></a>
 
 Get Azure Active Directory Tenant from an OSIsoft Cloud Services Tenant.
 
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of OSIsoft Cloud Services Tenant.<br/><br/>`string aadTenantId`
@@ -154,19 +150,18 @@ Allowed for these roles:
 
 ---
 
-## Get Aad Tenant Header For Tenant
+## Get AAD Tenant in Tenant
 
-<a id="opIdAzureActiveDirectoryTenants_Get Aad Tenant Header For Tenant"></a>
+<a id="opIdAzureActiveDirectoryTenants_Get AAD Tenant in Tenant"></a>
 
 Validate that Azure Active Directory Tenant exists in this OSIsoft Cloud Services Tenant. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of OSIsoft Cloud Services Tenant.<br/><br/>`string aadTenantId`
@@ -192,19 +187,18 @@ Allowed for these roles:
 
 ---
 
-## Add Aad Tenant To Tenant
+## Add AAD Tenant to OCS Tenant
 
-<a id="opIdAzureActiveDirectoryTenants_Add Aad Tenant To Tenant"></a>
+<a id="opIdAzureActiveDirectoryTenants_Add AAD Tenant to OCS Tenant"></a>
 
 Add an Azure Active Directory Tenant to the OSIsoft Cloud Services Tenant.
 
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of OSIsoft Cloud Services Tenant.<br/><br/>`string aadTenantId`
@@ -243,19 +237,18 @@ Allowed for these roles:
 
 ---
 
-## Remove Aad Tenant From Tenant
+## Remove AAD Tenant from OCS Tenant
 
-<a id="opIdAzureActiveDirectoryTenants_Remove Aad Tenant From Tenant"></a>
+<a id="opIdAzureActiveDirectoryTenants_Remove AAD Tenant from OCS Tenant"></a>
 
 Removal of Azure Active Directory Tenant from an OSIsoft Cloud Services Tenant is not supported.
 
 ### Request
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of OSIsoft Cloud Services Tenant.<br/><br/>`string aadTenantId`
@@ -276,16 +269,15 @@ Allowed for these roles:
 
 ---
 
-## Send Aad Tenant Consent Request
+## Send Consent Email for AAD Tenant
 
-<a id="opIdAzureActiveDirectoryTenants_Send Aad Tenant Consent Request"></a>
+<a id="opIdAzureActiveDirectoryTenants_Send Consent Email for AAD Tenant"></a>
 
 Send consent for an Azure Active Directory Tenant. OSIsoft Cloud Services needs to be granted permission to interact with the Azure Active Directory tenant. Otherwise, users from this Azure Active Directory Tenant cannot accept invitations from OSIsoft Cloud Services and log in. You can read more about this [here](https://pisquare.osisoft.com/docs/DOC-3986-msa-consent-for-azure-active-directory).
 
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}/SendConsent
-
 ```
 
 ### Request Body
@@ -302,7 +294,7 @@ ConsentInformation object.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of OSIsoft Cloud Services Tenant.<br/><br/>`string aadTenantId`

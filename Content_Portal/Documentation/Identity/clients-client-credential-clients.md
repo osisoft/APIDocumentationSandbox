@@ -1,5 +1,5 @@
 ---
-title: Identity/clients-client-credential-clients v20210317.1
+title: Identity/clients-client-credential-clients v20210324.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,38 +7,40 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Client Credential Clients
 APIs for getting, adding, or removing Client Credential clients from Communities.
 
-## List Community Client Credential Clients
+## List Client Credential clients for a Community
 
-<a id="opIdClientCredentialClients_List Community Client Credential Clients"></a>
+<a id="opIdClientCredentialClients_List Client Credential clients for a Community"></a>
 
-Get Client Credential clients for a Community.
+Get Clients associated with a specific Tenant and Community.
 
 ### Request
 ```text 
-GET /api/v1/Tenants/{tenantId}/Communities/{communityId}/ClientCredentialClients
-
+GET /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/ClientCredentialClients
+?query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
-<br/>Id of the Tenant that belongs to this Community.<br/><br/>`string communityId`
-<br/>Id of Community.<br/><br/>
+<br/>The identifier of the Tenant. Tenant must belong to the Community.<br/><br/>`string communityId`
+<br/>The identifier of the Community.<br/><br/>
+`[optional] string query`
+<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`
+<br/>Number of records to skip.<br/><br/>`[optional] integer count`
+<br/>Maximum number of records to return.<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientCredentialClient](#schemaclientcredentialclient)[]|Success.|
+|200|[ClientCredentialClient](#schemaclientcredentialclient)[]|Set of Clients ( `ClientCredentialClient`) associated with the Tenant ( `tenantId`) and Community ( `communityId`).|
 |400|[ErrorResponse](#schemaerrorresponse)|BadRequest.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
@@ -75,19 +77,18 @@ Allowed for these roles:
 
 ---
 
-## Get Community Client Credential Clients Count
+## Get Count of Clients for a Community
 
-<a id="opIdClientCredentialClients_Get Community Client Credential Clients Count"></a>
+<a id="opIdClientCredentialClients_Get Count of Clients for a Community"></a>
 
 Get Client Credential Client Count for a Community.
 
 ### Request
 ```text 
-HEAD /api/v1/Tenants/{tenantId}/Communities/{communityId}/ClientCredentialClients
-
+HEAD /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/ClientCredentialClients
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of the Tenant that belongs to this Community.<br/><br/>`string communityId`
@@ -128,19 +129,28 @@ Allowed for these roles:
 
 ---
 
-## Add Client Credential Client To Community
+## Add Client Credential Client to a Community
 
-<a id="opIdClientCredentialClients_Add Client Credential Client To Community"></a>
+<a id="opIdClientCredentialClients_Add Client Credential Client to a Community"></a>
 
-Add a Client Credential Client to a Community.
+Add a Client Credential Client to a Community, providing a List of Community Role Ids to be assigned to the Client.
 
 ### Request
 ```text 
-PUT /api/v1/Tenants/{tenantId}/Communities/{communityId}/ClientCredentialClients/{clientId}
-
+PUT /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/ClientCredentialClients/{clientId}
 ```
 
-### Parameters
+### Request Body
+
+List of Community Role Ids to assign to the Client.<br/>
+
+```json
+[
+  "string"
+]
+```
+
+#### Parameters
 
 `string tenantId`
 <br/>Id of the Tenant that belongs to this Community<br/><br/>`string communityId`
@@ -151,6 +161,7 @@ PUT /api/v1/Tenants/{tenantId}/Communities/{communityId}/ClientCredentialClients
 
 |Status Code|Body Type|Description|
 |---|---|---|
+|200|[ClientCredentialClient](#schemaclientcredentialclient)|Ok.|
 |201|[ClientCredentialClient](#schemaclientcredentialclient)|Created.|
 |400|[ErrorResponse](#schemaerrorresponse)|BadRequest.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
@@ -159,7 +170,7 @@ PUT /api/v1/Tenants/{tenantId}/Communities/{communityId}/ClientCredentialClients
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 #### Example response body
-> 201 Response
+> 200 Response
 
 ```json
 {
@@ -187,19 +198,18 @@ Allowed for these roles:
 
 ---
 
-## Remove Client Credential Client From Community
+## Remove Client Credential Client from a Community
 
-<a id="opIdClientCredentialClients_Remove Client Credential Client From Community"></a>
+<a id="opIdClientCredentialClients_Remove Client Credential Client from a Community"></a>
 
 Remove a Client Credential Client from a Community.
 
 ### Request
 ```text 
-DELETE /api/v1/Tenants/{tenantId}/Communities/{communityId}/ClientCredentialClients/{clientId}
-
+DELETE /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/ClientCredentialClients/{clientId}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of the Tenant that belongs to this Community.<br/><br/>`string communityId`

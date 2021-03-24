@@ -1,5 +1,5 @@
 ---
-title: Identity/hybrid-clients v20210317.1
+title: Identity/hybrid-clients v20210324.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,18 +7,16 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Hybrid Clients
 Hybrid clients are used in typical, thick MVC clients with the presence of a user. These clients are issued an unique identifier and secret upon creation, which are later used for authentication against OCS. More than one secret can be created for a client. Hybrid clients can be issued refresh tokens, if requested, alongside access tokens. Refresh tokens typically have a longer lifetime than access tokens, and are used to request a new access token on behalf of the user without them having to log in. It is highly suggested that both the client secret and the refresh token be stored in a secure location.
 
-## List Hybrid Clients
+## List All Hybrid Client
 
-<a id="opIdHybridClients_List Hybrid Clients"></a>
+<a id="opIdHybridClients_List All Hybrid Client"></a>
 
 Gets a list of hybrid clients from a tenant. Optionally, get a list of requested clients. Total number of clients in the tenant set in the Total-Count header.
 
@@ -28,7 +26,7 @@ GET /api/v1/Tenants/{tenantId}/HybridClients
 ?id={id}&tag={tag}&query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -86,9 +84,9 @@ Allowed for these roles:
 
 ---
 
-## Get Hybrid Clients Header
+## Get Total Count of Hybrid Clients
 
-<a id="opIdHybridClients_Get Hybrid Clients Header"></a>
+<a id="opIdHybridClients_Get Total Count of Hybrid Clients"></a>
 
 Returns the total number of hybrid clients in a tenant. Optionally, check based on a list of requested clients. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
 
@@ -98,7 +96,7 @@ HEAD /api/v1/Tenants/{tenantId}/HybridClients
 ?id={id}&tag={tag}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -126,16 +124,15 @@ Allowed for these roles:
 
 ---
 
-## Create Hybrid Client
+## Create Hybrid Client (`v1` path)
 
-<a id="opIdHybridClients_Create Hybrid Client"></a>
+<a id="opIdHybridClients_Create Hybrid Client (`v1` path)"></a>
 
 Creates a hybrid client. A client unique identifier and client secret will be generated to perform authentication. Make sure to store the Secret somewhere safe as we do not store the actual value after the creation step. If you do not have access to the secret value, we suggest deleting the secret and adding a new one for this client. Clients have unique ids in a tenant. Currently there is a limit of 50000 clients (of all types) per tenant.
 
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/HybridClients
-
 ```
 
 ### Request Body
@@ -166,7 +163,7 @@ HybridClientCreate object.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -224,19 +221,18 @@ Allowed for these roles:
 
 ---
 
-## Get Hybrid Client
+## Get Hybrid Client (`v1` path)
 
-<a id="opIdHybridClients_Get Hybrid Client"></a>
+<a id="opIdHybridClients_Get Hybrid Client (`v1` path)"></a>
 
 Gets a hybrid client from a Tenant.
 
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/HybridClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -287,19 +283,18 @@ Allowed for these roles:
 
 ---
 
-## Get Hybrid Client Header
+## Get Header for Hybrid Client
 
-<a id="opIdHybridClients_Get Hybrid Client Header"></a>
+<a id="opIdHybridClients_Get Header for Hybrid Client"></a>
 
 Validates that a hybrid client exists. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/HybridClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -325,16 +320,15 @@ Allowed for these roles:
 
 ---
 
-## Update Hybrid Client
+## Update Hybrid Client (`v1` path)
 
-<a id="opIdHybridClients_Update Hybrid Client"></a>
+<a id="opIdHybridClients_Update Hybrid Client (`v1` path)"></a>
 
 Updates a hybrid client. It can take up to one hour for these values to manifest in the authentication process.
 
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/HybridClients/{clientId}
-
 ```
 
 ### Request Body
@@ -363,7 +357,7 @@ HybridClient object. Properties that are not set or are null will not be changed
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -424,10 +418,9 @@ Deletes a hybrid client. It can take up to one hour for deletion to manifest in 
 ### Request
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/HybridClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -467,9 +460,9 @@ Allowed for these roles:
 
 ---
 
-## List V1 Preview Hybrid Clients
+## List All Hybrid Clients
 
-<a id="opIdHybridClients_List V1 Preview Hybrid Clients"></a>
+<a id="opIdHybridClients_List All Hybrid Clients"></a>
 
 Get all Hybrid Clients.
 
@@ -479,7 +472,7 @@ GET /api/v1-preview/Tenants/{tenantId}/HybridClients
 ?tag={tag}&query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of Tenant.<br/><br/>
@@ -535,16 +528,15 @@ Allowed for these roles:
 
 ---
 
-## Create V1 Preview Hybrid Client
+## Create Hybrid Client (`v1-preview` path)
 
-<a id="opIdHybridClients_Create V1 Preview Hybrid Client"></a>
+<a id="opIdHybridClients_Create Hybrid Client (`v1-preview` path)"></a>
 
 Create a Hybrid flow Client.
 
 ### Request
 ```text 
 POST /api/v1-preview/Tenants/{tenantId}/HybridClients
-
 ```
 
 ### Request Body
@@ -575,7 +567,7 @@ New HybridClientCreate object.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of Tenant.<br/><br/>
@@ -631,19 +623,18 @@ Allowed for these roles:
 
 ---
 
-## Get V1 Preview Hybrid Client
+## Get Hybrid Client (`v1-preview` path)
 
-<a id="opIdHybridClients_Get V1 Preview Hybrid Client"></a>
+<a id="opIdHybridClients_Get Hybrid Client (`v1-preview` path)"></a>
 
 Get a Hybrid Client.
 
 ### Request
 ```text 
 GET /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of Tenant.<br/><br/>`string clientId`
@@ -693,16 +684,15 @@ Allowed for these roles:
 
 ---
 
-## Update V1 Preview Hybrid Client
+## Update Hybrid Client (`v1-preview` path)
 
-<a id="opIdHybridClients_Update V1 Preview Hybrid Client"></a>
+<a id="opIdHybridClients_Update Hybrid Client (`v1-preview` path)"></a>
 
 Update a Hybrid Client.
 
 ### Request
 ```text 
 PUT /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}
-
 ```
 
 ### Request Body
@@ -731,7 +721,7 @@ Updated Hybrid Client values.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of Tenant.<br/><br/>`string clientId`

@@ -1,5 +1,5 @@
 ---
-title: Identity/hybrid-clients-secrets v20210317.1
+title: Identity/hybrid-clients-secrets v20210324.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,18 +7,16 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Secrets
 Secrets are used to authenticate both client credential clients and hybrid clients. A secret has an expiration date or can be created to never expire. We advise to avoid creating secrets that do not expire. After a secret expires it can no longer be used to authenticate the client. Any access token issued while a secret is still valid will be active until the token itself expires. The same applies to refresh tokens, which are issued to hybrid clients. Safe storage of secrets is your responsibility. OCS does not store secret values, so once lost there is no way to retrieve the value of a secret.
 
-## List Hybrid Client Secrets
+## List Hybrid Client Secrets All
 
-<a id="opIdSecrets_List Hybrid Client Secrets"></a>
+<a id="opIdSecrets_List Hybrid Client Secrets All"></a>
 
 Gets all secrets for a hybrid client. Total number of secrets in the client set in the Total-Count header.
 
@@ -28,7 +26,7 @@ GET /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets
 ?query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -71,19 +69,18 @@ Allowed for these roles:
 
 ---
 
-## Get Hybrid Client Secrets Header
+## Get Total Count of Hybrid Client Secrets
 
-<a id="opIdSecrets_Get Hybrid Client Secrets Header"></a>
+<a id="opIdSecrets_Get Total Count of Hybrid Client Secrets"></a>
 
 Returns total number of secrets in a hybrid client. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -108,16 +105,15 @@ Allowed for these roles:
 
 ---
 
-## Add Hybrid Client Secret
+## Add Hybrid Client Secret (`v1` path)
 
-<a id="opIdSecrets_Add Hybrid Client Secret"></a>
+<a id="opIdSecrets_Add Hybrid Client Secret (`v1` path)"></a>
 
 Adds a new secret to a hybrid client. A client can have a maximum of 10 secrets. We advise against creating secrets that do not expire.
 
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets
-
 ```
 
 ### Request Body
@@ -132,7 +128,7 @@ ClientSecretCreateOrUpdate object.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -171,19 +167,18 @@ Allowed for these roles:
 
 ---
 
-## Get Hybrid Client Secret
+## Get Hybrid Client Secret (`v1` path)
 
-<a id="opIdSecrets_Get Hybrid Client Secret"></a>
+<a id="opIdSecrets_Get Hybrid Client Secret (`v1` path)"></a>
 
 Gets a hybrid client secret.
 
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -221,19 +216,18 @@ Allowed for these roles:
 
 ---
 
-## Get Hybrid Client Secret Header
+## Get Header for Hybrid Client Secret
 
-<a id="opIdSecrets_Get Hybrid Client Secret Header"></a>
+<a id="opIdSecrets_Get Header for Hybrid Client Secret"></a>
 
 Validates that a secret unique identifier exists in the client. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -259,16 +253,15 @@ Allowed for these roles:
 
 ---
 
-## Update Hybrid Client Secret
+## Update Hybrid Client Secret (`v1` path)
 
-<a id="opIdSecrets_Update Hybrid Client Secret"></a>
+<a id="opIdSecrets_Update Hybrid Client Secret (`v1` path)"></a>
 
 Updates a hybrid client secret. It can take up to one hour for the update to manifest in the authentication process.
 
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
-
 ```
 
 ### Request Body
@@ -283,7 +276,7 @@ ClientSecretCreateOrUpdate object. Properties that are not set or are null will 
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -332,10 +325,9 @@ Deletes a secret from a hybrid client. It can take up to one hour for deletion t
 ### Request
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -376,9 +368,9 @@ Allowed for these roles:
 
 ---
 
-## List V1 Preview Hybrid Client Secrets
+## List Hybrid Client Secrets
 
-<a id="opIdSecrets_List V1 Preview Hybrid Client Secrets"></a>
+<a id="opIdSecrets_List Hybrid Client Secrets"></a>
 
 Get all secrets for a hybrid client.
 
@@ -388,7 +380,7 @@ GET /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}/Secrets
 ?query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -432,16 +424,15 @@ Allowed for these roles:
 
 ---
 
-## Add V1 Preview Hybrid Client Secret
+## Add Hybrid Client Secret (`v1-preview` path)
 
-<a id="opIdSecrets_Add V1 Preview Hybrid Client Secret"></a>
+<a id="opIdSecrets_Add Hybrid Client Secret (`v1-preview` path)"></a>
 
 Add a new secret for a hybrid client.
 
 ### Request
 ```text 
 POST /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}/Secrets
-
 ```
 
 ### Request Body
@@ -456,7 +447,7 @@ Client secret to create.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -497,19 +488,18 @@ Allowed for these roles:
 
 ---
 
-## Get V1 Preview Hybrid Client Secret
+## Get Hybrid Client Secret (`v1-preview` path)
 
-<a id="opIdSecrets_Get V1 Preview Hybrid Client Secret"></a>
+<a id="opIdSecrets_Get Hybrid Client Secret (`v1-preview` path)"></a>
 
 Get a specific hybrid client secret.
 
 ### Request
 ```text 
 GET /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -548,16 +538,15 @@ Allowed for these roles:
 
 ---
 
-## Update V1 Preview Hybrid Client Secret
+## Update Hybrid Client Secret (`v1-preview` path)
 
-<a id="opIdSecrets_Update V1 Preview Hybrid Client Secret"></a>
+<a id="opIdSecrets_Update Hybrid Client Secret (`v1-preview` path)"></a>
 
 Update a hybrid client secret. Only secret description and secret expiration date can be updated.
 
 ### Request
 ```text 
 PUT /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}
-
 ```
 
 ### Request Body
@@ -572,7 +561,7 @@ Client secret details.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`

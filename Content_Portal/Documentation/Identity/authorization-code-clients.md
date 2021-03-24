@@ -1,5 +1,5 @@
 ---
-title: Identity/authorization-code-clients v20210317.1
+title: Identity/authorization-code-clients v20210324.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,18 +7,16 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Authorization Code Clients
 Authorization code clients are used in JavaScript/Browser (SPA) based applications or native mobile applications with the presence of a user. These clients are issued an unique identifier. Authorization code clients are not issued secrets or refresh tokens.
 
-## List Authorization Code Clients
+## List All Authorization Code Clients from Tenant
 
-<a id="opIdAuthorizationCodeClients_List Authorization Code Clients"></a>
+<a id="opIdAuthorizationCodeClients_List All Authorization Code Clients from Tenant"></a>
 
 Gets all authorization code clients from a tenant. Optionally, get a list of requested clients. Total number of clients in the tenant set in the Total-Count header.
 
@@ -28,7 +26,7 @@ GET /api/v1/Tenants/{tenantId}/AuthorizationCodeClients
 ?id={id}&tag={tag}&query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -87,9 +85,9 @@ Allowed for these roles:
 
 ---
 
-## Get Authorization Code Clients Header
+## Get Total Count Authorization Code Clients from Tenant
 
-<a id="opIdAuthorizationCodeClients_Get Authorization Code Clients Header"></a>
+<a id="opIdAuthorizationCodeClients_Get Total Count Authorization Code Clients from Tenant"></a>
 
 Returns the total number of authorization code clients in a tenant. Optionally, check based on a list of requested clients. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
 
@@ -99,7 +97,7 @@ HEAD /api/v1/Tenants/{tenantId}/AuthorizationCodeClients
 ?id={id}&tag={tag}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -127,16 +125,15 @@ Allowed for these roles:
 
 ---
 
-## Create Authorization Code Client
+## Create an Authorization Code Client
 
-<a id="opIdAuthorizationCodeClients_Create Authorization Code Client"></a>
+<a id="opIdAuthorizationCodeClients_Create an Authorization Code Client"></a>
 
 Creates an authorization code client. No secret will be generated for this client.
 
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/AuthorizationCodeClients
-
 ```
 
 ### Request Body
@@ -166,7 +163,7 @@ New AuthorizationCodeClient object.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -219,19 +216,18 @@ Allowed for these roles:
 
 ---
 
-## Get Authorization Code Client
+## Get an Authorization Code Client from Tenant
 
-<a id="opIdAuthorizationCodeClients_Get Authorization Code Client"></a>
+<a id="opIdAuthorizationCodeClients_Get an Authorization Code Client from Tenant"></a>
 
 Gets an authorization code client from tenant.
 
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/AuthorizationCodeClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -283,19 +279,18 @@ Allowed for these roles:
 
 ---
 
-## Get Authorization Code Client Header
+## Get Header for Authorization Code Client
 
-<a id="opIdAuthorizationCodeClients_Get Authorization Code Client Header"></a>
+<a id="opIdAuthorizationCodeClients_Get Header for Authorization Code Client"></a>
 
 Validates that an authorization code client exists in tenant.
 
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/AuthorizationCodeClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -339,16 +334,15 @@ Allowed for these roles:
 
 ---
 
-## Update Authorization Code Client
+## Update an Authorization Code Client
 
-<a id="opIdAuthorizationCodeClients_Update Authorization Code Client"></a>
+<a id="opIdAuthorizationCodeClients_Update an Authorization Code Client"></a>
 
 Updates an authorization code client. It can take up to one hour for update to manifest in the authentication process.
 
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/AuthorizationCodeClients/{clientId}
-
 ```
 
 ### Request Body
@@ -378,7 +372,7 @@ Updated authorization code client values. Properties that are not set or are nul
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -431,19 +425,18 @@ Allowed for these roles:
 
 ---
 
-## Delete Authorization Code Client
+## Delete an Authorization Code Client
 
-<a id="opIdAuthorizationCodeClients_Delete Authorization Code Client"></a>
+<a id="opIdAuthorizationCodeClients_Delete an Authorization Code Client"></a>
 
 Deletes an authorization code client. It can take up to one hour for deletion to manifest in the authentication process. Access tokens issued to this client will be valid until their expiration.
 
 ### Request
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/AuthorizationCodeClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`

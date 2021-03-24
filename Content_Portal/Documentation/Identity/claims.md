@@ -1,5 +1,5 @@
 ---
-title: Identity/claims v20210317.1
+title: Identity/claims v20210324.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,18 +7,16 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Claims
 An identity provider claim provides a mechanism to map a claim from an identity provider to one or more roles.
 
-## List Identity Provider Claims
+## List all Identity Provider Claims
 
-<a id="opIdClaims_List Identity Provider Claims"></a>
+<a id="opIdClaims_List all Identity Provider Claims"></a>
 
 Gets all identity provider claims for an identity provider on a tenant.
 
@@ -28,7 +26,7 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims
 ?query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -74,19 +72,18 @@ Allowed for these roles:
 
 ---
 
-## Get Identity Provider Claims Header
+## Get all Identity Provider Claims Header
 
-<a id="opIdClaims_Get Identity Provider Claims Header"></a>
+<a id="opIdClaims_Get all Identity Provider Claims Header"></a>
 
 Gets header for all identity provider claims for an identity provider on a tenant.
 
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -111,16 +108,15 @@ Allowed for these roles:
 
 ---
 
-## Post Identity Provider Claim
+## Create New Identity Provider Claim
 
-<a id="opIdClaims_Post Identity Provider Claim"></a>
+<a id="opIdClaims_Create New Identity Provider Claim"></a>
 
 Creates a new identity provider claim for an identity provider on a tenant.
 
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims
-
 ```
 
 ### Request Body
@@ -137,7 +133,7 @@ Identity provider claim to create.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -189,10 +185,9 @@ Gets an identity provider claim from an identity provider on a tenant.
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims/{identityProviderClaimId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -241,10 +236,9 @@ Gets an identity provider claim header from an identity provider on a tenant.
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims/{identityProviderClaimId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -270,16 +264,15 @@ Allowed for these roles:
 
 ---
 
-## Put Identity Provider Claim
+## Update an Existing Identity Provider Claim
 
-<a id="opIdClaims_Put Identity Provider Claim"></a>
+<a id="opIdClaims_Update an Existing Identity Provider Claim"></a>
 
 Updates a new identity provider claim for an identity provider on a tenant.
 
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims/{identityProviderClaimId}
-
 ```
 
 ### Request Body
@@ -295,7 +288,7 @@ Updated identity provider claim values.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -338,19 +331,18 @@ Allowed for these roles:
 
 ---
 
-## Delete Identity Provider Claim
+## Delete an Existing Identity Provider Claim
 
-<a id="opIdClaims_Delete Identity Provider Claim"></a>
+<a id="opIdClaims_Delete an Existing Identity Provider Claim"></a>
 
 Deletes an identity provider claim for an identity provider on a tenant.
 
 ### Request
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims/{identityProviderClaimId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`

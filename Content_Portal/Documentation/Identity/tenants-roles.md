@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-roles v20210317.1
+title: Identity/tenants-roles v20210324.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,18 +7,16 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Roles
 APIs for creating, getting, updating, and deleting roles on a tenant.
 
-## List Tenant Roles
+## List Roles
 
-<a id="opIdRoles_List Tenant Roles"></a>
+<a id="opIdRoles_List Roles"></a>
 
 Gets all roles for a tenant including roles for any communities that the tenant belongs to.
 
@@ -28,7 +26,7 @@ GET /api/v1/Tenants/{tenantId}/Roles
 ?query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -56,7 +54,7 @@ GET /api/v1/Tenants/{tenantId}/Roles
     "Id": "string",
     "Name": "string",
     "Description": "string",
-    "RoleScope": 1,
+    "RoleScope": 0,
     "TenantId": "string",
     "CommunityId": "string",
     "RoleTypeId": "string"
@@ -73,19 +71,18 @@ Allowed for these roles:
 
 ---
 
-## Get Tenant Roles Header
+## Get header for Roles
 
-<a id="opIdRoles_Get Tenant Roles Header"></a>
+<a id="opIdRoles_Get header for Roles"></a>
 
 Gets header for roles to get the total number of roles for a given tenant including community roles for any community the tenant is joined to.
 
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/Roles
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -109,16 +106,15 @@ Allowed for these roles:
 
 ---
 
-## Post Tenant Role
+## Create Role on Tenant
 
-<a id="opIdRoles_Post Tenant Role"></a>
+<a id="opIdRoles_Create Role on Tenant"></a>
 
 Creates a new tenant `Role`.
 
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/Roles
-
 ```
 
 ### Request Body
@@ -130,14 +126,14 @@ Role to create.<br/>
   "Id": "string",
   "Name": "string",
   "Description": "string",
-  "RoleScope": 1,
+  "RoleScope": 0,
   "TenantId": "string",
   "CommunityId": "string",
   "RoleTypeId": "string"
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -164,7 +160,7 @@ Role to create.<br/>
   "Id": "string",
   "Name": "string",
   "Description": "string",
-  "RoleScope": 1,
+  "RoleScope": 0,
   "TenantId": "string",
   "CommunityId": "string",
   "RoleTypeId": "string"
@@ -180,19 +176,18 @@ Allowed for these roles:
 
 ---
 
-## Get Tenant Role
+## Get Role
 
-<a id="opIdRoles_Get Tenant Role"></a>
+<a id="opIdRoles_Get Role"></a>
 
 Returns the specified role.
 
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/Roles/{roleId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string roleId`
@@ -216,7 +211,7 @@ GET /api/v1/Tenants/{tenantId}/Roles/{roleId}
   "Id": "string",
   "Name": "string",
   "Description": "string",
-  "RoleScope": 1,
+  "RoleScope": 0,
   "TenantId": "string",
   "CommunityId": "string",
   "RoleTypeId": "string"
@@ -232,19 +227,18 @@ Allowed for these roles:
 
 ---
 
-## Get Tenant Role Header
+## Get header for Role
 
-<a id="opIdRoles_Get Tenant Role Header"></a>
+<a id="opIdRoles_Get header for Role"></a>
 
 Gets header for a role on given tenant.
 
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/Roles/{roleId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string roleId`
@@ -269,16 +263,15 @@ Allowed for these roles:
 
 ---
 
-## Put Tenant Role
+## Update Role on Tenant
 
-<a id="opIdRoles_Put Tenant Role"></a>
+<a id="opIdRoles_Update Role on Tenant"></a>
 
 Updates a `Role` for a tenant.
 
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/Roles/{roleId}
-
 ```
 
 ### Request Body
@@ -290,14 +283,14 @@ Role to update.<br/>
   "Id": "string",
   "Name": "string",
   "Description": "string",
-  "RoleScope": 1,
+  "RoleScope": 0,
   "TenantId": "string",
   "CommunityId": "string",
   "RoleTypeId": "string"
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string roleId`
@@ -323,7 +316,7 @@ Role to update.<br/>
   "Id": "string",
   "Name": "string",
   "Description": "string",
-  "RoleScope": 1,
+  "RoleScope": 0,
   "TenantId": "string",
   "CommunityId": "string",
   "RoleTypeId": "string"
@@ -348,10 +341,9 @@ Deletes any tenant-scoped, non built-in `Role` by its role unique identifier.
 ### Request
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/Roles/{roleId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string roleId`
@@ -392,19 +384,18 @@ Allowed for these roles:
 
 ---
 
-## List Client Credential Clients For A Role
+## List all the clients for a given role
 
-<a id="opIdRoles_List Client Credential Clients For A Role"></a>
+<a id="opIdRoles_List all the clients for a given role"></a>
 
 Gets all the clients for a given role.
 
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/Roles/{roleId}/clientcredentialclients
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string roleId`
@@ -449,19 +440,18 @@ Allowed for these roles:
 
 ---
 
-## Get Client Credential Clients Count For A Role
+## Get header for the total number of clients for a given role
 
-<a id="opIdRoles_Get Client Credential Clients Count For A Role"></a>
+<a id="opIdRoles_Get header for the total number of clients for a given role"></a>
 
 Gets the total number of clients for a given role.
 
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/Roles/{roleId}/clientcredentialclients
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string roleId`
@@ -486,19 +476,18 @@ Allowed for these roles:
 
 ---
 
-## List Users For A Role
+## List users for a Role
 
-<a id="opIdRoles_List Users For A Role"></a>
+<a id="opIdRoles_List users for a Role"></a>
 
 Gets all the users for a given role.
 
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/Roles/{roleId}/users
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string roleId`
@@ -546,19 +535,18 @@ Allowed for these roles:
 
 ---
 
-## Get Users Count For A Role
+## Get header for the total users for a given role
 
-<a id="opIdRoles_Get Users Count For A Role"></a>
+<a id="opIdRoles_Get header for the total users for a given role"></a>
 
 Gets the total number of users for a given role.
 
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/Roles/{roleId}/users
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string roleId`
@@ -591,24 +579,26 @@ Allowed for these roles:
 <a id="tocSrole"></a>
 <a id="tocsrole"></a>
 
+Object for retrieving a role.
+
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|guid|false|true|None|
-|Name|string|false|true|None|
-|Description|string|false|true|None|
-|RoleScope|[RoleScope](#schemarolescope)|false|true|None|
-|TenantId|guid|false|true|None|
-|CommunityId|guid|false|true|None|
-|RoleTypeId|guid|false|true|None|
+|Id|string|false|true|Role unique identifier. Generated by the server upon creation.|
+|Name|string|false|true|Role name. This cannot be empty.|
+|Description|string|false|true|Role description.|
+|RoleScope|[RoleScope](#schemarolescope)|false|true|Role scope.|
+|TenantId|string|false|true|Tenant unique identifier, if this is a Tenant Role. Otherwise set to null.|
+|CommunityId|string|false|true|Community unique identifier, if this is a Community Role. Otherwise set to null.|
+|RoleTypeId|string|false|true|Role type identifier for built-in roles.|
 
 ```json
 {
   "Id": "string",
   "Name": "string",
   "Description": "string",
-  "RoleScope": 1,
+  "RoleScope": 0,
   "TenantId": "string",
   "CommunityId": "string",
   "RoleTypeId": "string"
@@ -625,11 +615,14 @@ Allowed for these roles:
 <a id="tocSrolescope"></a>
 <a id="tocsrolescope"></a>
 
+Role Scopes.
+
 #### Enumerated Values
 
 |Property|Value|
 |---|---|
-|Account|1|
+|None|0|
+|Tenant|1|
 |Community|2|
 |Cluster|3|
 

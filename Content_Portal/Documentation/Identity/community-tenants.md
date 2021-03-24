@@ -1,5 +1,5 @@
 ---
-title: Identity/community-tenants v20210317.1
+title: Identity/community-tenants v20210324.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,25 +7,22 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
 
-[[_TOC_]]
-
 # Community Tenants
-APIs for getting Member Tenants info in a Community.
+APIs for getting Community Tenant information.
 
-## Update Community Tenant By Id
+## Update a Community Tenant state (`communitytenants` path)
 
-<a id="opIdCommunityTenants_Update Community Tenant By Id"></a>
+<a id="opIdCommunityTenants_Update a Community Tenant state (`communitytenants` path)"></a>
 
 Updates the state of a Community Tenant. It can be activated, paused, or removed.
 
 ### Request
 ```text 
-PUT /api/v1/tenants/{tenantId}/communities/{communityId}/communitytenants/{communityTenantId}
-
+PUT /api/v1-preview/tenants/{tenantId}/communities/{communityId}/communitytenants/{communityTenantId}
 ```
 
 ### Request Body
@@ -34,11 +31,11 @@ The community tenant object that contains the attributes to use for the update.<
 
 ```json
 {
-  "Status": "Undefined"
+  "Status": "None"
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>The id of the owning tenant.<br/><br/>`string communityId`
@@ -81,16 +78,15 @@ Allowed for these roles:
 
 ---
 
-## Update Community Tenant By Id2
+## Update a Community Tenant state (`membertenants` path)
 
-<a id="opIdCommunityTenants_Update Community Tenant By Id2"></a>
+<a id="opIdCommunityTenants_Update a Community Tenant state (`membertenants` path)"></a>
 
 Updates the state of a Community Tenant. It can be activated, paused, or removed.
 
 ### Request
 ```text 
-PUT /api/v1/tenants/{tenantId}/communities/{communityId}/membertenants/{communityTenantId}
-
+PUT /api/v1-preview/tenants/{tenantId}/communities/{communityId}/membertenants/{communityTenantId}
 ```
 
 ### Request Body
@@ -99,11 +95,11 @@ The community tenant object that contains the attributes to use for the update.<
 
 ```json
 {
-  "Status": "Undefined"
+  "Status": "None"
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>The id of the owning tenant.<br/><br/>`string communityId`
@@ -196,7 +192,7 @@ The UpdateCommunityTenantInput Data Transfer Object. This is the model input for
 
 ```json
 {
-  "Status": "Undefined"
+  "Status": "None"
 }
 
 ```
@@ -216,7 +212,7 @@ Represents a status of a Community Tenant.
 
 |Property|Value|
 |---|---|
-|Undefined|Undefined|
+|None|None|
 |AwaitingConfirmation|AwaitingConfirmation|
 |Paused|Paused|
 |Active|Active|

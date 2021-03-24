@@ -1,5 +1,5 @@
 ---
-title: Identity/communities v20210317.1
+title: Identity/communities v20210324.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,38 +7,40 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Communities
 A Community is an organizational entity that facilitates data sharing across multiple Tenants.
 
-## List Joined Communities
+## List Communities a Tenant is joined to
 
-<a id="opIdCommunities_List Joined Communities"></a>
+<a id="opIdCommunities_List Communities a Tenant is joined to"></a>
 
 Gets all communities a tenant is joined to.
 
 ### Request
 ```text 
-GET /api/v1/tenants/{tenantId}/Communities
-
+GET /api/v1-preview/tenants/{tenantId}/Communities
+?query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>The id of the owning tenant.<br/><br/>
+`[optional] string query`
+<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`
+<br/>Number of records to skip.<br/><br/>`[optional] integer count`
+<br/>Maximum number of records to return.<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[Community](#schemacommunity)[]|Returns the current communities for the tenant. This is a set of objects of type `Community`.|
-|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request due to invalid syntax.|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request.|
 |401|None|Unauthorized. The client has not been authenticated.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
 |408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
@@ -58,7 +60,7 @@ GET /api/v1/tenants/{tenantId}/Communities
       {
         "Id": "string",
         "Name": "string",
-        "Status": "Undefined",
+        "Status": "None",
         "IsOwner": true,
         "UserCount": 0,
         "ClientCount": 0
@@ -80,16 +82,15 @@ Allowed for these roles:
 
 ---
 
-## Create Community
+## Create a new Community
 
-<a id="opIdCommunities_Create Community"></a>
+<a id="opIdCommunities_Create a new Community"></a>
 
 Creates a new community within a specific tenant. The tenant sending this request will be assigned ownership of the community. The calling user or client will be granted community administrator and member roles for the community.
 
 ### Request
 ```text 
-POST /api/v1/tenants/{tenantId}/Communities
-
+POST /api/v1-preview/tenants/{tenantId}/Communities
 ```
 
 ### Request Body
@@ -103,7 +104,7 @@ The community information to create.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>The id of the owning tenant.<br/><br/>
@@ -113,7 +114,7 @@ The community information to create.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |201|[Community](#schemacommunity)|Returns the created community of type `Community`.|
-|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request due to invalid syntax.|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized. The client has not been authenticated.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
 |408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
@@ -133,7 +134,7 @@ The community information to create.<br/>
     {
       "Id": "string",
       "Name": "string",
-      "Status": "Undefined",
+      "Status": "None",
       "IsOwner": true,
       "UserCount": 0,
       "ClientCount": 0
@@ -154,19 +155,18 @@ Allowed for these roles:
 
 ---
 
-## Get Community By Id
+## Get a Community by Id
 
-<a id="opIdCommunities_Get Community By Id"></a>
+<a id="opIdCommunities_Get a Community by Id"></a>
 
 Gets a community and related information by id.
 
 ### Request
 ```text 
-GET /api/v1/tenants/{tenantId}/Communities/{communityId}
-
+GET /api/v1-preview/tenants/{tenantId}/Communities/{communityId}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>The id of the owning tenant.<br/><br/>`string communityId`
@@ -177,7 +177,7 @@ GET /api/v1/tenants/{tenantId}/Communities/{communityId}
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[Community](#schemacommunity)|Returns the current communities for the tenant. This is a set of objects of type `Community`.|
-|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request due to invalid syntax.|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request.|
 |401|None|Unauthorized. The client has not been authenticated.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
 |408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
@@ -196,7 +196,7 @@ GET /api/v1/tenants/{tenantId}/Communities/{communityId}
     {
       "Id": "string",
       "Name": "string",
-      "Status": "Undefined",
+      "Status": "None",
       "IsOwner": true,
       "UserCount": 0,
       "ClientCount": 0
@@ -218,16 +218,15 @@ Allowed for these roles:
 
 ---
 
-## Update Community By Id
+## Update Community Info
 
-<a id="opIdCommunities_Update Community By Id"></a>
+<a id="opIdCommunities_Update Community Info"></a>
 
 Updates attributes of a community such as name and description.
 
 ### Request
 ```text 
-PUT /api/v1/tenants/{tenantId}/Communities/{communityId}
-
+PUT /api/v1-preview/tenants/{tenantId}/Communities/{communityId}
 ```
 
 ### Request Body
@@ -241,7 +240,7 @@ The community object that contains the attributes to use for the update.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>The id of the owning tenant.<br/><br/>`string communityId`
@@ -252,7 +251,7 @@ The community object that contains the attributes to use for the update.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|None|Success. The community tenant was updated.|
-|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request due to invalid syntax.|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized. The client has not been authenticated.|
 |404|[ErrorResponse](#schemaerrorresponse)|Not Found. The requested community tenant was not found.|
 |408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
@@ -282,19 +281,18 @@ Allowed for these roles:
 
 ---
 
-## Delete Community
+## Delete a Community
 
-<a id="opIdCommunities_Delete Community"></a>
+<a id="opIdCommunities_Delete a Community"></a>
 
 Deletes a community by id.
 
 ### Request
 ```text 
-DELETE /api/v1/tenants/{tenantId}/Communities/{communityId}
-
+DELETE /api/v1-preview/tenants/{tenantId}/Communities/{communityId}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>The id of the owning tenant.<br/><br/>`string communityId`
@@ -305,7 +303,7 @@ DELETE /api/v1/tenants/{tenantId}/Communities/{communityId}
 |Status Code|Body Type|Description|
 |---|---|---|
 |204|None|No Content. The community was successfully deleted.|
-|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request due to invalid syntax.|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized. The client has not been authenticated.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
 |404|[ErrorResponse](#schemaerrorresponse)|Not Found. The community was not found.|
@@ -369,7 +367,7 @@ The Community Data Transfer Object. This is the model representation exposed to 
     {
       "Id": "string",
       "Name": "string",
-      "Status": "Undefined",
+      "Status": "None",
       "IsOwner": true,
       "UserCount": 0,
       "ClientCount": 0
@@ -408,7 +406,7 @@ The Community Tenant Data Transfer Object.
 {
   "Id": "string",
   "Name": "string",
-  "Status": "Undefined",
+  "Status": "None",
   "IsOwner": true,
   "UserCount": 0,
   "ClientCount": 0
@@ -431,7 +429,7 @@ Represents a status of a Community Tenant.
 
 |Property|Value|
 |---|---|
-|Undefined|Undefined|
+|None|None|
 |AwaitingConfirmation|AwaitingConfirmation|
 |Paused|Paused|
 |Active|Active|

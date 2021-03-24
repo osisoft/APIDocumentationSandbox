@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-identity-providers v20210317.1
+title: Identity/tenants-identity-providers v20210324.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,18 +7,16 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Identity Providers
 An identity provider provides authentication services and maintains credentials for users that have been provisioned in OCS. Each tenant can have one or more identity providers. Each user is either assigned one of the available identity providers in the tenant or chooses one in the Home Realm Discovery page when accepting the invitation. A user can only log in with the same identity provider they signed up with.
 
-## List Tenant Identity Providers
+## List all Identity Providers from Tenant
 
-<a id="opIdIdentityProviders_List Tenant Identity Providers"></a>
+<a id="opIdIdentityProviders_List all Identity Providers from Tenant"></a>
 
 Gets all identity providers from a tenant.
 
@@ -28,7 +26,7 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders
 ?query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -76,19 +74,18 @@ Allowed for these roles:
 
 ---
 
-## Get Tenant Identity Providers Header
+## Get Total Count of Identity Providers
 
-<a id="opIdIdentityProviders_Get Tenant Identity Providers Header"></a>
+<a id="opIdIdentityProviders_Get Total Count of Identity Providers"></a>
 
 Returns the total number of identity providers in a tenant. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/IdentityProviders
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -112,16 +109,15 @@ Allowed for these roles:
 
 ---
 
-## Add Tenant Identity Provider
+## Add Identity Provider to Tenant
 
-<a id="opIdIdentityProviders_Add Tenant Identity Provider"></a>
+<a id="opIdIdentityProviders_Add Identity Provider to Tenant"></a>
 
 Adds an existing identity provider to a tenant. This identity provider will be available in the Home Realm Discovery Page for users to log in or sign up.
 
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/IdentityProviders
-
 ```
 
 ### Request Body
@@ -140,7 +136,7 @@ IdentityProviderAdd object.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -193,19 +189,18 @@ Allowed for these roles:
 
 ---
 
-## Get Tenant Identity Provider
+## Get Identity Provider from Tenant
 
-<a id="opIdIdentityProviders_Get Tenant Identity Provider"></a>
+<a id="opIdIdentityProviders_Get Identity Provider from Tenant"></a>
 
 Gets an identity provider from a tenant.
 
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -255,19 +250,18 @@ Allowed for these roles:
 
 ---
 
-## Get Tenant Identity Provider Header
+## Get Header for Identity Provider
 
-<a id="opIdIdentityProviders_Get Tenant Identity Provider Header"></a>
+<a id="opIdIdentityProviders_Get Header for Identity Provider"></a>
 
 Validates that a identity provider exists in the tenant. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -292,19 +286,18 @@ Allowed for these roles:
 
 ---
 
-## Remove Tenant Identity Provider
+## Remove Identity Provider From Tenant
 
-<a id="opIdIdentityProviders_Remove Tenant Identity Provider"></a>
+<a id="opIdIdentityProviders_Remove Identity Provider From Tenant"></a>
 
 Removes an identity provider from a tenant. Users provisioned with this identity provider will remain in the tenant, but will not be able to authenticate. An administrator cannot remove the identity provider they are signed in with.
 
 ### Request
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -344,19 +337,18 @@ Allowed for these roles:
 
 ---
 
-## Get Tenant Identity Provider Consent
+## Get an Identity Provider Consent from a Tenant
 
-<a id="opIdIdentityProviders_Get Tenant Identity Provider Consent"></a>
+<a id="opIdIdentityProviders_Get an Identity Provider Consent from a Tenant"></a>
 
 Gets the consent information for an identity provider for a tenant. The ConsentState property, if returned, determines whether an identity provider consents to sharing access to its directory with the OCS tenant. For example, the expected ConsentState's for AAD include (Pending_)SignIn and (Pending_)ReadAllUsersGroups.
 
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Consent
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -392,19 +384,18 @@ Allowed for these roles:
 
 ---
 
-## Get Tenant Identity Provider Consent Header
+## Get Header for Identity Provider Consent
 
-<a id="opIdIdentityProviders_Get Tenant Identity Provider Consent Header"></a>
+<a id="opIdIdentityProviders_Get Header for Identity Provider Consent"></a>
 
 Validates that a identity provider consent exists in the tenant. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Consent
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -443,16 +434,15 @@ Allowed for these roles:
 
 ---
 
-## Update Tenant Identity Provider Consent
+## Update Identity Provider Consent of a Tenant
 
-<a id="opIdIdentityProviders_Update Tenant Identity Provider Consent"></a>
+<a id="opIdIdentityProviders_Update Identity Provider Consent of a Tenant"></a>
 
 Updates the identity provider consent of a tenant. Currently only supports AAD. The consent grants User.Read.All and GroupMember.Read.All permissions to the OCS tenant.
 
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Consent
-
 ```
 
 ### Request Body
@@ -467,7 +457,7 @@ Identity provider consent.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -505,9 +495,9 @@ Allowed for these roles:
 
 ---
 
-## Get Identity Provider Groups
+## Get a List of all Groups on an Identity Provider.
 
-<a id="opIdIdentityProviders_Get Identity Provider Groups"></a>
+<a id="opIdIdentityProviders_Get a List of all Groups on an Identity Provider."></a>
 
 Gets a list of groups that matches the query string on an identity provider that supports Advanced Integration, such as AAD. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant. The consent grants User.Read.All and GroupMember.Read.All permissions to the OCS tenant.
 
@@ -517,7 +507,7 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/groups
 ?query={query}&count={count}&skipToken={skipToken}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -565,16 +555,15 @@ Allowed for these roles:
 
 ---
 
-## Get Identity Provider Groups By Ids
+## Get Identity Provider Groups.
 
-<a id="opIdIdentityProviders_Get Identity Provider Groups By Ids"></a>
+<a id="opIdIdentityProviders_Get Identity Provider Groups."></a>
 
 Gets the groups based on the Ids. Currently, AAD provider is the only provider that supports this endpoint.
 
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Groups
-
 ```
 
 ### Request Body
@@ -587,7 +576,7 @@ Group unique identifier list.<br/>
 ]
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -631,9 +620,9 @@ Allowed for these roles:
 
 ---
 
-## Get Identity Provider Members In A Group
+## Get a List of All Users Belonging to Group on an Identity Provider.
 
-<a id="opIdIdentityProviders_Get Identity Provider Members In A Group"></a>
+<a id="opIdIdentityProviders_Get a List of All Users Belonging to Group on an Identity Provider."></a>
 
 Gets a list of all users belonging to a specific group on an identity provider that supports Advanced Integration, such as AAD. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant.
 
@@ -643,7 +632,7 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/groups/{gr
 ?count={count}&skipToken={skipToken}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -700,9 +689,9 @@ Allowed for these roles:
 
 ---
 
-## Get Identity Provider Users
+## Get a List of All Users on an Identity Provider.
 
-<a id="opIdIdentityProviders_Get Identity Provider Users"></a>
+<a id="opIdIdentityProviders_Get a List of All Users on an Identity Provider."></a>
 
 Gets a list of users that matches the query string on an identity provider that supports Advanced Integration, such as AAD. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant.
 
@@ -712,7 +701,7 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/users
 ?query={query}&count={count}&skipToken={skipToken}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
@@ -761,9 +750,9 @@ Allowed for these roles:
 
 ---
 
-## Get Identity Provider Groups For User
+## Get a List of All Groups that a User Belongs to on an Identity Provider.
 
-<a id="opIdIdentityProviders_Get Identity Provider Groups For User"></a>
+<a id="opIdIdentityProviders_Get a List of All Groups that a User Belongs to on an Identity Provider."></a>
 
 Gets a list of all groups that the specified user belongs to on an identity provider that supports Advanced Integration, such as AAD. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant. The consent grants User.Read.All and GroupMember.Read.All permissions to the OCS tenant.
 
@@ -773,7 +762,7 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Users/{use
 ?skip={skip}&count={count}&timeout={timeout}&skipToken={skipToken}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string identityProviderId`

@@ -1,5 +1,5 @@
 ---
-title: Identity/api-identity-providers v20210317.1
+title: Identity/api-identity-providers v20210324.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,11 +7,9 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Identity Providers
 APIs for getting a list of all supported identity providers.
@@ -28,7 +26,7 @@ GET /api/v1/IdentityProviders
 ?query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `[optional] string query`
 <br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`
@@ -74,16 +72,15 @@ Allowed for these roles:
 
 ---
 
-## Get Identity Providers Header
+## Get Header for Identity Providers
 
-<a id="opIdIdentityProviders_Get Identity Providers Header"></a>
+<a id="opIdIdentityProviders_Get Header for Identity Providers"></a>
 
 Get the total number of identity providers.
 
 ### Request
 ```text 
 HEAD /api/v1/IdentityProviders
-
 ```
 
 ### Response
@@ -114,10 +111,9 @@ Returns an IdentityProvider object.
 ### Request
 ```text 
 GET /api/v1/IdentityProviders/{identityProviderId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string identityProviderId`
 <br/>Identity provider unique identifier.<br/><br/>
@@ -166,19 +162,18 @@ Allowed for these roles:
 
 ---
 
-## Get Identity Provider Header
+## Get Identity Provider based on Id
 
-<a id="opIdIdentityProviders_Get Identity Provider Header"></a>
+<a id="opIdIdentityProviders_Get Identity Provider based on Id"></a>
 
 Validates that a identity provider exists
 
 ### Request
 ```text 
 HEAD /api/v1/IdentityProviders/{identityProviderId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string identityProviderId`
 <br/>Identity provider unique identifier.<br/><br/>
@@ -202,19 +197,18 @@ Allowed for these roles:
 
 ---
 
-## Get Identity Provider By Scheme
+## Get Identity Provider by Scheme
 
-<a id="opIdIdentityProviders_Get Identity Provider By Scheme"></a>
+<a id="opIdIdentityProviders_Get Identity Provider by Scheme"></a>
 
 Returns a list of identity provider objects that follow a scheme.
 
 ### Request
 ```text 
 GET /api/v1/IdentityProviders/schemes/{scheme}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string scheme`
 <br/>Scheme name (for example, AAD or Google).<br/><br/>
@@ -263,19 +257,18 @@ Allowed for these roles:
 
 ---
 
-## Get Identity Provider Scheme Header
+## Get Identity Provider Based on Scheme
 
-<a id="opIdIdentityProviders_Get Identity Provider Scheme Header"></a>
+<a id="opIdIdentityProviders_Get Identity Provider Based on Scheme"></a>
 
 Validates that a scheme exists
 
 ### Request
 ```text 
 HEAD /api/v1/IdentityProviders/schemes/{scheme}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string scheme`
 <br/>Scheme name (for example, AAD or Google).<br/><br/>

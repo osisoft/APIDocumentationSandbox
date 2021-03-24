@@ -1,5 +1,5 @@
 ---
-title: Identity/communities-users v20210317.1
+title: Identity/communities-users v20210324.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,38 +7,40 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Users
 APIs for getting, updating, and deleting Users from Communities.
 
-## List Community Users For Tenant
+## List Users of a Tenant in a Community
 
-<a id="opIdUsers_List Community Users For Tenant"></a>
+<a id="opIdUsers_List Users of a Tenant in a Community"></a>
 
-Get a list of Users of a Tenant in a Community.
+Get Users associated with a specific Tenant and Community.
 
 ### Request
 ```text 
-GET /api/v1/Tenants/{tenantId}/Communities/{communityId}/Users
-
+GET /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/Users
+?query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
-<br/>Id of the Tenant that belongs to this Community.<br/><br/>`string communityId`
-<br/>Id of Community.<br/><br/>
+<br/>The identifier of the Tenant. Tenant must belong to the Community.<br/><br/>`string communityId`
+<br/>The identifier of the Community.<br/><br/>
+`[optional] string query`
+<br/>Query to execute. Currently not supported.<br/><br/>`[optional] integer skip`
+<br/>Number of records to skip.<br/><br/>`[optional] integer count`
+<br/>Maximum number of records to return.<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[User](#schemauser)[]|Success.|
+|200|[User](#schemauser)[]|Set of Users (Type `User`) associated with the Tenant ( `tenantId`) and Community ( `communityId`).|
 |400|[ErrorResponse](#schemaerrorresponse)|BadRequest.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
@@ -78,19 +80,18 @@ Allowed for these roles:
 
 ---
 
-## Get Community Users Count For Tenant
+## Get count of Users of a Tenant in a Community
 
-<a id="opIdUsers_Get Community Users Count For Tenant"></a>
+<a id="opIdUsers_Get count of Users of a Tenant in a Community"></a>
 
-Get the count of Users of the Tenant in this Community. This endpoint is identical to the `Guid)` endpoint except it does not return a body.
+Get the count of Users of the Tenant in this Community. This endpoint is identical to the `Int32)` endpoint except it does not return a body.
 
 ### Request
 ```text 
-HEAD /api/v1/Tenants/{tenantId}/Communities/{communityId}/Users
-
+HEAD /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/Users
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of the calling Tenant that belongs to this Community.<br/><br/>`string communityId`
@@ -131,19 +132,28 @@ Allowed for these roles:
 
 ---
 
-## Add User To Community
+## Add User to a Community
 
-<a id="opIdUsers_Add User To Community"></a>
+<a id="opIdUsers_Add User to a Community"></a>
 
-Add a user to a Community.
+Add a User to a Community, providing a List of Community Role Ids to be assigned to the User.
 
 ### Request
 ```text 
-PUT /api/v1/Tenants/{tenantId}/Communities/{communityId}/Users/{userId}
-
+PUT /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/Users/{userId}
 ```
 
-### Parameters
+### Request Body
+
+List of Community Roles Ids to assign to the User.<br/>
+
+```json
+[
+  "string"
+]
+```
+
+#### Parameters
 
 `string tenantId`
 <br/>Id of the Tenant that belongs to this Community<br/><br/>`string communityId`
@@ -154,6 +164,7 @@ PUT /api/v1/Tenants/{tenantId}/Communities/{communityId}/Users/{userId}
 
 |Status Code|Body Type|Description|
 |---|---|---|
+|200|[User](#schemauser)|Ok.|
 |201|[User](#schemauser)|Created.|
 |400|[ErrorResponse](#schemaerrorresponse)|BadRequest.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
@@ -162,7 +173,7 @@ PUT /api/v1/Tenants/{tenantId}/Communities/{communityId}/Users/{userId}
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 #### Example response body
-> 201 Response
+> 200 Response
 
 ```json
 {
@@ -193,19 +204,18 @@ Allowed for these roles:
 
 ---
 
-## Remove User From Community
+## Remove User from a Community
 
-<a id="opIdUsers_Remove User From Community"></a>
+<a id="opIdUsers_Remove User from a Community"></a>
 
 Remove a User from a Community.
 
 ### Request
 ```text 
-DELETE /api/v1/Tenants/{tenantId}/Communities/{communityId}/Users/{userId}
-
+DELETE /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/Users/{userId}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of the Tenant that belongs to this Community.<br/><br/>`string communityId`

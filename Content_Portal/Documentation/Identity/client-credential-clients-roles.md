@@ -1,5 +1,5 @@
 ---
-title: Identity/client-credential-clients-roles v20210317.1
+title: Identity/client-credential-clients-roles v20210324.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,18 +7,16 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Roles
 APIs for getting, updating, and deleting client credential client roles.
 
-## List Client Credential Client Roles All
+## List Roles for Client Credential Client All
 
-<a id="opIdRoles_List Client Credential Client Roles All"></a>
+<a id="opIdRoles_List Roles for Client Credential Client All"></a>
 
 Returns a list of roles for the specified client credential client.
 
@@ -28,7 +26,7 @@ GET /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Roles
 ?query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -59,7 +57,7 @@ GET /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Roles
     "Id": "string",
     "Name": "string",
     "Description": "string",
-    "RoleScope": 1,
+    "RoleScope": 0,
     "TenantId": "string",
     "CommunityId": "string",
     "RoleTypeId": "string"
@@ -77,19 +75,18 @@ Allowed for these roles:
 
 ---
 
-## Get Client Credential Client Roles Header
+## Get Roles for Client Credential Client Header (` Client Credential Clients` path)
 
-<a id="opIdRoles_Get Client Credential Client Roles Header"></a>
+<a id="opIdRoles_Get Roles for Client Credential Client Header (` Client Credential Clients` path)"></a>
 
 Head request to get the total number of client credential client roles for the specified client credential client.
 
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Roles
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -115,16 +112,15 @@ Allowed for these roles:
 
 ---
 
-## Put Client Credential Client Roles All
+## Replace Client Credential Client's Roles All
 
-<a id="opIdRoles_Put Client Credential Client Roles All"></a>
+<a id="opIdRoles_Replace Client Credential Client's Roles All"></a>
 
 Replaces existing client credential client roles.
 
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Roles
-
 ```
 
 ### Request Body
@@ -137,7 +133,7 @@ Update roles list.<br/>
     "Id": "string",
     "Name": "string",
     "Description": "string",
-    "RoleScope": 1,
+    "RoleScope": 0,
     "TenantId": "string",
     "CommunityId": "string",
     "RoleTypeId": "string"
@@ -145,7 +141,7 @@ Update roles list.<br/>
 ]
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -155,7 +151,7 @@ Update roles list.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[Role](#schemarole)[]|No content.|
+|200|[Role](#schemarole)[]|List of updated client credential client roles.|
 |400|[ErrorResponse](#schemaerrorresponse)|Missing preferences.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
@@ -172,7 +168,7 @@ Update roles list.<br/>
     "Id": "string",
     "Name": "string",
     "Description": "string",
-    "RoleScope": 1,
+    "RoleScope": 0,
     "TenantId": "string",
     "CommunityId": "string",
     "RoleTypeId": "string"
@@ -189,9 +185,9 @@ Allowed for these roles:
 
 ---
 
-## List Client Credential Client Roles
+## List Roles for Client Credential Client
 
-<a id="opIdRoles_List Client Credential Client Roles"></a>
+<a id="opIdRoles_List Roles for Client Credential Client"></a>
 
 Returns a list of roles for the specified client credential client.
 
@@ -201,7 +197,7 @@ GET /api/v1/Tenants/{tenantId}/Clients/{clientId}/Roles
 ?query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -232,7 +228,7 @@ GET /api/v1/Tenants/{tenantId}/Clients/{clientId}/Roles
     "Id": "string",
     "Name": "string",
     "Description": "string",
-    "RoleScope": 1,
+    "RoleScope": 0,
     "TenantId": "string",
     "CommunityId": "string",
     "RoleTypeId": "string"
@@ -250,19 +246,18 @@ Allowed for these roles:
 
 ---
 
-## Get Client Credential Client Roles Header2
+## Get Roles for Client Credential Client Header (` Clients` path)
 
-<a id="opIdRoles_Get Client Credential Client Roles Header2"></a>
+<a id="opIdRoles_Get Roles for Client Credential Client Header (` Clients` path)"></a>
 
 Head request to get the total number of client credential client roles for the specified client credential client.
 
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/Clients/{clientId}/Roles
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -288,16 +283,15 @@ Allowed for these roles:
 
 ---
 
-## Put Client Credential Client Roles
+## Replace Client Credential Client's Roles
 
-<a id="opIdRoles_Put Client Credential Client Roles"></a>
+<a id="opIdRoles_Replace Client Credential Client's Roles"></a>
 
 Replaces existing client credential client roles.
 
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/Clients/{clientId}/Roles
-
 ```
 
 ### Request Body
@@ -310,7 +304,7 @@ Update roles list.<br/>
     "Id": "string",
     "Name": "string",
     "Description": "string",
-    "RoleScope": 1,
+    "RoleScope": 0,
     "TenantId": "string",
     "CommunityId": "string",
     "RoleTypeId": "string"
@@ -318,7 +312,7 @@ Update roles list.<br/>
 ]
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -328,7 +322,7 @@ Update roles list.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[Role](#schemarole)[]|No content.|
+|200|[Role](#schemarole)[]|List of updated client credential client roles.|
 |400|[ErrorResponse](#schemaerrorresponse)|Missing preferences.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
@@ -345,7 +339,7 @@ Update roles list.<br/>
     "Id": "string",
     "Name": "string",
     "Description": "string",
-    "RoleScope": 1,
+    "RoleScope": 0,
     "TenantId": "string",
     "CommunityId": "string",
     "RoleTypeId": "string"
@@ -370,24 +364,26 @@ Allowed for these roles:
 <a id="tocSrole"></a>
 <a id="tocsrole"></a>
 
+Object for retrieving a role.
+
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|guid|false|true|None|
-|Name|string|false|true|None|
-|Description|string|false|true|None|
-|RoleScope|[RoleScope](#schemarolescope)|false|true|None|
-|TenantId|guid|false|true|None|
-|CommunityId|guid|false|true|None|
-|RoleTypeId|guid|false|true|None|
+|Id|string|false|true|Role unique identifier. Generated by the server upon creation.|
+|Name|string|false|true|Role name. This cannot be empty.|
+|Description|string|false|true|Role description.|
+|RoleScope|[RoleScope](#schemarolescope)|false|true|Role scope.|
+|TenantId|string|false|true|Tenant unique identifier, if this is a Tenant Role. Otherwise set to null.|
+|CommunityId|string|false|true|Community unique identifier, if this is a Community Role. Otherwise set to null.|
+|RoleTypeId|string|false|true|Role type identifier for built-in roles.|
 
 ```json
 {
   "Id": "string",
   "Name": "string",
   "Description": "string",
-  "RoleScope": 1,
+  "RoleScope": 0,
   "TenantId": "string",
   "CommunityId": "string",
   "RoleTypeId": "string"
@@ -404,11 +400,14 @@ Allowed for these roles:
 <a id="tocSrolescope"></a>
 <a id="tocsrolescope"></a>
 
+Role Scopes.
+
 #### Enumerated Values
 
 |Property|Value|
 |---|---|
-|Account|1|
+|None|0|
+|Tenant|1|
 |Community|2|
 |Cluster|3|
 

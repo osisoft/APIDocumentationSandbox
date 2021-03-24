@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-users v20210317.1
+title: Identity/tenants-users v20210324.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,18 +7,16 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Users
 Users consume resources in a tenant. They are invited by the administrator of the tenant and should already have a tenant in one of the configured identity providers for this tenant. A user is fully provisioned in OCS only after they have accepted the invitation and successfully logged in with an identity provider. OCS does not maintain user credentials, but it delegates authentication to the identity provider the user logged in with at first. Once logged in the user cannot change the identity provider it signed up with. A tenant can only have one user with a given email to an identity provider. If a user has multiple aliases in the same identity provider, they will not be able to create multiple corresponding OCS. Users have roles associated with them. These roles determine what a user is authorized to do in the tenant. Roles are assigned to a user upon creation and can be modified by an administrator. We allow the change of some user fields and the complete deletion of a user.
 
-## List Users
+## List Users from a Tenant
 
-<a id="opIdUsers_List Users"></a>
+<a id="opIdUsers_List Users from a Tenant"></a>
 
 Gets a list of users from a tenant. Optionally, get a list of requested users. Total number of users in the tenant set in the Total-Count header.
 
@@ -28,7 +26,7 @@ GET /api/v1/Tenants/{tenantId}/Users
 ?id={id}&query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -82,9 +80,9 @@ Allowed for these roles:
 
 ---
 
-## Get Users Header
+## Get Total Count of Users
 
-<a id="opIdUsers_Get Users Header"></a>
+<a id="opIdUsers_Get Total Count of Users"></a>
 
 Returns the total number of users in a tenant. Optionally, check based on a list of requested users. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
 
@@ -94,7 +92,7 @@ HEAD /api/v1/Tenants/{tenantId}/Users
 ?id={id}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -120,16 +118,15 @@ Allowed for these roles:
 
 ---
 
-## Create User
+## Create User (`v1` path)
 
-<a id="opIdUsers_Create User"></a>
+<a id="opIdUsers_Create User (`v1` path)"></a>
 
 Creates a user in the tenant. This endpoint does not create an invitation for the user. You will need to create an invitation in the respective endpoint for this user, otherwise they will not be able to finish the sign-up process. Users have unique Ids in a tenant. Currently there is a limit of 50000 users per tenant. For Windows Active Directory users, the externalUserId must be specified.
 
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/Users
-
 ```
 
 ### Request Body
@@ -151,7 +148,7 @@ UserCreateOrUpdate object.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -198,19 +195,18 @@ Allowed for these roles:
 
 ---
 
-## Get User Model
+## Get User from a Tenant
 
-<a id="opIdUsers_Get User Model"></a>
+<a id="opIdUsers_Get User from a Tenant"></a>
 
 Gets a user from tenant.
 
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/Users/{userId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string userId`
@@ -257,19 +253,18 @@ Allowed for these roles:
 
 ---
 
-## Get User Header
+## Get Header for User
 
-<a id="opIdUsers_Get User Header"></a>
+<a id="opIdUsers_Get Header for User"></a>
 
 Validates that a user exists. This endpoint is identical to the GET one, but it does not return an object in the body.
 
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/Users/{userId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string userId`
@@ -295,16 +290,15 @@ Allowed for these roles:
 
 ---
 
-## Update User
+## Update User in a Tenant
 
-<a id="opIdUsers_Update User"></a>
+<a id="opIdUsers_Update User in a Tenant"></a>
 
 Updates a user in a tenant. The user unique identifier cannot be changed.
 
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/Users/{userId}
-
 ```
 
 ### Request Body
@@ -326,7 +320,7 @@ UserCreateOrUpdate object. Properties that are not set or are null will not be c
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string userId`
@@ -374,9 +368,9 @@ Allowed for these roles:
 
 ---
 
-## Delete User
+## Delete User in a Tenant
 
-<a id="opIdUsers_Delete User"></a>
+<a id="opIdUsers_Delete User in a Tenant"></a>
 
 Deletes a user. Users cannot delete themselves. Deleting a user does not invalidate any of the existing access tokens, but it prevents this user from being able to authenticate in the future. Existing access tokens for the user will be valid until their expiration date. Refresh tokens on behalf of the user will no longer be valid after the user has been deleted. Deleting a user with explicit and claim role mappings will only have their explicit roles deleted. Forcibly deleting a user will delete a user completely regardless of claim role mappings.
 
@@ -386,7 +380,7 @@ DELETE /api/v1/Tenants/{tenantId}/Users/{userId}
 ?force={force}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string userId`
@@ -429,19 +423,18 @@ Allowed for these roles:
 
 ---
 
-## Get User Preferences
+## Get User's Preferences
 
-<a id="opIdUsers_Get User Preferences"></a>
+<a id="opIdUsers_Get User's Preferences"></a>
 
 Gets preferences from a user. User preferences can be any valid JSON object. A common use case is to store UI preferences for the user.
 
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/Users/{userId}/Preferences
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string userId`
@@ -481,19 +474,18 @@ Allowed for these roles:
 
 ---
 
-## Get User Preferences Header
+## Get Header for User's Preferences
 
-<a id="opIdUsers_Get User Preferences Header"></a>
+<a id="opIdUsers_Get Header for User's Preferences"></a>
 
 Validates that there are preferences for a user. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/Users/{userId}/Preferences
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string userId`
@@ -519,19 +511,18 @@ Allowed for these roles:
 
 ---
 
-## Update User Preferences
+## Update User's Preferences
 
-<a id="opIdUsers_Update User Preferences"></a>
+<a id="opIdUsers_Update User's Preferences"></a>
 
 Updates preferences for a user.
 
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/Users/{userId}/Preferences
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string userId`
@@ -572,19 +563,18 @@ Allowed for these roles:
 
 ---
 
-## Get User Status
+## Get User's Invitation Status
 
-<a id="opIdUsers_Get User Status"></a>
+<a id="opIdUsers_Get User's Invitation Status"></a>
 
 Gets invitation status for a user. It can be: InvitationAccepted (0), NoInvitation (1), InvitationNotSent (2), InvitationSent (3), InvitationExpired (4).
 
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/Users/{userId}/Status
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string userId`
@@ -634,9 +624,9 @@ Allowed for these roles:
 
 ---
 
-## List Users Status
+## List Users' Invitation Status
 
-<a id="opIdUsers_List Users Status"></a>
+<a id="opIdUsers_List Users' Invitation Status"></a>
 
 Gets invitation statuses for multiple users. Optionally restrict it only to users of a specific invitation status. The user status can be: InvitationAccepted (0), NoInvitation (1), InvitationNotSent (2), InvitationSent (3), InvitationExpired (4).
 
@@ -646,7 +636,7 @@ GET /api/v1/Tenants/{tenantId}/Users/Status
 ?id={id}&query={query}&skip={skip}&count={count}&status={status}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -703,16 +693,15 @@ Allowed for these roles:
 
 ---
 
-## Create V1 Preview User
+## Create User (`v1-preview` path)
 
-<a id="opIdUsers_Create V1 Preview User"></a>
+<a id="opIdUsers_Create User (`v1-preview` path)"></a>
 
 Creates a `User`.
 
 ### Request
 ```text 
 POST /api/v1-preview/Tenants/{tenantId}/Users
-
 ```
 
 ### Request Body
@@ -731,7 +720,7 @@ User values to use during creating.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -778,16 +767,15 @@ Allowed for these roles:
 
 ---
 
-## Update V1 Preview User
+## Update User
 
-<a id="opIdUsers_Update V1 Preview User"></a>
+<a id="opIdUsers_Update User"></a>
 
 Create or Update a user.
 
 ### Request
 ```text 
 PUT /api/v1-preview/Tenants/{tenantId}/Users/{userId}
-
 ```
 
 ### Request Body
@@ -806,7 +794,7 @@ A UserStatus object.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string userId`
@@ -854,9 +842,9 @@ Allowed for these roles:
 
 ---
 
-## List V1 Preview Users By Ids
+## List Users By I Ds
 
-<a id="opIdUsers_List V1 Preview Users By Ids"></a>
+<a id="opIdUsers_List Users By I Ds"></a>
 
 Returns an ordered list of user objects based on userId for a given tenant or a MultiStatusResponse with a list of user objects and a list of errors.
 
@@ -866,7 +854,7 @@ GET /api/v1-preview/Tenants/{tenantId}/Users/Ids
 ?userId={userId}&query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -920,9 +908,9 @@ Allowed for these roles:
 
 ---
 
-## List V1 Preview Users Status By Ids
+## List Users' Status By I Ds
 
-<a id="opIdUsers_List V1 Preview Users Status By Ids"></a>
+<a id="opIdUsers_List Users' Status By I Ds"></a>
 
 Returns an ordered list of UserStatus objects for a given tenant or a MultiStatusResponse with a list of UserStatus objects and a list of errors.
 
@@ -932,7 +920,7 @@ GET /api/v1-preview/Tenants/{tenantId}/Users/Status/Ids
 ?userId={userId}&query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>

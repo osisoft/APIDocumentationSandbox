@@ -1,5 +1,5 @@
 ---
-title: Identity/device-code-clients v20210317.1
+title: Identity/device-code-clients v20210324.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,18 +7,16 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Device Code Clients
 Device Code clients are used in browserless or input constrained devices. These clients are issued an ID. Device Code clients are not issued secrets.
 
-## List Device Code Clients
+## List All Device Code Clients from Tenant
 
-<a id="opIdDeviceCodeClients_List Device Code Clients"></a>
+<a id="opIdDeviceCodeClients_List All Device Code Clients from Tenant"></a>
 
 Get all Device Code clients from a Tenant. Optionally, get a list of requested clients. Total number of clients in the Tenant set in the Total-Count header.
 
@@ -28,7 +26,7 @@ GET /api/v1/Tenants/{tenantId}/DeviceCodeClients
 ?id={id}&tag={tag}&query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of Tenant.<br/><br/>
@@ -79,9 +77,9 @@ Allowed for these roles:
 
 ---
 
-## Get Device Code Clients Header
+## Get Total Count Device Code Clients from Tenant
 
-<a id="opIdDeviceCodeClients_Get Device Code Clients Header"></a>
+<a id="opIdDeviceCodeClients_Get Total Count Device Code Clients from Tenant"></a>
 
 Return total number of Device Code clients in a Tenant. Optionally, check based on a list of requested clients. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
 
@@ -91,7 +89,7 @@ HEAD /api/v1/Tenants/{tenantId}/DeviceCodeClients
 ?id={id}&tag={tag}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of Tenant.<br/><br/>
@@ -119,16 +117,15 @@ Allowed for these roles:
 
 ---
 
-## Create Device Code Client
+## Create a Device Code Client
 
-<a id="opIdDeviceCodeClients_Create Device Code Client"></a>
+<a id="opIdDeviceCodeClients_Create a Device Code Client"></a>
 
 Create an Device Code flow Client. No Secret will be generated for this Client.
 
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/DeviceCodeClients
-
 ```
 
 ### Request Body
@@ -150,7 +147,7 @@ New DeviceCodeClient object.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of Tenant.<br/><br/>
@@ -195,19 +192,18 @@ Allowed for these roles:
 
 ---
 
-## Get Device Code Client
+## Get a Device Code Client from Tenant
 
-<a id="opIdDeviceCodeClients_Get Device Code Client"></a>
+<a id="opIdDeviceCodeClients_Get a Device Code Client from Tenant"></a>
 
 Get an Device Code Client from Tenant.
 
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/DeviceCodeClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of Tenant.<br/><br/>`string clientId`
@@ -251,19 +247,18 @@ Allowed for these roles:
 
 ---
 
-## Get Device Code Client Header
+## Get Header for Device Code Client
 
-<a id="opIdDeviceCodeClients_Get Device Code Client Header"></a>
+<a id="opIdDeviceCodeClients_Get Header for Device Code Client"></a>
 
 Validate that an Device Code Client exists in Tenant.
 
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/DeviceCodeClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of Tenant.<br/><br/>`string clientId`
@@ -307,16 +302,15 @@ Allowed for these roles:
 
 ---
 
-## Update Device Code Client
+## Update an Device Code Client
 
-<a id="opIdDeviceCodeClients_Update Device Code Client"></a>
+<a id="opIdDeviceCodeClients_Update an Device Code Client"></a>
 
 Update an Device Code Client. It can take up to one hour for update to manifest in the authentication process.
 
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/DeviceCodeClients/{clientId}
-
 ```
 
 ### Request Body
@@ -338,7 +332,7 @@ Updated Device Code Client values. Properties that are not set or are null will 
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of Tenant.<br/><br/>`string clientId`
@@ -383,19 +377,18 @@ Allowed for these roles:
 
 ---
 
-## Delete Device Code Client
+## Delete an Device Code Client
 
-<a id="opIdDeviceCodeClients_Delete Device Code Client"></a>
+<a id="opIdDeviceCodeClients_Delete an Device Code Client"></a>
 
 Delete a Device Code Client. It can take up to one hour for deletion to manifest in the authentication process. Access tokens issued to this client will be valid until their expiration.
 
 ### Request
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/DeviceCodeClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Id of Tenant.<br/><br/>`string clientId`

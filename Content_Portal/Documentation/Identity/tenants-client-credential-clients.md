@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-client-credential-clients v20210317.1
+title: Identity/tenants-client-credential-clients v20210324.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -7,18 +7,16 @@ search: true
 code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
-generator: osisoft.widdershins v1.0.6
+generator: osisoft.widdershins v1.0.7
 
 ---
-
-[[_TOC_]]
 
 # Client Credential Clients
 Client credential clients are used for machine-to-machine communication without the presence of a user. These clients are issued an unique identifier and secret upon creation, which are later used for authentication against OCS. More than one secret can be created for a client. Because they access resources on OCS and are not associated to users, these clients can be assigned any of the roles in the tenant. We suggest following a least privilege strategy when assigning roles to these clients, as they are more likely to operate in remote machines with a wider attack surface.
 
-## List Client Credential Clients
+## List all Client Credential Clients
 
-<a id="opIdClientCredentialClients_List Client Credential Clients"></a>
+<a id="opIdClientCredentialClients_List all Client Credential Clients"></a>
 
 Gets a list of client credential clients from a tenant. Optionally, get a list of requested clients. Total number of client credential clients in the tenant set in the Total-Count header.
 
@@ -28,7 +26,7 @@ GET /api/v1/Tenants/{tenantId}/ClientCredentialClients
 ?id={id}&tag={tag}&query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -79,9 +77,9 @@ Allowed for these roles:
 
 ---
 
-## Get Client Credential Clients Header
+## Get Total Count of Clients
 
-<a id="opIdClientCredentialClients_Get Client Credential Clients Header"></a>
+<a id="opIdClientCredentialClients_Get Total Count of Clients"></a>
 
 Returns the total number of client credential clients in a tenant. Optionally, check based on a list of requested client Ids. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
 
@@ -91,7 +89,7 @@ HEAD /api/v1/Tenants/{tenantId}/ClientCredentialClients
 ?id={id}&tag={tag}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -118,16 +116,15 @@ Allowed for these roles:
 
 ---
 
-## Create Client Credential Client
+## Create Client Credential Client (`v1` path)
 
-<a id="opIdClientCredentialClients_Create Client Credential Client"></a>
+<a id="opIdClientCredentialClients_Create Client Credential Client (`v1` path)"></a>
 
 Creates a client credential client. A client unique identifier and client Secret will be generated to perform authentication. Make sure to store the secret somewhere safe as we do not store the actual value after the creation step. If you do not have access to the secret value, we suggest deleting the secret and adding a new one for this client. Clients have unique Ids in a tenant. Currently there is a limit of 50000 clients (of any type) per tenant.
 
 ### Request
 ```text 
 POST /api/v1/Tenants/{tenantId}/ClientCredentialClients
-
 ```
 
 ### Request Body
@@ -151,7 +148,7 @@ ClientCredentialClientCreate object.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -202,19 +199,18 @@ Allowed for these roles:
 
 ---
 
-## Get Client Credential Client
+## Get Client Credential Client (`v1` path)
 
-<a id="opIdClientCredentialClients_Get Client Credential Client"></a>
+<a id="opIdClientCredentialClients_Get Client Credential Client (`v1` path)"></a>
 
 Gets a client credential client.
 
 ### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -258,19 +254,18 @@ Allowed for these roles:
 
 ---
 
-## Get Client Credential Client Header
+## Get Header for Client Credential Client
 
-<a id="opIdClientCredentialClients_Get Client Credential Client Header"></a>
+<a id="opIdClientCredentialClients_Get Header for Client Credential Client"></a>
 
 Validates that a client credential client exists. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -296,16 +291,15 @@ Allowed for these roles:
 
 ---
 
-## Update Client Credential Client
+## Update Client Credential Client (`v1` path)
 
-<a id="opIdClientCredentialClients_Update Client Credential Client"></a>
+<a id="opIdClientCredentialClients_Update Client Credential Client (`v1` path)"></a>
 
 Updates a client credential client. It can take up to one hour for these values to manifest in the authentication process.
 
 ### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}
-
 ```
 
 ### Request Body
@@ -327,7 +321,7 @@ ClientCredentialClient object. Properties that are not set or are null will not 
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -381,10 +375,9 @@ Deletes a client credential client. It can take up to one hour for deletion to m
 ### Request
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -424,9 +417,9 @@ Allowed for these roles:
 
 ---
 
-## List V1 Preview Client Credential Clients
+## List All Client Credential Clients
 
-<a id="opIdClientCredentialClients_List V1 Preview Client Credential Clients"></a>
+<a id="opIdClientCredentialClients_List All Client Credential Clients"></a>
 
 Get all client credential clients.
 
@@ -436,7 +429,7 @@ GET /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients
 ?tag={tag}&query={query}&skip={skip}&count={count}
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -486,16 +479,15 @@ Allowed for these roles:
 
 ---
 
-## Create V1 Preview Client Credential Client
+## Create Client Credential Client (`v1-preview` path)
 
-<a id="opIdClientCredentialClients_Create V1 Preview Client Credential Client"></a>
+<a id="opIdClientCredentialClients_Create Client Credential Client (`v1-preview` path)"></a>
 
 Create a client credential flow client.
 
 ### Request
 ```text 
 POST /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients
-
 ```
 
 ### Request Body
@@ -519,7 +511,7 @@ New ClientCredentialClientCreate object.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>
@@ -567,19 +559,18 @@ Allowed for these roles:
 
 ---
 
-## Get V1 Preview Client Credential Client
+## Get Client Credential Client (`v1-preview` path)
 
-<a id="opIdClientCredentialClients_Get V1 Preview Client Credential Client"></a>
+<a id="opIdClientCredentialClients_Get Client Credential Client (`v1-preview` path)"></a>
 
 Get a client credential client.
 
 ### Request
 ```text 
 GET /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}
-
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
@@ -622,16 +613,15 @@ Allowed for these roles:
 
 ---
 
-## Update V1 Preview Client Credential Client
+## Update Client Credential Client (`v1-preview` path)
 
-<a id="opIdClientCredentialClients_Update V1 Preview Client Credential Client"></a>
+<a id="opIdClientCredentialClients_Update Client Credential Client (`v1-preview` path)"></a>
 
 Update a client credential client.
 
 ### Request
 ```text 
 PUT /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}
-
 ```
 
 ### Request Body
@@ -653,7 +643,7 @@ Updated client credential client values.<br/>
 }
 ```
 
-### Parameters
+#### Parameters
 
 `string tenantId`
 <br/>Tenant unique identifier.<br/><br/>`string clientId`
