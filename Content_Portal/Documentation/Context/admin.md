@@ -1,5 +1,5 @@
 ---
-title: Context/admin v20210322.1
+title: Context/admin v20210324.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -13,9 +13,9 @@ generator: osisoft.widdershins v1.0.7
 
 # Admin
 
-## Get Statistics2
+## Get Statistics (`assetrules` path)
 
-<a id="opIdAdmin_Get Statistics2"></a>
+<a id="opIdAdmin_Get Statistics (`assetrules` path)"></a>
 
 Gets the `StoreStatistics` on the `IRuleStore`.
 
@@ -79,9 +79,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/statist
 
 ---
 
-## Get Statistics
+## Get Statistics (`metadatarules` path)
 
-<a id="opIdAdmin_Get Statistics"></a>
+<a id="opIdAdmin_Get Statistics (`metadatarules` path)"></a>
 
 Gets the `StoreStatistics` on the `IRuleStore`.
 

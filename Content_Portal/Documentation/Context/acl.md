@@ -1,5 +1,5 @@
 ---
-title: Context/acl v20210322.1
+title: Context/acl v20210324.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -13,9 +13,9 @@ generator: osisoft.widdershins v1.0.7
 
 # Acl
 
-## Get Collection Acl2
+## Get Collection Acl (`assetrules` path)
 
-<a id="opIdAcl_Get Collection Acl2"></a>
+<a id="opIdAcl_Get Collection Acl (`assetrules` path)"></a>
 
 Gets the `AccessControlList` for the rules collection.
 
@@ -88,9 +88,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/assetrules
 
 ---
 
-## Set Collection Acl2
+## Set Collection Acl (`assetrules` path)
 
-<a id="opIdAcl_Set Collection Acl2"></a>
+<a id="opIdAcl_Set Collection Acl (`assetrules` path)"></a>
 
 Replaces the `AccessControlList` for the rules collection.
 
@@ -195,9 +195,9 @@ The ACL.<br/>
 
 ---
 
-## Get Collection Acl
+## Get Collection Acl (`metadatarules` path)
 
-<a id="opIdAcl_Get Collection Acl"></a>
+<a id="opIdAcl_Get Collection Acl (`metadatarules` path)"></a>
 
 Gets the `AccessControlList` for the rules collection.
 
@@ -270,9 +270,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/metadataru
 
 ---
 
-## Set Collection Acl
+## Set Collection Acl (`metadatarules` path)
 
-<a id="opIdAcl_Set Collection Acl"></a>
+<a id="opIdAcl_Set Collection Acl (`metadatarules` path)"></a>
 
 Replaces the `AccessControlList` for the rules collection.
 
@@ -377,9 +377,9 @@ The ACL.<br/>
 
 ---
 
-## Get Acl2
+## Get Acl (`assetrules` path)
 
-<a id="opIdAcl_Get Acl2"></a>
+<a id="opIdAcl_Get Acl (`assetrules` path)"></a>
 
 Gets the `AccessControlList` of the specified rule.
 
@@ -470,9 +470,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/acce
 
 ---
 
-## Set Acl2
+## Set Acl (`assetrules` path)
 
-<a id="opIdAcl_Set Acl2"></a>
+<a id="opIdAcl_Set Acl (`assetrules` path)"></a>
 
 Replaces the `AccessControlList` of the specified rule.
 
@@ -595,9 +595,9 @@ The ACL object.<br/>
 
 ---
 
-## Get Acl
+## Get Acl (`metadatarules` path)
 
-<a id="opIdAcl_Get Acl"></a>
+<a id="opIdAcl_Get Acl (`metadatarules` path)"></a>
 
 Gets the `AccessControlList` of the specified rule.
 
@@ -688,9 +688,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/a
 
 ---
 
-## Set Acl
+## Set Acl (`metadatarules` path)
 
-<a id="opIdAcl_Set Acl"></a>
+<a id="opIdAcl_Set Acl (`metadatarules` path)"></a>
 
 Replaces the `AccessControlList` of the specified rule.
 

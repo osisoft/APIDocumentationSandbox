@@ -1,5 +1,5 @@
 ---
-title: Context/owner v20210322.1
+title: Context/owner v20210324.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -13,9 +13,9 @@ generator: osisoft.widdershins v1.0.7
 
 # Owner
 
-## Get Owner2
+## Get Owner (`assetrules` path)
 
-<a id="opIdOwner_Get Owner2"></a>
+<a id="opIdOwner_Get Owner (`assetrules` path)"></a>
 
 Gets the `Trustee` of the specified rule.
 
@@ -99,9 +99,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/owne
 
 ---
 
-## Set Owner2
+## Set Owner (`assetrules` path)
 
-<a id="opIdOwner_Set Owner2"></a>
+<a id="opIdOwner_Set Owner (`assetrules` path)"></a>
 
 Replaces the `Trustee` of the specified rule.
 
@@ -213,9 +213,9 @@ The owner.<br/>
 
 ---
 
-## Get Owner
+## Get Owner (`metadatarules` path)
 
-<a id="opIdOwner_Get Owner"></a>
+<a id="opIdOwner_Get Owner (`metadatarules` path)"></a>
 
 Gets the `Trustee` of the specified rule.
 
@@ -299,9 +299,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/o
 
 ---
 
-## Set Owner
+## Set Owner (`metadatarules` path)
 
-<a id="opIdOwner_Set Owner"></a>
+<a id="opIdOwner_Set Owner (`metadatarules` path)"></a>
 
 Replaces the `Trustee` of the specified rule.
 
