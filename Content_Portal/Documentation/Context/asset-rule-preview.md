@@ -1,5 +1,5 @@
 ---
-title: Context/asset-rule-preview v20210329.1
+title: Context/asset-rule-preview v20210331.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -773,8 +773,6 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/preview/asset
       }
     ],
     "Status": {
-      "Name": null,
-      "Description": null,
       "StreamReferenceId": null,
       "StreamPropertyId": null,
       "ValueStatusMappings": null
@@ -830,8 +828,6 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/preview/asset
     }
   ],
   "Status": {
-    "Name": "string",
-    "Description": "string",
     "StreamReferenceId": "string",
     "StreamPropertyId": "string",
     "ValueStatusMappings": [
@@ -1022,16 +1018,12 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/preview/asset
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Name|string|true|false|None|
-|Description|string|false|true|None|
 |StreamReferenceId|string|true|false|None|
 |StreamPropertyId|string|true|false|None|
 |ValueStatusMappings|[[ValueStatusMappingDto](#schemavaluestatusmappingdto)]|false|true|None|
 
 ```json
 {
-  "Name": "string",
-  "Description": "string",
   "StreamReferenceId": "string",
   "StreamPropertyId": "string",
   "ValueStatusMappings": [
