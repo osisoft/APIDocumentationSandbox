@@ -1,5 +1,5 @@
 ---
-title: AssetRuleService/asset-change-data v20210329.1
+title: AssetRuleService/asset-change-data v20210331.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -703,8 +703,6 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules
     }
   ],
   "Status": {
-    "Name": "string",
-    "Description": "string",
     "StreamReferenceId": "string",
     "StreamPropertyId": "string",
     "ValueStatusMappings": [
@@ -895,16 +893,12 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Name|string|true|false|None|
-|Description|string|false|true|None|
 |StreamReferenceId|string|true|false|None|
 |StreamPropertyId|string|true|false|None|
 |ValueStatusMappings|[[ValueStatusMappingDto](#schemavaluestatusmappingdto)]|false|true|None|
 
 ```json
 {
-  "Name": "string",
-  "Description": "string",
   "StreamReferenceId": "string",
   "StreamPropertyId": "string",
   "ValueStatusMappings": [
