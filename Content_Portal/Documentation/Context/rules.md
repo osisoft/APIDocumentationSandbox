@@ -1,5 +1,5 @@
 ---
-title: Context/rules v20210331.1
+title: Context/rules v20210402.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -166,6 +166,12 @@ Creates a `RuleModel` object with a server generated `Id` in the `IRuleStore`.
 POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
+
 ### Request Body
 
 The RuleModel object to create.<br/>
@@ -199,12 +205,6 @@ The RuleModel object to create.<br/>
   "ModifiedTime": "0001-01-01T00:00:00"
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>
 
 ### Response
 
@@ -430,6 +430,14 @@ Gets or creates a `RuleModel` object with the specified id in the `IRuleStore`.
 POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
 ```
 
+#### Parameters
+
+`any routeOptions`
+<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string ruleId`
+<br/><br/>
+
 ### Request Body
 
 The RuleModel object.<br/>
@@ -463,14 +471,6 @@ The RuleModel object.<br/>
   "ModifiedTime": "0001-01-01T00:00:00"
 }
 ```
-
-#### Parameters
-
-`any routeOptions`
-<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string ruleId`
-<br/><br/>
 
 ### Response
 
@@ -590,6 +590,19 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
 ?Skip={Skip}&Count={Count}&KeepOldMetadata={KeepOldMetadata}
 ```
 
+#### Parameters
+
+`any routeOptions`
+<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string ruleId`
+<br/><br/>
+`[optional] integer Skip`
+<br/>An Int32 to determine how many results to skip. Defaults to DefaultSkip<br/><br/>`[optional] integer Count`
+<br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata`
+<br/>A Boolean to determine whether or not existing metadata should be kept.
+Defaults to false.<br/><br/>
+
 ### Request Body
 
 The RuleModel object to create or update.<br/>
@@ -623,19 +636,6 @@ The RuleModel object to create or update.<br/>
   "ModifiedTime": "0001-01-01T00:00:00"
 }
 ```
-
-#### Parameters
-
-`any routeOptions`
-<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string ruleId`
-<br/><br/>
-`[optional] integer Skip`
-<br/>An Int32 to determine how many results to skip. Defaults to DefaultSkip<br/><br/>`[optional] integer Count`
-<br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata`
-<br/>A Boolean to determine whether or not existing metadata should be kept.
-Defaults to false.<br/><br/>
 
 ### Response
 
@@ -1069,6 +1069,12 @@ Creates a `RuleModel` object with a server generated `Id` in the `IRuleStore`.
 POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
+
 ### Request Body
 
 The RuleModel object to create.<br/>
@@ -1102,12 +1108,6 @@ The RuleModel object to create.<br/>
   "ModifiedTime": "0001-01-01T00:00:00"
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>
 
 ### Response
 
@@ -1333,6 +1333,14 @@ Gets or creates a `RuleModel` object with the specified id in the `IRuleStore`.
 POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}
 ```
 
+#### Parameters
+
+`any routeOptions`
+<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string ruleId`
+<br/><br/>
+
 ### Request Body
 
 The RuleModel object.<br/>
@@ -1366,14 +1374,6 @@ The RuleModel object.<br/>
   "ModifiedTime": "0001-01-01T00:00:00"
 }
 ```
-
-#### Parameters
-
-`any routeOptions`
-<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string ruleId`
-<br/><br/>
 
 ### Response
 
@@ -1493,6 +1493,19 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}
 ?Skip={Skip}&Count={Count}&KeepOldMetadata={KeepOldMetadata}
 ```
 
+#### Parameters
+
+`any routeOptions`
+<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string ruleId`
+<br/><br/>
+`[optional] integer Skip`
+<br/>An Int32 to determine how many results to skip. Defaults to DefaultSkip<br/><br/>`[optional] integer Count`
+<br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata`
+<br/>A Boolean to determine whether or not existing metadata should be kept.
+Defaults to false.<br/><br/>
+
 ### Request Body
 
 The RuleModel object to create or update.<br/>
@@ -1526,19 +1539,6 @@ The RuleModel object to create or update.<br/>
   "ModifiedTime": "0001-01-01T00:00:00"
 }
 ```
-
-#### Parameters
-
-`any routeOptions`
-<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string ruleId`
-<br/><br/>
-`[optional] integer Skip`
-<br/>An Int32 to determine how many results to skip. Defaults to DefaultSkip<br/><br/>`[optional] integer Count`
-<br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata`
-<br/>A Boolean to determine whether or not existing metadata should be kept.
-Defaults to false.<br/><br/>
 
 ### Response
 

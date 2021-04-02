@@ -1,5 +1,5 @@
 ---
-title: Context/preview v20210331.1
+title: Context/preview v20210402.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -24,6 +24,17 @@ Creates a `RulePreviewResult` of a metadata `RuleModel` object.
 POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
 ?Skip={Skip}&Count={Count}
 ```
+
+#### Parameters
+
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
+`[optional] integer Skip`
+<br/>An Int32 specifying the number of results to skip.
+Defaults to 0.<br/><br/>`[optional] integer Count`
+<br/>An Int32 specifying the number of results to return.
+Defaults to 100.<br/><br/>
 
 ### Request Body
 
@@ -58,17 +69,6 @@ The RuleModel object to preview.<br/>
   "ModifiedTime": "0001-01-01T00:00:00"
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>
-`[optional] integer Skip`
-<br/>An Int32 specifying the number of results to skip.
-Defaults to 0.<br/><br/>`[optional] integer Count`
-<br/>An Int32 specifying the number of results to return.
-Defaults to 100.<br/><br/>
 
 ### Response
 

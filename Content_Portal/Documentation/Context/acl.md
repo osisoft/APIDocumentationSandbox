@@ -1,5 +1,5 @@
 ---
-title: Context/acl v20210331.1
+title: Context/acl v20210402.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -99,6 +99,12 @@ Replaces the `AccessControlList` for the rules collection.
 PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/assetrules
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
+
 ### Request Body
 
 The ACL.<br/>
@@ -114,12 +120,6 @@ The ACL.<br/>
   ]
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>
 
 ### Response
 
@@ -281,6 +281,12 @@ Replaces the `AccessControlList` for the rules collection.
 PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/metadatarules
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
+
 ### Request Body
 
 The ACL.<br/>
@@ -296,12 +302,6 @@ The ACL.<br/>
   ]
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>
 
 ### Response
 
@@ -481,6 +481,14 @@ Replaces the `AccessControlList` of the specified rule.
 PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/accesscontrol
 ```
 
+#### Parameters
+
+`any routeOptions`
+<br/>The uri route parameters.<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string ruleId`
+<br/><br/>
+
 ### Request Body
 
 The ACL object.<br/>
@@ -496,14 +504,6 @@ The ACL object.<br/>
   ]
 }
 ```
-
-#### Parameters
-
-`any routeOptions`
-<br/>The uri route parameters.<br/><br/>`string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string ruleId`
-<br/><br/>
 
 ### Response
 
@@ -699,6 +699,14 @@ Replaces the `AccessControlList` of the specified rule.
 PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/accesscontrol
 ```
 
+#### Parameters
+
+`any routeOptions`
+<br/>The uri route parameters.<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string ruleId`
+<br/><br/>
+
 ### Request Body
 
 The ACL object.<br/>
@@ -714,14 +722,6 @@ The ACL object.<br/>
   ]
 }
 ```
-
-#### Parameters
-
-`any routeOptions`
-<br/>The uri route parameters.<br/><br/>`string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string ruleId`
-<br/><br/>
 
 ### Response
 

@@ -1,5 +1,5 @@
 ---
-title: Context/owner v20210331.1
+title: Context/owner v20210402.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -110,6 +110,14 @@ Replaces the `Trustee` of the specified rule.
 PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/owner
 ```
 
+#### Parameters
+
+`any routeOptions`
+<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string ruleId`
+<br/><br/>
+
 ### Request Body
 
 The owner.<br/>
@@ -121,14 +129,6 @@ The owner.<br/>
   "TenantId": "string"
 }
 ```
-
-#### Parameters
-
-`any routeOptions`
-<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string ruleId`
-<br/><br/>
 
 ### Response
 
@@ -310,6 +310,14 @@ Replaces the `Trustee` of the specified rule.
 PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/owner
 ```
 
+#### Parameters
+
+`any routeOptions`
+<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string ruleId`
+<br/><br/>
+
 ### Request Body
 
 The owner.<br/>
@@ -321,14 +329,6 @@ The owner.<br/>
   "TenantId": "string"
 }
 ```
-
-#### Parameters
-
-`any routeOptions`
-<br/>The RuleRouteOptions uri route parameters.<br/><br/>`string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string ruleId`
-<br/><br/>
 
 ### Response
 

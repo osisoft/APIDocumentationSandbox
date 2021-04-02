@@ -1,5 +1,5 @@
 ---
-title: Context/preview-controllers-suggestion v20210331.1
+title: Context/preview-controllers-suggestion v20210402.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -23,6 +23,12 @@ Creates a `SuggestionResult` of a metadata `RuleModel` object.
 ```text 
 POST /api/v1/tenants/{tenantid}/namespaces/{namespaceid}/suggestion/metadatarules
 ```
+
+#### Parameters
+
+`string tenantid`
+<br/><br/>`string namespaceid`
+<br/><br/>
 
 ### Request Body
 
@@ -57,12 +63,6 @@ The RuleModel object to create suggestions for.<br/>
   "ModifiedTime": "0001-01-01T00:00:00"
 }
 ```
-
-#### Parameters
-
-`string tenantid`
-<br/><br/>`string namespaceid`
-<br/><br/>
 
 ### Response
 

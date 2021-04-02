@@ -1,5 +1,5 @@
 ---
-title: Context/metadata-rule-preview v20210331.1
+title: Context/metadata-rule-preview v20210402.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -153,6 +153,16 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
 ?KeepOldMetadata={KeepOldMetadata}&Skip={Skip}&Count={Count}
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
+`[optional] boolean KeepOldMetadata`
+<br/><br/>`[optional] integer Skip`
+<br/><br/>`[optional] integer Count`
+<br/><br/>
+
 ### Request Body
 
 The RuleModel object to preview.<br/>
@@ -186,16 +196,6 @@ The RuleModel object to preview.<br/>
   "ModifiedTime": "0001-01-01T00:00:00"
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>
-`[optional] boolean KeepOldMetadata`
-<br/><br/>`[optional] integer Skip`
-<br/><br/>`[optional] integer Count`
-<br/><br/>
 
 ### Response
 
