@@ -1,5 +1,5 @@
 ---
-title: Integration/collection-acl v20210405.14
+title: Integration/collection-acl v20210406.11
 language_tabs: []
 toc_footers: []
 includes: []
@@ -12,10 +12,13 @@ generator: osisoft.widdershins v1.0.7
 ---
 
 # Collection Acl
+APIs for working with Data View collection Access Control Lists
 
 ## Get
 
 <a id="opIdCollectionAcl_Get"></a>
+
+Get the Data Views collection Access Control List
 
 ### Request
 ```text 
@@ -25,16 +28,16 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/dataviews
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>
+<br/>Id of tenant<br/><br/>`string namespaceId`
+<br/>Id of namespace<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[AccessControlList](#schemaaccesscontrollist)|None|
-|403|string|None|
-|500|[Exception](#schemaexception)|None|
+|200|[AccessControlList](#schemaaccesscontrollist)|Successfully retrieved the Data Views collection Access Control List. See [Access Control Lists](..\Access_Control.md#access-control-lists) for object structure and more information about ACLs.|
+|403|string|Unauthorized|
+|500|[Exception](#schemaexception)|Internal server error|
 
 #### Example response body
 > 200 Response
@@ -61,6 +64,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/dataviews
 
 <a id="opIdCollectionAcl_Update"></a>
 
+Update the Data Views collection Access Control List
+
 ### Request
 ```text 
 PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/dataviews
@@ -69,12 +74,12 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/dataviews
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>
+<br/>Id of tenant<br/><br/>`string namespaceId`
+<br/>Id of namespace<br/><br/>
 
 ### Request Body
 
-<br/>
+Updated Access Control List. See [Access Control Lists](..\Access_Control.md#access-control-lists) for object structure and more information about ACLs.<br/>
 
 ```json
 {
@@ -92,10 +97,10 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/dataviews
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|None|
-|400|string|None|
-|403|string|None|
-|500|[Exception](#schemaexception)|None|
+|204|None|Successfully updated the Data Views collection Access Control List|
+|400|string|Bad request|
+|403|string|Unauthorized|
+|500|[Exception](#schemaexception)|Internal server error|
 
 #### Example response body
 > 500 Response

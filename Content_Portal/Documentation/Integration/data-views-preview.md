@@ -1,5 +1,5 @@
 ---
-title: Integration/data-views-preview v20210405.14
+title: Integration/data-views-preview v20210406.11
 language_tabs: []
 toc_footers: []
 includes: []
@@ -12,10 +12,13 @@ generator: osisoft.widdershins v1.0.7
 ---
 
 # Data Views Preview
+APIs for previewing data view endpoints without saving the data view
 
 ## Get Data Interpolated
 
 <a id="opIdDataViewsPreview_Get Data Interpolated"></a>
+
+Get data preview based on provided data view
 
 ### Request
 ```text 
@@ -119,6 +122,8 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/dataviews/data/
 
 <a id="opIdDataViewsPreview_Get Available Field Sets"></a>
 
+Get available field sets for the provided Data View
+
 ### Request
 ```text 
 POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/dataviews/resolved/availablefieldsets
@@ -210,6 +215,8 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/dataviews/resol
 ## Get Data Items
 
 <a id="opIdDataViewsPreview_Get Data Items"></a>
+
+Get data items for the provided Data View
 
 ### Request
 ```text 
@@ -308,6 +315,8 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/dataviews/resol
 
 <a id="opIdDataViewsPreview_Get Field Mappings"></a>
 
+Get field mappings for the provided Data View
+
 ### Request
 ```text 
 POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/dataviews/resolved/fieldmappings
@@ -403,6 +412,8 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/dataviews/resol
 ## Get Groups
 
 <a id="opIdDataViewsPreview_Get Groups"></a>
+
+Get data groups for the provided Data View
 
 ### Request
 ```text 
@@ -500,6 +511,8 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/dataviews/resol
 
 <a id="opIdDataViewsPreview_Get Ineligible Data Items"></a>
 
+Get ineligible data items for the provided Data View
+
 ### Request
 ```text 
 POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/dataviews/resolved/ineligibledataitems/{queryId}
@@ -596,6 +609,8 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/dataviews/resol
 ## Get Statistics
 
 <a id="opIdDataViewsPreview_Get Statistics"></a>
+
+Get available field sets for the provided Data View
 
 ### Request
 ```text 

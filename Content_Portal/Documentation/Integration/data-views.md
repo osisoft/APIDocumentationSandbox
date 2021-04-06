@@ -1,5 +1,5 @@
 ---
-title: Integration/data-views v20210405.14
+title: Integration/data-views v20210406.11
 language_tabs: []
 toc_footers: []
 includes: []
@@ -12,10 +12,13 @@ generator: osisoft.widdershins v1.0.7
 ---
 
 # Data Views
+APIs for working with Data Views
 
 ## Get All
 
 <a id="opIdDataViews_Get All"></a>
+
+Get all created Data Views
 
 ### Request
 ```text 
@@ -26,11 +29,11 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>
+<br/>Id of tenant<br/><br/>`string namespaceId`
+<br/>Id of namespace<br/><br/>
 `[optional] integer skip`
-<br/><br/>`[optional] integer count`
-<br/><br/>
+<br/>The number of data views to skip<br/><br/>`[optional] integer count`
+<br/>The number of data views to display per page. Maximum count allowed is 1000<br/><br/>
 
 ### Response
 
@@ -44,6 +47,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews
 
 <a id="opIdDataViews_Create"></a>
 
+Create a new Data View
+
 ### Request
 ```text 
 POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews
@@ -52,12 +57,12 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>
+<br/>Id of tenant<br/><br/>`string namespaceId`
+<br/>Id of namespace<br/><br/>
 
 ### Request Body
 
-<br/>
+DataView object<br/>
 
 ```json
 {
@@ -136,6 +141,8 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews
 
 <a id="opIdDataViews_Get"></a>
 
+Get a Data View by id
+
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
@@ -144,9 +151,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string id`
-<br/><br/>
+<br/>Id of tenant<br/><br/>`string namespaceId`
+<br/>Id of namespace<br/><br/>`string id`
+<br/>Id of Data View<br/><br/>
 
 ### Response
 
@@ -160,6 +167,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 
 <a id="opIdDataViews_Create (`id` path)"></a>
 
+Create a new Data View
+
 ### Request
 ```text 
 POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
@@ -168,13 +177,13 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string id`
-<br/><br/>
+<br/>Id of tenant<br/><br/>`string namespaceId`
+<br/>Id of namespace<br/><br/>`string id`
+<br/>Id of Data View<br/><br/>
 
 ### Request Body
 
-<br/>
+DataView object<br/>
 
 ```json
 {
@@ -253,6 +262,8 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 
 <a id="opIdDataViews_Create Or Update"></a>
 
+Update the Data View with specified Id
+
 ### Request
 ```text 
 PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
@@ -261,13 +272,13 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string id`
-<br/><br/>
+<br/>Id of tenant<br/><br/>`string namespaceId`
+<br/>Id of namespace<br/><br/>`string id`
+<br/>Id of Data View<br/><br/>
 
 ### Request Body
 
-<br/>
+Updated DataView object in the request body<br/>
 
 ```json
 {
@@ -346,6 +357,8 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 
 <a id="opIdDataViews_Delete"></a>
 
+Delete the Data View with specified Id
+
 ### Request
 ```text 
 DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
@@ -354,9 +367,9 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string id`
-<br/><br/>
+<br/>Id of tenant<br/><br/>`string namespaceId`
+<br/>Id of namespace<br/><br/>`string id`
+<br/>Id of Data View<br/><br/>
 
 ### Response
 
@@ -370,6 +383,8 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 
 <a id="opIdDataViews_Get Data View Acl"></a>
 
+Get the Data View Access Control List for Data View with specified Id
+
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/accesscontrol
@@ -378,21 +393,23 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/accesscon
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string id`
-<br/><br/>
+<br/>Id of tenant<br/><br/>`string namespaceId`
+<br/>Id of namespace<br/><br/>`string id`
+<br/>Id of Data View<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|string|None|
+|200|string|OK - retrieved the Data View Access Control List. See [Access Control Lists](..\Access_Control.md#access-control-lists) for object structure and more information about ACLs.|
 
 ---
 
 ## Update Data View Acl
 
 <a id="opIdDataViews_Update Data View Acl"></a>
+
+Update the Data View Access Control List for Data View with specified Id
 
 ### Request
 ```text 
@@ -402,13 +419,13 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/accesscon
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string id`
-<br/><br/>
+<br/>Id of tenant<br/><br/>`string namespaceId`
+<br/>Id of namespace<br/><br/>`string id`
+<br/>Id of Data View<br/><br/>
 
 ### Request Body
 
-<br/>
+Updated Access Control List. See [Access Control Lists](..\Access_Control.md#access-control-lists) for object structure and more information about ACLs.<br/>
 
 ```json
 {
@@ -434,6 +451,8 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/accesscon
 
 <a id="opIdDataViews_Get Data View Access Rights"></a>
 
+Get the calling user or client's access rights for Data View with specified Id
+
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/accessrights
@@ -442,9 +461,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/accessrig
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string id`
-<br/><br/>
+<br/>Id of tenant<br/><br/>`string namespaceId`
+<br/>Id of namespace<br/><br/>`string id`
+<br/>Id of Data View<br/><br/>
 
 ### Response
 
@@ -457,6 +476,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/accessrig
 ## Get Data Interpolated
 
 <a id="opIdDataViews_Get Data Interpolated"></a>
+
+Get data for the provided index parameters with paging
 
 ### Request
 ```text 
@@ -491,6 +512,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/data/inte
 
 <a id="opIdDataViews_Get Data View Owner"></a>
 
+Get the Data View owner for Data View with specified Id
+
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/owner
@@ -499,9 +522,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/owner
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string id`
-<br/><br/>
+<br/>Id of tenant<br/><br/>`string namespaceId`
+<br/>Id of namespace<br/><br/>`string id`
+<br/>Id of Data View<br/><br/>
 
 ### Response
 
@@ -515,6 +538,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/owner
 
 <a id="opIdDataViews_Update Data View Owner"></a>
 
+Update the Data View owner for Data View with specified Id
+
 ### Request
 ```text 
 PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/owner
@@ -523,13 +548,13 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/owner
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string id`
-<br/><br/>
+<br/>Id of tenant<br/><br/>`string namespaceId`
+<br/>Id of namespace<br/><br/>`string id`
+<br/>Id of Data View<br/><br/>
 
 ### Request Body
 
-<br/>
+Updated owner. See [Owner](..\Access_Control.md#owner) for object structure more information about Owners.<br/>
 
 ```json
 {
@@ -551,6 +576,8 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/owner
 
 <a id="opIdDataViews_Get Available Field Sets"></a>
 
+Get available field sets for Data View with specified Id
+
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/availablefieldsets
@@ -560,11 +587,11 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string id`
-<br/><br/>
+<br/>Id of tenant<br/><br/>`string namespaceId`
+<br/>Id of namespace<br/><br/>`string id`
+<br/>Id of Data View<br/><br/>
 `[optional] string cache`
-<br/><br/>
+<br/>Cache preserve or cache refresh<br/><br/>
 
 ### Response
 
@@ -578,6 +605,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 
 <a id="opIdDataViews_Get Data Items"></a>
 
+Get data items for a dataview by Query Id
+
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/dataitems/{queryid}
@@ -587,14 +616,14 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string id`
-<br/><br/>`string queryId`
-<br/><br/>
+<br/>Id of tenant<br/><br/>`string namespaceId`
+<br/>Id of namespace<br/><br/>`string id`
+<br/>Id of the dataview<br/><br/>`string queryId`
+<br/>Id of the query<br/><br/>
 `[optional] string cache`
-<br/><br/>`[optional] integer skip`
-<br/><br/>`[optional] integer count`
-<br/><br/>
+<br/>Specifies if Data View backing resources are to be refreshed. See [Retrieving Data](DataRetrieval.md)<br/><br/>`[optional] integer skip`
+<br/>The number of data items to skip<br/><br/>`[optional] integer count`
+<br/>The number of data items to display per page. Maximum count allowed is 1000<br/><br/>
 
 ### Response
 
@@ -608,6 +637,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 
 <a id="opIdDataViews_Get Field Mappings"></a>
 
+Get field mappings for a specified Data View
+
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/fieldmappings
@@ -617,13 +648,13 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string id`
-<br/><br/>
+<br/>Id of tenant<br/><br/>`string namespaceId`
+<br/>Id of namespace<br/><br/>`string id`
+<br/>Id of dataview<br/><br/>
 `[optional] string cache`
-<br/><br/>`[optional] integer skip`
-<br/><br/>`[optional] integer count`
-<br/><br/>
+<br/>Specifies if Data View backing resources are to be refreshed. See [Retrieving Data](DataRetrieval.md)<br/><br/>`[optional] integer skip`
+<br/>The number of data groups to skip<br/><br/>`[optional] integer count`
+<br/>The number of data groups to display per page. Maximum count allowed is 1000<br/><br/>
 
 ### Response
 
@@ -637,6 +668,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 
 <a id="opIdDataViews_Get Groups"></a>
 
+Get Data Groups for a specified Data View
+
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/groups
@@ -646,13 +679,13 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string id`
-<br/><br/>
+<br/>Id of tenant<br/><br/>`string namespaceId`
+<br/>Id of namespace<br/><br/>`string id`
+<br/>Id of dataview<br/><br/>
 `[optional] string cache`
-<br/><br/>`[optional] integer skip`
-<br/><br/>`[optional] integer count`
-<br/><br/>
+<br/>Specifies if Data View backing resources are to be refreshed. See [Retrieving Data](DataRetrieval.md)<br/><br/>`[optional] integer skip`
+<br/>The number of data groups to skip<br/><br/>`[optional] integer count`
+<br/>The number of data groups to display per page. Maximum count allowed is 1000<br/><br/>
 
 ### Response
 
@@ -666,6 +699,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 
 <a id="opIdDataViews_Get Ineligible Data Items"></a>
 
+Get ineligible data items for a dataview by Query Id
+
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/ineligibledataitems/{queryid}
@@ -675,14 +710,14 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string id`
-<br/><br/>`string queryId`
-<br/><br/>
+<br/>Id of tenant<br/><br/>`string namespaceId`
+<br/>Id of namespace<br/><br/>`string id`
+<br/>Id of the dataview<br/><br/>`string queryId`
+<br/>Id of the query<br/><br/>
 `[optional] string cache`
-<br/><br/>`[optional] integer skip`
-<br/><br/>`[optional] integer count`
-<br/><br/>
+<br/>Specifies if Data View backing resources are to be refreshed. See [Retrieving Data](DataRetrieval.md)<br/><br/>`[optional] integer skip`
+<br/>The number of data items to skip<br/><br/>`[optional] integer count`
+<br/>The number of data items to display per page. Maximum count allowed is 1000<br/><br/>
 
 ### Response
 
@@ -696,6 +731,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 
 <a id="opIdDataViews_Get Statistics"></a>
 
+Get available field sets for Data View with specified Id
+
 ### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/statistics
@@ -705,11 +742,11 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string id`
-<br/><br/>
+<br/>Id of tenant<br/><br/>`string namespaceId`
+<br/>Id of namespace<br/><br/>`string id`
+<br/>Id of Data View<br/><br/>
 `[optional] string cache`
-<br/><br/>
+<br/>Cache preserve or cache refresh<br/><br/>
 
 ### Response
 

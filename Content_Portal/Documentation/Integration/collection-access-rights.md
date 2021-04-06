@@ -1,5 +1,5 @@
 ---
-title: Integration/collection-access-rights v20210405.14
+title: Integration/collection-access-rights v20210406.11
 language_tabs: []
 toc_footers: []
 includes: []
@@ -12,10 +12,13 @@ generator: osisoft.widdershins v1.0.7
 ---
 
 # Collection Access Rights
+API for retrieving access rights on the data views collection
 
 ## List
 
 <a id="opIdCollectionAccessRights_List"></a>
+
+Get the calling user or client's access rights on the data views collection
 
 ### Request
 ```text 
@@ -25,18 +28,29 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accessrights/dataviews
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>
+<br/>The tenant identifier.<br/><br/>`string namespaceId`
+<br/>The namespace identifier.<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|Inline|None|
-|403|[ResultError](#schemaresulterror)|None|
-|500|[ResultError](#schemaresulterror)|None|
+|200|Inline|A list of access rights to the data views collection.|
+|403|[ResultError](#schemaresulterror)|You are not authorized to view the requested data view collection's access control list.|
+|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details.|
 
 #### Example response body
+> 200 Response
+
+```json
+[
+  "Read",
+  "Write",
+  "Delete",
+  "ManageAccessControl"
+]
+```
+
 > 403 Response
 
 ```json
