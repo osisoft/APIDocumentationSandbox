@@ -1,5 +1,5 @@
 ---
-title: Integration/collection-acl v20210406.12
+title: Integration/collection-acl v20210406.14
 language_tabs: []
 toc_footers: []
 includes: []
@@ -28,15 +28,15 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/dataviews
 #### Parameters
 
 `string tenantId`
-<br/>Id of tenant<br/><br/>`string namespaceId`
-<br/>Id of namespace<br/><br/>
+<br/>The tenant identifier<br/><br/>`string namespaceId`
+<br/>The namespace identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[AccessControlList](#schemaaccesscontrollist)|Successfully retrieved the Data Views collection Access Control List. See [Access Control Lists](..\Access_Control.md#access-control-lists) for object structure and more information about ACLs.|
-|403|string|Unauthorized|
+|200|[AccessControlList](#schemaaccesscontrollist)|The default access control list of the data views collection|
+|403|string|You are not authorized to view the requested data view collection's access control list|
 |500|[Exception](#schemaexception)|Internal server error|
 
 #### Example response body
@@ -56,6 +56,12 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/dataviews
     }
   ]
 }
+```
+
+> 403 Response
+
+```json
+null
 ```
 
 ---
