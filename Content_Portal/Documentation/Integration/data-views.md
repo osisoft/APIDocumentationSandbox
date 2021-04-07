@@ -1,5 +1,5 @@
 ---
-title: Integration/data-views v20210406.15
+title: Integration/data-views v20210407.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -55,82 +55,56 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews
 > 200 Response
 
 ```json
-[
-  {
-    "Id": "string",
-    "Name": "string",
-    "Description": "string",
-    "IndexField": {
-      "Source": 0,
-      "Keys": [
-        "string"
-      ],
-      "StreamReferenceNames": [
-        "string"
-      ],
-      "Label": "string",
-      "SummaryType": 0,
-      "SummaryDirection": "[",
-      "IncludeUom": true
-    },
-    "Queries": [
-      {
-        "Id": "string",
-        "Kind": 1,
-        "Value": "string"
-      }
-    ],
-    "DataFieldSets": [
-      {
-        "QueryId": "string",
-        "DataFields": [
-          {
-            "Source": "[",
-            "Keys": [
-              null
-            ],
-            "StreamReferenceNames": [
-              null
-            ],
-            "Label": "string",
-            "SummaryType": "[",
-            "SummaryDirection": null,
-            "IncludeUom": true
-          }
-        ],
-        "IdentifyingField": {
-          "Source": null,
-          "Keys": null,
-          "StreamReferenceNames": null,
-          "Label": null,
-          "SummaryType": null,
-          "SummaryDirection": null,
-          "IncludeUom": null
+{
+  "TypeId": "SimpleType",
+  "Id": "SimpleStream",
+  "Name": "SimpleStream"
+}
+```
+
+> 500 Response
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "Kind": 0,
+  "Parameters": {
+    "property1": "string",
+    "property2": "string"
+  },
+  "ChildErrors": [
+    {
+      "OperationId": "string",
+      "Error": "string",
+      "Reason": "string",
+      "Resolution": "string",
+      "Kind": 0,
+      "Parameters": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "ChildErrors": [
+        {
+          "OperationId": "string",
+          "Error": "string",
+          "Reason": "string",
+          "Resolution": "string",
+          "Kind": 0,
+          "Parameters": {
+            "property1": "string",
+            "property2": "string"
+          },
+          "ChildErrors": [
+            {}
+          ]
         }
-      }
-    ],
-    "GroupingFields": [
-      {
-        "Source": 0,
-        "Keys": [
-          "string"
-        ],
-        "StreamReferenceNames": [
-          "string"
-        ],
-        "Label": "string",
-        "SummaryType": 0,
-        "SummaryDirection": 1,
-        "IncludeUom": true
-      }
-    ],
-    "DefaultStartIndex": "string",
-    "DefaultEndIndex": "string",
-    "DefaultInterval": "string",
-    "IndexTypeCode": 0,
-    "Shape": 0
-  }
-]
+      ]
+    }
+  ]
+}
 ```
 
 ---
@@ -149,12 +123,12 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews
 #### Parameters
 
 `string tenantId`
-<br/>Id of tenant<br/><br/>`string namespaceId`
-<br/>Id of namespace<br/><br/>
+<br/>The tenant identifier<br/><br/>`string namespaceId`
+<br/>The namespace identifier<br/><br/>
 
 ### Request Body
 
-DataView object<br/>
+DataView object - A DataView object whose Id is null or unspecified<br/>
 
 ```json
 {
@@ -225,7 +199,62 @@ DataView object<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|string|None|
+|201|[DataView](#schemadataview)|You are not authorized to view the requested data view|
+|403|[ResultError](#schemaresulterror)|You are not authorized to create a data view|
+|404|[ResultError](#schemaresulterror)|None|
+|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
+
+#### Example response body
+> 201 Response
+
+```
+"Namespace identifier"
+```
+
+> 403 Response
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "Kind": 0,
+  "Parameters": {
+    "property1": "string",
+    "property2": "string"
+  },
+  "ChildErrors": [
+    {
+      "OperationId": "string",
+      "Error": "string",
+      "Reason": "string",
+      "Resolution": "string",
+      "Kind": 0,
+      "Parameters": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "ChildErrors": [
+        {
+          "OperationId": "string",
+          "Error": "string",
+          "Reason": "string",
+          "Resolution": "string",
+          "Kind": 0,
+          "Parameters": {
+            "property1": "string",
+            "property2": "string"
+          },
+          "ChildErrors": [
+            {}
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
 
 ---
 
@@ -243,15 +272,74 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 #### Parameters
 
 `string tenantId`
-<br/>Id of tenant<br/><br/>`string namespaceId`
-<br/>Id of namespace<br/><br/>`string id`
-<br/>Id of Data View<br/><br/>
+<br/>The tenant identifier<br/><br/>`string namespaceId`
+<br/>The namespace identifier<br/><br/>`string id`
+<br/>The data view identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|string|None|
+|200|[DataView](#schemadataview)|The requested data view.|
+|403|[ResultError](#schemaresulterror)|You are not authorized to view the requested data view|
+|404|[ResultError](#schemaresulterror)|The specified data view identifier is not found|
+|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
+
+#### Example response body
+> 200 Response
+
+```json
+{
+  "TypeId": "SimpleType",
+  "Id": "SimpleStream",
+  "Name": "SimpleStream"
+}
+```
+
+> 403 Response
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "Kind": 0,
+  "Parameters": {
+    "property1": "string",
+    "property2": "string"
+  },
+  "ChildErrors": [
+    {
+      "OperationId": "string",
+      "Error": "string",
+      "Reason": "string",
+      "Resolution": "string",
+      "Kind": 0,
+      "Parameters": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "ChildErrors": [
+        {
+          "OperationId": "string",
+          "Error": "string",
+          "Reason": "string",
+          "Resolution": "string",
+          "Kind": 0,
+          "Parameters": {
+            "property1": "string",
+            "property2": "string"
+          },
+          "ChildErrors": [
+            {}
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
 
 ---
 
@@ -269,13 +357,13 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 #### Parameters
 
 `string tenantId`
-<br/>Id of tenant<br/><br/>`string namespaceId`
-<br/>Id of namespace<br/><br/>`string id`
+<br/>The tenant identifier<br/><br/>`string namespaceId`
+<br/>The namespace identifier<br/><br/>`string id`
 <br/>Id of Data View<br/><br/>
 
 ### Request Body
 
-DataView object<br/>
+DataView object - A DataView object whose Id is null or unspecified<br/>
 
 ```json
 {
