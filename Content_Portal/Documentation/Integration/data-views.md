@@ -1,5 +1,5 @@
 ---
-title: Integration/data-views v20210406.14
+title: Integration/data-views v20210406.15
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,11 +14,11 @@ generator: osisoft.widdershins v1.0.7
 # Data Views
 APIs for working with Data Views
 
-## Get All
+## List All
 
-<a id="opIdDataViews_Get All"></a>
+<a id="opIdDataViews_List All"></a>
 
-Get all created Data Views
+Returns a list of data views.
 
 ### Request
 ```text 
@@ -29,17 +29,109 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews
 #### Parameters
 
 `string tenantId`
-<br/>Id of tenant<br/><br/>`string namespaceId`
-<br/>Id of namespace<br/><br/>
+<br/>The tenant identifier<br/><br/>`string namespaceId`
+<br/>The namespace identifier<br/><br/>
 `[optional] integer skip`
-<br/>The number of data views to skip<br/><br/>`[optional] integer count`
-<br/>The number of data views to display per page. Maximum count allowed is 1000<br/><br/>
+<br/>An optional parameter representing the zero-based offset of the first data view to retrieve. If not specified, a default value of 0 is used.<br/><br/>`[optional] integer count`
+<br/>An optional parameter representing the maximum number of data views to retrieve. If not specified, a default value of 100 is used.<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|string|None|
+|200|[DataView](#schemadataview)[]|A page of data views. A response header, Total-Count, indicates the total size of the collection.|
+|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
+
+#### Response Headers
+
+|Status|Header|Type|Description|
+|---|---|---|---|
+|200|Total-Count|integer|The total count of data views visible to the current user|
+|200|Link|integer|Hyperlinks to the first page and next page of results as applicable|
+|200|Next-Page|integer|Hyperlink to the next page of results|
+|200|First-Page|integer|Hyperlink to the first page of results|
+
+#### Example response body
+> 200 Response
+
+```json
+[
+  {
+    "Id": "string",
+    "Name": "string",
+    "Description": "string",
+    "IndexField": {
+      "Source": 0,
+      "Keys": [
+        "string"
+      ],
+      "StreamReferenceNames": [
+        "string"
+      ],
+      "Label": "string",
+      "SummaryType": 0,
+      "SummaryDirection": "[",
+      "IncludeUom": true
+    },
+    "Queries": [
+      {
+        "Id": "string",
+        "Kind": 1,
+        "Value": "string"
+      }
+    ],
+    "DataFieldSets": [
+      {
+        "QueryId": "string",
+        "DataFields": [
+          {
+            "Source": "[",
+            "Keys": [
+              null
+            ],
+            "StreamReferenceNames": [
+              null
+            ],
+            "Label": "string",
+            "SummaryType": "[",
+            "SummaryDirection": null,
+            "IncludeUom": true
+          }
+        ],
+        "IdentifyingField": {
+          "Source": null,
+          "Keys": null,
+          "StreamReferenceNames": null,
+          "Label": null,
+          "SummaryType": null,
+          "SummaryDirection": null,
+          "IncludeUom": null
+        }
+      }
+    ],
+    "GroupingFields": [
+      {
+        "Source": 0,
+        "Keys": [
+          "string"
+        ],
+        "StreamReferenceNames": [
+          "string"
+        ],
+        "Label": "string",
+        "SummaryType": 0,
+        "SummaryDirection": 1,
+        "IncludeUom": true
+      }
+    ],
+    "DefaultStartIndex": "string",
+    "DefaultEndIndex": "string",
+    "DefaultInterval": "string",
+    "IndexTypeCode": 0,
+    "Shape": 0
+  }
+]
+```
 
 ---
 
@@ -1178,6 +1270,92 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 |---|---|
 |Standard|0|
 |Narrow|1|
+
+---
+
+## ResultError
+
+<a id="schemaresulterror"></a>
+<a id="schema_ResultError"></a>
+<a id="tocSresulterror"></a>
+<a id="tocsresulterror"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|false|true|None|
+|Error|string|false|true|None|
+|Reason|string|false|true|None|
+|Resolution|string|false|true|None|
+|Kind|[ResultErrorKind](#schemaresulterrorkind)|false|false|None|
+|Parameters|object|false|true|None|
+|ChildErrors|[[ResultError](#schemaresulterror)]|false|true|None|
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "Kind": 0,
+  "Parameters": {
+    "property1": "string",
+    "property2": "string"
+  },
+  "ChildErrors": [
+    {
+      "OperationId": "string",
+      "Error": "string",
+      "Reason": "string",
+      "Resolution": "string",
+      "Kind": 0,
+      "Parameters": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "ChildErrors": [
+        {
+          "OperationId": "string",
+          "Error": "string",
+          "Reason": "string",
+          "Resolution": "string",
+          "Kind": 0,
+          "Parameters": {
+            "property1": "string",
+            "property2": "string"
+          },
+          "ChildErrors": [
+            {}
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+```
+
+---
+
+## ResultErrorKind
+
+<a id="schemaresulterrorkind"></a>
+<a id="schema_ResultErrorKind"></a>
+<a id="tocSresulterrorkind"></a>
+<a id="tocsresulterrorkind"></a>
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|UnspecifiedServerError|0|
+|RequestInvalid|1|
+|ResourceNotFound|2|
+|OperationForbidden|3|
+|OperationInvalid|4|
+|OperationFailed|5|
+|ResourceUnavailable|6|
 
 ---
 

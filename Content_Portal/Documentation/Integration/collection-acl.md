@@ -1,5 +1,5 @@
 ---
-title: Integration/collection-acl v20210406.14
+title: Integration/collection-acl v20210406.15
 language_tabs: []
 toc_footers: []
 includes: []
@@ -18,7 +18,7 @@ APIs for working with Data View collection Access Control Lists
 
 <a id="opIdCollectionAcl_Get"></a>
 
-Get the Data Views collection Access Control List
+Get the Data Views collection Access Control List.
 
 ### Request
 ```text 
@@ -37,7 +37,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/dataviews
 |---|---|---|
 |200|[AccessControlList](#schemaaccesscontrollist)|The default access control list of the data views collection|
 |403|string|You are not authorized to view the requested data view collection's access control list|
-|500|[Exception](#schemaexception)|Internal server error|
+|500|[Exception](#schemaexception)|An error occurred while processing the request. See the response body for details|
 
 #### Example response body
 > 200 Response
@@ -58,19 +58,13 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/dataviews
 }
 ```
 
-> 403 Response
-
-```json
-null
-```
-
 ---
 
 ## Update
 
 <a id="opIdCollectionAcl_Update"></a>
 
-Update the Data Views collection Access Control List
+Update the default AccessControlList for the DataViews collection.
 
 ### Request
 ```text 
@@ -80,12 +74,12 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/dataviews
 #### Parameters
 
 `string tenantId`
-<br/>Id of tenant<br/><br/>`string namespaceId`
-<br/>Id of namespace<br/><br/>
+<br/>The tenant identifier<br/><br/>`string namespaceId`
+<br/>The namespace identifier<br/><br/>
 
 ### Request Body
 
-Updated Access Control List. See [Access Control Lists](..\Access_Control.md#access-control-lists) for object structure and more information about ACLs.<br/>
+An AccessControlList { "RoleTrusteeAccessControlEntries": [ { "Trustee": { "Type": Role, "RoleId": "11111111-1111-1111-1111-111111111111" }, "AccessType": Allowed, "AccessRights": 1 }, { "Trustee": { "Type": Role, "RoleId": "22222222-2222-2222-2222-222222222222" }, "AccessType": Allowed, "AccessRights": 15 }, { "Trustee": { "Type": User, "RoleId": "33333333-3333-3333-3333-333333333333" }, "AccessType": Denied, "AccessRights": 8 } ] }<br/>
 
 ```json
 {
@@ -103,10 +97,10 @@ Updated Access Control List. See [Access Control Lists](..\Access_Control.md#acc
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|Successfully updated the Data Views collection Access Control List|
-|400|string|Bad request|
-|403|string|Unauthorized|
-|500|[Exception](#schemaexception)|Internal server error|
+|204|None|Successfully updated the default access control list of the data views collection|
+|400|string|The request is not valid. See the response body for details|
+|403|string|You are not authorized to update the data views collection's default access control list|
+|500|[Exception](#schemaexception)|An error occurred while processing the request. See the response body for details|
 
 #### Example response body
 > 500 Response
