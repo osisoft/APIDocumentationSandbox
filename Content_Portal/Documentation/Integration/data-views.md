@@ -1,5 +1,5 @@
 ---
-title: Integration/data-views v20210407.1
+title: Integration/data-views v20210407.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -113,7 +113,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews
 
 <a id="opIdDataViews_Create"></a>
 
-Create a new Data View
+Create a new data view with a system-generated identifier.
 
 ### Request
 ```text 
@@ -128,7 +128,7 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews
 
 ### Request Body
 
-DataView object - A DataView object whose Id is null or unspecified<br/>
+A DataView object whose Id is null or unspecified<br/>
 
 ```json
 {
@@ -199,7 +199,7 @@ DataView object - A DataView object whose Id is null or unspecified<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|201|[DataView](#schemadataview)|You are not authorized to view the requested data view|
+|201|[DataView](#schemadataview)|The data view as persisted, including values for optional parameters that were omitted in the request.|
 |403|[ResultError](#schemaresulterror)|You are not authorized to create a data view|
 |404|[ResultError](#schemaresulterror)|None|
 |500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
@@ -347,7 +347,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 
 <a id="opIdDataViews_Create (`id` path)"></a>
 
-Create a new Data View
+This call creates the specified data view. If a data view with the same id already exists, the existing data view is compared with the specified data view. If they are identical, a redirect (302 Found) is returned with the Location response header indicating the URL where the data view may be retrieved using a Get function. If the data views do not match, the request fails with 409 Conflict.
 
 ### Request
 ```text 
@@ -359,11 +359,11 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 `string tenantId`
 <br/>The tenant identifier<br/><br/>`string namespaceId`
 <br/>The namespace identifier<br/><br/>`string id`
-<br/>Id of Data View<br/><br/>
+<br/>The data view identifier<br/><br/>
 
 ### Request Body
 
-DataView object - A DataView object whose Id is null or unspecified<br/>
+A DataView object whose Id is null or unspecified<br/>
 
 ```json
 {
@@ -434,7 +434,95 @@ DataView object - A DataView object whose Id is null or unspecified<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|string|None|
+|201|[DataView](#schemadataview)|The data view as persisted, including values for optional parameters that were omitted in the request.|
+|302|None|The specified data view already exists. A response header, Location, indicates the URL where the data view may be retrieved with the GET verb|
+|403|[ResultError](#schemaresulterror)|You are not authorized for this operation|
+|409|[ResultError](#schemaresulterror)|The specified data view conflicts with an existing data view that is not identical. To forcibly update the data view, see Create Or Update Data View|
+|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
+
+#### Example response body
+> 201 Response
+
+```json
+{
+  "Id": "string",
+  "Name": "string",
+  "Description": "string",
+  "IndexField": {
+    "Source": 0,
+    "Keys": [
+      "string"
+    ],
+    "StreamReferenceNames": [
+      "string"
+    ],
+    "Label": "string",
+    "SummaryType": 0,
+    "SummaryDirection": 1,
+    "IncludeUom": true
+  },
+  "Queries": [
+    {
+      "Id": "string",
+      "Kind": 1,
+      "Value": "string"
+    }
+  ],
+  "DataFieldSets": [
+    {
+      "QueryId": "string",
+      "DataFields": [
+        {
+          "Source": 0,
+          "Keys": [
+            "string"
+          ],
+          "StreamReferenceNames": [
+            "string"
+          ],
+          "Label": "string",
+          "SummaryType": 0,
+          "SummaryDirection": null,
+          "IncludeUom": true
+        }
+      ],
+      "IdentifyingField": {
+        "Source": "[",
+        "Keys": [
+          null
+        ],
+        "StreamReferenceNames": [
+          null
+        ],
+        "Label": "string",
+        "SummaryType": "[",
+        "SummaryDirection": null,
+        "IncludeUom": true
+      }
+    }
+  ],
+  "GroupingFields": [
+    {
+      "Source": 0,
+      "Keys": [
+        "string"
+      ],
+      "StreamReferenceNames": [
+        "string"
+      ],
+      "Label": "string",
+      "SummaryType": 0,
+      "SummaryDirection": 1,
+      "IncludeUom": true
+    }
+  ],
+  "DefaultStartIndex": "string",
+  "DefaultEndIndex": "string",
+  "DefaultInterval": "string",
+  "IndexTypeCode": 0,
+  "Shape": 0
+}
+```
 
 ---
 
@@ -442,7 +530,7 @@ DataView object - A DataView object whose Id is null or unspecified<br/>
 
 <a id="opIdDataViews_Create Or Update"></a>
 
-Update the Data View with specified Id
+If a data view with the same id already exists, it is updated to the specified value. Otherwise, a new data view is created.
 
 ### Request
 ```text 
@@ -452,13 +540,13 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 #### Parameters
 
 `string tenantId`
-<br/>Id of tenant<br/><br/>`string namespaceId`
-<br/>Id of namespace<br/><br/>`string id`
-<br/>Id of Data View<br/><br/>
+<br/>The tenant identifier<br/><br/>`string namespaceId`
+<br/>The namespace identifier<br/><br/>`string id`
+<br/>The data view identifier<br/><br/>
 
 ### Request Body
 
-Updated DataView object in the request body<br/>
+A DataView object whose Id matches the dataViewId in the URL.<br/>
 
 ```json
 {
@@ -529,7 +617,95 @@ Updated DataView object in the request body<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|string|None|
+|201|[DataView](#schemadataview)|The data view as persisted, including values for optional parameters that were omitted in the request.|
+|204|None|Successfully updated the data view|
+|403|[ResultError](#schemaresulterror)|You are not authorized for this operation|
+|409|[ResultError](#schemaresulterror)|None|
+|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
+
+#### Example response body
+> 201 Response
+
+```json
+{
+  "Id": "string",
+  "Name": "string",
+  "Description": "string",
+  "IndexField": {
+    "Source": 0,
+    "Keys": [
+      "string"
+    ],
+    "StreamReferenceNames": [
+      "string"
+    ],
+    "Label": "string",
+    "SummaryType": 0,
+    "SummaryDirection": 1,
+    "IncludeUom": true
+  },
+  "Queries": [
+    {
+      "Id": "string",
+      "Kind": 1,
+      "Value": "string"
+    }
+  ],
+  "DataFieldSets": [
+    {
+      "QueryId": "string",
+      "DataFields": [
+        {
+          "Source": 0,
+          "Keys": [
+            "string"
+          ],
+          "StreamReferenceNames": [
+            "string"
+          ],
+          "Label": "string",
+          "SummaryType": 0,
+          "SummaryDirection": null,
+          "IncludeUom": true
+        }
+      ],
+      "IdentifyingField": {
+        "Source": "[",
+        "Keys": [
+          null
+        ],
+        "StreamReferenceNames": [
+          null
+        ],
+        "Label": "string",
+        "SummaryType": "[",
+        "SummaryDirection": null,
+        "IncludeUom": true
+      }
+    }
+  ],
+  "GroupingFields": [
+    {
+      "Source": 0,
+      "Keys": [
+        "string"
+      ],
+      "StreamReferenceNames": [
+        "string"
+      ],
+      "Label": "string",
+      "SummaryType": 0,
+      "SummaryDirection": 1,
+      "IncludeUom": true
+    }
+  ],
+  "DefaultStartIndex": "string",
+  "DefaultEndIndex": "string",
+  "DefaultInterval": "string",
+  "IndexTypeCode": 0,
+  "Shape": 0
+}
+```
 
 ---
 
@@ -537,7 +713,7 @@ Updated DataView object in the request body<br/>
 
 <a id="opIdDataViews_Delete"></a>
 
-Delete the Data View with specified Id
+Delete the data view with the specified id.
 
 ### Request
 ```text 
@@ -547,15 +723,65 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 #### Parameters
 
 `string tenantId`
-<br/>Id of tenant<br/><br/>`string namespaceId`
-<br/>Id of namespace<br/><br/>`string id`
-<br/>Id of Data View<br/><br/>
+<br/>The tenant identifier<br/><br/>`string namespaceId`
+<br/>The namespace identifier<br/><br/>`string id`
+<br/>The data view identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|string|None|
+|204|None|Successfully updated the data view|
+|403|[ResultError](#schemaresulterror)|You are not authorized for this operation|
+|404|[ResultError](#schemaresulterror)|The specified data view identifier is not found|
+|409|[ResultError](#schemaresulterror)|None|
+|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
+
+#### Example response body
+> 403 Response
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "Kind": 0,
+  "Parameters": {
+    "property1": "string",
+    "property2": "string"
+  },
+  "ChildErrors": [
+    {
+      "OperationId": "string",
+      "Error": "string",
+      "Reason": "string",
+      "Resolution": "string",
+      "Kind": 0,
+      "Parameters": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "ChildErrors": [
+        {
+          "OperationId": "string",
+          "Error": "string",
+          "Reason": "string",
+          "Resolution": "string",
+          "Kind": 0,
+          "Parameters": {
+            "property1": "string",
+            "property2": "string"
+          },
+          "ChildErrors": [
+            {}
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
 
 ---
 
