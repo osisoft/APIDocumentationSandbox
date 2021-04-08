@@ -1,5 +1,5 @@
 ---
-title: Context/metadata v20210408.2
+title: Context/metadata v20210408.3
 language_tabs: []
 toc_footers: []
 includes: []
@@ -12,7 +12,12 @@ generator: osisoft.widdershins v1.0.7
 ---
 
 # Metadata
-APIs for interacting with stream metadata.
+Stream metadata is represented as a dictionary of string keys and associated string values. 
+It can be used to associate additional information with a stream. Stream tags are represented 
+as a list of strings. Tags can be used to categorize or denote special attributes of streams. 
+The Stream Metadata API And Stream Tags API do not accept the search query parameter in their respective
+GET methods. However, stream tags and metadata can be used as criteria in search query strings to return 
+stream results with the [Stream](xref:sdsStreams) API. 
 
 ## Get Stream Metadata Changedata
 
@@ -38,6 +43,7 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Chang
 |---|---|---|
 |200|Inline|A dictionary of metadata keys and their associated `ChangeData` for the specified streamId.|
 |400|[ErrorResponseBody](#schemaerrorresponsebody)|The request is malformed or invalid.|
+|401|[ErrorResponseBody](#schemaerrorresponsebody)|Unauthorized.|
 |403|[ErrorResponseBody](#schemaerrorresponsebody)|Forbidden.|
 |404|[ErrorResponseBody](#schemaerrorresponsebody)|The specified stream was not found.|
 |500|[ErrorResponseBody](#schemaerrorresponsebody)|Internal server error.|
@@ -107,6 +113,7 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metad
 |---|---|---|
 |200|Inline|The metadata dictionary for the specified stream.|
 |400|[ErrorResponseBody](#schemaerrorresponsebody)|The request is malformed or invalid.|
+|401|[ErrorResponseBody](#schemaerrorresponsebody)|Unauthorized.|
 |403|[ErrorResponseBody](#schemaerrorresponsebody)|Forbidden.|
 |404|[ErrorResponseBody](#schemaerrorresponsebody)|The specified stream was not found.|
 |500|[ErrorResponseBody](#schemaerrorresponsebody)|Internal server error.|
@@ -161,6 +168,7 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metad
 |---|---|---|
 |200|Inline|The updated metadata dictionary for the specified stream.|
 |400|[ErrorResponseBody](#schemaerrorresponsebody)|The request is malformed or invalid.|
+|401|[ErrorResponseBody](#schemaerrorresponsebody)|Unauthorized.|
 |403|[ErrorResponseBody](#schemaerrorresponsebody)|Forbidden.|
 |404|[ErrorResponseBody](#schemaerrorresponsebody)|The specified stream was not found.|
 |409|[ErrorResponseBody](#schemaerrorresponsebody)|Conflict.|
@@ -217,6 +225,7 @@ PATCH /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Met
 |---|---|---|
 |200|Inline|The modified metadata dictionary for the specified stream.|
 |400|[ErrorResponseBody](#schemaerrorresponsebody)|The request is malformed or invalid.|
+|401|[ErrorResponseBody](#schemaerrorresponsebody)|Unauthorized.|
 |403|[ErrorResponseBody](#schemaerrorresponsebody)|Forbidden.|
 |404|[ErrorResponseBody](#schemaerrorresponsebody)|The specified stream was not found.|
 |409|[ErrorResponseBody](#schemaerrorresponsebody)|Conflict.|
@@ -273,6 +282,7 @@ DELETE /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Me
 |---|---|---|
 |204|None|No content.|
 |400|[ErrorResponseBody](#schemaerrorresponsebody)|The request is malformed or invalid.|
+|401|[ErrorResponseBody](#schemaerrorresponsebody)|Unauthorized.|
 |403|[ErrorResponseBody](#schemaerrorresponsebody)|Forbidden.|
 |404|[ErrorResponseBody](#schemaerrorresponsebody)|The specified stream was not found.|
 |409|[ErrorResponseBody](#schemaerrorresponsebody)|Conflict.|
@@ -322,6 +332,7 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metad
 |---|---|---|
 |200|string|The value for the specified key in the metadata dictionary of the specified stream.|
 |400|[ErrorResponseBody](#schemaerrorresponsebody)|The request is malformed or invalid.|
+|401|[ErrorResponseBody](#schemaerrorresponsebody)|Unauthorized.|
 |403|[ErrorResponseBody](#schemaerrorresponsebody)|Forbidden.|
 |404|[ErrorResponseBody](#schemaerrorresponsebody)|The specified key was not found.|
 |500|[ErrorResponseBody](#schemaerrorresponsebody)|Internal server error.|

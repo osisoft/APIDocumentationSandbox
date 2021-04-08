@@ -1,5 +1,5 @@
 ---
-title: Context/tags v20210408.2
+title: Context/tags v20210408.3
 language_tabs: []
 toc_footers: []
 includes: []
@@ -12,7 +12,12 @@ generator: osisoft.widdershins v1.0.7
 ---
 
 # Tags
-APIs for interacting with stream tags.
+Stream metadata is represented as a dictionary of string keys and associated string values. 
+It can be used to associate additional information with a stream. Stream tags are represented 
+as a list of strings. Tags can be used to categorize or denote special attributes of streams. 
+The Stream Metadata API And Stream Tags API do not accept the search query parameter in their respective
+GET methods. However, stream tags and metadata can be used as criteria in search query strings to return 
+stream results with the [Stream](xref:sdsStreams) API. 
 
 ## List Stream Tags
 
@@ -38,6 +43,7 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags
 |---|---|---|
 |200|Inline|The tag list for the specified stream.|
 |400|[ErrorResponseBody](#schemaerrorresponsebody)|The request is malformed or invalid.|
+|401|[ErrorResponseBody](#schemaerrorresponsebody)|Unauthorized.|
 |403|[ErrorResponseBody](#schemaerrorresponsebody)|Forbidden.|
 |404|[ErrorResponseBody](#schemaerrorresponsebody)|The specified stream was not found.|
 |500|[ErrorResponseBody](#schemaerrorresponsebody)|Internal server error.|
@@ -93,6 +99,7 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags
 |---|---|---|
 |200|Inline|The updated list of tags for the specified stream.|
 |400|[ErrorResponseBody](#schemaerrorresponsebody)|The request is malformed or invalid.|
+|401|[ErrorResponseBody](#schemaerrorresponsebody)|Unauthorized.|
 |403|[ErrorResponseBody](#schemaerrorresponsebody)|Forbidden.|
 |404|[ErrorResponseBody](#schemaerrorresponsebody)|The specified stream was not found.|
 |409|[ErrorResponseBody](#schemaerrorresponsebody)|Conflict.|
@@ -149,6 +156,7 @@ DELETE /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Ta
 |---|---|---|
 |204|None|No content.|
 |400|[ErrorResponseBody](#schemaerrorresponsebody)|The request is malformed or invalid.|
+|401|[ErrorResponseBody](#schemaerrorresponsebody)|Unauthorized.|
 |403|[ErrorResponseBody](#schemaerrorresponsebody)|Forbidden.|
 |404|[ErrorResponseBody](#schemaerrorresponsebody)|The specified stream was not found.|
 |409|[ErrorResponseBody](#schemaerrorresponsebody)|Conflict.|
