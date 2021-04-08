@@ -1,5 +1,5 @@
 ---
-title: Integration/data-views v20210407.2
+title: Integration/data-views v20210407.3
 language_tabs: []
 toc_footers: []
 includes: []
@@ -443,84 +443,52 @@ A DataView object whose Id is null or unspecified<br/>
 #### Example response body
 > 201 Response
 
+```
+"example content<br/>"
+```
+
+> 403 Response
+
 ```json
 {
-  "Id": "string",
-  "Name": "string",
-  "Description": "string",
-  "IndexField": {
-    "Source": 0,
-    "Keys": [
-      "string"
-    ],
-    "StreamReferenceNames": [
-      "string"
-    ],
-    "Label": "string",
-    "SummaryType": 0,
-    "SummaryDirection": 1,
-    "IncludeUom": true
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "Kind": 0,
+  "Parameters": {
+    "property1": "string",
+    "property2": "string"
   },
-  "Queries": [
+  "ChildErrors": [
     {
-      "Id": "string",
-      "Kind": 1,
-      "Value": "string"
-    }
-  ],
-  "DataFieldSets": [
-    {
-      "QueryId": "string",
-      "DataFields": [
+      "OperationId": "string",
+      "Error": "string",
+      "Reason": "string",
+      "Resolution": "string",
+      "Kind": 0,
+      "Parameters": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "ChildErrors": [
         {
-          "Source": 0,
-          "Keys": [
-            "string"
-          ],
-          "StreamReferenceNames": [
-            "string"
-          ],
-          "Label": "string",
-          "SummaryType": 0,
-          "SummaryDirection": null,
-          "IncludeUom": true
+          "OperationId": "string",
+          "Error": "string",
+          "Reason": "string",
+          "Resolution": "string",
+          "Kind": 0,
+          "Parameters": {
+            "property1": "string",
+            "property2": "string"
+          },
+          "ChildErrors": [
+            {}
+          ]
         }
-      ],
-      "IdentifyingField": {
-        "Source": "[",
-        "Keys": [
-          null
-        ],
-        "StreamReferenceNames": [
-          null
-        ],
-        "Label": "string",
-        "SummaryType": "[",
-        "SummaryDirection": null,
-        "IncludeUom": true
-      }
+      ]
     }
-  ],
-  "GroupingFields": [
-    {
-      "Source": 0,
-      "Keys": [
-        "string"
-      ],
-      "StreamReferenceNames": [
-        "string"
-      ],
-      "Label": "string",
-      "SummaryType": 0,
-      "SummaryDirection": 1,
-      "IncludeUom": true
-    }
-  ],
-  "DefaultStartIndex": "string",
-  "DefaultEndIndex": "string",
-  "DefaultInterval": "string",
-  "IndexTypeCode": 0,
-  "Shape": 0
+  ]
 }
 ```
 
@@ -626,84 +594,52 @@ A DataView object whose Id matches the dataViewId in the URL.<br/>
 #### Example response body
 > 201 Response
 
+```
+"example content<br/>"
+```
+
+> 403 Response
+
 ```json
 {
-  "Id": "string",
-  "Name": "string",
-  "Description": "string",
-  "IndexField": {
-    "Source": 0,
-    "Keys": [
-      "string"
-    ],
-    "StreamReferenceNames": [
-      "string"
-    ],
-    "Label": "string",
-    "SummaryType": 0,
-    "SummaryDirection": 1,
-    "IncludeUom": true
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "Kind": 0,
+  "Parameters": {
+    "property1": "string",
+    "property2": "string"
   },
-  "Queries": [
+  "ChildErrors": [
     {
-      "Id": "string",
-      "Kind": 1,
-      "Value": "string"
-    }
-  ],
-  "DataFieldSets": [
-    {
-      "QueryId": "string",
-      "DataFields": [
+      "OperationId": "string",
+      "Error": "string",
+      "Reason": "string",
+      "Resolution": "string",
+      "Kind": 0,
+      "Parameters": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "ChildErrors": [
         {
-          "Source": 0,
-          "Keys": [
-            "string"
-          ],
-          "StreamReferenceNames": [
-            "string"
-          ],
-          "Label": "string",
-          "SummaryType": 0,
-          "SummaryDirection": null,
-          "IncludeUom": true
+          "OperationId": "string",
+          "Error": "string",
+          "Reason": "string",
+          "Resolution": "string",
+          "Kind": 0,
+          "Parameters": {
+            "property1": "string",
+            "property2": "string"
+          },
+          "ChildErrors": [
+            {}
+          ]
         }
-      ],
-      "IdentifyingField": {
-        "Source": "[",
-        "Keys": [
-          null
-        ],
-        "StreamReferenceNames": [
-          null
-        ],
-        "Label": "string",
-        "SummaryType": "[",
-        "SummaryDirection": null,
-        "IncludeUom": true
-      }
+      ]
     }
-  ],
-  "GroupingFields": [
-    {
-      "Source": 0,
-      "Keys": [
-        "string"
-      ],
-      "StreamReferenceNames": [
-        "string"
-      ],
-      "Label": "string",
-      "SummaryType": 0,
-      "SummaryDirection": 1,
-      "IncludeUom": true
-    }
-  ],
-  "DefaultStartIndex": "string",
-  "DefaultEndIndex": "string",
-  "DefaultInterval": "string",
-  "IndexTypeCode": 0,
-  "Shape": 0
+  ]
 }
 ```
 
@@ -982,7 +918,7 @@ Updated owner. See [Owner](..\Access_Control.md#owner) for object structure more
 
 <a id="opIdDataViews_Get Available Field Sets"></a>
 
-Get available field sets for Data View with specified Id
+Gets the collection of field sets that are available for use in the data view, and which are not already included in the data view.
 
 ### Request
 ```text 
@@ -993,17 +929,81 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 #### Parameters
 
 `string tenantId`
-<br/>Id of tenant<br/><br/>`string namespaceId`
-<br/>Id of namespace<br/><br/>`string id`
-<br/>Id of Data View<br/><br/>
+<br/>The tenant identifier<br/><br/>`string namespaceId`
+<br/>The namespace identifier<br/><br/>`string id`
+<br/>The data view identifier<br/><br/>
 `[optional] string cache`
-<br/>Cache preserve or cache refresh<br/><br/>
+<br/>"Refresh" to force the resource to re-resolve. "Preserve" to use cached information, if available. This is the default value<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|string|None|
+|200|[ResolvedItemsOfFieldSet](#schemaresolveditemsoffieldset)|An object with a "TimeOfResolution" and a collection of "Items", the FieldSets that resolved and which are still available|
+|403|[ResultError](#schemaresulterror)|You are not authorized for this operation|
+|404|[ResultError](#schemaresulterror)|The data view does not exist|
+|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
+
+#### Response Headers
+
+|Status|Header|Type|Description|
+|---|---|---|---|
+|200|Total-Count|integer|The total count of data items visible to the current user|
+|200|Link|integer|Hyperlinks to the first page and next page of results as applicable|
+|200|Next-Page|integer|Hyperlink to the next page of results|
+|200|First-Page|integer|Hyperlink to the first page of results|
+
+#### Example response body
+> 200 Response
+
+```
+"example content<br/>"
+```
+
+> 403 Response
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "Kind": 0,
+  "Parameters": {
+    "property1": "string",
+    "property2": "string"
+  },
+  "ChildErrors": [
+    {
+      "OperationId": "string",
+      "Error": "string",
+      "Reason": "string",
+      "Resolution": "string",
+      "Kind": 0,
+      "Parameters": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "ChildErrors": [
+        {
+          "OperationId": "string",
+          "Error": "string",
+          "Reason": "string",
+          "Resolution": "string",
+          "Kind": 0,
+          "Parameters": {
+            "property1": "string",
+            "property2": "string"
+          },
+          "ChildErrors": [
+            {}
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
 
 ---
 
@@ -1011,7 +1011,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 
 <a id="opIdDataViews_Get Data Items"></a>
 
-Get data items for a dataview by Query Id
+Gets the paged collection of data items that are the results of an individual query, and which are eligible for use in the current data view. A data view has a collection of zero or more queries. Each query has an identifier. Those identifiers are used here as part of the request path.
 
 ### Request
 ```text 
@@ -1022,20 +1022,84 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 #### Parameters
 
 `string tenantId`
-<br/>Id of tenant<br/><br/>`string namespaceId`
-<br/>Id of namespace<br/><br/>`string id`
-<br/>Id of the dataview<br/><br/>`string queryId`
-<br/>Id of the query<br/><br/>
+<br/>The tenant identifier<br/><br/>`string namespaceId`
+<br/>The namespace identifier<br/><br/>`string id`
+<br/>The data view identifier<br/><br/>`string queryId`
+<br/>The Query identifier<br/><br/>
 `[optional] string cache`
-<br/>Specifies if Data View backing resources are to be refreshed. See [Retrieving Data](DataRetrieval.md)<br/><br/>`[optional] integer skip`
-<br/>The number of data items to skip<br/><br/>`[optional] integer count`
-<br/>The number of data items to display per page. Maximum count allowed is 1000<br/><br/>
+<br/>"Refresh" to force the resource to re-resolve. "Preserve" to use cached information, if available. This is the default value<br/><br/>`[optional] integer skip`
+<br/>An optional parameter representing the zero-based offset of the first data item to retrieve. If not specified, a default value of 0 is used.<br/><br/>`[optional] integer count`
+<br/>An optional parameter representing the maximum number of data items to retrieve. If not specified, a default value of 100 is used.<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|string|None|
+|200|[ResolvedItemsOfDataItem](#schemaresolveditemsofdataitem)|An object with a "TimeOfResolution" and a collection of "Items", the DataItems that resolved.|
+|403|[ResultError](#schemaresulterror)|You are not authorized for this operation|
+|404|[ResultError](#schemaresulterror)|The data view or query does not exist|
+|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
+
+#### Response Headers
+
+|Status|Header|Type|Description|
+|---|---|---|---|
+|200|Total-Count|integer|The total count of data items visible to the current user|
+|200|Link|integer|Hyperlinks to the first page and next page of results as applicable|
+|200|Next-Page|integer|Hyperlink to the next page of results|
+|200|First-Page|integer|Hyperlink to the first page of results|
+
+#### Example response body
+> 200 Response
+
+```
+"example content<br/>"
+```
+
+> 403 Response
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "Kind": 0,
+  "Parameters": {
+    "property1": "string",
+    "property2": "string"
+  },
+  "ChildErrors": [
+    {
+      "OperationId": "string",
+      "Error": "string",
+      "Reason": "string",
+      "Resolution": "string",
+      "Kind": 0,
+      "Parameters": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "ChildErrors": [
+        {
+          "OperationId": "string",
+          "Error": "string",
+          "Reason": "string",
+          "Resolution": "string",
+          "Kind": 0,
+          "Parameters": {
+            "property1": "string",
+            "property2": "string"
+          },
+          "ChildErrors": [
+            {}
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
 
 ---
 
@@ -1043,7 +1107,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 
 <a id="opIdDataViews_Get Field Mappings"></a>
 
-Get field mappings for a specified Data View
+Gets the collection of field mappings resolved for the data view. These show the exact data behind every field, for each data item, for each group.
 
 ### Request
 ```text 
@@ -1054,19 +1118,83 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 #### Parameters
 
 `string tenantId`
-<br/>Id of tenant<br/><br/>`string namespaceId`
-<br/>Id of namespace<br/><br/>`string id`
-<br/>Id of dataview<br/><br/>
+<br/>The tenant identifier<br/><br/>`string namespaceId`
+<br/>The namespace identifier<br/><br/>`string id`
+<br/>The data view identifier<br/><br/>
 `[optional] string cache`
-<br/>Specifies if Data View backing resources are to be refreshed. See [Retrieving Data](DataRetrieval.md)<br/><br/>`[optional] integer skip`
-<br/>The number of data groups to skip<br/><br/>`[optional] integer count`
-<br/>The number of data groups to display per page. Maximum count allowed is 1000<br/><br/>
+<br/>"Refresh" to force the resource to re-resolve. "Preserve" to use cached information, if available. This is the default value<br/><br/>`[optional] integer skip`
+<br/>An optional parameter representing the zero-based offset of the first field mapping to retrieve. If not specified, a default value of 0 is used.<br/><br/>`[optional] integer count`
+<br/>An optional parameter representing the maximum number of field mappings to retrieve. If not specified, a default value of 100 is used.<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|string|None|
+|200|[ResolvedItemsOfFieldMapping](#schemaresolveditemsoffieldmapping)|An object with a "TimeOfResolution" and a collection of "Items", the FieldMappings that resolved.|
+|403|[ResultError](#schemaresulterror)|You are not authorized for this operation|
+|404|[ResultError](#schemaresulterror)|The data view or query does not exist|
+|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
+
+#### Response Headers
+
+|Status|Header|Type|Description|
+|---|---|---|---|
+|200|Total-Count|integer|The total count of data items visible to the current user|
+|200|Link|integer|Hyperlinks to the first page and next page of results as applicable|
+|200|Next-Page|integer|Hyperlink to the next page of results|
+|200|First-Page|integer|Hyperlink to the first page of results|
+
+#### Example response body
+> 200 Response
+
+```
+"example content<br/>"
+```
+
+> 403 Response
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "Kind": 0,
+  "Parameters": {
+    "property1": "string",
+    "property2": "string"
+  },
+  "ChildErrors": [
+    {
+      "OperationId": "string",
+      "Error": "string",
+      "Reason": "string",
+      "Resolution": "string",
+      "Kind": 0,
+      "Parameters": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "ChildErrors": [
+        {
+          "OperationId": "string",
+          "Error": "string",
+          "Reason": "string",
+          "Resolution": "string",
+          "Kind": 0,
+          "Parameters": {
+            "property1": "string",
+            "property2": "string"
+          },
+          "ChildErrors": [
+            {}
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
 
 ---
 
@@ -1074,7 +1202,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 
 <a id="opIdDataViews_Get Groups"></a>
 
-Get Data Groups for a specified Data View
+Gets the collection of Groups that resolved for a data view.
 
 ### Request
 ```text 
@@ -1085,19 +1213,83 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 #### Parameters
 
 `string tenantId`
-<br/>Id of tenant<br/><br/>`string namespaceId`
-<br/>Id of namespace<br/><br/>`string id`
-<br/>Id of dataview<br/><br/>
+<br/>The tenant identifier<br/><br/>`string namespaceId`
+<br/>The namespace identifier<br/><br/>`string id`
+<br/>The data view identifier<br/><br/>
 `[optional] string cache`
-<br/>Specifies if Data View backing resources are to be refreshed. See [Retrieving Data](DataRetrieval.md)<br/><br/>`[optional] integer skip`
-<br/>The number of data groups to skip<br/><br/>`[optional] integer count`
-<br/>The number of data groups to display per page. Maximum count allowed is 1000<br/><br/>
+<br/>"Refresh" to force the resource to re-resolve. "Preserve" to use cached information, if available. This is the default value<br/><br/>`[optional] integer skip`
+<br/>An optional parameter representing the zero-based offset of the first data item to retrieve. If not specified, a default value of 0 is used.<br/><br/>`[optional] integer count`
+<br/>An optional parameter representing the maximum number of data items to retrieve. If not specified, a default value of 100 is used.<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|string|None|
+|200|[ResolvedItemsOfGroup](#schemaresolveditemsofgroup)|An object with a "TimeOfResolution" and a collection of "Items", the Groups that resolved.|
+|403|[ResultError](#schemaresulterror)|You are not authorized for this operation|
+|404|[ResultError](#schemaresulterror)|The data view does not exist|
+|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
+
+#### Response Headers
+
+|Status|Header|Type|Description|
+|---|---|---|---|
+|200|Total-Count|integer|The total count of groups|
+|200|Link|integer|Hyperlinks to the first page and next page of results as applicable|
+|200|Next-Page|integer|Hyperlink to the next page of results|
+|200|First-Page|integer|Hyperlink to the first page of results|
+
+#### Example response body
+> 200 Response
+
+```
+"example content<br/>"
+```
+
+> 403 Response
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "Kind": 0,
+  "Parameters": {
+    "property1": "string",
+    "property2": "string"
+  },
+  "ChildErrors": [
+    {
+      "OperationId": "string",
+      "Error": "string",
+      "Reason": "string",
+      "Resolution": "string",
+      "Kind": 0,
+      "Parameters": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "ChildErrors": [
+        {
+          "OperationId": "string",
+          "Error": "string",
+          "Reason": "string",
+          "Resolution": "string",
+          "Kind": 0,
+          "Parameters": {
+            "property1": "string",
+            "property2": "string"
+          },
+          "ChildErrors": [
+            {}
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
 
 ---
 
@@ -1105,7 +1297,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 
 <a id="opIdDataViews_Get Ineligible Data Items"></a>
 
-Get ineligible data items for a dataview by Query Id
+Gets the paged collection of data items that are the results of an individual query, but which are not eligible for use in the current data view. A common reason for ineligibility is that the item's index property is of a different type than the data view expects. A data view has a collection of zero or more queries. Each query has an identifier. Those identifiers are used here as part of the request path.
 
 ### Request
 ```text 
@@ -1116,20 +1308,84 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 #### Parameters
 
 `string tenantId`
-<br/>Id of tenant<br/><br/>`string namespaceId`
-<br/>Id of namespace<br/><br/>`string id`
-<br/>Id of the dataview<br/><br/>`string queryId`
-<br/>Id of the query<br/><br/>
+<br/>The tenant identifier<br/><br/>`string namespaceId`
+<br/>The namespace identifier<br/><br/>`string id`
+<br/>The data view identifier<br/><br/>`string queryId`
+<br/>The Query identifier<br/><br/>
 `[optional] string cache`
-<br/>Specifies if Data View backing resources are to be refreshed. See [Retrieving Data](DataRetrieval.md)<br/><br/>`[optional] integer skip`
-<br/>The number of data items to skip<br/><br/>`[optional] integer count`
-<br/>The number of data items to display per page. Maximum count allowed is 1000<br/><br/>
+<br/>"Refresh" to force the resource to re-resolve. "Preserve" to use cached information, if available. This is the default value<br/><br/>`[optional] integer skip`
+<br/>An optional parameter representing the zero-based offset of the first data item to retrieve. If not specified, a default value of 0 is used.<br/><br/>`[optional] integer count`
+<br/>An optional parameter representing the maximum number of data items to retrieve. If not specified, a default value of 100 is used.<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|string|None|
+|200|[ResolvedItemsOfDataItem](#schemaresolveditemsofdataitem)|An object with a "TimeOfResolution" and a collection of "Items", the DataItems that resolved.|
+|403|[ResultError](#schemaresulterror)|You are not authorized for this operation|
+|404|[ResultError](#schemaresulterror)|The data view or query does not exist|
+|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
+
+#### Response Headers
+
+|Status|Header|Type|Description|
+|---|---|---|---|
+|200|Total-Count|integer|The total count of data items visible to the current user|
+|200|Link|integer|Hyperlinks to the first page and next page of results as applicable|
+|200|Next-Page|integer|Hyperlink to the next page of results|
+|200|First-Page|integer|Hyperlink to the first page of results|
+
+#### Example response body
+> 200 Response
+
+```
+"example content<br/>"
+```
+
+> 403 Response
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "Kind": 0,
+  "Parameters": {
+    "property1": "string",
+    "property2": "string"
+  },
+  "ChildErrors": [
+    {
+      "OperationId": "string",
+      "Error": "string",
+      "Reason": "string",
+      "Resolution": "string",
+      "Kind": 0,
+      "Parameters": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "ChildErrors": [
+        {
+          "OperationId": "string",
+          "Error": "string",
+          "Reason": "string",
+          "Resolution": "string",
+          "Kind": 0,
+          "Parameters": {
+            "property1": "string",
+            "property2": "string"
+          },
+          "ChildErrors": [
+            {}
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
 
 ---
 
@@ -1670,6 +1926,689 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 |OperationInvalid|4|
 |OperationFailed|5|
 |ResourceUnavailable|6|
+
+---
+
+## ResolvedItemsOfDataItem
+
+<a id="schemaresolveditemsofdataitem"></a>
+<a id="schema_ResolvedItemsOfDataItem"></a>
+<a id="tocSresolveditemsofdataitem"></a>
+<a id="tocsresolveditemsofdataitem"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|TimeOfResolution|date-time|false|false|None|
+|Items|[[DataItem](#schemadataitem)]|false|true|None|
+
+```json
+{
+  "TimeOfResolution": "2019-08-24T14:15:22Z",
+  "Items": [
+    {
+      "Id": "string",
+      "Name": "string",
+      "Description": "string",
+      "TypeId": "string",
+      "ResourceType": 1,
+      "Tags": [
+        "string"
+      ],
+      "Metadata": [
+        {
+          "Name": "string",
+          "Value": null,
+          "Description": "string",
+          "TypeCode": 0,
+          "Uom": "string"
+        }
+      ],
+      "DataItemFields": [
+        {
+          "Id": "string",
+          "Name": "string",
+          "StreamReferenceName": "string",
+          "TypeCode": 0,
+          "Uom": "string",
+          "IsKey": true
+        }
+      ],
+      "IneligibleDataItemFields": [
+        {
+          "Id": "string",
+          "Name": "string",
+          "StreamReferenceName": "string",
+          "TypeCode": 0,
+          "Uom": "string",
+          "IsKey": true
+        }
+      ]
+    }
+  ]
+}
+
+```
+
+---
+
+## DataItem
+
+<a id="schemadataitem"></a>
+<a id="schema_DataItem"></a>
+<a id="tocSdataitem"></a>
+<a id="tocsdataitem"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|string|false|true|None|
+|Name|string|false|true|None|
+|Description|string|false|true|None|
+|TypeId|string|false|true|None|
+|ResourceType|[DataItemResourceType](#schemadataitemresourcetype)|false|false|None|
+|Tags|string[]|false|true|None|
+|Metadata|[[MetadataValueOfObject](#schemametadatavalueofobject)]|false|true|None|
+|DataItemFields|[[DataItemField](#schemadataitemfield)]|false|true|None|
+|IneligibleDataItemFields|[[DataItemField](#schemadataitemfield)]|false|true|None|
+
+```json
+{
+  "Id": "string",
+  "Name": "string",
+  "Description": "string",
+  "TypeId": "string",
+  "ResourceType": 1,
+  "Tags": [
+    "string"
+  ],
+  "Metadata": [
+    {
+      "Name": "string",
+      "Value": null,
+      "Description": "string",
+      "TypeCode": 0,
+      "Uom": "string"
+    }
+  ],
+  "DataItemFields": [
+    {
+      "Id": "string",
+      "Name": "string",
+      "StreamReferenceName": "string",
+      "TypeCode": 0,
+      "Uom": "string",
+      "IsKey": true
+    }
+  ],
+  "IneligibleDataItemFields": [
+    {
+      "Id": "string",
+      "Name": "string",
+      "StreamReferenceName": "string",
+      "TypeCode": 0,
+      "Uom": "string",
+      "IsKey": true
+    }
+  ]
+}
+
+```
+
+---
+
+## MetadataValueOfObject
+
+<a id="schemametadatavalueofobject"></a>
+<a id="schema_MetadataValueOfObject"></a>
+<a id="tocSmetadatavalueofobject"></a>
+<a id="tocsmetadatavalueofobject"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Name|string|false|true|None|
+|Value|any|false|true|None|
+|Description|string|false|true|None|
+|TypeCode|[SdsTypeCode](#schemasdstypecode)|false|false|None|
+|Uom|string|false|true|None|
+
+```json
+{
+  "Name": "string",
+  "Value": null,
+  "Description": "string",
+  "TypeCode": 0,
+  "Uom": "string"
+}
+
+```
+
+---
+
+## DataItemField
+
+<a id="schemadataitemfield"></a>
+<a id="schema_DataItemField"></a>
+<a id="tocSdataitemfield"></a>
+<a id="tocsdataitemfield"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|string|false|true|None|
+|Name|string|false|true|None|
+|StreamReferenceName|string|false|true|None|
+|TypeCode|[SdsTypeCode](#schemasdstypecode)|false|false|None|
+|Uom|string|false|true|None|
+|IsKey|boolean|false|false|None|
+
+```json
+{
+  "Id": "string",
+  "Name": "string",
+  "StreamReferenceName": "string",
+  "TypeCode": 0,
+  "Uom": "string",
+  "IsKey": true
+}
+
+```
+
+---
+
+## ResolvedItemsOfGroup
+
+<a id="schemaresolveditemsofgroup"></a>
+<a id="schema_ResolvedItemsOfGroup"></a>
+<a id="tocSresolveditemsofgroup"></a>
+<a id="tocsresolveditemsofgroup"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|TimeOfResolution|date-time|false|false|None|
+|Items|[[Group](#schemagroup)]|false|true|None|
+
+```json
+{
+  "TimeOfResolution": "2019-08-24T14:15:22Z",
+  "Items": [
+    {
+      "GroupingValues": [
+        {
+          "Value": null,
+          "TypeCode": 0,
+          "Uom": "string"
+        }
+      ],
+      "DataItems": {
+        "property1": [
+          {
+            "Id": "string",
+            "Name": "string",
+            "Description": "string",
+            "TypeId": "string",
+            "ResourceType": "[",
+            "Tags": [
+              null
+            ],
+            "Metadata": [
+              null
+            ],
+            "DataItemFields": [
+              null
+            ],
+            "IneligibleDataItemFields": [
+              null
+            ]
+          }
+        ],
+        "property2": [
+          {
+            "Id": "string",
+            "Name": "string",
+            "Description": "string",
+            "TypeId": "string",
+            "ResourceType": "[",
+            "Tags": [
+              null
+            ],
+            "Metadata": [
+              null
+            ],
+            "DataItemFields": [
+              null
+            ],
+            "IneligibleDataItemFields": [
+              null
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
+
+```
+
+---
+
+## Group
+
+<a id="schemagroup"></a>
+<a id="schema_Group"></a>
+<a id="tocSgroup"></a>
+<a id="tocsgroup"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|GroupingValues|[[GroupingValueOfObject](#schemagroupingvalueofobject)]|false|true|None|
+|DataItems|object|false|true|None|
+
+```json
+{
+  "GroupingValues": [
+    {
+      "Value": null,
+      "TypeCode": 0,
+      "Uom": "string"
+    }
+  ],
+  "DataItems": {
+    "property1": [
+      {
+        "Id": "string",
+        "Name": "string",
+        "Description": "string",
+        "TypeId": "string",
+        "ResourceType": 1,
+        "Tags": [
+          "string"
+        ],
+        "Metadata": [
+          {
+            "Name": "string",
+            "Value": null,
+            "Description": "string",
+            "TypeCode": "[",
+            "Uom": "string"
+          }
+        ],
+        "DataItemFields": [
+          {
+            "Id": "string",
+            "Name": "string",
+            "StreamReferenceName": "string",
+            "TypeCode": "[",
+            "Uom": "string",
+            "IsKey": true
+          }
+        ],
+        "IneligibleDataItemFields": [
+          {
+            "Id": "string",
+            "Name": "string",
+            "StreamReferenceName": "string",
+            "TypeCode": "[",
+            "Uom": "string",
+            "IsKey": true
+          }
+        ]
+      }
+    ],
+    "property2": [
+      {
+        "Id": "string",
+        "Name": "string",
+        "Description": "string",
+        "TypeId": "string",
+        "ResourceType": 1,
+        "Tags": [
+          "string"
+        ],
+        "Metadata": [
+          {
+            "Name": "string",
+            "Value": null,
+            "Description": "string",
+            "TypeCode": "[",
+            "Uom": "string"
+          }
+        ],
+        "DataItemFields": [
+          {
+            "Id": "string",
+            "Name": "string",
+            "StreamReferenceName": "string",
+            "TypeCode": "[",
+            "Uom": "string",
+            "IsKey": true
+          }
+        ],
+        "IneligibleDataItemFields": [
+          {
+            "Id": "string",
+            "Name": "string",
+            "StreamReferenceName": "string",
+            "TypeCode": "[",
+            "Uom": "string",
+            "IsKey": true
+          }
+        ]
+      }
+    ]
+  }
+}
+
+```
+
+---
+
+## GroupingValueOfObject
+
+<a id="schemagroupingvalueofobject"></a>
+<a id="schema_GroupingValueOfObject"></a>
+<a id="tocSgroupingvalueofobject"></a>
+<a id="tocsgroupingvalueofobject"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Value|any|false|true|None|
+|TypeCode|[SdsTypeCode](#schemasdstypecode)|false|false|None|
+|Uom|string|false|true|None|
+
+```json
+{
+  "Value": null,
+  "TypeCode": 0,
+  "Uom": "string"
+}
+
+```
+
+---
+
+## DataItemOfObject
+
+<a id="schemadataitemofobject"></a>
+<a id="schema_DataItemOfObject"></a>
+<a id="tocSdataitemofobject"></a>
+<a id="tocsdataitemofobject"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|string|false|true|None|
+|Name|string|false|true|None|
+|Description|string|false|true|None|
+|TypeId|string|false|true|None|
+|ResourceType|[DataItemResourceType](#schemadataitemresourcetype)|false|false|None|
+|Tags|string[]|false|true|None|
+|Metadata|[[MetadataValueOfObject](#schemametadatavalueofobject)]|false|true|None|
+|DataItemFields|[[DataItemField](#schemadataitemfield)]|false|true|None|
+|IneligibleDataItemFields|[[DataItemField](#schemadataitemfield)]|false|true|None|
+
+```json
+{
+  "Id": "string",
+  "Name": "string",
+  "Description": "string",
+  "TypeId": "string",
+  "ResourceType": 1,
+  "Tags": [
+    "string"
+  ],
+  "Metadata": [
+    {
+      "Name": "string",
+      "Value": null,
+      "Description": "string",
+      "TypeCode": 0,
+      "Uom": "string"
+    }
+  ],
+  "DataItemFields": [
+    {
+      "Id": "string",
+      "Name": "string",
+      "StreamReferenceName": "string",
+      "TypeCode": 0,
+      "Uom": "string",
+      "IsKey": true
+    }
+  ],
+  "IneligibleDataItemFields": [
+    {
+      "Id": "string",
+      "Name": "string",
+      "StreamReferenceName": "string",
+      "TypeCode": 0,
+      "Uom": "string",
+      "IsKey": true
+    }
+  ]
+}
+
+```
+
+---
+
+## ResolvedItemsOfFieldMapping
+
+<a id="schemaresolveditemsoffieldmapping"></a>
+<a id="schema_ResolvedItemsOfFieldMapping"></a>
+<a id="tocSresolveditemsoffieldmapping"></a>
+<a id="tocsresolveditemsoffieldmapping"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|TimeOfResolution|date-time|false|false|None|
+|Items|[[FieldMapping](#schemafieldmapping)]|false|true|None|
+
+```json
+{
+  "TimeOfResolution": "2019-08-24T14:15:22Z",
+  "Items": [
+    {
+      "Id": "string",
+      "Label": "string",
+      "FieldKind": 1,
+      "TypeCode": 0,
+      "Uom": "string",
+      "SummaryType": 0,
+      "SummaryDirection": 1,
+      "DataMappings": [
+        {
+          "TargetId": "string",
+          "TargetStreamReferenceName": "string",
+          "TargetFieldKey": "string",
+          "TypeCode": 0,
+          "Uom": "string",
+          "SummaryType": 0,
+          "SummaryDirection": null,
+          "FieldSetIndex": 0,
+          "FieldIndex": 0
+        }
+      ]
+    }
+  ]
+}
+
+```
+
+---
+
+## FieldMapping
+
+<a id="schemafieldmapping"></a>
+<a id="schema_FieldMapping"></a>
+<a id="tocSfieldmapping"></a>
+<a id="tocsfieldmapping"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|string|false|true|None|
+|Label|string|false|true|None|
+|FieldKind|[FieldKind](#schemafieldkind)|false|false|None|
+|TypeCode|[SdsTypeCode](#schemasdstypecode)|false|false|None|
+|Uom|string|false|true|None|
+|SummaryType|[SdsSummaryType](#schemasdssummarytype)|false|true|None|
+|SummaryDirection|[SummaryDirection](#schemasummarydirection)|false|true|None|
+|DataMappings|[[DataMapping](#schemadatamapping)]|false|true|None|
+
+```json
+{
+  "Id": "string",
+  "Label": "string",
+  "FieldKind": 1,
+  "TypeCode": 0,
+  "Uom": "string",
+  "SummaryType": 0,
+  "SummaryDirection": 1,
+  "DataMappings": [
+    {
+      "TargetId": "string",
+      "TargetStreamReferenceName": "string",
+      "TargetFieldKey": "string",
+      "TypeCode": 0,
+      "Uom": "string",
+      "SummaryType": 0,
+      "SummaryDirection": 1,
+      "FieldSetIndex": 0,
+      "FieldIndex": 0
+    }
+  ]
+}
+
+```
+
+---
+
+## FieldKind
+
+<a id="schemafieldkind"></a>
+<a id="schema_FieldKind"></a>
+<a id="tocSfieldkind"></a>
+<a id="tocsfieldkind"></a>
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|IndexField|1|
+|GroupingField|2|
+|DataField|3|
+|FieldId|4|
+|FieldUom|5|
+
+---
+
+## DataMapping
+
+<a id="schemadatamapping"></a>
+<a id="schema_DataMapping"></a>
+<a id="tocSdatamapping"></a>
+<a id="tocsdatamapping"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|TargetId|string|false|true|None|
+|TargetStreamReferenceName|string|false|true|None|
+|TargetFieldKey|string|false|true|None|
+|TypeCode|[SdsTypeCode](#schemasdstypecode)|false|false|None|
+|Uom|string|false|true|None|
+|SummaryType|[SdsSummaryType](#schemasdssummarytype)|false|false|None|
+|SummaryDirection|[SummaryDirection](#schemasummarydirection)|false|true|None|
+|FieldSetIndex|int32|false|true|None|
+|FieldIndex|int32|false|true|None|
+
+```json
+{
+  "TargetId": "string",
+  "TargetStreamReferenceName": "string",
+  "TargetFieldKey": "string",
+  "TypeCode": 0,
+  "Uom": "string",
+  "SummaryType": 0,
+  "SummaryDirection": 1,
+  "FieldSetIndex": 0,
+  "FieldIndex": 0
+}
+
+```
+
+---
+
+## ResolvedItemsOfFieldSet
+
+<a id="schemaresolveditemsoffieldset"></a>
+<a id="schema_ResolvedItemsOfFieldSet"></a>
+<a id="tocSresolveditemsoffieldset"></a>
+<a id="tocsresolveditemsoffieldset"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|TimeOfResolution|date-time|false|false|None|
+|Items|[[FieldSet](#schemafieldset)]|false|true|None|
+
+```json
+{
+  "TimeOfResolution": "2019-08-24T14:15:22Z",
+  "Items": [
+    {
+      "QueryId": "string",
+      "DataFields": [
+        {
+          "Source": 0,
+          "Keys": [
+            "string"
+          ],
+          "StreamReferenceNames": [
+            "string"
+          ],
+          "Label": "string",
+          "SummaryType": 0,
+          "SummaryDirection": null,
+          "IncludeUom": true
+        }
+      ],
+      "IdentifyingField": {
+        "Source": "[",
+        "Keys": [
+          null
+        ],
+        "StreamReferenceNames": [
+          null
+        ],
+        "Label": "string",
+        "SummaryType": "[",
+        "SummaryDirection": null,
+        "IncludeUom": true
+      }
+    }
+  ]
+}
+
+```
 
 ---
 
