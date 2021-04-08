@@ -1,5 +1,5 @@
 ---
-title: Identity/invitations v20210324.1
+title: Identity/invitations v20210407.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -210,6 +210,12 @@ Updates an invitation. Expired invitations will not be extended. automatically u
 PUT /api/v1/Tenants/{tenantId}/Invitations/{invitationId}
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string invitationId`
+<br/>Invitation unique identifier.<br/><br/>
+
 ### Request Body
 
 New InvitationCreateOrUpdate object. Properties that are not set or are null will not be changed.<br/>
@@ -222,12 +228,6 @@ New InvitationCreateOrUpdate object. Properties that are not set or are null wil
   "IdentityProviderId": "string"
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string invitationId`
-<br/>Invitation unique identifier.<br/><br/>
 
 ### Response
 
@@ -303,6 +303,10 @@ DELETE /api/v1/Tenants/{tenantId}/Invitations/{invitationId}
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }
@@ -390,6 +394,7 @@ Object returned whenever there is an error.
 |Error|string|true|false|Error description.|
 |Reason|string|true|false|Reason for the error.|
 |Resolution|string|true|false|Resolution to resolve the error.|
+|DynamicProperties|object|false|true|Additional properties.|
 
 ```json
 {
@@ -397,6 +402,10 @@ Object returned whenever there is an error.
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }

@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-identity-providers v20210324.1
+title: Identity/tenants-identity-providers v20210407.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -120,6 +120,11 @@ Adds an existing identity provider to a tenant. This identity provider will be a
 POST /api/v1/Tenants/{tenantId}/IdentityProviders
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>
+
 ### Request Body
 
 IdentityProviderAdd object.<br/>
@@ -135,11 +140,6 @@ IdentityProviderAdd object.<br/>
   "AzureActiveDirectorySendConsent": true
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
 
 ### Response
 
@@ -445,6 +445,12 @@ Updates the identity provider consent of a tenant. Currently only supports AAD. 
 POST /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Consent
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
+<br/>Identity provider unique identifier to activate consent.<br/><br/>
+
 ### Request Body
 
 Identity provider consent.<br/>
@@ -456,12 +462,6 @@ Identity provider consent.<br/>
   "property2": null
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
-<br/>Identity provider unique identifier to activate consent.<br/><br/>
 
 ### Response
 
@@ -566,6 +566,12 @@ Gets the groups based on the Ids. Currently, AAD provider is the only provider t
 POST /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Groups
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
+<br/>Identity provider unique identifier.<br/><br/>
+
 ### Request Body
 
 Group unique identifier list.<br/>
@@ -575,12 +581,6 @@ Group unique identifier list.<br/>
   "string"
 ]
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
-<br/>Identity provider unique identifier.<br/><br/>
 
 ### Response
 
@@ -953,16 +953,14 @@ The model for the group level capabilities of an identity provider.
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned whenever there is an error.
-
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
-|Error|string|true|false|Error description.|
-|Reason|string|true|false|Reason for the error.|
-|Resolution|string|true|false|Resolution to resolve the error.|
+|OperationId|string|true|false|None|
+|Error|string|true|false|None|
+|Reason|string|true|false|None|
+|Resolution|string|true|false|None|
 
 ```json
 {
@@ -985,13 +983,11 @@ Object returned whenever there is an error.
 <a id="tocSidentityproviderconsent"></a>
 <a id="tocsidentityproviderconsent"></a>
 
-The model for an identity provider consent.
-
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Scheme|string|false|true|Scheme of the identity provider.|
+|Scheme|string|false|true|None|
 
 ```json
 {

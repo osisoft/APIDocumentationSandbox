@@ -1,5 +1,5 @@
 ---
-title: Identity/claims v20210324.1
+title: Identity/claims v20210407.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -119,6 +119,12 @@ Creates a new identity provider claim for an identity provider on a tenant.
 POST /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
+<br/>Identity provider unique identifier.<br/><br/>
+
 ### Request Body
 
 Identity provider claim to create.<br/>
@@ -132,12 +138,6 @@ Identity provider claim to create.<br/>
   ]
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
-<br/>Identity provider unique identifier.<br/><br/>
 
 ### Response
 
@@ -275,6 +275,13 @@ Updates a new identity provider claim for an identity provider on a tenant.
 PUT /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims/{identityProviderClaimId}
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
+<br/>Identity provider unique identifier.<br/><br/>`string identityProviderClaimId`
+<br/>Identity provider claim unique identifier.<br/><br/>
+
 ### Request Body
 
 Updated identity provider claim values.<br/>
@@ -287,13 +294,6 @@ Updated identity provider claim values.<br/>
   ]
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string identityProviderId`
-<br/>Identity provider unique identifier.<br/><br/>`string identityProviderClaimId`
-<br/>Identity provider claim unique identifier.<br/><br/>
 
 ### Response
 
@@ -423,16 +423,14 @@ Object representing a claim from an identity provider to map to a role.
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned whenever there is an error.
-
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
-|Error|string|true|false|Error description.|
-|Reason|string|true|false|Reason for the error.|
-|Resolution|string|true|false|Resolution to resolve the error.|
+|OperationId|string|true|false|None|
+|Error|string|true|false|None|
+|Reason|string|true|false|None|
+|Resolution|string|true|false|None|
 
 ```json
 {

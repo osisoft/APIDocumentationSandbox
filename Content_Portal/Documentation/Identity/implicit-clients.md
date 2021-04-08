@@ -1,5 +1,5 @@
 ---
-title: Identity/implicit-clients v20210324.1
+title: Identity/implicit-clients v20210407.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -136,6 +136,11 @@ Creates an implicit client in a tenant. No secret will be generated for this cli
 POST /api/v1/Tenants/{tenantId}/ImplicitClients
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>
+
 ### Request Body
 
 New ImplicitClient object.<br/>
@@ -162,11 +167,6 @@ New ImplicitClient object.<br/>
   ]
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
 
 ### Response
 
@@ -327,6 +327,12 @@ Updates an implicit client. It can take up to one hour for update to manifest in
 PUT /api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>
+
 ### Request Body
 
 Updated implicit client values. Properties that are not set or are null will not be changed.<br/>
@@ -353,12 +359,6 @@ Updated implicit client values. Properties that are not set or are null will not
   ]
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
 
 ### Response
 
@@ -444,6 +444,10 @@ DELETE /api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }
@@ -538,6 +542,11 @@ Create an Implicit flow Clients.
 POST /api/v1-preview/Tenants/{tenantId}/ImplicitClients
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Id of Tenant.<br/><br/>
+
 ### Request Body
 
 New ImplicitClient object.<br/>
@@ -564,11 +573,6 @@ New ImplicitClient object.<br/>
   ]
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Id of Tenant.<br/><br/>
 
 ### Response
 
@@ -691,6 +695,12 @@ Update an Implicit Client.
 PUT /api/v1-preview/Tenants/{tenantId}/ImplicitClients/{clientId}
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Id of Tenant.<br/><br/>`string clientId`
+<br/>Id of client.<br/><br/>
+
 ### Request Body
 
 Updated Implicit Client values.<br/>
@@ -717,12 +727,6 @@ Updated Implicit Client values.<br/>
   ]
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Id of Tenant.<br/><br/>`string clientId`
-<br/>Id of client.<br/><br/>
 
 ### Response
 
@@ -839,6 +843,7 @@ Object returned whenever there is an error.
 |Error|string|true|false|Error description.|
 |Reason|string|true|false|Reason for the error.|
 |Resolution|string|true|false|Resolution to resolve the error.|
+|DynamicProperties|object|false|true|Additional properties.|
 
 ```json
 {
@@ -846,6 +851,10 @@ Object returned whenever there is an error.
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }

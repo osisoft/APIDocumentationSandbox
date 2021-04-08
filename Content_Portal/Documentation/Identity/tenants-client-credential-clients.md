@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-client-credential-clients v20210324.1
+title: Identity/tenants-client-credential-clients v20210407.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -127,6 +127,11 @@ Creates a client credential client. A client unique identifier and client Secret
 POST /api/v1/Tenants/{tenantId}/ClientCredentialClients
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>
+
 ### Request Body
 
 ClientCredentialClientCreate object.<br/>
@@ -147,11 +152,6 @@ ClientCredentialClientCreate object.<br/>
   "SecretExpirationDate": "2019-08-24T14:15:22Z"
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
 
 ### Response
 
@@ -302,6 +302,12 @@ Updates a client credential client. It can take up to one hour for these values 
 PUT /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>
+
 ### Request Body
 
 ClientCredentialClient object. Properties that are not set or are null will not be changed.<br/>
@@ -320,12 +326,6 @@ ClientCredentialClient object. Properties that are not set or are null will not 
   ]
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
 
 ### Response
 
@@ -490,6 +490,11 @@ Create a client credential flow client.
 POST /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>
+
 ### Request Body
 
 New ClientCredentialClientCreate object.<br/>
@@ -510,11 +515,6 @@ New ClientCredentialClientCreate object.<br/>
   "SecretExpirationDate": "2019-08-24T14:15:22Z"
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
 
 ### Response
 
@@ -624,6 +624,12 @@ Update a client credential client.
 PUT /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>
+
 ### Request Body
 
 Updated client credential client values.<br/>
@@ -642,12 +648,6 @@ Updated client credential client values.<br/>
   ]
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
 
 ### Response
 
@@ -777,16 +777,14 @@ Object to get or update a client credential client.
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned whenever there is an error.
-
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
-|Error|string|true|false|Error description.|
-|Reason|string|true|false|Reason for the error.|
-|Resolution|string|true|false|Resolution to resolve the error.|
+|OperationId|string|true|false|None|
+|Error|string|true|false|None|
+|Reason|string|true|false|None|
+|Resolution|string|true|false|None|
 
 ```json
 {
@@ -851,17 +849,15 @@ Object used during Client creation.
 <a id="tocSclientcredentialclientmultistatusresponse"></a>
 <a id="tocsclientcredentialclientmultistatusresponse"></a>
 
-MultiStatusResponse objects returned in a 207 response.
-
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|false|true|Unique identifier of the operation that resulted in this error.|
-|Error|string|false|true|Message describing the error.|
-|Reason|string|false|true|Reason that caused the error.|
-|ChildErrors|[[MultiStatusResponseChildError](#schemamultistatusresponsechilderror)]|false|true|List of child errors.|
-|Data|[[ClientCredentialClient](#schemaclientcredentialclient)]|false|true|Data representing client credential client.|
+|OperationId|string|false|true|None|
+|Error|string|false|true|None|
+|Reason|string|false|true|None|
+|ChildErrors|[[MultiStatusResponseChildError](#schemamultistatusresponsechilderror)]|false|true|None|
+|Data|[[ClientCredentialClient](#schemaclientcredentialclient)]|false|true|[Object to get or update a client credential client.]|
 
 ```json
 {
@@ -907,18 +903,16 @@ MultiStatusResponse objects returned in a 207 response.
 <a id="tocSmultistatusresponsechilderror"></a>
 <a id="tocsmultistatusresponsechilderror"></a>
 
-ChildError objects returned in a 207 response.
-
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
-|Error|string|true|false|Error description.|
-|Reason|string|true|false|Reason for the error.|
-|Resolution|string|true|false|Resolution to resolve the error.|
-|StatusCode|int32|false|false|Http status code.|
-|ModelId|string|false|true|Model unique identifier.|
+|OperationId|string|true|false|None|
+|Error|string|true|false|None|
+|Reason|string|true|false|None|
+|Resolution|string|true|false|None|
+|StatusCode|int32|false|false|None|
+|ModelId|string|false|true|None|
 
 ```json
 {
@@ -986,7 +980,7 @@ ChildError objects returned in a 207 response.
 |OperationId|string|false|true|None|
 |Error|string|false|true|None|
 |Reason|string|false|true|None|
-|ChildErrors|[[MultiStatusResponseChildError](#schemamultistatusresponsechilderror)]|false|true|[ChildError objects returned in a 207 response.]|
+|ChildErrors|[[MultiStatusResponseChildError2](#schemamultistatusresponsechilderror2)]|false|true|[ChildError objects returned in a 207 response.]|
 |Data|[[ClientCredentialClient2](#schemaclientcredentialclient2)]|false|true|None|
 
 ```json
@@ -1000,6 +994,10 @@ ChildError objects returned in a 207 response.
       "Error": "string",
       "Reason": "string",
       "Resolution": "string",
+      "DynamicProperties": {
+        "property1": null,
+        "property2": null
+      },
       "StatusCode": 0,
       "ModelId": "string",
       "property1": null,
@@ -1020,6 +1018,47 @@ ChildError objects returned in a 207 response.
       ]
     }
   ]
+}
+
+```
+
+---
+
+## MultiStatusResponseChildError2
+
+<a id="schemamultistatusresponsechilderror2"></a>
+<a id="schema_MultiStatusResponseChildError2"></a>
+<a id="tocSmultistatusresponsechilderror2"></a>
+<a id="tocsmultistatusresponsechilderror2"></a>
+
+ChildError objects returned in a 207 response.
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
+|Error|string|true|false|Error description.|
+|Reason|string|true|false|Reason for the error.|
+|Resolution|string|true|false|Resolution to resolve the error.|
+|DynamicProperties|object|false|true|Additional properties.|
+|StatusCode|int32|false|false|Http status code.|
+|ModelId|string|false|true|Model unique identifier.|
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
+  "StatusCode": 0,
+  "ModelId": "string",
+  "property1": null,
+  "property2": null
 }
 
 ```

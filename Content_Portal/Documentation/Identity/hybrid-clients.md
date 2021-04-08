@@ -1,5 +1,5 @@
 ---
-title: Identity/hybrid-clients v20210324.1
+title: Identity/hybrid-clients v20210407.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -135,6 +135,11 @@ Creates a hybrid client. A client unique identifier and client secret will be ge
 POST /api/v1/Tenants/{tenantId}/HybridClients
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>
+
 ### Request Body
 
 HybridClientCreate object.<br/>
@@ -162,11 +167,6 @@ HybridClientCreate object.<br/>
   "SecretExpirationDate": "2019-08-24T14:15:22Z"
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
 
 ### Response
 
@@ -331,6 +331,12 @@ Updates a hybrid client. It can take up to one hour for these values to manifest
 PUT /api/v1/Tenants/{tenantId}/HybridClients/{clientId}
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>
+
 ### Request Body
 
 HybridClient object. Properties that are not set or are null will not be changed.<br/>
@@ -356,12 +362,6 @@ HybridClient object. Properties that are not set or are null will not be changed
   "AllowAccessTokensViaBrowser": true
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
 
 ### Response
 
@@ -539,6 +539,11 @@ Create a Hybrid flow Client.
 POST /api/v1-preview/Tenants/{tenantId}/HybridClients
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Id of Tenant.<br/><br/>
+
 ### Request Body
 
 New HybridClientCreate object.<br/>
@@ -566,11 +571,6 @@ New HybridClientCreate object.<br/>
   "SecretExpirationDate": "2019-08-24T14:15:22Z"
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Id of Tenant.<br/><br/>
 
 ### Response
 
@@ -695,6 +695,12 @@ Update a Hybrid Client.
 PUT /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Id of Tenant.<br/><br/>`string clientId`
+<br/>Id of client.<br/><br/>
+
 ### Request Body
 
 Updated Hybrid Client values.<br/>
@@ -720,12 +726,6 @@ Updated Hybrid Client values.<br/>
   "AllowAccessTokensViaBrowser": true
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Id of Tenant.<br/><br/>`string clientId`
-<br/>Id of client.<br/><br/>
 
 ### Response
 
@@ -881,16 +881,14 @@ Object used for Hybrid Clients.
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned whenever there is an error.
-
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
-|Error|string|true|false|Error description.|
-|Reason|string|true|false|Reason for the error.|
-|Resolution|string|true|false|Resolution to resolve the error.|
+|OperationId|string|true|false|None|
+|Error|string|true|false|None|
+|Reason|string|true|false|None|
+|Resolution|string|true|false|None|
 
 ```json
 {

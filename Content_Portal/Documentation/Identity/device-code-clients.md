@@ -1,5 +1,5 @@
 ---
-title: Identity/device-code-clients v20210324.1
+title: Identity/device-code-clients v20210407.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -128,6 +128,11 @@ Create an Device Code flow Client. No Secret will be generated for this Client.
 POST /api/v1/Tenants/{tenantId}/DeviceCodeClients
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Id of Tenant.<br/><br/>
+
 ### Request Body
 
 New DeviceCodeClient object.<br/>
@@ -146,11 +151,6 @@ New DeviceCodeClient object.<br/>
   "LogoUri": "string"
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Id of Tenant.<br/><br/>
 
 ### Response
 
@@ -313,6 +313,12 @@ Update an Device Code Client. It can take up to one hour for update to manifest 
 PUT /api/v1/Tenants/{tenantId}/DeviceCodeClients/{clientId}
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Id of Tenant.<br/><br/>`string clientId`
+<br/>Id of Client.<br/><br/>
+
 ### Request Body
 
 Updated Device Code Client values. Properties that are not set or are null will not be changed.<br/>
@@ -331,12 +337,6 @@ Updated Device Code Client values. Properties that are not set or are null will 
   "LogoUri": "string"
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Id of Tenant.<br/><br/>`string clientId`
-<br/>Id of Client.<br/><br/>
 
 ### Response
 
@@ -414,6 +414,10 @@ DELETE /api/v1/Tenants/{tenantId}/DeviceCodeClients/{clientId}
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }
@@ -486,6 +490,7 @@ Object returned whenever there is an error.
 |Error|string|true|false|Error description.|
 |Reason|string|true|false|Reason for the error.|
 |Resolution|string|true|false|Resolution to resolve the error.|
+|DynamicProperties|object|false|true|Additional properties.|
 
 ```json
 {
@@ -493,6 +498,10 @@ Object returned whenever there is an error.
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }

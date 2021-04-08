@@ -1,5 +1,5 @@
 ---
-title: Identity/api-identity-providers v20210324.1
+title: Identity/api-identity-providers v20210407.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -433,16 +433,14 @@ The model for the group level capabilities of an identity provider.
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned whenever there is an error.
-
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
-|Error|string|true|false|Error description.|
-|Reason|string|true|false|Reason for the error.|
-|Resolution|string|true|false|Resolution to resolve the error.|
+|OperationId|string|true|false|None|
+|Error|string|true|false|None|
+|Reason|string|true|false|None|
+|Resolution|string|true|false|None|
 
 ```json
 {

@@ -1,5 +1,5 @@
 ---
-title: Identity/invitation v20210324.1
+title: Identity/invitation v20210407.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -116,6 +116,12 @@ Create an invitation for a user. Should use when no other invitation exists for 
 POST /api/v1/Tenants/{tenantId}/Users/{userId}/Invitation
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string userId`
+<br/>User unique identifier.<br/><br/>
+
 ### Request Body
 
 InvitationCreateOrUpdate object.<br/>
@@ -128,12 +134,6 @@ InvitationCreateOrUpdate object.<br/>
   "IdentityProviderId": "string"
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string userId`
-<br/>User unique identifier.<br/><br/>
 
 ### Response
 
@@ -184,6 +184,12 @@ Create or update an invitation for a user.
 PUT /api/v1/Tenants/{tenantId}/Users/{userId}/Invitation
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string userId`
+<br/>User unique identifier.<br/><br/>
+
 ### Request Body
 
 InvitationCreateOrUpdate object.<br/>
@@ -196,12 +202,6 @@ InvitationCreateOrUpdate object.<br/>
   "IdentityProviderId": "string"
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string userId`
-<br/>User unique identifier.<br/><br/>
 
 ### Response
 
@@ -355,16 +355,14 @@ Invitation states.
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned whenever there is an error.
-
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
-|Error|string|true|false|Error description.|
-|Reason|string|true|false|Reason for the error.|
-|Resolution|string|true|false|Resolution to resolve the error.|
+|OperationId|string|true|false|None|
+|Error|string|true|false|None|
+|Reason|string|true|false|None|
+|Resolution|string|true|false|None|
 
 ```json
 {

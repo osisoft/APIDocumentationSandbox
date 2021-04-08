@@ -1,5 +1,5 @@
 ---
-title: Identity/claim-type-names v20210324.1
+title: Identity/claim-type-names v20210407.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -234,6 +234,7 @@ Object returned whenever there is an error.
 |Error|string|true|false|Error description.|
 |Reason|string|true|false|Reason for the error.|
 |Resolution|string|true|false|Resolution to resolve the error.|
+|DynamicProperties|object|false|true|Additional properties.|
 
 ```json
 {
@@ -241,6 +242,10 @@ Object returned whenever there is an error.
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }

@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-users v20210324.1
+title: Identity/tenants-users v20210407.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -129,6 +129,11 @@ Creates a user in the tenant. This endpoint does not create an invitation for th
 POST /api/v1/Tenants/{tenantId}/Users
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>
+
 ### Request Body
 
 UserCreateOrUpdate object.<br/>
@@ -147,11 +152,6 @@ UserCreateOrUpdate object.<br/>
   ]
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
 
 ### Response
 
@@ -301,6 +301,12 @@ Updates a user in a tenant. The user unique identifier cannot be changed.
 PUT /api/v1/Tenants/{tenantId}/Users/{userId}
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string userId`
+<br/>User unique identifier.<br/><br/>
+
 ### Request Body
 
 UserCreateOrUpdate object. Properties that are not set or are null will not be changed.<br/>
@@ -319,12 +325,6 @@ UserCreateOrUpdate object. Properties that are not set or are null will not be c
   ]
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string userId`
-<br/>User unique identifier.<br/><br/>
 
 ### Response
 
@@ -704,6 +704,11 @@ Creates a `User`.
 POST /api/v1-preview/Tenants/{tenantId}/Users
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>
+
 ### Request Body
 
 User values to use during creating.<br/>
@@ -719,11 +724,6 @@ User values to use during creating.<br/>
   ]
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
 
 ### Response
 
@@ -778,6 +778,12 @@ Create or Update a user.
 PUT /api/v1-preview/Tenants/{tenantId}/Users/{userId}
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string userId`
+<br/>User unique identifier.<br/><br/>
+
 ### Request Body
 
 A UserStatus object.<br/>
@@ -793,12 +799,6 @@ A UserStatus object.<br/>
   ]
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string userId`
-<br/>User unique identifier.<br/><br/>
 
 ### Response
 
@@ -842,9 +842,9 @@ Allowed for these roles:
 
 ---
 
-## List Users By I Ds
+## List Users By IDs
 
-<a id="opIdUsers_List Users By I Ds"></a>
+<a id="opIdUsers_List Users By IDs"></a>
 
 Returns an ordered list of user objects based on userId for a given tenant or a MultiStatusResponse with a list of user objects and a list of errors.
 
@@ -908,9 +908,9 @@ Allowed for these roles:
 
 ---
 
-## List Users' Status By I Ds
+## List Users' Status By IDs
 
-<a id="opIdUsers_List Users' Status By I Ds"></a>
+<a id="opIdUsers_List Users' Status By IDs"></a>
 
 Returns an ordered list of UserStatus objects for a given tenant or a MultiStatusResponse with a list of UserStatus objects and a list of errors.
 
@@ -1031,17 +1031,15 @@ Object for retrieving a user.
 <a id="tocSusermultistatusresponse"></a>
 <a id="tocsusermultistatusresponse"></a>
 
-MultiStatusResponse objects returned in a 207 response.
-
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|false|true|Unique identifier of the operation that resulted in this error.|
-|Error|string|false|true|Message describing the error.|
-|Reason|string|false|true|Reason that caused the error.|
-|ChildErrors|[[MultiStatusResponseChildError](#schemamultistatusresponsechilderror)]|false|true|List of child errors.|
-|Data|[[User](#schemauser)]|false|true|Data representing users.|
+|OperationId|string|false|true|None|
+|Error|string|false|true|None|
+|Reason|string|false|true|None|
+|ChildErrors|[[MultiStatusResponseChildError](#schemamultistatusresponsechilderror)]|false|true|None|
+|Data|[[User](#schemauser)]|false|true|[Object for retrieving a user.]|
 
 ```json
 {
@@ -1090,18 +1088,16 @@ MultiStatusResponse objects returned in a 207 response.
 <a id="tocSmultistatusresponsechilderror"></a>
 <a id="tocsmultistatusresponsechilderror"></a>
 
-ChildError objects returned in a 207 response.
-
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
-|Error|string|true|false|Error description.|
-|Reason|string|true|false|Reason for the error.|
-|Resolution|string|true|false|Resolution to resolve the error.|
-|StatusCode|int32|false|false|Http status code.|
-|ModelId|string|false|true|Model unique identifier.|
+|OperationId|string|true|false|None|
+|Error|string|true|false|None|
+|Reason|string|true|false|None|
+|Resolution|string|true|false|None|
+|StatusCode|int32|false|false|None|
+|ModelId|string|false|true|None|
 
 ```json
 {
@@ -1126,16 +1122,14 @@ ChildError objects returned in a 207 response.
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned whenever there is an error.
-
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
-|Error|string|true|false|Error description.|
-|Reason|string|true|false|Reason for the error.|
-|Resolution|string|true|false|Resolution to resolve the error.|
+|OperationId|string|true|false|None|
+|Error|string|true|false|None|
+|Reason|string|true|false|None|
+|Resolution|string|true|false|None|
 
 ```json
 {
@@ -1259,17 +1253,15 @@ Object when updating a user.
 <a id="tocSuserstatusmultistatusresponse"></a>
 <a id="tocsuserstatusmultistatusresponse"></a>
 
-MultiStatusResponse objects returned in a 207 response.
-
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|false|true|Unique identifier of the operation that resulted in this error.|
-|Error|string|false|true|Message describing the error.|
-|Reason|string|false|true|Reason that caused the error.|
-|ChildErrors|[[MultiStatusResponseChildError](#schemamultistatusresponsechilderror)]|false|true|List of child errors.|
-|Data|[[UserStatus](#schemauserstatus)]|false|true|Data representing user statuses.|
+|OperationId|string|false|true|None|
+|Error|string|false|true|None|
+|Reason|string|false|true|None|
+|ChildErrors|[[MultiStatusResponseChildError](#schemamultistatusresponsechilderror)]|false|true|None|
+|Data|[[UserStatus](#schemauserstatus)]|false|true|[Object used when getting user status.]|
 
 ```json
 {

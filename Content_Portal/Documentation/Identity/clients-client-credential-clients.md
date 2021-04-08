@@ -1,5 +1,5 @@
 ---
-title: Identity/clients-client-credential-clients v20210324.1
+title: Identity/clients-client-credential-clients v20210407.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -72,7 +72,6 @@ GET /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/ClientCredentia
 Allowed for these roles: 
 <ul>
 <li>Community Member</li>
-<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -124,7 +123,6 @@ HEAD /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/ClientCredenti
 Allowed for these roles: 
 <ul>
 <li>Community Member</li>
-<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -140,6 +138,13 @@ Add a Client Credential Client to a Community, providing a List of Community Rol
 PUT /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/ClientCredentialClients/{clientId}
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Id of the Tenant that belongs to this Community<br/><br/>`string communityId`
+<br/>Id of Community.<br/><br/>`string clientId`
+<br/>Id of the Client Credential Client to add to the specified Community.<br/><br/>
+
 ### Request Body
 
 List of Community Role Ids to assign to the Client.<br/>
@@ -149,13 +154,6 @@ List of Community Role Ids to assign to the Client.<br/>
   "string"
 ]
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Id of the Tenant that belongs to this Community<br/><br/>`string communityId`
-<br/>Id of Community.<br/><br/>`string clientId`
-<br/>Id of the Client Credential Client to add to the specified Community.<br/><br/>
 
 ### Response
 
@@ -193,7 +191,6 @@ Allowed for these roles:
 <ul>
 <li>Community Administrator</li>
 <li>Community Moderator</li>
-<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -247,7 +244,6 @@ Allowed for these roles:
 <ul>
 <li>Community Administrator</li>
 <li>Community Moderator</li>
-<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -260,16 +256,14 @@ Allowed for these roles:
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned whenever there is an error.
-
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
-|Error|string|true|false|Error description.|
-|Reason|string|true|false|Reason for the error.|
-|Resolution|string|true|false|Resolution to resolve the error.|
+|OperationId|string|true|false|None|
+|Error|string|true|false|None|
+|Reason|string|true|false|None|
+|Resolution|string|true|false|None|
 
 ```json
 {

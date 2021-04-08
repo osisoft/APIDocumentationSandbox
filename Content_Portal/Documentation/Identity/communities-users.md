@@ -1,5 +1,5 @@
 ---
-title: Identity/communities-users v20210324.1
+title: Identity/communities-users v20210407.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -75,7 +75,6 @@ GET /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/Users
 Allowed for these roles: 
 <ul>
 <li>Community Member</li>
-<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -127,7 +126,6 @@ HEAD /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/Users
 Allowed for these roles: 
 <ul>
 <li>Community Member</li>
-<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -143,6 +141,13 @@ Add a User to a Community, providing a List of Community Role Ids to be assigned
 PUT /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/Users/{userId}
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Id of the Tenant that belongs to this Community<br/><br/>`string communityId`
+<br/>Id of Community.<br/><br/>`string userId`
+<br/>Id of the User to add to the specified Community.<br/><br/>
+
 ### Request Body
 
 List of Community Roles Ids to assign to the User.<br/>
@@ -152,13 +157,6 @@ List of Community Roles Ids to assign to the User.<br/>
   "string"
 ]
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Id of the Tenant that belongs to this Community<br/><br/>`string communityId`
-<br/>Id of Community.<br/><br/>`string userId`
-<br/>Id of the User to add to the specified Community.<br/><br/>
 
 ### Response
 
@@ -199,7 +197,6 @@ Allowed for these roles:
 <ul>
 <li>Community Administrator</li>
 <li>Community Moderator</li>
-<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -253,7 +250,6 @@ Allowed for these roles:
 <ul>
 <li>Community Administrator</li>
 <li>Community Moderator</li>
-<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -312,16 +308,14 @@ Object for retrieving a user.
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned whenever there is an error.
-
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
-|Error|string|true|false|Error description.|
-|Reason|string|true|false|Reason for the error.|
-|Resolution|string|true|false|Resolution to resolve the error.|
+|OperationId|string|true|false|None|
+|Error|string|true|false|None|
+|Reason|string|true|false|None|
+|Resolution|string|true|false|None|
 
 ```json
 {

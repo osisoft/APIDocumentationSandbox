@@ -1,5 +1,5 @@
 ---
-title: Identity/client-credential-clients-roles v20210324.1
+title: Identity/client-credential-clients-roles v20210407.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -123,6 +123,12 @@ Replaces existing client credential client roles.
 PUT /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Roles
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client credential client unique identifier.<br/><br/>
+
 ### Request Body
 
 Update roles list.<br/>
@@ -140,12 +146,6 @@ Update roles list.<br/>
   }
 ]
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client credential client unique identifier.<br/><br/>
 
 ### Response
 
@@ -294,6 +294,12 @@ Replaces existing client credential client roles.
 PUT /api/v1/Tenants/{tenantId}/Clients/{clientId}/Roles
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client credential client unique identifier.<br/><br/>
+
 ### Request Body
 
 Update roles list.<br/>
@@ -311,12 +317,6 @@ Update roles list.<br/>
   }
 ]
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client credential client unique identifier.<br/><br/>
 
 ### Response
 
@@ -420,16 +420,14 @@ Role Scopes.
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned whenever there is an error.
-
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
-|Error|string|true|false|Error description.|
-|Reason|string|true|false|Reason for the error.|
-|Resolution|string|true|false|Resolution to resolve the error.|
+|OperationId|string|true|false|None|
+|Error|string|true|false|None|
+|Reason|string|true|false|None|
+|Resolution|string|true|false|None|
 
 ```json
 {

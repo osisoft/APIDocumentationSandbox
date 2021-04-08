@@ -1,5 +1,5 @@
 ---
-title: Identity/communities v20210324.1
+title: Identity/communities v20210407.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -93,6 +93,11 @@ Creates a new community within a specific tenant. The tenant sending this reques
 POST /api/v1-preview/tenants/{tenantId}/Communities
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>The id of the owning tenant.<br/><br/>
+
 ### Request Body
 
 The community information to create.<br/>
@@ -103,11 +108,6 @@ The community information to create.<br/>
   "Description": "string"
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>The id of the owning tenant.<br/><br/>
 
 ### Response
 
@@ -213,7 +213,6 @@ GET /api/v1-preview/tenants/{tenantId}/Communities/{communityId}
 Allowed for these roles: 
 <ul>
 <li>Community Member</li>
-<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -229,6 +228,12 @@ Updates attributes of a community such as name and description.
 PUT /api/v1-preview/tenants/{tenantId}/Communities/{communityId}
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>The id of the owning tenant.<br/><br/>`string communityId`
+<br/>The id of the community.<br/><br/>
+
 ### Request Body
 
 The community object that contains the attributes to use for the update.<br/>
@@ -239,12 +244,6 @@ The community object that contains the attributes to use for the update.<br/>
   "Description": "string"
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>The id of the owning tenant.<br/><br/>`string communityId`
-<br/>The id of the community.<br/><br/>
 
 ### Response
 
@@ -266,6 +265,10 @@ The community object that contains the attributes to use for the update.<br/>
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }
@@ -276,7 +279,6 @@ The community object that contains the attributes to use for the update.<br/>
 Allowed for these roles: 
 <ul>
 <li>Community Administrator</li>
-<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -319,6 +321,10 @@ DELETE /api/v1-preview/tenants/{tenantId}/Communities/{communityId}
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }
@@ -329,7 +335,6 @@ DELETE /api/v1-preview/tenants/{tenantId}/Communities/{communityId}
 Allowed for these roles: 
 <ul>
 <li>Community Administrator</li>
-<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -454,6 +459,7 @@ Object returned whenever there is an error.
 |Error|string|true|false|Error description.|
 |Reason|string|true|false|Reason for the error.|
 |Resolution|string|true|false|Resolution to resolve the error.|
+|DynamicProperties|object|false|true|Additional properties.|
 
 ```json
 {
@@ -461,6 +467,10 @@ Object returned whenever there is an error.
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }

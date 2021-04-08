@@ -1,5 +1,5 @@
 ---
-title: Identity/tenants-roles v20210324.1
+title: Identity/tenants-roles v20210407.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -117,6 +117,11 @@ Creates a new tenant `Role`.
 POST /api/v1/Tenants/{tenantId}/Roles
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>
+
 ### Request Body
 
 Role to create.<br/>
@@ -132,11 +137,6 @@ Role to create.<br/>
   "RoleTypeId": "string"
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
 
 ### Response
 
@@ -274,6 +274,12 @@ Updates a `Role` for a tenant.
 PUT /api/v1/Tenants/{tenantId}/Roles/{roleId}
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string roleId`
+<br/>Role unique identifier.<br/><br/>
+
 ### Request Body
 
 Role to update.<br/>
@@ -289,12 +295,6 @@ Role to update.<br/>
   "RoleTypeId": "string"
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string roleId`
-<br/>Role unique identifier.<br/><br/>
 
 ### Response
 
@@ -635,16 +635,14 @@ Role Scopes.
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned whenever there is an error.
-
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
-|Error|string|true|false|Error description.|
-|Reason|string|true|false|Reason for the error.|
-|Resolution|string|true|false|Resolution to resolve the error.|
+|OperationId|string|true|false|None|
+|Error|string|true|false|None|
+|Reason|string|true|false|None|
+|Resolution|string|true|false|None|
 
 ```json
 {

@@ -1,5 +1,5 @@
 ---
-title: Identity/authorization-code-clients v20210324.1
+title: Identity/authorization-code-clients v20210407.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -136,6 +136,11 @@ Creates an authorization code client. No secret will be generated for this clien
 POST /api/v1/Tenants/{tenantId}/AuthorizationCodeClients
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>
+
 ### Request Body
 
 New AuthorizationCodeClient object.<br/>
@@ -162,11 +167,6 @@ New AuthorizationCodeClient object.<br/>
   ]
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
 
 ### Response
 
@@ -345,6 +345,12 @@ Updates an authorization code client. It can take up to one hour for update to m
 PUT /api/v1/Tenants/{tenantId}/AuthorizationCodeClients/{clientId}
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>
+
 ### Request Body
 
 Updated authorization code client values. Properties that are not set or are null will not be changed.<br/>
@@ -371,12 +377,6 @@ Updated authorization code client values. Properties that are not set or are nul
   ]
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
 
 ### Response
 
@@ -462,6 +462,10 @@ DELETE /api/v1/Tenants/{tenantId}/AuthorizationCodeClients/{clientId}
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }
@@ -544,6 +548,7 @@ Object returned whenever there is an error.
 |Error|string|true|false|Error description.|
 |Reason|string|true|false|Reason for the error.|
 |Resolution|string|true|false|Resolution to resolve the error.|
+|DynamicProperties|object|false|true|Additional properties.|
 
 ```json
 {
@@ -551,6 +556,10 @@ Object returned whenever there is an error.
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }

@@ -1,5 +1,5 @@
 ---
-title: Identity/community-invitations v20210324.1
+title: Identity/community-invitations v20210407.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -25,6 +25,11 @@ Processes an action against a particular community invitation. The available act
 PUT /api/v1-preview/community/invitations/{invitationId}
 ```
 
+#### Parameters
+
+`string invitationId`
+<br/>The id of the invitation.<br/><br/>
+
 ### Request Body
 
 The invitation action.<br/>
@@ -34,11 +39,6 @@ The invitation action.<br/>
   "Action": "Accept"
 }
 ```
-
-#### Parameters
-
-`string invitationId`
-<br/>The id of the invitation.<br/><br/>
 
 ### Response
 
@@ -137,6 +137,11 @@ Processes an action against a particular community invitation. The available act
 PUT /api/v1-preview/communityinvitations/{invitationId}
 ```
 
+#### Parameters
+
+`string invitationId`
+<br/>The id of the invitation.<br/><br/>
+
 ### Request Body
 
 The invitation action.<br/>
@@ -146,11 +151,6 @@ The invitation action.<br/>
   "Action": "Accept"
 }
 ```
-
-#### Parameters
-
-`string invitationId`
-<br/>The id of the invitation.<br/><br/>
 
 ### Response
 
@@ -300,7 +300,6 @@ GET /api/v1-preview/tenants/{tenantId}/communities/{communityId}/invitations
 Allowed for these roles: 
 <ul>
 <li>Community Member</li>
-<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -316,6 +315,12 @@ Creates a community invitation for a specific community.
 POST /api/v1-preview/tenants/{tenantId}/communities/{communityId}/invitations
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>The id of the owning tenant.<br/><br/>`string communityId`
+<br/>The id of the community.<br/><br/>
+
 ### Request Body
 
 The invitation to create.<br/>
@@ -328,12 +333,6 @@ The invitation to create.<br/>
   ]
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>The id of the owning tenant.<br/><br/>`string communityId`
-<br/>The id of the community.<br/><br/>
 
 ### Response
 
@@ -374,7 +373,6 @@ Allowed for these roles:
 <ul>
 <li>Community Administrator</li>
 <li>Community Moderator</li>
-<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -435,7 +433,6 @@ GET /api/v1-preview/tenants/{tenantId}/communities/{communityId}/invitations/{in
 Allowed for these roles: 
 <ul>
 <li>Community Member</li>
-<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -489,7 +486,6 @@ DELETE /api/v1-preview/tenants/{tenantId}/communities/{communityId}/invitations/
 Allowed for these roles: 
 <ul>
 <li>Community Administrator</li>
-<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -635,16 +631,14 @@ Enum for Community invitation state.
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned whenever there is an error.
-
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
-|Error|string|true|false|Error description.|
-|Reason|string|true|false|Reason for the error.|
-|Resolution|string|true|false|Resolution to resolve the error.|
+|OperationId|string|true|false|None|
+|Error|string|true|false|None|
+|Reason|string|true|false|None|
+|Resolution|string|true|false|None|
 
 ```json
 {

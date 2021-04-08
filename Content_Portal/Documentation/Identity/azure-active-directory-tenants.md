@@ -1,5 +1,5 @@
 ---
-title: Identity/azure-active-directory-tenants v20210324.1
+title: Identity/azure-active-directory-tenants v20210407.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -280,6 +280,12 @@ Send consent for an Azure Active Directory Tenant. OSIsoft Cloud Services needs 
 POST /api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{aadTenantId}/SendConsent
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Id of OSIsoft Cloud Services Tenant.<br/><br/>`string aadTenantId`
+<br/>Id of Azure Active Directory Tenant.<br/><br/>
+
 ### Request Body
 
 ConsentInformation object.<br/>
@@ -293,12 +299,6 @@ ConsentInformation object.<br/>
   "AzureActiveDirectoryConsentTypes": "string"
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Id of OSIsoft Cloud Services Tenant.<br/><br/>`string aadTenantId`
-<br/>Id of Azure Active Directory Tenant.<br/><br/>
 
 ### Response
 
@@ -320,6 +320,10 @@ ConsentInformation object.<br/>
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }
@@ -398,6 +402,7 @@ Object returned whenever there is an error.
 |Error|string|true|false|Error description.|
 |Reason|string|true|false|Reason for the error.|
 |Resolution|string|true|false|Resolution to resolve the error.|
+|DynamicProperties|object|false|true|Additional properties.|
 
 ```json
 {
@@ -405,6 +410,10 @@ Object returned whenever there is an error.
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }

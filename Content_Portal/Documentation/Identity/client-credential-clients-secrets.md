@@ -1,5 +1,5 @@
 ---
-title: Identity/client-credential-clients-secrets v20210324.1
+title: Identity/client-credential-clients-secrets v20210407.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -116,6 +116,12 @@ Adds a new secret to a client credential client. A client can have a maximum of 
 POST /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>
+
 ### Request Body
 
 ClientSecretCreateOrUpdate object.<br/>
@@ -127,12 +133,6 @@ ClientSecretCreateOrUpdate object.<br/>
   "Description": "string"
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
 
 ### Response
 
@@ -265,6 +265,13 @@ Updates a client credential client secret. It can take up to one hour for the up
 PUT /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets/{secretId}
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>`integer secretId`
+<br/>Secret unique identifier.<br/><br/>
+
 ### Request Body
 
 ClientSecretCreateOrUpdate object. Properties that are not set or are null will not be changed.<br/>
@@ -276,13 +283,6 @@ ClientSecretCreateOrUpdate object. Properties that are not set or are null will 
   "Description": "string"
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>`integer secretId`
-<br/>Secret unique identifier.<br/><br/>
 
 ### Response
 
@@ -355,6 +355,10 @@ DELETE /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets/{se
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }
@@ -436,6 +440,12 @@ Add a new secret for a client credential client.
 POST /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>
+
 ### Request Body
 
 Client secret to create.<br/>
@@ -447,12 +457,6 @@ Client secret to create.<br/>
   "Description": "string"
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>
 
 ### Response
 
@@ -550,6 +554,13 @@ Update a client credential client secret. Only secret description and secret exp
 PUT /api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets/{secretId}
 ```
 
+#### Parameters
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>`string clientId`
+<br/>Client unique identifier.<br/><br/>`integer secretId`
+<br/>secretId.<br/><br/>
+
 ### Request Body
 
 Client secret details.<br/>
@@ -561,13 +572,6 @@ Client secret details.<br/>
   "Description": "string"
 }
 ```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string clientId`
-<br/>Client unique identifier.<br/><br/>`integer secretId`
-<br/>secretId.<br/><br/>
 
 ### Response
 
@@ -651,6 +655,7 @@ Object returned whenever there is an error.
 |Error|string|true|false|Error description.|
 |Reason|string|true|false|Reason for the error.|
 |Resolution|string|true|false|Resolution to resolve the error.|
+|DynamicProperties|object|false|true|Additional properties.|
 
 ```json
 {
@@ -658,6 +663,10 @@ Object returned whenever there is an error.
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }
