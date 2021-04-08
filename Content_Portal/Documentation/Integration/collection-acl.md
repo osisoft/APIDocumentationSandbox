@@ -1,5 +1,5 @@
 ---
-title: Integration/collection-acl v20210408.1
+title: Integration/collection-acl v20210408.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -79,7 +79,7 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/dataviews
 
 ### Request Body
 
-An AccessControlList { "RoleTrusteeAccessControlEntries": [ { "Trustee": { "Type": Role, "RoleId": "11111111-1111-1111-1111-111111111111" }, "AccessType": Allowed, "AccessRights": 1 }, { "Trustee": { "Type": Role, "RoleId": "22222222-2222-2222-2222-222222222222" }, "AccessType": Allowed, "AccessRights": 15 }, { "Trustee": { "Type": User, "RoleId": "33333333-3333-3333-3333-333333333333" }, "AccessType": Denied, "AccessRights": 8 } ] }<br/>
+An AccessControlList https://raw.githubusercontent.com/stanasse/OCS-Docs/patch-1/content/external-references/data-views-request-examples.yaml#dataviews-acl-update<br/>
 
 ```json
 {
@@ -100,27 +100,51 @@ An AccessControlList { "RoleTrusteeAccessControlEntries": [ { "Trustee": { "Type
 |204|None|Successfully updated the default access control list of the data views collection|
 |400|string|The request is not valid. See the response body for details|
 |403|string|You are not authorized to update the data views collection's default access control list|
-|500|[Exception](#schemaexception)|An error occurred while processing the request. See the response body for details|
+|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
 
 #### Example response body
 > 500 Response
 
 ```json
 {
-  "StackTrace": "string",
-  "Message": "string",
-  "InnerException": {
-    "StackTrace": "string",
-    "Message": "string",
-    "InnerException": {
-      "StackTrace": null,
-      "Message": null,
-      "InnerException": null,
-      "Source": null
-    },
-    "Source": "string"
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "Kind": 0,
+  "Parameters": {
+    "property1": "string",
+    "property2": "string"
   },
-  "Source": "string"
+  "ChildErrors": [
+    {
+      "OperationId": "string",
+      "Error": "string",
+      "Reason": "string",
+      "Resolution": "string",
+      "Kind": 0,
+      "Parameters": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "ChildErrors": [
+        {
+          "OperationId": "string",
+          "Error": "string",
+          "Reason": "string",
+          "Resolution": "string",
+          "Kind": 0,
+          "Parameters": {
+            "property1": "string",
+            "property2": "string"
+          },
+          "ChildErrors": [
+            {}
+          ]
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -283,6 +307,92 @@ An AccessControlList { "RoleTrusteeAccessControlEntries": [ { "Trustee": { "Type
 }
 
 ```
+
+---
+
+## ResultError
+
+<a id="schemaresulterror"></a>
+<a id="schema_ResultError"></a>
+<a id="tocSresulterror"></a>
+<a id="tocsresulterror"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|false|true|None|
+|Error|string|false|true|None|
+|Reason|string|false|true|None|
+|Resolution|string|false|true|None|
+|Kind|[ResultErrorKind](#schemaresulterrorkind)|false|false|None|
+|Parameters|object|false|true|None|
+|ChildErrors|[[ResultError](#schemaresulterror)]|false|true|None|
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "Kind": 0,
+  "Parameters": {
+    "property1": "string",
+    "property2": "string"
+  },
+  "ChildErrors": [
+    {
+      "OperationId": "string",
+      "Error": "string",
+      "Reason": "string",
+      "Resolution": "string",
+      "Kind": 0,
+      "Parameters": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "ChildErrors": [
+        {
+          "OperationId": "string",
+          "Error": "string",
+          "Reason": "string",
+          "Resolution": "string",
+          "Kind": 0,
+          "Parameters": {
+            "property1": "string",
+            "property2": "string"
+          },
+          "ChildErrors": [
+            {}
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+```
+
+---
+
+## ResultErrorKind
+
+<a id="schemaresulterrorkind"></a>
+<a id="schema_ResultErrorKind"></a>
+<a id="tocSresulterrorkind"></a>
+<a id="tocsresulterrorkind"></a>
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|UnspecifiedServerError|0|
+|RequestInvalid|1|
+|ResourceNotFound|2|
+|OperationForbidden|3|
+|OperationInvalid|4|
+|OperationFailed|5|
+|ResourceUnavailable|6|
 
 ---
 

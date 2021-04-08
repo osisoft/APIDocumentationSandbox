@@ -1,5 +1,5 @@
 ---
-title: Integration/data-views v20210408.1
+title: Integration/data-views v20210408.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -128,7 +128,7 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews
 
 ### Request Body
 
-A DataView object whose Id is null or unspecified<br/>
+A DataView object whose Id is null or unspecified #https://raw.githubusercontent.com/stanasse/OCS-Docs/patch-1/content/external-references/data-views-request-examples.yaml#dataview-create<br/>
 
 ```json
 {
@@ -363,7 +363,7 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 
 ### Request Body
 
-A DataView object whose Id is null or unspecified<br/>
+A DataView object whose Id is null or unspecified #https://raw.githubusercontent.com/stanasse/OCS-Docs/patch-1/content/external-references/data-views-request-examples.yaml#dataview-create<br/>
 
 ```json
 {
@@ -443,8 +443,20 @@ A DataView object whose Id is null or unspecified<br/>
 #### Example response body
 > 201 Response
 
-```
-"example content<br/>"
+```json
+{
+  "Id": "demo",
+  "Name": "demo",
+  "Description": "demonstration",
+  "IndexField": {
+    "Label": "Timestamp"
+  },
+  "Queries": [],
+  "DataFieldSets": [],
+  "GroupingFields": [],
+  "IndexTypeCode": "DateTime",
+  "Shape": "Standard"
+}
 ```
 
 > 403 Response
@@ -594,8 +606,20 @@ A DataView object whose Id matches the dataViewId in the URL.<br/>
 #### Example response body
 > 201 Response
 
-```
-"example content<br/>"
+```json
+{
+  "Id": "demo",
+  "Name": "demo",
+  "Description": "demonstration",
+  "IndexField": {
+    "Label": "Timestamp"
+  },
+  "Queries": [],
+  "DataFieldSets": [],
+  "GroupingFields": [],
+  "IndexTypeCode": "DateTime",
+  "Shape": "Standard"
+}
 ```
 
 > 403 Response
@@ -822,7 +846,7 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/accesscon
 
 ### Request Body
 
-An AccessControlList<br/>
+An AccessControlList #https://raw.githubusercontent.com/stanasse/OCS-Docs/patch-1/content/external-references/data-views-request-examples.yaml#dataview-acl-update<br/>
 
 ```json
 {
