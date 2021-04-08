@@ -1,5 +1,5 @@
 ---
-title: Integration/data-views v20210407.3
+title: Integration/data-views v20210408.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -725,7 +725,7 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 
 <a id="opIdDataViews_Get Data View Acl"></a>
 
-Get the Data View Access Control List for Data View with specified Id
+Get the `AccessControlList` of the specified data view
 
 ### Request
 ```text 
@@ -735,15 +735,70 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/accesscon
 #### Parameters
 
 `string tenantId`
-<br/>Id of tenant<br/><br/>`string namespaceId`
-<br/>Id of namespace<br/><br/>`string id`
-<br/>Id of Data View<br/><br/>
+<br/>The tenant identifier<br/><br/>`string namespaceId`
+<br/>The namespace identifier<br/><br/>`string id`
+<br/>The data view identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|string|OK - retrieved the Data View Access Control List. See [Access Control Lists](..\Access_Control.md#access-control-lists) for object structure and more information about ACLs.|
+|200|[AccessControlList](#schemaaccesscontrollist)|The access control list of the requested data view|
+|403|[ResultError](#schemaresulterror)|You are not authorized to view the requested data view's access control list|
+|404|[ResultError](#schemaresulterror)|The requested data view was not found|
+|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
+
+#### Example response body
+> 200 Response
+
+```
+"example content<br/>"
+```
+
+> 403 Response
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "Kind": 0,
+  "Parameters": {
+    "property1": "string",
+    "property2": "string"
+  },
+  "ChildErrors": [
+    {
+      "OperationId": "string",
+      "Error": "string",
+      "Reason": "string",
+      "Resolution": "string",
+      "Kind": 0,
+      "Parameters": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "ChildErrors": [
+        {
+          "OperationId": "string",
+          "Error": "string",
+          "Reason": "string",
+          "Resolution": "string",
+          "Kind": 0,
+          "Parameters": {
+            "property1": "string",
+            "property2": "string"
+          },
+          "ChildErrors": [
+            {}
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
 
 ---
 
@@ -751,7 +806,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/accesscon
 
 <a id="opIdDataViews_Update Data View Acl"></a>
 
-Update the Data View Access Control List for Data View with specified Id
+Update the `AccessControlList` of the specified data view.
 
 ### Request
 ```text 
@@ -761,13 +816,13 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/accesscon
 #### Parameters
 
 `string tenantId`
-<br/>Id of tenant<br/><br/>`string namespaceId`
-<br/>Id of namespace<br/><br/>`string id`
-<br/>Id of Data View<br/><br/>
+<br/>The tenant identifier<br/><br/>`string namespaceId`
+<br/>The namespace identifier<br/><br/>`string id`
+<br/>The data view identifier<br/><br/>
 
 ### Request Body
 
-Updated Access Control List. See [Access Control Lists](..\Access_Control.md#access-control-lists) for object structure and more information about ACLs.<br/>
+An AccessControlList<br/>
 
 ```json
 {
@@ -785,15 +840,65 @@ Updated Access Control List. See [Access Control Lists](..\Access_Control.md#acc
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|string|None|
+|204|None|Successfully updated the data view access control list|
+|400|[ResultError](#schemaresulterror)|The request is not valid. See the response body for details|
+|403|[ResultError](#schemaresulterror)|You are not authorized to update the requested data view's access control list|
+|404|[ResultError](#schemaresulterror)|The requested data view was not found|
+|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
+
+#### Example response body
+> 400 Response
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "Kind": 0,
+  "Parameters": {
+    "property1": "string",
+    "property2": "string"
+  },
+  "ChildErrors": [
+    {
+      "OperationId": "string",
+      "Error": "string",
+      "Reason": "string",
+      "Resolution": "string",
+      "Kind": 0,
+      "Parameters": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "ChildErrors": [
+        {
+          "OperationId": "string",
+          "Error": "string",
+          "Reason": "string",
+          "Resolution": "string",
+          "Kind": 0,
+          "Parameters": {
+            "property1": "string",
+            "property2": "string"
+          },
+          "ChildErrors": [
+            {}
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
 
 ---
 
-## Get Data View Access Rights
+## List Data View Access Rights
 
-<a id="opIdDataViews_Get Data View Access Rights"></a>
+<a id="opIdDataViews_List Data View Access Rights"></a>
 
-Get the calling user or client's access rights for Data View with specified Id
+Get access rights to the requested data view for the calling user or client.
 
 ### Request
 ```text 
@@ -803,15 +908,70 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/accessrig
 #### Parameters
 
 `string tenantId`
-<br/>Id of tenant<br/><br/>`string namespaceId`
-<br/>Id of namespace<br/><br/>`string id`
-<br/>Id of Data View<br/><br/>
+<br/>The tenant identifier<br/><br/>`string namespaceId`
+<br/>The namespace identifier<br/><br/>`string id`
+<br/>The data view identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|string|None|
+|200|Inline|A list of access rights to the requested data view|
+|403|[ResultError](#schemaresulterror)|You are not authorized to make this request|
+|404|[ResultError](#schemaresulterror)|The requested data view was not found|
+|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
+
+#### Example response body
+> 200 Response
+
+```
+"example content<br/>"
+```
+
+> 403 Response
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "Kind": 0,
+  "Parameters": {
+    "property1": "string",
+    "property2": "string"
+  },
+  "ChildErrors": [
+    {
+      "OperationId": "string",
+      "Error": "string",
+      "Reason": "string",
+      "Resolution": "string",
+      "Kind": 0,
+      "Parameters": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "ChildErrors": [
+        {
+          "OperationId": "string",
+          "Error": "string",
+          "Reason": "string",
+          "Resolution": "string",
+          "Kind": 0,
+          "Parameters": {
+            "property1": "string",
+            "property2": "string"
+          },
+          "ChildErrors": [
+            {}
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
 
 ---
 
@@ -819,7 +979,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/accessrig
 
 <a id="opIdDataViews_Get Data Interpolated"></a>
 
-Get data for the provided index parameters with paging
+Get data for the provided index parameters with paging. See documentation on paging for further information
 
 ### Request
 ```text 
@@ -830,23 +990,73 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/data/inte
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string id`
-<br/><br/>`string startIndex`
-<br/><br/>`string endIndex`
-<br/><br/>`string interval`
-<br/><br/>`string form`
-<br/><br/>`string continuationToken`
-<br/><br/>`integer count`
-<br/><br/>
+<br/>The tenant identifier<br/><br/>`string namespaceId`
+<br/>The namespace identifier<br/><br/>`string id`
+<br/>The data view identifier<br/><br/>`string startIndex`
+<br/>The requested start index, inclusive. The default value is the .DefaultStartIndex of the data view. Optional if a default value is specified.<br/><br/>`string endIndex`
+<br/>The requested end index, inclusive. The default value is the .DefaultEndIndex of the data view. Optional if a default value is specified.<br/><br/>`string interval`
+<br/>The requested interval between index values. The default value is the .DefaultInterval of the data view. Optional if a default is specified<br/><br/>`string form`
+<br/>The requested data output format. Output formats: default, table, tableh, csv, csvh.<br/><br/>`string continuationToken`
+<br/>Used only when paging. Not specified when requesting the first page of data.<br/><br/>`integer count`
+<br/>The requested page size. The maximum is 250,000. If the parameter is not provided, an optimal page size will be calculated.<br/><br/>
 `[optional] string cache`
-<br/><br/>
+<br/>Controls when the data view backing resources are to be refreshed. Used only when requesting the first page of data.<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|string|None|
+|200|None|Successfully retrieved data.|
+|400|[ResultError](#schemaresulterror)|The request could not be understood by the server due to malformed syntax.|
+|403|[ResultError](#schemaresulterror)|User is not authorized for this operation.|
+|404|[ResultError](#schemaresulterror)|The specified data view identifier is not found.|
+|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
+
+#### Example response body
+> 400 Response
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "Kind": 0,
+  "Parameters": {
+    "property1": "string",
+    "property2": "string"
+  },
+  "ChildErrors": [
+    {
+      "OperationId": "string",
+      "Error": "string",
+      "Reason": "string",
+      "Resolution": "string",
+      "Kind": 0,
+      "Parameters": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "ChildErrors": [
+        {
+          "OperationId": "string",
+          "Error": "string",
+          "Reason": "string",
+          "Resolution": "string",
+          "Kind": 0,
+          "Parameters": {
+            "property1": "string",
+            "property2": "string"
+          },
+          "ChildErrors": [
+            {}
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
 
 ---
 
@@ -854,7 +1064,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/data/inte
 
 <a id="opIdDataViews_Get Data View Owner"></a>
 
-Get the Data View owner for Data View with specified Id
+Get the owner `Trustee` of the specified data view.
 
 ### Request
 ```text 
@@ -864,15 +1074,70 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/owner
 #### Parameters
 
 `string tenantId`
-<br/>Id of tenant<br/><br/>`string namespaceId`
-<br/>Id of namespace<br/><br/>`string id`
-<br/>Id of Data View<br/><br/>
+<br/>The tenant identifier<br/><br/>`string namespaceId`
+<br/>The namespace identifier<br/><br/>`string id`
+<br/>The data view identifier<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|string|None|
+|200|[Trustee](#schematrustee)|The owner of the requested data view|
+|403|[ResultError](#schemaresulterror)|You are not authorized to view the requested data view's owner|
+|404|[ResultError](#schemaresulterror)|The requested data view was not found|
+|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
+
+#### Example response body
+> 200 Response
+
+```
+"example content<br/>"
+```
+
+> 403 Response
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "Kind": 0,
+  "Parameters": {
+    "property1": "string",
+    "property2": "string"
+  },
+  "ChildErrors": [
+    {
+      "OperationId": "string",
+      "Error": "string",
+      "Reason": "string",
+      "Resolution": "string",
+      "Kind": 0,
+      "Parameters": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "ChildErrors": [
+        {
+          "OperationId": "string",
+          "Error": "string",
+          "Reason": "string",
+          "Resolution": "string",
+          "Kind": 0,
+          "Parameters": {
+            "property1": "string",
+            "property2": "string"
+          },
+          "ChildErrors": [
+            {}
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
 
 ---
 
@@ -880,7 +1145,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/owner
 
 <a id="opIdDataViews_Update Data View Owner"></a>
 
-Update the Data View owner for Data View with specified Id
+Update the owner `Trustee` of the specified data view.
 
 ### Request
 ```text 
@@ -890,13 +1155,13 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/owner
 #### Parameters
 
 `string tenantId`
-<br/>Id of tenant<br/><br/>`string namespaceId`
-<br/>Id of namespace<br/><br/>`string id`
-<br/>Id of Data View<br/><br/>
+<br/>The tenant identifier<br/><br/>`string namespaceId`
+<br/>The namespace identifier<br/><br/>`string id`
+<br/>The data view identifier<br/><br/>
 
 ### Request Body
 
-Updated owner. See [Owner](..\Access_Control.md#owner) for object structure more information about Owners.<br/>
+A Trustee<br/>
 
 ```json
 {
@@ -910,7 +1175,57 @@ Updated owner. See [Owner](..\Access_Control.md#owner) for object structure more
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|string|None|
+|204|None|Successfully updated the data view owner|
+|400|[ResultError](#schemaresulterror)|The request is not valid. See the response body for details|
+|403|[ResultError](#schemaresulterror)|You are not authorized to update the requested data view's owner|
+|404|[ResultError](#schemaresulterror)|The requested data view was not found|
+|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
+
+#### Example response body
+> 400 Response
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "Kind": 0,
+  "Parameters": {
+    "property1": "string",
+    "property2": "string"
+  },
+  "ChildErrors": [
+    {
+      "OperationId": "string",
+      "Error": "string",
+      "Reason": "string",
+      "Resolution": "string",
+      "Kind": 0,
+      "Parameters": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "ChildErrors": [
+        {
+          "OperationId": "string",
+          "Error": "string",
+          "Reason": "string",
+          "Resolution": "string",
+          "Kind": 0,
+          "Parameters": {
+            "property1": "string",
+            "property2": "string"
+          },
+          "ChildErrors": [
+            {}
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
 
 ---
 
@@ -1393,7 +1708,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 
 <a id="opIdDataViews_Get Statistics"></a>
 
-Get available field sets for Data View with specified Id
+Gets statistics about the size and shape on how the data view resolved.
 
 ### Request
 ```text 
@@ -1404,17 +1719,81 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 #### Parameters
 
 `string tenantId`
-<br/>Id of tenant<br/><br/>`string namespaceId`
-<br/>Id of namespace<br/><br/>`string id`
-<br/>Id of Data View<br/><br/>
+<br/>The tenant identifier<br/><br/>`string namespaceId`
+<br/>The namespace identifier<br/><br/>`string id`
+<br/>The data view identifier<br/><br/>
 `[optional] string cache`
-<br/>Cache preserve or cache refresh<br/><br/>
+<br/>"Refresh" to force the resource to re-resolve. "Preserve" to use cached information, if available. This is the default value<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|string|None|
+|200|[ResolvedItemOfStatistics](#schemaresolveditemofstatistics)|Successfully retrieved data.|
+|403|[ResultError](#schemaresulterror)|User is not authorized for this operation.|
+|404|[ResultError](#schemaresulterror)|The specified data view identifier is not found.|
+|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
+
+#### Response Headers
+
+|Status|Header|Type|Description|
+|---|---|---|---|
+|200|Total-Count|integer|The total count of data items visible to the current user|
+|200|Link|integer|Hyperlinks to the first page and next page of results as applicable|
+|200|Next-Page|integer|Hyperlink to the next page of results|
+|200|First-Page|integer|Hyperlink to the first page of results|
+
+#### Example response body
+> 200 Response
+
+```
+"example content<br/>"
+```
+
+> 403 Response
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "Kind": 0,
+  "Parameters": {
+    "property1": "string",
+    "property2": "string"
+  },
+  "ChildErrors": [
+    {
+      "OperationId": "string",
+      "Error": "string",
+      "Reason": "string",
+      "Resolution": "string",
+      "Kind": 0,
+      "Parameters": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "ChildErrors": [
+        {
+          "OperationId": "string",
+          "Error": "string",
+          "Reason": "string",
+          "Resolution": "string",
+          "Kind": 0,
+          "Parameters": {
+            "property1": "string",
+            "property2": "string"
+          },
+          "ChildErrors": [
+            {}
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
 
 ---
 # Definitions
@@ -2606,6 +2985,190 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
       }
     }
   ]
+}
+
+```
+
+---
+
+## ResolvedItemOfStatistics
+
+<a id="schemaresolveditemofstatistics"></a>
+<a id="schema_ResolvedItemOfStatistics"></a>
+<a id="tocSresolveditemofstatistics"></a>
+<a id="tocsresolveditemofstatistics"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|TimeOfResolution|date-time|false|false|None|
+|Item|[Statistics](#schemastatistics)|false|true|None|
+
+```json
+{
+  "TimeOfResolution": "2019-08-24T14:15:22Z",
+  "Item": {
+    "DataItemCount": 0,
+    "GroupCount": 0,
+    "FieldMappingCount": 0,
+    "Queries": [
+      {
+        "QueryId": "string",
+        "DataItemCount": 0,
+        "DataItemWithIneligibleFieldsCount": 0,
+        "IneligibleDataItemCount": 0
+      }
+    ],
+    "DataFieldSets": [
+      {
+        "DataItemCount": 0,
+        "UnmappedDataItemCount": 0,
+        "DataFields": [
+          null
+        ]
+      }
+    ]
+  }
+}
+
+```
+
+---
+
+## Statistics
+
+<a id="schemastatistics"></a>
+<a id="schema_Statistics"></a>
+<a id="tocSstatistics"></a>
+<a id="tocsstatistics"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|DataItemCount|int32|false|false|None|
+|GroupCount|int32|false|false|None|
+|FieldMappingCount|int32|false|false|None|
+|Queries|[[QueryStatistics](#schemaquerystatistics)]|false|true|None|
+|DataFieldSets|[[DataFieldSetStatistics](#schemadatafieldsetstatistics)]|false|true|None|
+
+```json
+{
+  "DataItemCount": 0,
+  "GroupCount": 0,
+  "FieldMappingCount": 0,
+  "Queries": [
+    {
+      "QueryId": "string",
+      "DataItemCount": 0,
+      "DataItemWithIneligibleFieldsCount": 0,
+      "IneligibleDataItemCount": 0
+    }
+  ],
+  "DataFieldSets": [
+    {
+      "DataItemCount": 0,
+      "UnmappedDataItemCount": 0,
+      "DataFields": [
+        {
+          "FieldMappingCount": 0,
+          "DataMappingCount": 0,
+          "EmptyDataMappingCount": 0,
+          "UnmappedGroupCount": 0
+        }
+      ]
+    }
+  ]
+}
+
+```
+
+---
+
+## QueryStatistics
+
+<a id="schemaquerystatistics"></a>
+<a id="schema_QueryStatistics"></a>
+<a id="tocSquerystatistics"></a>
+<a id="tocsquerystatistics"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|QueryId|string|false|true|None|
+|DataItemCount|int32|false|false|None|
+|DataItemWithIneligibleFieldsCount|int32|false|false|None|
+|IneligibleDataItemCount|int32|false|false|None|
+
+```json
+{
+  "QueryId": "string",
+  "DataItemCount": 0,
+  "DataItemWithIneligibleFieldsCount": 0,
+  "IneligibleDataItemCount": 0
+}
+
+```
+
+---
+
+## DataFieldSetStatistics
+
+<a id="schemadatafieldsetstatistics"></a>
+<a id="schema_DataFieldSetStatistics"></a>
+<a id="tocSdatafieldsetstatistics"></a>
+<a id="tocsdatafieldsetstatistics"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|DataItemCount|int32|false|false|None|
+|UnmappedDataItemCount|int32|false|false|None|
+|DataFields|[[DataFieldStatistics](#schemadatafieldstatistics)]|false|true|None|
+
+```json
+{
+  "DataItemCount": 0,
+  "UnmappedDataItemCount": 0,
+  "DataFields": [
+    {
+      "FieldMappingCount": 0,
+      "DataMappingCount": 0,
+      "EmptyDataMappingCount": 0,
+      "UnmappedGroupCount": 0
+    }
+  ]
+}
+
+```
+
+---
+
+## DataFieldStatistics
+
+<a id="schemadatafieldstatistics"></a>
+<a id="schema_DataFieldStatistics"></a>
+<a id="tocSdatafieldstatistics"></a>
+<a id="tocsdatafieldstatistics"></a>
+
+### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|FieldMappingCount|int32|false|false|None|
+|DataMappingCount|int32|false|false|None|
+|EmptyDataMappingCount|int32|false|false|None|
+|UnmappedGroupCount|int32|false|false|None|
+
+```json
+{
+  "FieldMappingCount": 0,
+  "DataMappingCount": 0,
+  "EmptyDataMappingCount": 0,
+  "UnmappedGroupCount": 0
 }
 
 ```
