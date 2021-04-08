@@ -1,5 +1,5 @@
 ---
-title: Context/metadata v20210408.1
+title: Context/metadata v20210408.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -12,7 +12,7 @@ generator: osisoft.widdershins v1.0.7
 ---
 
 # Metadata
-Implements the older style metadata route.
+APIs for interacting with stream metadata.
 
 ## Get Stream Metadata Changedata
 
@@ -224,6 +224,14 @@ PATCH /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Met
 |500|[ErrorResponseBody](#schemaerrorresponsebody)|Internal server error.|
 
 #### Example response body
+> 200 Response
+
+```json
+{
+  "key": "value"
+}
+```
+
 > 400 Response
 
 ```json

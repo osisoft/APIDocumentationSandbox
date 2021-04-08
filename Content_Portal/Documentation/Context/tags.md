@@ -1,5 +1,5 @@
 ---
-title: Context/tags v20210408.1
+title: Context/tags v20210408.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -12,6 +12,7 @@ generator: osisoft.widdershins v1.0.7
 ---
 
 # Tags
+APIs for interacting with stream tags.
 
 ## List Stream Tags
 
@@ -42,6 +43,15 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags
 |500|[ErrorResponseBody](#schemaerrorresponsebody)|Internal server error.|
 
 #### Example response body
+> 200 Response
+
+```json
+[
+  "tag1",
+  "tag2"
+]
+```
+
 > 400 Response
 
 ```json
@@ -85,10 +95,19 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags
 |400|[ErrorResponseBody](#schemaerrorresponsebody)|The request is malformed or invalid.|
 |403|[ErrorResponseBody](#schemaerrorresponsebody)|Forbidden.|
 |404|[ErrorResponseBody](#schemaerrorresponsebody)|The specified stream was not found.|
-|409|[ErrorResponseBody](#schemaerrorresponsebody)|None|
+|409|[ErrorResponseBody](#schemaerrorresponsebody)|Conflict.|
 |500|[ErrorResponseBody](#schemaerrorresponsebody)|Internal server error.|
 
 #### Example response body
+> 200 Response
+
+```json
+[
+  "tag1",
+  "tag2"
+]
+```
+
 > 400 Response
 
 ```json
@@ -132,7 +151,7 @@ DELETE /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Ta
 |400|[ErrorResponseBody](#schemaerrorresponsebody)|The request is malformed or invalid.|
 |403|[ErrorResponseBody](#schemaerrorresponsebody)|Forbidden.|
 |404|[ErrorResponseBody](#schemaerrorresponsebody)|The specified stream was not found.|
-|409|[ErrorResponseBody](#schemaerrorresponsebody)|None|
+|409|[ErrorResponseBody](#schemaerrorresponsebody)|Conflict.|
 |500|[ErrorResponseBody](#schemaerrorresponsebody)|Internal server error.|
 
 #### Example response body
