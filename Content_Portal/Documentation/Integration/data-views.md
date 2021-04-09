@@ -1,5 +1,5 @@
 ---
-title: Integration/data-views v20210409.1
+title: Integration/data-views v20210409.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -54,14 +54,22 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews
 #### Example response body
 > 200 Response
 
-```json
 {
-  "TypeId": "SimpleType",
-  "Id": "SimpleStream",
-  "Name": "SimpleStream"
+  HTTP 200 OK
+  Content-Type: application/json
+  ```json
+  [
+    {
+      "Id": "demo view 1",
+      ... etc.
+    },
+    {
+      "Id": "demo view 2",
+      ... etc.
+    }
+  ]
+  ```
 }
-```
-
 > 500 Response
 
 ```json
@@ -207,10 +215,23 @@ A DataView object whose Id is null or unspecified #https://raw.githubusercontent
 #### Example response body
 > 201 Response
 
-```
-"Namespace identifier"
-```
-
+{
+  HTTP 200 OK
+  Content-Type: application/json
+  ```json
+  {
+      "Id": "c79630cc-21dc-483e-8b37-46880e92c456",
+      "Name": "demo",
+      "Description": "demonstration",
+      "IndexField": { "Label": "Timestamp" },
+      "Queries": [],
+      "DataFieldSets": [],
+      "GroupingFields": [],
+      "IndexTypeCode": "DateTime",
+      "Shape": "Standard"
+  }
+  ```
+}
 > 403 Response
 
 ```json
@@ -288,14 +309,28 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 #### Example response body
 > 200 Response
 
-```json
 {
-  "TypeId": "SimpleType",
-  "Id": "SimpleStream",
-  "Name": "SimpleStream"
+  HTTP 200 OK
+  Content-Type: application/json
+  ```json
+  {
+    "Id": "demo",
+    "Name": "demo",
+    "IndexField": { "Label": "Timestamp" },
+    "Queries": [
+      { 
+        "Id": "weather",
+        "Kind": "Stream",
+        "Value":"*weather*" 
+      }
+    ],
+    "DataFieldSets": [],
+    "GroupingFields": [],
+    "IndexTypeCode": "DateTime",
+    "Shape": "Standard"
+  }
+  ```
 }
-```
-
 > 403 Response
 
 ```json
@@ -443,22 +478,23 @@ A DataView object whose Id is null or unspecified #https://raw.githubusercontent
 #### Example response body
 > 201 Response
 
-```json
 {
-  "Id": "demo",
-  "Name": "demo",
-  "Description": "demonstration",
-  "IndexField": {
-    "Label": "Timestamp"
-  },
-  "Queries": [],
-  "DataFieldSets": [],
-  "GroupingFields": [],
-  "IndexTypeCode": "DateTime",
-  "Shape": "Standard"
+  HTTP 200 OK
+  Content-Type: application/json
+  ```json
+  {
+    "Id": "demo2",
+    "Name": "demo2",
+    "Description": "demonstration 2",
+    "IndexField": { "Label": "Timestamp" },
+    "Queries": [],
+    "DataFieldSets": [],
+    "GroupingFields": [],
+    "IndexTypeCode": "DateTime",
+    "Shape": "Standard"
+  }
+  ```
 }
-```
-
 > 403 Response
 
 ```json
