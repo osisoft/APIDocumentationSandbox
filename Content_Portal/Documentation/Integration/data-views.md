@@ -1,5 +1,5 @@
 ---
-title: Integration/data-views v20210412.2
+title: Integration/data-views v20210412.3
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,9 +14,9 @@ generator: osisoft.widdershins v1.0.7
 # Data Views
 APIs for working with Data Views
 
-## List All
+## List Data Views
 
-<a id="opIdDataViews_List All"></a>
+<a id="opIdDataViews_List Data Views"></a>
 
 Returns a list of data views.
 
@@ -117,9 +117,9 @@ Content-Type: application/json
 
 ---
 
-## Create
+## Create Data View
 
-<a id="opIdDataViews_Create"></a>
+<a id="opIdDataViews_Create Data View"></a>
 
 Create a new data view with a system-generated identifier.
 
@@ -277,9 +277,9 @@ Content-Type: application/json
 
 ---
 
-## Get
+## Get Data View
 
-<a id="opIdDataViews_Get"></a>
+<a id="opIdDataViews_Get Data View"></a>
 
 Get a Data View by id
 
@@ -374,9 +374,9 @@ Content-Type: application/json
 
 ---
 
-## Create (`id` path)
+## Get or Create Data View
 
-<a id="opIdDataViews_Create (`id` path)"></a>
+<a id="opIdDataViews_Get or Create Data View"></a>
 
 This call creates the specified data view. If a data view with the same id already exists, the existing data view is compared with the specified data view. If they are identical, a redirect (302 Found) is returned with the Location response header indicating the URL where the data view may be retrieved using a Get function. If the data views do not match, the request fails with 409 Conflict.
 
@@ -536,9 +536,9 @@ Content-Type: application/json
 
 ---
 
-## Create Or Update
+## Create or Update Data View
 
-<a id="opIdDataViews_Create Or Update"></a>
+<a id="opIdDataViews_Create or Update Data View"></a>
 
 If a data view with the same id already exists, it is updated to the specified value. Otherwise, a new data view is created.
 
@@ -719,9 +719,9 @@ A DataView object whose Id matches the dataViewId in the URL.<br/>
 
 ---
 
-## Delete
+## Delete Data View
 
-<a id="opIdDataViews_Delete"></a>
+<a id="opIdDataViews_Delete Data View"></a>
 
 Delete the data view with the specified id.
 
@@ -795,9 +795,9 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 
 ---
 
-## Get Data View Acl
+## Get Data View Access Control List
 
-<a id="opIdDataViews_Get Data View Acl"></a>
+<a id="opIdDataViews_Get Data View Access Control List"></a>
 
 Get the `AccessControlList` of the specified data view
 
@@ -904,9 +904,9 @@ HTTP 200 OK
 
 ---
 
-## Update Data View Acl
+## Update Data View Access Control List
 
-<a id="opIdDataViews_Update Data View Acl"></a>
+<a id="opIdDataViews_Update Data View Access Control List"></a>
 
 Update the `AccessControlList` of the specified data view.
 
@@ -1082,9 +1082,9 @@ HTTP 200 OK
 
 ---
 
-## Get Data Interpolated
+## Get Data View Data
 
-<a id="opIdDataViews_Get Data Interpolated"></a>
+<a id="opIdDataViews_Get Data View Data"></a>
 
 Get data for the provided index parameters with paging. See documentation on paging for further information
 
@@ -1444,9 +1444,9 @@ Content-Type: application/json
 
 ---
 
-## Get Data Items
+## Get Data Items by Query
 
-<a id="opIdDataViews_Get Data Items"></a>
+<a id="opIdDataViews_Get Data Items by Query"></a>
 
 Gets the paged collection of data items that are the results of an individual query, and which are eligible for use in the current data view. A data view has a collection of zero or more queries. Each query has an identifier. Those identifiers are used here as part of the request path.
 
@@ -1880,9 +1880,9 @@ Content-Type: application/json
 
 ---
 
-## Get Ineligible Data Items
+## Get Ineligible Data Items by Query
 
-<a id="opIdDataViews_Get Ineligible Data Items"></a>
+<a id="opIdDataViews_Get Ineligible Data Items by Query"></a>
 
 Gets the paged collection of data items that are the results of an individual query, but which are not eligible for use in the current data view. A common reason for ineligibility is that the item's index property is of a different type than the data view expects. A data view has a collection of zero or more queries. Each query has an identifier. Those identifiers are used here as part of the request path.
 

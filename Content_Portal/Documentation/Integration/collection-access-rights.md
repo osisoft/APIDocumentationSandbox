@@ -1,5 +1,5 @@
 ---
-title: Integration/collection-access-rights v20210412.2
+title: Integration/collection-access-rights v20210412.3
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,9 +14,9 @@ generator: osisoft.widdershins v1.0.7
 # Collection Access Rights
 API for retrieving access rights on the data views collection
 
-## List
+## List Data Views Access Rights
 
-<a id="opIdCollectionAccessRights_List"></a>
+<a id="opIdCollectionAccessRights_List Data Views Access Rights"></a>
 
 Get the calling user or client's access rights on the data views collection
 
