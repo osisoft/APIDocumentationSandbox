@@ -1,5 +1,5 @@
 ---
-title: Integration/data-views v20210409.2
+title: Integration/data-views v20210412.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -55,9 +55,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews
 > 200 Response
 
 {
+  ```json      
   HTTP 200 OK
   Content-Type: application/json
-  ```json
   [
     {
       "Id": "demo view 1",
@@ -216,9 +216,9 @@ A DataView object whose Id is null or unspecified #https://raw.githubusercontent
 > 201 Response
 
 {
+  ```json
   HTTP 200 OK
   Content-Type: application/json
-  ```json
   {
       "Id": "c79630cc-21dc-483e-8b37-46880e92c456",
       "Name": "demo",
@@ -310,9 +310,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 > 200 Response
 
 {
+  ```json
   HTTP 200 OK
   Content-Type: application/json
-  ```json
   {
     "Id": "demo",
     "Name": "demo",
@@ -479,9 +479,9 @@ A DataView object whose Id is null or unspecified #https://raw.githubusercontent
 > 201 Response
 
 {
+  ```json
   HTTP 200 OK
   Content-Type: application/json
-  ```json
   {
     "Id": "demo2",
     "Name": "demo2",
@@ -1331,10 +1331,22 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 #### Example response body
 > 200 Response
 
+```json
+HTTP 200 OK
+Content-Type: application/json  
+{
+  [
+    {
+      "Id": "demo view 1",
+      ... etc.
+    },
+    {
+      "Id": "demo view 2",
+      ... etc.
+    }
+  ]
+}
 ```
-"example content<br/>"
-```
-
 > 403 Response
 
 ```json
@@ -1427,10 +1439,54 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 #### Example response body
 > 200 Response
 
+```json
+HTTP 200 OK
+Content-Type: application/json  
+{
+  "TimeOfResolution": "2019-12-13T01:23:45Z",
+  "Items": [
+    {
+      "Id": "WS_BILT",
+      "Name": "WS_BILT",
+      "TypeId": "quickstart-omf-weather-gen1",
+      "ResourceType": "Stream",
+      "Tags": [
+        "Weather",
+        "High Resolution",
+        "Gen1"
+       ],
+       "Metadata": [
+         {
+           "Name": "Site",
+           "Value": "Biltmore",
+           "TypeCode": "String"
+         }
+       ],
+       "DataItemFields": [
+         {
+           "Id": "Timestamp",
+           "Name": "Timestamp",
+           "TypeCode": "DateTime",
+           "IsKey": true
+         },
+         {
+           "Id": "SolarRadiation",
+           "Name": "SolarRadiation",
+           "TypeCode": "Int32",
+           "IsKey": false
+         },
+         {
+           "Id": "Temperature",
+           "Name": "Temperature",
+           "TypeCode": "Double",
+           "IsKey": false
+         }
+      ],
+      "IneligibleDataItemFields": []
+    }
+  ]
+}
 ```
-"example content<br/>"
-```
-
 > 403 Response
 
 ```json
@@ -1522,10 +1578,60 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 #### Example response body
 > 200 Response
 
+```json
+HTTP 200 OK
+{
+    "TimeOfResolution": "2019-12-13T01:23:45Z",
+    "Items": [
+      {
+        "Id": "Timestamp",
+        "Label": "Timestamp",
+        "FieldKind": "IndexField",
+        "TypeCode": "DateTime",
+        "DataMappings": [
+          {
+            "TypeCode": "DateTime"
+          },
+          {
+            "TypeCode": "DateTime"
+          },
+          {
+            "TypeCode": "DateTime"
+          }
+        ]
+      },
+      {
+        "Id": "Temperature",
+        "Label": "Temperature",
+        "FieldKind": "DataField",
+        "TypeCode": "Double",
+        "DataMappings": [
+          {
+            "TargetId": "WS_BILT",
+            "TargetFieldKey": "Temperature",
+            "TypeCode": "Double",
+            "FieldSetIndex": 1,
+            "FieldIndex": 0
+          },
+          {
+            "TargetId": "WS_ROSE",
+            "TargetFieldKey": "Temperature",
+            "TypeCode": "Double",
+            "FieldSetIndex": 1,
+            "FieldIndex": 0
+          },
+          {
+            "TargetId": "WS_WINT",
+            "TargetFieldKey": "AmbientTemperature",
+            "TypeCode": "Double",
+            "FieldSetIndex": 1,
+            "FieldIndex": 0
+          }
+        ]
+      },
+    ]
+}
 ```
-"example content<br/>"
-```
-
 > 403 Response
 
 ```json
@@ -1617,10 +1723,66 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 #### Example response body
 > 200 Response
 
+```json
+HTTP 200 OK
+Content-Type: application/json
+{
+  "TimeOfResolution": "2019-12-13T01:23:45Z",
+  "Items": [
+    {
+      "GroupingValues": [ 
+        {
+          "Value": "Biltmore",
+          "TypeCode": "String"
+        }
+      ],
+      "DataItems": {
+        "Query1": [
+          {
+            "Id": "WS_BILT",
+            "Name": "WS_BILT",
+            "TypeId": "quickstart-omf-weather-gen1",
+            "ResourceType": "Stream",
+            "Tags": [
+                "Weather",
+                "High Resolution",
+                "Gen1"
+            ],
+            "Metadata": [
+              {
+                "Name": "Site",
+                "Value": "Biltmore",
+                "TypeCode": "String"
+              }
+            ],
+            "DataItemFields": [
+                {
+                    "Id": "Timestamp",
+                    "Name": "Timestamp",
+                    "TypeCode": "DateTime",
+                    "IsKey": true
+                },
+                {
+                    "Id": "SolarRadiation",
+                    "Name": "SolarRadiation",
+                    "TypeCode": "Int32",
+                    "IsKey": false
+                },
+                {
+                    "Id": "Temperature",
+                    "Name": "Temperature",
+                    "TypeCode": "Double",
+                    "IsKey": false
+                }
+            ],
+            "IneligibleDataItemFields": []
+          }
+        ]
+      }
+    }
+  ]
+}
 ```
-"example content<br/>"
-```
-
 > 403 Response
 
 ```json
@@ -1713,10 +1875,38 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 #### Example response body
 > 200 Response
 
+```json
+HTTP 200 OK
+Content-Type: application/json
+{
+  "TimeOfResolution": "2019-12-13T01:23:45Z",
+  "Items": [
+    {
+      "Id": "SOME_INELIGIBLE_STREAM",
+      "Name": "Some Ineligible Stream",
+      "TypeId": "type-with-different-index",
+      "ResourceType": "Stream",
+      "Tags": [],
+      "Metadata": [],
+      "DataItemFields": [],
+      "IneligibleDataItemFields": [
+         {
+           "Id": "Depth",
+           "Name": "Depth",
+           "TypeCode": "Double",
+           "IsKey": true
+         },
+         {
+           "Id": "Density",
+           "Name": "Density",
+           "TypeCode": "Double",
+           "IsKey": false
+         }
+      ]
+    }
+  ]
+}
 ```
-"example content<br/>"
-```
-
 > 403 Response
 
 ```json
@@ -1806,10 +1996,47 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 #### Example response body
 > 200 Response
 
+```json
+HTTP 200 OK
+{
+    "TimeOfResolution": "2019-12-13T01:23:45Z",
+    "DataItemCount": 24,
+    "GroupCount": 2,
+    "FieldMappingCount": 10,
+    "DataFieldSets": [
+        {
+            "DataItemCount": 18,
+            "UnmappedDataItemCount": 3,
+            "DataFields": [
+                {
+                    "FieldMappingCount": 3,
+                    "DataMappingCount": 6,
+                    "EmptyDataMappingCount": 0,
+                    "UnmappedGroupCount": 0
+                },
+                {
+                    "FieldMappingCount": 3,
+                    "DataMappingCount": 6,
+                    "EmptyDataMappingCount": 2,
+                    "UnmappedGroupCount": 1
+                }
+            ]
+        },
+        {
+            "DataItemCount": 6,
+            "UnmappedDataItemCount": 0,
+            "DataFields": [
+                {
+                    "FieldMappingCount": 2,
+                    "DataMappingCount": 4,
+                    "EmptyDataMappingCount": 2,
+                    "UnmappedGroupCount": 1
+                }
+            ]
+        }
+    ]
+}
 ```
-"example content<br/>"
-```
-
 > 403 Response
 
 ```json
