@@ -1,5 +1,5 @@
 ---
-title: Integration/data-views v20210412.1
+title: Integration/data-views v20210412.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -54,10 +54,10 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews
 #### Example response body
 > 200 Response
 
+```json
+HTTP 201 Created
+Content-Type: application/json  
 {
-  ```json      
-  HTTP 200 OK
-  Content-Type: application/json
   [
     {
       "Id": "demo view 1",
@@ -68,8 +68,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews
       ... etc.
     }
   ]
-  ```
 }
+```
 > 500 Response
 
 ```json
@@ -136,7 +136,7 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews
 
 ### Request Body
 
-A DataView object whose Id is null or unspecified #https://raw.githubusercontent.com/stanasse/OCS-Docs/patch-1/content/external-references/data-views-request-examples.yaml#dataview-create<br/>
+A DataView object whose Id is null or unspecified<br/>
 
 ```json
 {
@@ -215,23 +215,21 @@ A DataView object whose Id is null or unspecified #https://raw.githubusercontent
 #### Example response body
 > 201 Response
 
+```json
+HTTP 201 Created
+Content-Type: application/json  
 {
-  ```json
-  HTTP 200 OK
-  Content-Type: application/json
-  {
-      "Id": "c79630cc-21dc-483e-8b37-46880e92c456",
-      "Name": "demo",
-      "Description": "demonstration",
-      "IndexField": { "Label": "Timestamp" },
-      "Queries": [],
-      "DataFieldSets": [],
-      "GroupingFields": [],
-      "IndexTypeCode": "DateTime",
-      "Shape": "Standard"
-  }
-  ```
+  "Id": "c79630cc-21dc-483e-8b37-46880e92c456",
+  "Name": "demo",
+  "Description": "demonstration",
+  "IndexField": { "Label": "Timestamp" },
+  "Queries": [],
+  "DataFieldSets": [],
+  "GroupingFields": [],
+  "IndexTypeCode": "DateTime",
+  "Shape": "Standard"
 }
+```
 > 403 Response
 
 ```json
@@ -309,28 +307,26 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 #### Example response body
 > 200 Response
 
+```json
+HTTP 200 OK
+Content-Type: application/json  
 {
-  ```json
-  HTTP 200 OK
-  Content-Type: application/json
-  {
-    "Id": "demo",
-    "Name": "demo",
-    "IndexField": { "Label": "Timestamp" },
-    "Queries": [
-      { 
-        "Id": "weather",
-        "Kind": "Stream",
-        "Value":"*weather*" 
-      }
-    ],
-    "DataFieldSets": [],
-    "GroupingFields": [],
-    "IndexTypeCode": "DateTime",
-    "Shape": "Standard"
-  }
-  ```
+  "Id": "demo",
+  "Name": "demo",
+  "IndexField": { "Label": "Timestamp" },
+  "Queries": [
+    { 
+      "Id": "weather",
+      "Kind": "Stream",
+      "Value":"*weather*" 
+    }
+  ],
+  "DataFieldSets": [],
+  "GroupingFields": [],
+  "IndexTypeCode": "DateTime",
+  "Shape": "Standard"
 }
+```
 > 403 Response
 
 ```json
@@ -398,7 +394,7 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 
 ### Request Body
 
-A DataView object whose Id is null or unspecified #https://raw.githubusercontent.com/stanasse/OCS-Docs/patch-1/content/external-references/data-views-request-examples.yaml#dataview-create<br/>
+A DataView object whose Id is null or unspecified<br/>
 
 ```json
 {
@@ -478,23 +474,21 @@ A DataView object whose Id is null or unspecified #https://raw.githubusercontent
 #### Example response body
 > 201 Response
 
+```json
+HTTP 201 Created
+Content-Type: application/json  
 {
-  ```json
-  HTTP 200 OK
-  Content-Type: application/json
-  {
-    "Id": "demo2",
-    "Name": "demo2",
-    "Description": "demonstration 2",
-    "IndexField": { "Label": "Timestamp" },
-    "Queries": [],
-    "DataFieldSets": [],
-    "GroupingFields": [],
-    "IndexTypeCode": "DateTime",
-    "Shape": "Standard"
-  }
-  ```
+  "Id": "demo2",
+  "Name": "demo2",
+  "Description": "demonstration 2",
+  "IndexField": { "Label": "Timestamp" },
+  "Queries": [],
+  "DataFieldSets": [],
+  "GroupingFields": [],
+  "IndexTypeCode": "DateTime",
+  "Shape": "Standard"
 }
+```
 > 403 Response
 
 ```json
@@ -644,62 +638,82 @@ A DataView object whose Id matches the dataViewId in the URL.<br/>
 
 ```json
 {
-  "Id": "demo",
-  "Name": "demo",
-  "Description": "demonstration",
+  "Id": "string",
+  "Name": "string",
+  "Description": "string",
   "IndexField": {
-    "Label": "Timestamp"
+    "Source": 0,
+    "Keys": [
+      "string"
+    ],
+    "StreamReferenceNames": [
+      "string"
+    ],
+    "Label": "string",
+    "SummaryType": 0,
+    "SummaryDirection": 1,
+    "IncludeUom": true
   },
-  "Queries": [],
-  "DataFieldSets": [],
-  "GroupingFields": [],
-  "IndexTypeCode": "DateTime",
-  "Shape": "Standard"
-}
-```
-
-> 403 Response
-
-```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "Kind": 0,
-  "Parameters": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "ChildErrors": [
+  "Queries": [
     {
-      "OperationId": "string",
-      "Error": "string",
-      "Reason": "string",
-      "Resolution": "string",
-      "Kind": 0,
-      "Parameters": {
-        "property1": "string",
-        "property2": "string"
-      },
-      "ChildErrors": [
-        {
-          "OperationId": "string",
-          "Error": "string",
-          "Reason": "string",
-          "Resolution": "string",
-          "Kind": 0,
-          "Parameters": {
-            "property1": "string",
-            "property2": "string"
-          },
-          "ChildErrors": [
-            {}
-          ]
-        }
-      ]
+      "Id": "string",
+      "Kind": 1,
+      "Value": "string"
     }
-  ]
+  ],
+  "DataFieldSets": [
+    {
+      "QueryId": "string",
+      "DataFields": [
+        {
+          "Source": 0,
+          "Keys": [
+            "string"
+          ],
+          "StreamReferenceNames": [
+            "string"
+          ],
+          "Label": "string",
+          "SummaryType": 0,
+          "SummaryDirection": null,
+          "IncludeUom": true
+        }
+      ],
+      "IdentifyingField": {
+        "Source": "[",
+        "Keys": [
+          null
+        ],
+        "StreamReferenceNames": [
+          null
+        ],
+        "Label": "string",
+        "SummaryType": "[",
+        "SummaryDirection": null,
+        "IncludeUom": true
+      }
+    }
+  ],
+  "GroupingFields": [
+    {
+      "Source": 0,
+      "Keys": [
+        "string"
+      ],
+      "StreamReferenceNames": [
+        "string"
+      ],
+      "Label": "string",
+      "SummaryType": 0,
+      "SummaryDirection": 1,
+      "IncludeUom": true
+    }
+  ],
+  "DefaultStartIndex": "string",
+  "DefaultEndIndex": "string",
+  "DefaultInterval": "string",
+  "IndexTypeCode": 0,
+  "Shape": 0
 }
 ```
 
@@ -811,10 +825,38 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/accesscon
 #### Example response body
 > 200 Response
 
+```json
+HTTP 200 OK
+{
+  "RoleTrusteeAccessControlEntries": 
+  [
+    {
+      "Trustee": {
+        "Type": Role,
+        "RoleId": "11111111-1111-1111-1111-111111111111"
+      },
+      "AccessType": Allowed,
+      "AccessRights": 1
+    },
+    {
+      "Trustee": {
+        "Type": Role,
+        "RoleId": "22222222-2222-2222-2222-222222222222"
+      },
+      "AccessType": Allowed,
+      "AccessRights": 15
+    },
+    {
+      "Trustee": {
+        "Type": User,
+        "RoleId": "33333333-3333-3333-3333-333333333333"
+      },
+      "AccessType": Denied,
+      "AccessRights": 8
+    }
+  ]
+}
 ```
-"example content<br/>"
-```
-
 > 403 Response
 
 ```json
@@ -882,7 +924,7 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/accesscon
 
 ### Request Body
 
-An AccessControlList #https://raw.githubusercontent.com/stanasse/OCS-Docs/patch-1/content/external-references/data-views-request-examples.yaml#dataview-acl-update<br/>
+An AccessControlList<br/>
 
 ```json
 {
@@ -984,10 +1026,15 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/accessrig
 #### Example response body
 > 200 Response
 
+```json
+HTTP 200 OK
+[
+  "Read",
+  "Write",
+  "Delete",
+  "ManageAccessControl"
+]
 ```
-"example content<br/>"
-```
-
 > 403 Response
 
 ```json
@@ -1150,10 +1197,13 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/owner
 #### Example response body
 > 200 Response
 
+```json
+{
+    "Type": User,
+    "TenantId": "55555555-5555-5555-5555-555555555555",
+    "ObjectId": "44444444-4444-4444-4444-444444444444"
+}
 ```
-"example content<br/>"
-```
-
 > 403 Response
 
 ```json
@@ -1907,6 +1957,7 @@ Content-Type: application/json
   ]
 }
 ```
+# access control responses
 > 403 Response
 
 ```json

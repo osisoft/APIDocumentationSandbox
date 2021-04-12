@@ -1,5 +1,5 @@
 ---
-title: Integration/collection-access-rights v20210412.1
+title: Integration/collection-access-rights v20210412.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -43,6 +43,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accessrights/dataviews
 > 200 Response
 
 ```json
+HTTP 200 OK
 [
   "Read",
   "Write",
@@ -50,7 +51,6 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accessrights/dataviews
   "ManageAccessControl"
 ]
 ```
-
 > 403 Response
 
 ```json

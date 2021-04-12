@@ -1,5 +1,5 @@
 ---
-title: Integration/collection-acl v20210412.1
+title: Integration/collection-acl v20210412.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -43,18 +43,55 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/dataviews
 > 200 Response
 
 ```json
+HTTP 200 OK
 {
-  "RoleTrusteeAccessControlEntries": [
+  "RoleTrusteeAccessControlEntries": 
+  [
     {
       "Trustee": {
-        "Type": "[",
-        "ObjectId": "string",
-        "TenantId": "string"
+        "Type": Role,
+        "RoleId": "11111111-1111-1111-1111-111111111111"
       },
-      "AccessType": 0,
-      "AccessRights": 0
+      "AccessType": Allowed,
+      "AccessRights": 1
+    },
+    {
+      "Trustee": {
+        "Type": Role,
+        "RoleId": "22222222-2222-2222-2222-222222222222"
+      },
+      "AccessType": Allowed,
+      "AccessRights": 15
+    },
+    {
+      "Trustee": {
+        "Type": User,
+        "RoleId": "33333333-3333-3333-3333-333333333333"
+      },
+      "AccessType": Denied,
+      "AccessRights": 8
     }
   ]
+}
+```
+> 500 Response
+
+```json
+{
+  "StackTrace": "string",
+  "Message": "string",
+  "InnerException": {
+    "StackTrace": "string",
+    "Message": "string",
+    "InnerException": {
+      "StackTrace": null,
+      "Message": null,
+      "InnerException": null,
+      "Source": null
+    },
+    "Source": "string"
+  },
+  "Source": "string"
 }
 ```
 
