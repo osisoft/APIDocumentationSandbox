@@ -1,5 +1,5 @@
 ---
-title: Integration/data-views v20210413.1
+title: Integration/data-views v20210413.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -32,8 +32,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews
 <br/>Tenant identifier<br/><br/><br/>`string namespaceId`
 <br/>Namespace identifier<br/><br/><br/>
 `[optional] integer skip`
-<br/>An optional parameter representing the zero-based offset of the first data view to retrieve. If not specified, a default value of 0 is used.<br/><br/>`[optional] integer count`
-<br/>An optional parameter representing the maximum number of data views to retrieve. If not specified, a default value of 100 is used.<br/><br/>
+<br/>An optional parameter representing the zero-based offset of the first field mapping to retrieve. If not specified, a default value of 0 is used.<br/><br/><br/>`[optional] integer count`
+<br/>An optional parameter representing the maximum number of data views to retrieve. If not specified, a default value of 100 is used.<br/><br/><br/>
 
 ### Response
 
@@ -136,7 +136,7 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews
 
 ### Request Body
 
-A DataView object whose Id is null or unspecified<br/>
+A DataView object whose Id is null or unspecified<br/><br/>
 
 ```json
 {
@@ -394,7 +394,7 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 
 ### Request Body
 
-A DataView object whose Id is null or unspecified<br/>
+A DataView object whose Id is null or unspecified<br/><br/>
 
 ```json
 {
@@ -556,7 +556,7 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 
 ### Request Body
 
-A DataView object whose Id matches the dataViewId in the URL.<br/>
+A DataView object whose Id matches the dataViewId in the URL.<br/><br/>
 
 ```json
 {
@@ -1100,14 +1100,25 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/data/inte
 <br/>Tenant identifier<br/><br/><br/>`string namespaceId`
 <br/>Namespace identifier<br/><br/><br/>`string id`
 <br/>Data view identifier<br/><br/><br/>`string startIndex`
-<br/>The requested start index, inclusive. The default value is the .DefaultStartIndex of the data view. Optional if a default value is specified.<br/><br/>`string endIndex`
-<br/>The requested end index, inclusive. The default value is the .DefaultEndIndex of the data view. Optional if a default value is specified.<br/><br/>`string interval`
-<br/>The requested interval between index values. The default value is the .DefaultInterval of the data view. Optional if a default is specified<br/><br/>`string form`
-<br/>The requested data output format. Output formats: default, table, tableh, csv, csvh.<br/><br/>`string continuationToken`
-<br/>Used only when paging. Not specified when requesting the first page of data.<br/><br/>`integer count`
-<br/>The requested page size. The maximum is 250,000. If the parameter is not provided, an optimal page size will be calculated.<br/><br/>
+<br/>The requested start index, inclusive. The default value is the ```.DefaultStartIndex``` of the data view. Optional if a default value is specified
+<br/><br/>`string endIndex`
+<br/>The requested end index, inclusive. The default value is the ```.DefaultEndIndex``` of the data view. Optional if a default value is specified.
+<br/><br/>`string interval`
+<br/>The requested interval between index values. The default value is the ```.DefaultInterval``` of the data view. Optional if a default is specified.<br/><br/><br/>`string form`
+<br/>The requested data [output format](xref:DataViewsQuickStartGetData#format). Output formats: `default`, `table`, `tableh`, `csv`, `csvh`.
+<br/><br/>`string continuationToken`
+<br/>Used only when [paging](xref:DataViewsQuickStartGetData#paging). Not specified when requesting the first page of data.
+<br/><br/>`integer count`
+<br/>The requested page size. The maximum is 250,000. If the parameter is not provided, [an optimal page size will be calculated](xref:DataViewsQuickStartGetData#page-size).
+<br/><br/>
 `[optional] string cache`
-<br/>Controls when the data view backing resources are to be refreshed. Used only when requesting the first page of data.<br/><br/>
+<br/>Controls when the data view backing resources are to be refreshed. Used only when requesting the first page of data. Ignored if used with the continuationToken. Values are:
+
+| Value | Description | 
+|--|--|
+| `Refresh` | Force the resource to re-resolve.  This is the default value for this API route.  
+| `Preserve`| Use cached information, if available.
+<br/><br/>
 
 ### Response
 
@@ -1271,7 +1282,7 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/owner
 
 ### Request Body
 
-A Trustee<br/>
+A [`Trustee`](xref:accessControl#owner)<br/>
 
 ```json
 {
@@ -1358,7 +1369,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 <br/>Namespace identifier<br/><br/><br/>`string id`
 <br/>Data view identifier<br/><br/><br/>
 `[optional] string cache`
-<br/>"Refresh" to force the resource to re-resolve. "Preserve" to use cached information, if available. This is the default value<br/><br/>
+<br/>"Refresh" to force the resource to re-resolve.<br/>"Preserve" to use cached information, if available. This is the default value<br/><br/><br/>
 
 ### Response
 
@@ -1464,9 +1475,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 <br/>Data view identifier<br/><br/><br/>`string queryId`
 <br/>Cancellation token<br/><br/><br/>
 `[optional] string cache`
-<br/>"Refresh" to force the resource to re-resolve. "Preserve" to use cached information, if available. This is the default value<br/><br/>`[optional] integer skip`
-<br/>An optional parameter representing the zero-based offset of the first data item to retrieve. If not specified, a default value of 0 is used.<br/><br/>`[optional] integer count`
-<br/>An optional parameter representing the maximum number of data items to retrieve. If not specified, a default value of 100 is used.<br/><br/>
+<br/>"Refresh" to force the resource to re-resolve.<br/>"Preserve" to use cached information, if available. This is the default value<br/><br/><br/>`[optional] integer skip`
+<br/>An optional parameter representing the zero-based offset of the first data item to retrieve. If not specified, a default value of 0 is used.<br/><br/><br/>`[optional] integer count`
+<br/>An optional parameter representing the maximum number of data items to retrieve. If not specified, a default value of 100 is used.<br/><br/><br/>
 
 ### Response
 
@@ -1603,9 +1614,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 <br/>Namespace identifier<br/><br/><br/>`string id`
 <br/>Data view identifier<br/><br/><br/>
 `[optional] string cache`
-<br/>"Refresh" to force the resource to re-resolve. "Preserve" to use cached information, if available. This is the default value<br/><br/>`[optional] integer skip`
-<br/>An optional parameter representing the zero-based offset of the first field mapping to retrieve. If not specified, a default value of 0 is used.<br/><br/>`[optional] integer count`
-<br/>An optional parameter representing the maximum number of field mappings to retrieve. If not specified, a default value of 100 is used.<br/><br/>
+<br/>"Refresh" to force the resource to re-resolve.<br/>"Preserve" to use cached information, if available. This is the default value<br/><br/><br/>`[optional] integer skip`
+<br/>An optional parameter representing the zero-based offset of the first group to retrieve. If not specified, a default value of 0 is used.<br/><br/><br/>`[optional] integer count`
+<br/>An optional parameter representing the maximum number of field mappings to retrieve. If not specified, a default value of 100 is used.<br/><br/><br/>
 
 ### Response
 
@@ -1748,9 +1759,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 <br/>Namespace identifier<br/><br/><br/>`string id`
 <br/>Data view identifier<br/><br/><br/>
 `[optional] string cache`
-<br/>"Refresh" to force the resource to re-resolve. "Preserve" to use cached information, if available. This is the default value<br/><br/>`[optional] integer skip`
-<br/>An optional parameter representing the zero-based offset of the first data item to retrieve. If not specified, a default value of 0 is used.<br/><br/>`[optional] integer count`
-<br/>An optional parameter representing the maximum number of data items to retrieve. If not specified, a default value of 100 is used.<br/><br/>
+<br/>"Refresh" to force the resource to re-resolve.<br/>"Preserve" to use cached information, if available. This is the default value<br/><br/><br/>`[optional] integer skip`
+<br/><br/>`[optional] integer count`
+<br/><br/>
 
 ### Response
 
@@ -1900,9 +1911,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 <br/>Data view identifier<br/><br/><br/>`string queryId`
 <br/>Cancellation token<br/><br/><br/>
 `[optional] string cache`
-<br/>"Refresh" to force the resource to re-resolve. "Preserve" to use cached information, if available. This is the default value<br/><br/>`[optional] integer skip`
-<br/>An optional parameter representing the zero-based offset of the first data item to retrieve. If not specified, a default value of 0 is used.<br/><br/>`[optional] integer count`
-<br/>An optional parameter representing the maximum number of data items to retrieve. If not specified, a default value of 100 is used.<br/><br/>
+<br/>"Refresh" to force the resource to re-resolve.<br/>"Preserve" to use cached information, if available. This is the default value<br/><br/><br/>`[optional] integer skip`
+<br/>An optional parameter representing the zero-based offset of the first data item to retrieve. If not specified, a default value of 0 is used.<br/><br/><br/>`[optional] integer count`
+<br/>An optional parameter representing the maximum number of data items to retrieve. If not specified, a default value of 100 is used.<br/><br/><br/>
 
 ### Response
 
@@ -2024,7 +2035,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 <br/>Namespace identifier<br/><br/><br/>`string id`
 <br/>Data view identifier<br/><br/><br/>
 `[optional] string cache`
-<br/>"Refresh" to force the resource to re-resolve. "Preserve" to use cached information, if available. This is the default value<br/><br/>
+<br/>"Refresh" to force the resource to re-resolve.<br/>"Preserve" to use cached information, if available. This is the default value<br/><br/><br/>
 
 ### Response
 
