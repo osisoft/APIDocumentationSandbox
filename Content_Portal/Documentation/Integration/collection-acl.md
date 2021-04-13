@@ -1,5 +1,5 @@
 ---
-title: Integration/collection-acl v20210412.3
+title: Integration/collection-acl v20210413.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -28,8 +28,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/dataviews
 #### Parameters
 
 `string tenantId`
-<br/>The tenant identifier<br/><br/>`string namespaceId`
-<br/>The namespace identifier<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>
 
 ### Response
 
@@ -111,12 +111,12 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/dataviews
 #### Parameters
 
 `string tenantId`
-<br/>The tenant identifier<br/><br/>`string namespaceId`
-<br/>The namespace identifier<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>
 
 ### Request Body
 
-An AccessControlList https://raw.githubusercontent.com/stanasse/OCS-Docs/patch-1/content/external-references/data-views-request-examples.yaml#dataviews-acl-update<br/>
+An [`AccessControlList`](xref:accessControl#access-control-lists)<br/>
 
 ```json
 {

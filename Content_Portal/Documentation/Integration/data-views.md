@@ -1,5 +1,5 @@
 ---
-title: Integration/data-views v20210412.3
+title: Integration/data-views v20210413.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -29,8 +29,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews
 #### Parameters
 
 `string tenantId`
-<br/>The tenant identifier<br/><br/>`string namespaceId`
-<br/>The namespace identifier<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>
 `[optional] integer skip`
 <br/>An optional parameter representing the zero-based offset of the first data view to retrieve. If not specified, a default value of 0 is used.<br/><br/>`[optional] integer count`
 <br/>An optional parameter representing the maximum number of data views to retrieve. If not specified, a default value of 100 is used.<br/><br/>
@@ -131,8 +131,8 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews
 #### Parameters
 
 `string tenantId`
-<br/>The tenant identifier<br/><br/>`string namespaceId`
-<br/>The namespace identifier<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>
 
 ### Request Body
 
@@ -291,9 +291,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 #### Parameters
 
 `string tenantId`
-<br/>The tenant identifier<br/><br/>`string namespaceId`
-<br/>The namespace identifier<br/><br/>`string id`
-<br/>The data view identifier<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>`string id`
+<br/>Data view identifier<br/><br/><br/>
 
 ### Response
 
@@ -388,9 +388,9 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 #### Parameters
 
 `string tenantId`
-<br/>The tenant identifier<br/><br/>`string namespaceId`
-<br/>The namespace identifier<br/><br/>`string id`
-<br/>The data view identifier<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>`string id`
+<br/>Data view identifier<br/><br/><br/>
 
 ### Request Body
 
@@ -550,9 +550,9 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 #### Parameters
 
 `string tenantId`
-<br/>The tenant identifier<br/><br/>`string namespaceId`
-<br/>The namespace identifier<br/><br/>`string id`
-<br/>The data view identifier<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>`string id`
+<br/>Data view identifier<br/><br/><br/>
 
 ### Request Body
 
@@ -733,9 +733,9 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 #### Parameters
 
 `string tenantId`
-<br/>The tenant identifier<br/><br/>`string namespaceId`
-<br/>The namespace identifier<br/><br/>`string id`
-<br/>The data view identifier<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>`string id`
+<br/>Data view identifier<br/><br/><br/>
 
 ### Response
 
@@ -809,9 +809,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/accesscon
 #### Parameters
 
 `string tenantId`
-<br/>The tenant identifier<br/><br/>`string namespaceId`
-<br/>The namespace identifier<br/><br/>`string id`
-<br/>The data view identifier<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>`string id`
+<br/>Data view identifier<br/><br/><br/>
 
 ### Response
 
@@ -918,13 +918,13 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/accesscon
 #### Parameters
 
 `string tenantId`
-<br/>The tenant identifier<br/><br/>`string namespaceId`
-<br/>The namespace identifier<br/><br/>`string id`
-<br/>The data view identifier<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>`string id`
+<br/>Data view identifier<br/><br/><br/>
 
 ### Request Body
 
-An AccessControlList<br/>
+An [`AccessControlList`](xref:accessControl#access-control-lists)<br/>
 
 ```json
 {
@@ -1010,9 +1010,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/accessrig
 #### Parameters
 
 `string tenantId`
-<br/>The tenant identifier<br/><br/>`string namespaceId`
-<br/>The namespace identifier<br/><br/>`string id`
-<br/>The data view identifier<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>`string id`
+<br/>Data view identifier<br/><br/><br/>
 
 ### Response
 
@@ -1097,9 +1097,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/data/inte
 #### Parameters
 
 `string tenantId`
-<br/>The tenant identifier<br/><br/>`string namespaceId`
-<br/>The namespace identifier<br/><br/>`string id`
-<br/>The data view identifier<br/><br/>`string startIndex`
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>`string id`
+<br/>Data view identifier<br/><br/><br/>`string startIndex`
 <br/>The requested start index, inclusive. The default value is the .DefaultStartIndex of the data view. Optional if a default value is specified.<br/><br/>`string endIndex`
 <br/>The requested end index, inclusive. The default value is the .DefaultEndIndex of the data view. Optional if a default value is specified.<br/><br/>`string interval`
 <br/>The requested interval between index values. The default value is the .DefaultInterval of the data view. Optional if a default is specified<br/><br/>`string form`
@@ -1181,9 +1181,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/owner
 #### Parameters
 
 `string tenantId`
-<br/>The tenant identifier<br/><br/>`string namespaceId`
-<br/>The namespace identifier<br/><br/>`string id`
-<br/>The data view identifier<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>`string id`
+<br/>Data view identifier<br/><br/><br/>
 
 ### Response
 
@@ -1265,9 +1265,9 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/owner
 #### Parameters
 
 `string tenantId`
-<br/>The tenant identifier<br/><br/>`string namespaceId`
-<br/>The namespace identifier<br/><br/>`string id`
-<br/>The data view identifier<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>`string id`
+<br/>Data view identifier<br/><br/><br/>
 
 ### Request Body
 
@@ -1354,9 +1354,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 #### Parameters
 
 `string tenantId`
-<br/>The tenant identifier<br/><br/>`string namespaceId`
-<br/>The namespace identifier<br/><br/>`string id`
-<br/>The data view identifier<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>`string id`
+<br/>Data view identifier<br/><br/><br/>
 `[optional] string cache`
 <br/>"Refresh" to force the resource to re-resolve. "Preserve" to use cached information, if available. This is the default value<br/><br/>
 
@@ -1459,10 +1459,10 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 #### Parameters
 
 `string tenantId`
-<br/>The tenant identifier<br/><br/>`string namespaceId`
-<br/>The namespace identifier<br/><br/>`string id`
-<br/>The data view identifier<br/><br/>`string queryId`
-<br/>The Query identifier<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>`string id`
+<br/>Data view identifier<br/><br/><br/>`string queryId`
+<br/>Cancellation token<br/><br/><br/>
 `[optional] string cache`
 <br/>"Refresh" to force the resource to re-resolve. "Preserve" to use cached information, if available. This is the default value<br/><br/>`[optional] integer skip`
 <br/>An optional parameter representing the zero-based offset of the first data item to retrieve. If not specified, a default value of 0 is used.<br/><br/>`[optional] integer count`
@@ -1599,9 +1599,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 #### Parameters
 
 `string tenantId`
-<br/>The tenant identifier<br/><br/>`string namespaceId`
-<br/>The namespace identifier<br/><br/>`string id`
-<br/>The data view identifier<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>`string id`
+<br/>Data view identifier<br/><br/><br/>
 `[optional] string cache`
 <br/>"Refresh" to force the resource to re-resolve. "Preserve" to use cached information, if available. This is the default value<br/><br/>`[optional] integer skip`
 <br/>An optional parameter representing the zero-based offset of the first field mapping to retrieve. If not specified, a default value of 0 is used.<br/><br/>`[optional] integer count`
@@ -1744,9 +1744,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 #### Parameters
 
 `string tenantId`
-<br/>The tenant identifier<br/><br/>`string namespaceId`
-<br/>The namespace identifier<br/><br/>`string id`
-<br/>The data view identifier<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>`string id`
+<br/>Data view identifier<br/><br/><br/>
 `[optional] string cache`
 <br/>"Refresh" to force the resource to re-resolve. "Preserve" to use cached information, if available. This is the default value<br/><br/>`[optional] integer skip`
 <br/>An optional parameter representing the zero-based offset of the first data item to retrieve. If not specified, a default value of 0 is used.<br/><br/>`[optional] integer count`
@@ -1895,10 +1895,10 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 #### Parameters
 
 `string tenantId`
-<br/>The tenant identifier<br/><br/>`string namespaceId`
-<br/>The namespace identifier<br/><br/>`string id`
-<br/>The data view identifier<br/><br/>`string queryId`
-<br/>The Query identifier<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>`string id`
+<br/>Data view identifier<br/><br/><br/>`string queryId`
+<br/>Cancellation token<br/><br/><br/>
 `[optional] string cache`
 <br/>"Refresh" to force the resource to re-resolve. "Preserve" to use cached information, if available. This is the default value<br/><br/>`[optional] integer skip`
 <br/>An optional parameter representing the zero-based offset of the first data item to retrieve. If not specified, a default value of 0 is used.<br/><br/>`[optional] integer count`
@@ -2020,9 +2020,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 #### Parameters
 
 `string tenantId`
-<br/>The tenant identifier<br/><br/>`string namespaceId`
-<br/>The namespace identifier<br/><br/>`string id`
-<br/>The data view identifier<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>`string id`
+<br/>Data view identifier<br/><br/><br/>
 `[optional] string cache`
 <br/>"Refresh" to force the resource to re-resolve. "Preserve" to use cached information, if available. This is the default value<br/><br/>
 

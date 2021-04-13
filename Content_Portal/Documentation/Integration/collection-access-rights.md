@@ -1,5 +1,5 @@
 ---
-title: Integration/collection-access-rights v20210412.3
+title: Integration/collection-access-rights v20210413.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -28,8 +28,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accessrights/dataviews
 #### Parameters
 
 `string tenantId`
-<br/>The tenant identifier<br/><br/>`string namespaceId`
-<br/>The namespace identifier<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>
 
 ### Response
 
