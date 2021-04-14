@@ -1,5 +1,5 @@
 ---
-title: Integration/collection-access-rights v20210414.1
+title: Integration/collection-access-rights v20210414.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -36,7 +36,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accessrights/dataviews
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|Inline|A list of access rights to the data views collection<br/>|
-|403|[ResultError](#schemaresulterror)|You are not authorized to view the requested data view collection's access control list|
+|403|[ResultError](#schemaresulterror)|You are not authorized to view the requested data view collection's access control list<br/>|
 |500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details.|
 
 #### Example response body
