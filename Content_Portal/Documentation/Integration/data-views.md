@@ -1,5 +1,5 @@
 ---
-title: Integration/data-views v20210413.2
+title: Integration/data-views v20210414.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -32,14 +32,14 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews
 <br/>Tenant identifier<br/><br/><br/>`string namespaceId`
 <br/>Namespace identifier<br/><br/><br/>
 `[optional] integer skip`
-<br/>An optional parameter representing the zero-based offset of the first field mapping to retrieve. If not specified, a default value of 0 is used.<br/><br/><br/>`[optional] integer count`
+<br/>An optional parameter representing the zero-based offset of the first data view to retrieve. If not specified, a default value of 0 is used.<br/><br/><br/>`[optional] integer count`
 <br/>An optional parameter representing the maximum number of data views to retrieve. If not specified, a default value of 100 is used.<br/><br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[DataView](#schemadataview)[]|A page of data views. A response header, Total-Count, indicates the total size of the collection.|
+|200|[DataView](#schemadataview)[]|A page of data views. A response header, Total-Count, indicates the total size of the collection.<br/>|
 |500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
 
 #### Response Headers
@@ -299,7 +299,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[DataView](#schemadataview)|The requested data view.|
+|200|[DataView](#schemadataview)|The requested data view.<br/>|
 |403|[ResultError](#schemaresulterror)|You are not authorized to view the requested data view|
 |404|[ResultError](#schemaresulterror)|The specified data view identifier is not found|
 |500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
@@ -817,7 +817,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/accesscon
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[AccessControlList](#schemaaccesscontrollist)|The access control list of the requested data view|
+|200|[AccessControlList](#schemaaccesscontrollist)|The access control list of the requested data view<br/>|
 |403|[ResultError](#schemaresulterror)|You are not authorized to view the requested data view's access control list|
 |404|[ResultError](#schemaresulterror)|The requested data view was not found|
 |500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
@@ -1018,7 +1018,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/accessrig
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|Inline|A list of access rights to the requested data view|
+|200|Inline|A list of access rights to the requested data view<br/>|
 |403|[ResultError](#schemaresulterror)|You are not authorized to make this request|
 |404|[ResultError](#schemaresulterror)|The requested data view was not found|
 |500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
@@ -1124,7 +1124,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/data/inte
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Successfully retrieved data.|
+|200|None|Successfully retrieved data.<br/>|
 |400|[ResultError](#schemaresulterror)|The request could not be understood by the server due to malformed syntax.|
 |403|[ResultError](#schemaresulterror)|User is not authorized for this operation.|
 |404|[ResultError](#schemaresulterror)|The specified data view identifier is not found.|
@@ -1200,7 +1200,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/owner
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[Trustee](#schematrustee)|The owner of the requested data view|
+|200|[Trustee](#schematrustee)|The owner of the requested data view<br/>|
 |403|[ResultError](#schemaresulterror)|You are not authorized to view the requested data view's owner|
 |404|[ResultError](#schemaresulterror)|The requested data view was not found|
 |500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
@@ -1375,7 +1375,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ResolvedItemsOfFieldSet](#schemaresolveditemsoffieldset)|An object with a "TimeOfResolution" and a collection of "Items", the FieldSets that resolved and which are still available|
+|200|[ResolvedItemsOfFieldSet](#schemaresolveditemsoffieldset)|An object with a "TimeOfResolution" and a collection of "Items", the FieldSets that resolved and which are still available<br/>|
 |403|[ResultError](#schemaresulterror)|You are not authorized for this operation|
 |404|[ResultError](#schemaresulterror)|The data view does not exist|
 |500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
@@ -1473,17 +1473,17 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 <br/>Tenant identifier<br/><br/><br/>`string namespaceId`
 <br/>Namespace identifier<br/><br/><br/>`string id`
 <br/>Data view identifier<br/><br/><br/>`string queryId`
-<br/>Cancellation token<br/><br/><br/>
+<br/>Query identifier<br/><br/><br/>
 `[optional] string cache`
 <br/>"Refresh" to force the resource to re-resolve.<br/>"Preserve" to use cached information, if available. This is the default value<br/><br/><br/>`[optional] integer skip`
-<br/>An optional parameter representing the zero-based offset of the first data item to retrieve. If not specified, a default value of 0 is used.<br/><br/><br/>`[optional] integer count`
-<br/>An optional parameter representing the maximum number of data items to retrieve. If not specified, a default value of 100 is used.<br/><br/><br/>
+<br/><br/>`[optional] integer count`
+<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ResolvedItemsOfDataItem](#schemaresolveditemsofdataitem)|An object with a "TimeOfResolution" and a collection of "Items", the DataItems that resolved.|
+|200|[ResolvedItemsOfDataItem](#schemaresolveditemsofdataitem)|An object with a "TimeOfResolution" and a collection of "Items", the DataItems that resolved.<br/>|
 |403|[ResultError](#schemaresulterror)|You are not authorized for this operation|
 |404|[ResultError](#schemaresulterror)|The data view or query does not exist|
 |500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
@@ -1615,14 +1615,14 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 <br/>Data view identifier<br/><br/><br/>
 `[optional] string cache`
 <br/>"Refresh" to force the resource to re-resolve.<br/>"Preserve" to use cached information, if available. This is the default value<br/><br/><br/>`[optional] integer skip`
-<br/>An optional parameter representing the zero-based offset of the first group to retrieve. If not specified, a default value of 0 is used.<br/><br/><br/>`[optional] integer count`
+<br/>An optional parameter representing the zero-based offset of the first field mapping to retrieve. If not specified, a default value of 0 is used.<br/><br/><br/>`[optional] integer count`
 <br/>An optional parameter representing the maximum number of field mappings to retrieve. If not specified, a default value of 100 is used.<br/><br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ResolvedItemsOfFieldMapping](#schemaresolveditemsoffieldmapping)|An object with a "TimeOfResolution" and a collection of "Items", the FieldMappings that resolved.|
+|200|[ResolvedItemsOfFieldMapping](#schemaresolveditemsoffieldmapping)|An object with a "TimeOfResolution" and a collection of "Items", the FieldMappings that resolved.<br/>|
 |403|[ResultError](#schemaresulterror)|You are not authorized for this operation|
 |404|[ResultError](#schemaresulterror)|The data view or query does not exist|
 |500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
@@ -1760,14 +1760,14 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 <br/>Data view identifier<br/><br/><br/>
 `[optional] string cache`
 <br/>"Refresh" to force the resource to re-resolve.<br/>"Preserve" to use cached information, if available. This is the default value<br/><br/><br/>`[optional] integer skip`
-<br/><br/>`[optional] integer count`
-<br/><br/>
+<br/>An optional parameter representing the zero-based offset of the first group to retrieve. If not specified, a default value of 0 is used.<br/><br/><br/>`[optional] integer count`
+<br/>An optional parameter representing the maximum number of groups to retrieve. If not specified, a default value of 100 is used.<br/><br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ResolvedItemsOfGroup](#schemaresolveditemsofgroup)|An object with a "TimeOfResolution" and a collection of "Items", the Groups that resolved.|
+|200|[ResolvedItemsOfGroup](#schemaresolveditemsofgroup)|An object with a "TimeOfResolution" and a collection of "Items", the Groups that resolved.<br/>|
 |403|[ResultError](#schemaresulterror)|You are not authorized for this operation|
 |404|[ResultError](#schemaresulterror)|The data view does not exist|
 |500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
@@ -1919,7 +1919,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ResolvedItemsOfDataItem](#schemaresolveditemsofdataitem)|An object with a "TimeOfResolution" and a collection of "Items", the DataItems that resolved.|
+|200|[ResolvedItemsOfDataItem](#schemaresolveditemsofdataitem)|An object with a "TimeOfResolution" and a collection of "Items", the DataItems that resolved.<br/>|
 |403|[ResultError](#schemaresulterror)|You are not authorized for this operation|
 |404|[ResultError](#schemaresulterror)|The data view or query does not exist|
 |500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
@@ -2041,7 +2041,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ResolvedItemOfStatistics](#schemaresolveditemofstatistics)|Successfully retrieved data.|
+|200|[ResolvedItemOfStatistics](#schemaresolveditemofstatistics)|Successfully retrieved data.<br/>|
 |403|[ResultError](#schemaresulterror)|User is not authorized for this operation.|
 |404|[ResultError](#schemaresulterror)|The specified data view identifier is not found.|
 |500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|

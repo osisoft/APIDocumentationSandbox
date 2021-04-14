@@ -1,5 +1,5 @@
 ---
-title: Integration/collection-acl v20210413.2
+title: Integration/collection-acl v20210414.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -35,7 +35,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/dataviews
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[AccessControlList](#schemaaccesscontrollist)|The default access control list of the data views collection|
+|200|[AccessControlList](#schemaaccesscontrollist)|The default access control list of the data views collection<br/>|
 |403|string|You are not authorized to view the requested data view collection's access control list|
 |500|[Exception](#schemaexception)|An error occurred while processing the request. See the response body for details|
 
