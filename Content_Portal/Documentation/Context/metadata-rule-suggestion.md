@@ -1,5 +1,5 @@
 ---
-title: Context/metadata-rule-preview v20210414.1
+title: Context/metadata-rule-suggestion v20210414.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -11,38 +11,35 @@ generator: osisoft.widdershins v1.0.7
 
 ---
 
-# Metadata Rule Preview
+# Metadata Rule Suggestion
 
-## Get Preview Results
+## Get Suggestion Results
 
-<a id="opIdMetadataRulePreview_Get Preview Results"></a>
+<a id="opIdMetadataRuleSuggestion_Get Suggestion Results"></a>
 
-Gets a `RulePreviewResult`.
+Gets a `SuggestionResult`.
 
 ### Request
 ```text 
-GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
-?token={token}&skip={skip}&count={count}
+GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadatarules
+?token={token}
 ```
 
 #### Parameters
 
 `string token`
-<br/>A Guid which corresponds to a preview that has been created using the CancellationToken) method.<br/><br/>`integer skip`
-<br/>An Int32 to determine the number of preview results to skip.<br/><br/>`string tenantId`
+<br/>A Guid which corresponds to a SuggestionResponse that has been created using the CancellationToken) method.<br/><br/>`string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
-`[optional] integer count`
-<br/>An Int32 to determine the number of preview results to return.<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[RulePreviewResult](#schemarulepreviewresult)|A `RulePreviewResult` object.|
+|200|[SuggestionResult](#schemasuggestionresult)|A `SuggestionResult` object.|
 |400|[ResponseBody](#schemaresponsebody)|Invalid uri query parameters.|
 |403|[ResponseBody](#schemaresponsebody)|Forbidden.|
-|404|[ResponseBody](#schemaresponsebody)|The specified preview was not found.|
+|404|[ResponseBody](#schemaresponsebody)|The specified suggestion was not found.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
 #### Example response body
@@ -51,30 +48,15 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
 ```json
 {
   "Status": "complete",
-  "Results": [
-    {
-      "Name": "name",
-      "Id": "id",
-      "Description": "description",
-      "NewMetadata": {
-        "key": "value"
-      },
-      "UpdatedMetadata": {
-        "key": "value"
-      },
-      "RemovedMetadata": {
-        "key": "value"
-      }
-    }
-  ],
-  "Statistics": {
-    "StreamsAffected": 1,
-    "NewMetadataKeys": 1,
-    "NewMetadataValues": 1,
-    "UpdatedMetadataValues": 1,
-    "RemovedMetadataKeys": 1,
-    "TotalResults": 1,
-    "PageCount": 1
+  "Result": {
+    "key1": [
+      "value1",
+      "value2"
+    ],
+    "key2": [
+      "value1",
+      "value2"
+    ]
   }
 }
 ```
@@ -141,16 +123,15 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
 
 ---
 
-## Start Preview
+## Start Suggestion
 
-<a id="opIdMetadataRulePreview_Start Preview"></a>
+<a id="opIdMetadataRuleSuggestion_Start Suggestion"></a>
 
-Creates a `RulePreviewResponse` of a `RuleModel` object.
+Creates a `SuggestionResponse` for a `RuleModel` object.
 
 ### Request
 ```text 
-POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
-?KeepOldMetadata={KeepOldMetadata}&Skip={Skip}&Count={Count}
+POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadatarules
 ```
 
 #### Parameters
@@ -158,14 +139,10 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
-`[optional] boolean KeepOldMetadata`
-<br/><br/>`[optional] integer Skip`
-<br/><br/>`[optional] integer Count`
-<br/><br/>
 
 ### Request Body
 
-The RuleModel object to preview.<br/>
+The RuleModel object to create a suggestion for.<br/>
 
 ```json
 {
@@ -201,8 +178,8 @@ The RuleModel object to preview.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|202|[RulePreviewResponse](#schemarulepreviewresponse)|A `RulePreviewResponse` object.|
-|204|[ResponseBody](#schemaresponsebody)|A `RulePreviewResponse` object.|
+|202|[SuggestionResponse](#schemasuggestionresponse)|A `SuggestionResponse` object.|
+|204|[ResponseBody](#schemaresponsebody)|A `SuggestionResponse` object.|
 |400|[ResponseBody](#schemaresponsebody)|Invalid rule.|
 |403|[ResponseBody](#schemaresponsebody)|Forbidden.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
@@ -213,7 +190,7 @@ The RuleModel object to preview.<br/>
 
 ```json
 {
-  "PreviewLink": "/api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules?Token=00000000-0000-0000-0000-000000000000",
+  "SuggestionLink": "/api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadatarules?Token=00000000-0000-0000-0000-000000000000",
   "Expires": 7200
 }
 ```
@@ -295,22 +272,22 @@ The RuleModel object to preview.<br/>
 
 ---
 
-## Cancel Preview
+## Cancel Suggestion
 
-<a id="opIdMetadataRulePreview_Cancel Preview"></a>
+<a id="opIdMetadataRuleSuggestion_Cancel Suggestion"></a>
 
-Cancels a running preview.
+Cancels a running suggestion query.
 
 ### Request
 ```text 
-DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
+DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadatarules
 ?token={token}
 ```
 
 #### Parameters
 
 `string token`
-<br/>A Guid which corresponds to a preview that has been created using the CancellationToken) method.<br/><br/>`string tenantId`
+<br/>A Guid which corresponds to a SuggestionResponse that has been created using the CancellationToken) method.<br/><br/>`string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
 
@@ -388,24 +365,24 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
 ---
 # Definitions
 
-## RulePreviewResponse
+## SuggestionResponse
 
-<a id="schemarulepreviewresponse"></a>
-<a id="schema_RulePreviewResponse"></a>
-<a id="tocSrulepreviewresponse"></a>
-<a id="tocsrulepreviewresponse"></a>
+<a id="schemasuggestionresponse"></a>
+<a id="schema_SuggestionResponse"></a>
+<a id="tocSsuggestionresponse"></a>
+<a id="tocssuggestionresponse"></a>
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|PreviewLink|string|false|true|None|
+|SuggestionLink|string|false|true|None|
 |Expires|int32|false|false|None|
 
 ```json
 {
-  "PreviewLink": "string",
-  "Expires": 0
+  "SuggestionLink": "/api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadatarules?Token=00000000-0000-0000-0000-000000000000",
+  "Expires": 7200
 }
 
 ```
@@ -639,124 +616,33 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
 
 ---
 
-## RulePreviewResult
+## SuggestionResult
 
-<a id="schemarulepreviewresult"></a>
-<a id="schema_RulePreviewResult"></a>
-<a id="tocSrulepreviewresult"></a>
-<a id="tocsrulepreviewresult"></a>
+<a id="schemasuggestionresult"></a>
+<a id="schema_SuggestionResult"></a>
+<a id="tocSsuggestionresult"></a>
+<a id="tocssuggestionresult"></a>
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
 |Status|string|false|true|None|
-|Results|[[StreamPreviewData](#schemastreampreviewdata)]|false|true|None|
-|Statistics|[RulePreviewStatistics](#schemarulepreviewstatistics)|false|true|None|
+|Result|object|false|true|None|
 
 ```json
 {
   "Status": "complete",
-  "Results": [
-    {
-      "Name": "name",
-      "Id": "id",
-      "Description": "description",
-      "NewMetadata": {
-        "key": "value"
-      },
-      "UpdatedMetadata": {
-        "key": "value"
-      },
-      "RemovedMetadata": {
-        "key": "value"
-      }
-    }
-  ],
-  "Statistics": {
-    "StreamsAffected": 1,
-    "NewMetadataKeys": 1,
-    "NewMetadataValues": 1,
-    "UpdatedMetadataValues": 1,
-    "RemovedMetadataKeys": 1,
-    "TotalResults": 1,
-    "PageCount": 1
+  "Result": {
+    "key1": [
+      "value1",
+      "value2"
+    ],
+    "key2": [
+      "value1",
+      "value2"
+    ]
   }
-}
-
-```
-
----
-
-## StreamPreviewData
-
-<a id="schemastreampreviewdata"></a>
-<a id="schema_StreamPreviewData"></a>
-<a id="tocSstreampreviewdata"></a>
-<a id="tocsstreampreviewdata"></a>
-
-### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Name|string|false|true|None|
-|Id|string|false|true|None|
-|Description|string|false|true|None|
-|NewMetadata|object|false|true|None|
-|UpdatedMetadata|object|false|true|None|
-|RemovedMetadata|object|false|true|None|
-
-```json
-{
-  "Name": "string",
-  "Id": "string",
-  "Description": "string",
-  "NewMetadata": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "UpdatedMetadata": {
-    "property1": "string",
-    "property2": "string"
-  },
-  "RemovedMetadata": {
-    "property1": "string",
-    "property2": "string"
-  }
-}
-
-```
-
----
-
-## RulePreviewStatistics
-
-<a id="schemarulepreviewstatistics"></a>
-<a id="schema_RulePreviewStatistics"></a>
-<a id="tocSrulepreviewstatistics"></a>
-<a id="tocsrulepreviewstatistics"></a>
-
-### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|StreamsAffected|int32|false|false|None|
-|NewMetadataKeys|int32|false|false|None|
-|NewMetadataValues|int32|false|false|None|
-|UpdatedMetadataValues|int32|false|false|None|
-|RemovedMetadataKeys|int32|false|false|None|
-|TotalResults|int32|false|false|None|
-|PageCount|int32|false|false|None|
-
-```json
-{
-  "StreamsAffected": 0,
-  "NewMetadataKeys": 0,
-  "NewMetadataValues": 0,
-  "UpdatedMetadataValues": 0,
-  "RemovedMetadataKeys": 0,
-  "TotalResults": 0,
-  "PageCount": 0
 }
 
 ```

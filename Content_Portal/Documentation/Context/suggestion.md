@@ -1,5 +1,5 @@
 ---
-title: Context/preview v20210414.1
+title: Context/suggestion v20210414.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -11,34 +11,28 @@ generator: osisoft.widdershins v1.0.7
 
 ---
 
-# Preview
+# Suggestion
 
-## Get Preview
+## Get Suggestion
 
-<a id="opIdPreview_Get Preview"></a>
+<a id="opIdSuggestion_Get Suggestion"></a>
 
-Creates a `RulePreviewResult` of a metadata `RuleModel` object.
+Creates a `SuggestionResult` of a metadata `RuleModel` object.
 
 ### Request
 ```text 
-POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
-?Skip={Skip}&Count={Count}
+POST /api/v1/tenants/{tenantid}/namespaces/{namespaceid}/suggestion/metadatarules
 ```
 
 #### Parameters
 
-`string tenantId`
-<br/><br/>`string namespaceId`
+`string tenantid`
+<br/><br/>`string namespaceid`
 <br/><br/>
-`[optional] integer Skip`
-<br/>An Int32 specifying the number of results to skip.
-Defaults to 0.<br/><br/>`[optional] integer Count`
-<br/>An Int32 specifying the number of results to return.
-Defaults to 100.<br/><br/>
 
 ### Request Body
 
-The RuleModel object to preview.<br/>
+The RuleModel object to create suggestions for.<br/>
 
 ```json
 {
@@ -74,8 +68,8 @@ The RuleModel object to preview.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[RulePreviewResult](#schemarulepreviewresult)|A `RulePreviewResult` object.|
-|400|[ResponseBody](#schemaresponsebody)|Invalid rule or query parameters.|
+|200|[SuggestionResult](#schemasuggestionresult)|A `SuggestionResult` object.|
+|400|[ResponseBody](#schemaresponsebody)|Invalid rule.|
 |403|[ResponseBody](#schemaresponsebody)|Forbidden.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 |503|[ResponseBody](#schemaresponsebody)|Dependent service error.|
@@ -85,21 +79,15 @@ The RuleModel object to preview.<br/>
 
 ```json
 {
-  "Results": [
-    {
-      "Name": "name",
-      "Id": "id",
-      "Description": "description",
-      "Metadata": {
-        "key": "value"
-      }
-    }
-  ],
-  "Statistics": {
-    "StreamsAffected": 1,
-    "NewMetadataKeys": 1,
-    "NewMetadataValues": 1,
-    "TotalResults": 1
+  "Results": {
+    "key1": [
+      "value1",
+      "value2"
+    ],
+    "key2": [
+      "value1",
+      "value2"
+    ]
   }
 }
 ```
@@ -167,97 +155,31 @@ The RuleModel object to preview.<br/>
 ---
 # Definitions
 
-## RulePreviewResult
+## SuggestionResult
 
-<a id="schemarulepreviewresult"></a>
-<a id="schema_RulePreviewResult"></a>
-<a id="tocSrulepreviewresult"></a>
-<a id="tocsrulepreviewresult"></a>
+<a id="schemasuggestionresult"></a>
+<a id="schema_SuggestionResult"></a>
+<a id="tocSsuggestionresult"></a>
+<a id="tocssuggestionresult"></a>
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Results|[[StreamPreviewData](#schemastreampreviewdata)]|false|true|None|
-|Statistics|[RulePreviewStatistics](#schemarulepreviewstatistics)|false|true|None|
+|Results|object|false|true|None|
 
 ```json
 {
-  "Results": [
-    {
-      "Name": "name",
-      "Id": "id",
-      "Description": "description",
-      "Metadata": {
-        "key": "value"
-      }
-    }
-  ],
-  "Statistics": {
-    "StreamsAffected": 1,
-    "NewMetadataKeys": 1,
-    "NewMetadataValues": 1,
-    "TotalResults": 1
+  "Results": {
+    "key1": [
+      "value1",
+      "value2"
+    ],
+    "key2": [
+      "value1",
+      "value2"
+    ]
   }
-}
-
-```
-
----
-
-## StreamPreviewData
-
-<a id="schemastreampreviewdata"></a>
-<a id="schema_StreamPreviewData"></a>
-<a id="tocSstreampreviewdata"></a>
-<a id="tocsstreampreviewdata"></a>
-
-### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Name|string|false|true|None|
-|Id|string|false|true|None|
-|Description|string|false|true|None|
-|Metadata|object|false|true|None|
-
-```json
-{
-  "Name": "string",
-  "Id": "string",
-  "Description": "string",
-  "Metadata": {
-    "property1": "string",
-    "property2": "string"
-  }
-}
-
-```
-
----
-
-## RulePreviewStatistics
-
-<a id="schemarulepreviewstatistics"></a>
-<a id="schema_RulePreviewStatistics"></a>
-<a id="tocSrulepreviewstatistics"></a>
-<a id="tocsrulepreviewstatistics"></a>
-
-### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|StreamsAffected|int32|false|false|None|
-|NewMetadataKeys|int32|false|false|None|
-|NewMetadataValues|int32|false|false|None|
-|TotalResults|int32|false|false|None|
-
-```json
-{
-  "StreamsAffected": 0,
-  "NewMetadataKeys": 0,
-  "NewMetadataValues": 0,
-  "TotalResults": 0
 }
 
 ```
