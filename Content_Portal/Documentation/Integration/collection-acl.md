@@ -1,5 +1,5 @@
 ---
-title: Integration/collection-acl v20210414.2
+title: Integration/collection-acl v20210414.3
 language_tabs: []
 toc_footers: []
 includes: []
@@ -37,7 +37,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/dataviews
 |---|---|---|
 |200|[AccessControlList](#schemaaccesscontrollist)|The default access control list of the data views collection<br/>|
 |403|string|You are not authorized to view the requested data view collection's access control list<br/>|
-|500|[Exception](#schemaexception)|An error occurred while processing the request. See the response body for details|
+|500|[Exception](#schemaexception)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Example response body
 > 200 Response
@@ -134,10 +134,10 @@ An [`AccessControlList`](xref:accessControl#access-control-lists)<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|Successfully updated the default access control list of the data views collection|
-|400|string|The request is not valid. See the response body for details|
+|204|None|Successfully updated the default access control list of the data views collection<br/>|
+|400|string|The request is not valid. See the response body for details<br/>|
 |403|string|You are not authorized to update the data views collection's default access control list<br/>|
-|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details|
+|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Example response body
 > 500 Response
