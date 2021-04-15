@@ -1,5 +1,5 @@
 ---
-title: Integration/data-views v20210414.3
+title: Integration/data-views v20210414.4
 language_tabs: []
 toc_footers: []
 includes: []
@@ -12,13 +12,13 @@ generator: osisoft.widdershins v1.0.7
 ---
 
 # Data Views
-APIs for working with Data Views
+APIs for working with Data Views<br/>
 
 ## List Data Views
 
 <a id="opIdDataViews_List Data Views"></a>
 
-Returns a list of data views.
+Returns a list of data views.<br/>
 
 ### Request
 ```text 
@@ -121,7 +121,7 @@ Content-Type: application/json
 
 <a id="opIdDataViews_Create Data View"></a>
 
-Create a new data view with a system-generated identifier.
+Create a new data view with a system-generated identifier.<br/>
 
 ### Request
 ```text 
@@ -281,7 +281,7 @@ Content-Type: application/json
 
 <a id="opIdDataViews_Get Data View"></a>
 
-Get a Data View by id
+Returns the specified data view.<br/>
 
 ### Request
 ```text 
@@ -378,7 +378,7 @@ Content-Type: application/json
 
 <a id="opIdDataViews_Get or Create Data View"></a>
 
-This call creates the specified data view. If a data view with the same id already exists, the existing data view is compared with the specified data view. If they are identical, a redirect (302 Found) is returned with the Location response header indicating the URL where the data view may be retrieved using a Get function. If the data views do not match, the request fails with 409 Conflict.
+This call creates the specified data view. If a data view with the same id already exists, the existing data view is compared with the specified data view. If they are identical, a redirect (`302 Found`) is returned with the `Location` response header indicating the URL where the data view may be retrieved using a Get function. If the data views do not match, the request fails with `409 Conflict`.
 
 ### Request
 ```text 
@@ -540,7 +540,7 @@ Content-Type: application/json
 
 <a id="opIdDataViews_Create or Update Data View"></a>
 
-If a data view with the same id already exists, it is updated to the specified value. Otherwise, a new data view is created.
+If a data view with the same id already exists, it is updated to the specified value. Otherwise, a new data view is created.<br/>
 
 ### Request
 ```text 
@@ -723,7 +723,7 @@ A DataView object whose Id matches the dataViewId in the URL.<br/><br/>
 
 <a id="opIdDataViews_Delete Data View"></a>
 
-Delete the data view with the specified id.
+Delete the data view with the specified id.<br/>
 
 ### Request
 ```text 
@@ -799,7 +799,7 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 
 <a id="opIdDataViews_Get Data View Access Control List"></a>
 
-Get the `AccessControlList` of the specified data view
+Get the default [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#access-control-lists) for the DataViews collection.
 
 ### Request
 ```text 
@@ -908,7 +908,7 @@ HTTP 200 OK
 
 <a id="opIdDataViews_Update Data View Access Control List"></a>
 
-Update the `AccessControlList` of the specified data view.
+Update the default [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#access-control-lists) for the DataViews collection.
 
 ### Request
 ```text 
@@ -1000,7 +1000,7 @@ An [`AccessControlList`](xref:accessControl#access-control-lists)<br/>
 
 <a id="opIdDataViews_List Data View Access Rights"></a>
 
-Get access rights to the requested data view for the calling user or client.
+Get access rights to the requested data view for the calling user or client.<br/>
 
 ### Request
 ```text 
@@ -1086,7 +1086,7 @@ HTTP 200 OK
 
 <a id="opIdDataViews_Get Data View Data"></a>
 
-Get data for the provided index parameters with paging. See documentation on paging for further information
+Get data for the provided index parameters with paging. See [documentation on paging](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#paging) for further information.
 
 ### Request
 ```text 
@@ -1182,7 +1182,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/data/inte
 
 <a id="opIdDataViews_Get Data View Owner"></a>
 
-Get the owner `Trustee` of the specified data view.
+Get the owner [`Trustee`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#owner) of the specified data view.
 
 ### Request
 ```text 
@@ -1266,7 +1266,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/owner
 
 <a id="opIdDataViews_Update Data View Owner"></a>
 
-Update the owner `Trustee` of the specified data view.
+Update the owner [`Trustee`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#owner) of the specified data view.
 
 ### Request
 ```text 
@@ -1354,7 +1354,7 @@ A [`Trustee`](xref:accessControl#owner)<br/>
 
 <a id="opIdDataViews_Get Available Field Sets"></a>
 
-Gets the collection of field sets that are available for use in the data view, and which are not already included in the data view.
+Gets the collection of field sets that are available for use in the data view, and which are not already included in the data view.<br/>
 
 ### Request
 ```text 
@@ -1450,7 +1450,7 @@ Content-Type: application/json
 
 <a id="opIdDataViews_Get Data Items by Query"></a>
 
-Gets the paged collection of data items that are the results of an individual query, and which are eligible for use in the current data view. A data view has a collection of zero or more queries. Each query has an identifier. Those identifiers are used here as part of the request path.
+Gets the paged collection of data items that are the results of an individual query, and which are eligible for use in the current data view. A data view has a collection of zero or more queries. Each query has an identifier. Those identifiers are used here as part of the request path.<br/>
 
 ### Request
 ```text 
@@ -1590,7 +1590,7 @@ Content-Type: application/json
 
 <a id="opIdDataViews_Get Field Mappings"></a>
 
-Gets the collection of field mappings resolved for the data view. These show the exact data behind every field, for each data item, for each group.
+Gets the collection of field mappings resolved for the data view. These show the exact data behind every field, for each data item, for each group.<br/>
 
 ### Request
 ```text 
@@ -1735,7 +1735,7 @@ HTTP 200 OK
 
 <a id="opIdDataViews_Get Groups"></a>
 
-Gets the collection of Groups that resolved for a data view.
+Gets the collection of `Group`s that resolved for a data view.
 
 ### Request
 ```text 
@@ -1886,7 +1886,7 @@ Content-Type: application/json
 
 <a id="opIdDataViews_Get Ineligible Data Items by Query"></a>
 
-Gets the paged collection of data items that are the results of an individual query, but which are not eligible for use in the current data view. A common reason for ineligibility is that the item's index property is of a different type than the data view expects. A data view has a collection of zero or more queries. Each query has an identifier. Those identifiers are used here as part of the request path.
+Gets the paged collection of data items that are the results of an individual query, but which are not eligible for use in the current data view. A common reason for ineligibility is that the item's index property is of a different type than the data view expects. A data view has a collection of zero or more queries. Each query has an identifier. Those identifiers are used here as part of the request path.<br/>
 
 ### Request
 ```text 
@@ -2011,7 +2011,7 @@ Content-Type: application/json
 
 <a id="opIdDataViews_Get Statistics"></a>
 
-Gets statistics about the size and shape on how the data view resolved.
+Gets statistics about the size and shape on how the data view resolved. <br/>
 
 ### Request
 ```text 

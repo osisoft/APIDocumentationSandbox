@@ -1,5 +1,5 @@
 ---
-title: Integration/collection-acl v20210414.3
+title: Integration/collection-acl v20210414.4
 language_tabs: []
 toc_footers: []
 includes: []
@@ -12,13 +12,13 @@ generator: osisoft.widdershins v1.0.7
 ---
 
 # Collection Acl
-APIs for working with Data View collection Access Control Lists
+APIs for working with Data View collection Access Control Lists<br/>
 
 ## Get Data Views Access Control List
 
 <a id="opIdCollectionAcl_Get Data Views Access Control List"></a>
 
-Get the default `AccessControlList` for the DataViews collection.
+Get the default [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#access-control-lists) for the DataViews collection.
 
 ### Request
 ```text 
@@ -100,8 +100,6 @@ HTTP 200 OK
 ## Update Data Views Access Control List
 
 <a id="opIdCollectionAcl_Update Data Views Access Control List"></a>
-
-Update the default AccessControlList for the DataViews collection.
 
 ### Request
 ```text 
