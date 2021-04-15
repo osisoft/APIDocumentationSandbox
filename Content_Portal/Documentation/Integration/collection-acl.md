@@ -1,5 +1,5 @@
 ---
-title: Integration/collection-acl v20210414.4
+title: Integration/collection-acl v20210414.5
 language_tabs: []
 toc_footers: []
 includes: []
@@ -114,7 +114,7 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/dataviews
 
 ### Request Body
 
-An [`AccessControlList`](xref:accessControl#access-control-lists)<br/>
+An [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#access-control-lists)<br/>
 
 ```json
 {

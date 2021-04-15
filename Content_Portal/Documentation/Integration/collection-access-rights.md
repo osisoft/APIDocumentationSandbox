@@ -1,5 +1,5 @@
 ---
-title: Integration/collection-access-rights v20210414.4
+title: Integration/collection-access-rights v20210414.5
 language_tabs: []
 toc_footers: []
 includes: []
