@@ -1,5 +1,5 @@
 ---
-title: Integration/collection-acl v20210414.5
+title: Integration/collection-acl v20210414.6
 language_tabs: []
 toc_footers: []
 includes: []
@@ -135,51 +135,24 @@ An [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentati
 |204|None|Successfully updated the default access control list of the data views collection<br/>|
 |400|string|The request is not valid. See the response body for details<br/>|
 |403|string|You are not authorized to update the data views collection's default access control list<br/>|
-|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details.<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Example response body
 > 500 Response
 
 ```json
 {
-  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "Kind": 0,
   "Parameters": {
     "property1": "string",
     "property2": "string"
   },
-  "ChildErrors": [
-    {
-      "OperationId": "string",
-      "Error": "string",
-      "Reason": "string",
-      "Resolution": "string",
-      "Kind": 0,
-      "Parameters": {
-        "property1": "string",
-        "property2": "string"
-      },
-      "ChildErrors": [
-        {
-          "OperationId": "string",
-          "Error": "string",
-          "Reason": "string",
-          "Resolution": "string",
-          "Kind": 0,
-          "Parameters": {
-            "property1": "string",
-            "property2": "string"
-          },
-          "ChildErrors": [
-            {}
-          ]
-        }
-      ]
-    }
-  ]
+  "ChildErrors": {
+    "property1": null,
+    "property2": null
+  }
 }
 ```
 
@@ -345,89 +318,39 @@ An [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentati
 
 ---
 
-## ResultError
+## ErrorResponse
 
-<a id="schemaresulterror"></a>
-<a id="schema_ResultError"></a>
-<a id="tocSresulterror"></a>
-<a id="tocsresulterror"></a>
+<a id="schemaerrorresponse"></a>
+<a id="schema_ErrorResponse"></a>
+<a id="tocSerrorresponse"></a>
+<a id="tocserrorresponse"></a>
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|false|true|None|
 |Error|string|false|true|None|
 |Reason|string|false|true|None|
 |Resolution|string|false|true|None|
-|Kind|[ResultErrorKind](#schemaresulterrorkind)|false|false|None|
 |Parameters|object|false|true|None|
-|ChildErrors|[[ResultError](#schemaresulterror)]|false|true|None|
+|ChildErrors|object|false|true|None|
 
 ```json
 {
-  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "Kind": 0,
   "Parameters": {
     "property1": "string",
     "property2": "string"
   },
-  "ChildErrors": [
-    {
-      "OperationId": "string",
-      "Error": "string",
-      "Reason": "string",
-      "Resolution": "string",
-      "Kind": 0,
-      "Parameters": {
-        "property1": "string",
-        "property2": "string"
-      },
-      "ChildErrors": [
-        {
-          "OperationId": "string",
-          "Error": "string",
-          "Reason": "string",
-          "Resolution": "string",
-          "Kind": 0,
-          "Parameters": {
-            "property1": "string",
-            "property2": "string"
-          },
-          "ChildErrors": [
-            {}
-          ]
-        }
-      ]
-    }
-  ]
+  "ChildErrors": {
+    "property1": null,
+    "property2": null
+  }
 }
 
 ```
-
----
-
-## ResultErrorKind
-
-<a id="schemaresulterrorkind"></a>
-<a id="schema_ResultErrorKind"></a>
-<a id="tocSresulterrorkind"></a>
-<a id="tocsresulterrorkind"></a>
-
-#### Enumerated Values
-
-|Property|Value|
-|---|---|
-|UnspecifiedServerError|0|
-|RequestInvalid|1|
-|ResourceNotFound|2|
-|OperationForbidden|3|
-|OperationInvalid|4|
-|OperationFailed|5|
-|ResourceUnavailable|6|
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Integration/data-views v20210414.5
+title: Integration/data-views v20210414.6
 language_tabs: []
 toc_footers: []
 includes: []
@@ -40,7 +40,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[DataView](#schemadataview)[]|A page of data views. A response header, Total-Count, indicates the total size of the collection.<br/>|
-|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details.<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Response Headers
 
@@ -74,44 +74,17 @@ Content-Type: application/json
 
 ```json
 {
-  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "Kind": 0,
   "Parameters": {
     "property1": "string",
     "property2": "string"
   },
-  "ChildErrors": [
-    {
-      "OperationId": "string",
-      "Error": "string",
-      "Reason": "string",
-      "Resolution": "string",
-      "Kind": 0,
-      "Parameters": {
-        "property1": "string",
-        "property2": "string"
-      },
-      "ChildErrors": [
-        {
-          "OperationId": "string",
-          "Error": "string",
-          "Reason": "string",
-          "Resolution": "string",
-          "Kind": 0,
-          "Parameters": {
-            "property1": "string",
-            "property2": "string"
-          },
-          "ChildErrors": [
-            {}
-          ]
-        }
-      ]
-    }
-  ]
+  "ChildErrors": {
+    "property1": null,
+    "property2": null
+  }
 }
 ```
 
@@ -208,9 +181,9 @@ A `DataView` object whose `Id` is `null` or unspecified.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |201|[DataView](#schemadataview)|The data view as persisted, including values for optional parameters that were omitted in the request.<br/>|
-|400|[ResultError](#schemaresulterror)|The request is not valid. See the response body for details<br/>|
-|403|[ResultError](#schemaresulterror)|You are not authorized to create a data view<br/>|
-|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details.<br/>|
+|400|[ErrorResponse](#schemaerrorresponse)|The request is not valid. See the response body for details<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|You are not authorized to create a data view<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Example response body
 > 201 Response
@@ -234,44 +207,17 @@ Content-Type: application/json
 
 ```json
 {
-  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "Kind": 0,
   "Parameters": {
     "property1": "string",
     "property2": "string"
   },
-  "ChildErrors": [
-    {
-      "OperationId": "string",
-      "Error": "string",
-      "Reason": "string",
-      "Resolution": "string",
-      "Kind": 0,
-      "Parameters": {
-        "property1": "string",
-        "property2": "string"
-      },
-      "ChildErrors": [
-        {
-          "OperationId": "string",
-          "Error": "string",
-          "Reason": "string",
-          "Resolution": "string",
-          "Kind": 0,
-          "Parameters": {
-            "property1": "string",
-            "property2": "string"
-          },
-          "ChildErrors": [
-            {}
-          ]
-        }
-      ]
-    }
-  ]
+  "ChildErrors": {
+    "property1": null,
+    "property2": null
+  }
 }
 ```
 
@@ -300,9 +246,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[DataView](#schemadataview)|The requested data view.<br/>|
-|403|[ResultError](#schemaresulterror)|You are not authorized to view the requested data view<br/>|
-|404|[ResultError](#schemaresulterror)|The specified data view identifier is not found<br/>|
-|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details.<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|You are not authorized to view the requested data view<br/>|
+|404|[ErrorResponse](#schemaerrorresponse)|The specified data view identifier is not found<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Example response body
 > 200 Response
@@ -331,44 +277,17 @@ Content-Type: application/json
 
 ```json
 {
-  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "Kind": 0,
   "Parameters": {
     "property1": "string",
     "property2": "string"
   },
-  "ChildErrors": [
-    {
-      "OperationId": "string",
-      "Error": "string",
-      "Reason": "string",
-      "Resolution": "string",
-      "Kind": 0,
-      "Parameters": {
-        "property1": "string",
-        "property2": "string"
-      },
-      "ChildErrors": [
-        {
-          "OperationId": "string",
-          "Error": "string",
-          "Reason": "string",
-          "Resolution": "string",
-          "Kind": 0,
-          "Parameters": {
-            "property1": "string",
-            "property2": "string"
-          },
-          "ChildErrors": [
-            {}
-          ]
-        }
-      ]
-    }
-  ]
+  "ChildErrors": {
+    "property1": null,
+    "property2": null
+  }
 }
 ```
 
@@ -467,10 +386,10 @@ A `DataView` object whose `Id` is `null` or unspecified.<br/>
 |---|---|---|
 |201|[DataView](#schemadataview)|The data view as persisted, including values for optional parameters that were omitted in the request.<br/>|
 |302|None|The specified data view already exists. A response header, `Location`, indicates the URL where the data view may be retrieved with the `GET` verb|
-|400|[ResultError](#schemaresulterror)|The request is not valid. See the response body for details<br/>|
-|403|[ResultError](#schemaresulterror)|You are not authorized for this operation<br/>|
-|409|[ResultError](#schemaresulterror)|The specified data view conflicts with an existing data view that is not identical. To forcibly update the data view, see *Create Or Update Data View*<br/>|
-|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details.<br/>|
+|400|[ErrorResponse](#schemaerrorresponse)|The request is not valid. See the response body for details<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|You are not authorized for this operation<br/>|
+|409|[ErrorResponse](#schemaerrorresponse)|The specified data view conflicts with an existing data view that is not identical. To forcibly update the data view, see *Create Or Update Data View*<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Example response body
 > 201 Response
@@ -494,44 +413,17 @@ Content-Type: application/json
 
 ```json
 {
-  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "Kind": 0,
   "Parameters": {
     "property1": "string",
     "property2": "string"
   },
-  "ChildErrors": [
-    {
-      "OperationId": "string",
-      "Error": "string",
-      "Reason": "string",
-      "Resolution": "string",
-      "Kind": 0,
-      "Parameters": {
-        "property1": "string",
-        "property2": "string"
-      },
-      "ChildErrors": [
-        {
-          "OperationId": "string",
-          "Error": "string",
-          "Reason": "string",
-          "Resolution": "string",
-          "Kind": 0,
-          "Parameters": {
-            "property1": "string",
-            "property2": "string"
-          },
-          "ChildErrors": [
-            {}
-          ]
-        }
-      ]
-    }
-  ]
+  "ChildErrors": {
+    "property1": null,
+    "property2": null
+  }
 }
 ```
 
@@ -630,9 +522,9 @@ A `DataView` object whose `Id` matches the `dataViewId` in the URL.<br/>
 |---|---|---|
 |201|[DataView](#schemadataview)|The data view as persisted, including values for optional parameters that were omitted in the request.<br/>|
 |204|None|Successfully updated the data view<br/>|
-|400|[ResultError](#schemaresulterror)|The request is not valid. See the response body for details<br/>|
-|403|[ResultError](#schemaresulterror)|You are not authorized for this operation<br/>|
-|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details.<br/>|
+|400|[ErrorResponse](#schemaerrorresponse)|The request is not valid. See the response body for details<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|You are not authorized for this operation<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Example response body
 > 201 Response
@@ -743,54 +635,27 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 |Status Code|Body Type|Description|
 |---|---|---|
 |204|None|Successfully updated the data view<br/>|
-|403|[ResultError](#schemaresulterror)|You are not authorized for this operation<br/>|
-|404|[ResultError](#schemaresulterror)|The specified data view identifier is not found<br/>|
-|409|[ResultError](#schemaresulterror)|None|
-|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details.<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|You are not authorized for this operation<br/>|
+|404|[ErrorResponse](#schemaerrorresponse)|The specified data view identifier is not found<br/>|
+|409|[ErrorResponse](#schemaerrorresponse)|None|
+|500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Example response body
 > 403 Response
 
 ```json
 {
-  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "Kind": 0,
   "Parameters": {
     "property1": "string",
     "property2": "string"
   },
-  "ChildErrors": [
-    {
-      "OperationId": "string",
-      "Error": "string",
-      "Reason": "string",
-      "Resolution": "string",
-      "Kind": 0,
-      "Parameters": {
-        "property1": "string",
-        "property2": "string"
-      },
-      "ChildErrors": [
-        {
-          "OperationId": "string",
-          "Error": "string",
-          "Reason": "string",
-          "Resolution": "string",
-          "Kind": 0,
-          "Parameters": {
-            "property1": "string",
-            "property2": "string"
-          },
-          "ChildErrors": [
-            {}
-          ]
-        }
-      ]
-    }
-  ]
+  "ChildErrors": {
+    "property1": null,
+    "property2": null
+  }
 }
 ```
 
@@ -819,9 +684,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/accesscon
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[AccessControlList](#schemaaccesscontrollist)|The access control list of the requested data view<br/>|
-|403|[ResultError](#schemaresulterror)|You are not authorized to view the requested data view's access control list<br/>|
-|404|[ResultError](#schemaresulterror)|The requested data view was not found<br/>|
-|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details.<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|You are not authorized to view the requested data view's access control list<br/>|
+|404|[ErrorResponse](#schemaerrorresponse)|The requested data view was not found<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Example response body
 > 200 Response
@@ -862,44 +727,17 @@ HTTP 200 OK
 
 ```json
 {
-  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "Kind": 0,
   "Parameters": {
     "property1": "string",
     "property2": "string"
   },
-  "ChildErrors": [
-    {
-      "OperationId": "string",
-      "Error": "string",
-      "Reason": "string",
-      "Resolution": "string",
-      "Kind": 0,
-      "Parameters": {
-        "property1": "string",
-        "property2": "string"
-      },
-      "ChildErrors": [
-        {
-          "OperationId": "string",
-          "Error": "string",
-          "Reason": "string",
-          "Resolution": "string",
-          "Kind": 0,
-          "Parameters": {
-            "property1": "string",
-            "property2": "string"
-          },
-          "ChildErrors": [
-            {}
-          ]
-        }
-      ]
-    }
-  ]
+  "ChildErrors": {
+    "property1": null,
+    "property2": null
+  }
 }
 ```
 
@@ -944,54 +782,27 @@ An [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentati
 |Status Code|Body Type|Description|
 |---|---|---|
 |204|None|Successfully updated the data view access control list<br/>|
-|400|[ResultError](#schemaresulterror)|The request is not valid. See the response body for details<br/>|
-|403|[ResultError](#schemaresulterror)|You are not authorized to update the requested data view's access control list<br/>|
-|404|[ResultError](#schemaresulterror)|The requested data view was not found<br/>|
-|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details.<br/>|
+|400|[ErrorResponse](#schemaerrorresponse)|The request is not valid. See the response body for details<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|You are not authorized to update the requested data view's access control list<br/>|
+|404|[ErrorResponse](#schemaerrorresponse)|The requested data view was not found<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Example response body
 > 400 Response
 
 ```json
 {
-  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "Kind": 0,
   "Parameters": {
     "property1": "string",
     "property2": "string"
   },
-  "ChildErrors": [
-    {
-      "OperationId": "string",
-      "Error": "string",
-      "Reason": "string",
-      "Resolution": "string",
-      "Kind": 0,
-      "Parameters": {
-        "property1": "string",
-        "property2": "string"
-      },
-      "ChildErrors": [
-        {
-          "OperationId": "string",
-          "Error": "string",
-          "Reason": "string",
-          "Resolution": "string",
-          "Kind": 0,
-          "Parameters": {
-            "property1": "string",
-            "property2": "string"
-          },
-          "ChildErrors": [
-            {}
-          ]
-        }
-      ]
-    }
-  ]
+  "ChildErrors": {
+    "property1": null,
+    "property2": null
+  }
 }
 ```
 
@@ -1020,9 +831,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/accessrig
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|Inline|A list of access rights to the requested data view<br/>|
-|403|[ResultError](#schemaresulterror)|You are not authorized for this operation<br/>|
-|404|[ResultError](#schemaresulterror)|The requested data view was not found<br/>|
-|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details.<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|You are not authorized for this operation<br/>|
+|404|[ErrorResponse](#schemaerrorresponse)|The requested data view was not found<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Example response body
 > 200 Response
@@ -1040,44 +851,17 @@ HTTP 200 OK
 
 ```json
 {
-  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "Kind": 0,
   "Parameters": {
     "property1": "string",
     "property2": "string"
   },
-  "ChildErrors": [
-    {
-      "OperationId": "string",
-      "Error": "string",
-      "Reason": "string",
-      "Resolution": "string",
-      "Kind": 0,
-      "Parameters": {
-        "property1": "string",
-        "property2": "string"
-      },
-      "ChildErrors": [
-        {
-          "OperationId": "string",
-          "Error": "string",
-          "Reason": "string",
-          "Resolution": "string",
-          "Kind": 0,
-          "Parameters": {
-            "property1": "string",
-            "property2": "string"
-          },
-          "ChildErrors": [
-            {}
-          ]
-        }
-      ]
-    }
-  ]
+  "ChildErrors": {
+    "property1": null,
+    "property2": null
+  }
 }
 ```
 
@@ -1126,54 +910,27 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/data/inte
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|None|Successfully retrieved data.<br/>|
-|400|[ResultError](#schemaresulterror)|The request could not be understood by the server due to malformed syntax.<br/>|
-|403|[ResultError](#schemaresulterror)|You are not authorized for this operation<br/>|
-|404|[ResultError](#schemaresulterror)|The specified data view identifier is not found<br/>|
-|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details.<br/>|
+|400|[ErrorResponse](#schemaerrorresponse)|The request could not be understood by the server due to malformed syntax.<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|You are not authorized for this operation<br/>|
+|404|[ErrorResponse](#schemaerrorresponse)|The specified data view identifier is not found<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Example response body
 > 400 Response
 
 ```json
 {
-  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "Kind": 0,
   "Parameters": {
     "property1": "string",
     "property2": "string"
   },
-  "ChildErrors": [
-    {
-      "OperationId": "string",
-      "Error": "string",
-      "Reason": "string",
-      "Resolution": "string",
-      "Kind": 0,
-      "Parameters": {
-        "property1": "string",
-        "property2": "string"
-      },
-      "ChildErrors": [
-        {
-          "OperationId": "string",
-          "Error": "string",
-          "Reason": "string",
-          "Resolution": "string",
-          "Kind": 0,
-          "Parameters": {
-            "property1": "string",
-            "property2": "string"
-          },
-          "ChildErrors": [
-            {}
-          ]
-        }
-      ]
-    }
-  ]
+  "ChildErrors": {
+    "property1": null,
+    "property2": null
+  }
 }
 ```
 
@@ -1202,9 +959,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/owner
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[Trustee](#schematrustee)|The owner of the requested data view<br/>|
-|403|[ResultError](#schemaresulterror)|You are not authorized to view the requested data view's owner<br/>|
-|404|[ResultError](#schemaresulterror)|The requested data view was not found<br/>|
-|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details.<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|You are not authorized to view the requested data view's owner<br/>|
+|404|[ErrorResponse](#schemaerrorresponse)|The requested data view was not found<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Example response body
 > 200 Response
@@ -1220,44 +977,17 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/owner
 
 ```json
 {
-  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "Kind": 0,
   "Parameters": {
     "property1": "string",
     "property2": "string"
   },
-  "ChildErrors": [
-    {
-      "OperationId": "string",
-      "Error": "string",
-      "Reason": "string",
-      "Resolution": "string",
-      "Kind": 0,
-      "Parameters": {
-        "property1": "string",
-        "property2": "string"
-      },
-      "ChildErrors": [
-        {
-          "OperationId": "string",
-          "Error": "string",
-          "Reason": "string",
-          "Resolution": "string",
-          "Kind": 0,
-          "Parameters": {
-            "property1": "string",
-            "property2": "string"
-          },
-          "ChildErrors": [
-            {}
-          ]
-        }
-      ]
-    }
-  ]
+  "ChildErrors": {
+    "property1": null,
+    "property2": null
+  }
 }
 ```
 
@@ -1298,54 +1028,27 @@ A [`Trustee`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_C
 |Status Code|Body Type|Description|
 |---|---|---|
 |204|None|Successfully updated the data view owner<br/>|
-|400|[ResultError](#schemaresulterror)|The request is not valid. See the response body for details<br/>|
-|403|[ResultError](#schemaresulterror)|You are not authorized to update the requested data view's owner<br/>|
-|404|[ResultError](#schemaresulterror)|The requested data view was not found<br/>|
-|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details.<br/>|
+|400|[ErrorResponse](#schemaerrorresponse)|The request is not valid. See the response body for details<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|You are not authorized to update the requested data view's owner<br/>|
+|404|[ErrorResponse](#schemaerrorresponse)|The requested data view was not found<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Example response body
 > 400 Response
 
 ```json
 {
-  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "Kind": 0,
   "Parameters": {
     "property1": "string",
     "property2": "string"
   },
-  "ChildErrors": [
-    {
-      "OperationId": "string",
-      "Error": "string",
-      "Reason": "string",
-      "Resolution": "string",
-      "Kind": 0,
-      "Parameters": {
-        "property1": "string",
-        "property2": "string"
-      },
-      "ChildErrors": [
-        {
-          "OperationId": "string",
-          "Error": "string",
-          "Reason": "string",
-          "Resolution": "string",
-          "Kind": 0,
-          "Parameters": {
-            "property1": "string",
-            "property2": "string"
-          },
-          "ChildErrors": [
-            {}
-          ]
-        }
-      ]
-    }
-  ]
+  "ChildErrors": {
+    "property1": null,
+    "property2": null
+  }
 }
 ```
 
@@ -1377,9 +1080,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[ResolvedItemsOfFieldSet](#schemaresolveditemsoffieldset)|An object with a "TimeOfResolution" and a collection of "Items", the `FieldSet`s that resolved and which are still available|
-|403|[ResultError](#schemaresulterror)|You are not authorized for this operation<br/>|
-|404|[ResultError](#schemaresulterror)|The requested data view was not found<br/>|
-|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details.<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|You are not authorized for this operation<br/>|
+|404|[ErrorResponse](#schemaerrorresponse)|The requested data view was not found<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Example response body
 > 200 Response
@@ -1404,44 +1107,17 @@ Content-Type: application/json
 
 ```json
 {
-  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "Kind": 0,
   "Parameters": {
     "property1": "string",
     "property2": "string"
   },
-  "ChildErrors": [
-    {
-      "OperationId": "string",
-      "Error": "string",
-      "Reason": "string",
-      "Resolution": "string",
-      "Kind": 0,
-      "Parameters": {
-        "property1": "string",
-        "property2": "string"
-      },
-      "ChildErrors": [
-        {
-          "OperationId": "string",
-          "Error": "string",
-          "Reason": "string",
-          "Resolution": "string",
-          "Kind": 0,
-          "Parameters": {
-            "property1": "string",
-            "property2": "string"
-          },
-          "ChildErrors": [
-            {}
-          ]
-        }
-      ]
-    }
-  ]
+  "ChildErrors": {
+    "property1": null,
+    "property2": null
+  }
 }
 ```
 
@@ -1476,9 +1152,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[ResolvedItemsOfDataItem](#schemaresolveditemsofdataitem)|An object with a "TimeOfResolution" and a collection of "Items", the `DataItem`s that resolved.|
-|403|[ResultError](#schemaresulterror)|You are not authorized for this operation<br/>|
-|404|[ResultError](#schemaresulterror)|The data view or query does not exist<br/>|
-|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details.<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|You are not authorized for this operation<br/>|
+|404|[ErrorResponse](#schemaerrorresponse)|The data view or query does not exist<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Response Headers
 
@@ -1544,44 +1220,17 @@ Content-Type: application/json
 
 ```json
 {
-  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "Kind": 0,
   "Parameters": {
     "property1": "string",
     "property2": "string"
   },
-  "ChildErrors": [
-    {
-      "OperationId": "string",
-      "Error": "string",
-      "Reason": "string",
-      "Resolution": "string",
-      "Kind": 0,
-      "Parameters": {
-        "property1": "string",
-        "property2": "string"
-      },
-      "ChildErrors": [
-        {
-          "OperationId": "string",
-          "Error": "string",
-          "Reason": "string",
-          "Resolution": "string",
-          "Kind": 0,
-          "Parameters": {
-            "property1": "string",
-            "property2": "string"
-          },
-          "ChildErrors": [
-            {}
-          ]
-        }
-      ]
-    }
-  ]
+  "ChildErrors": {
+    "property1": null,
+    "property2": null
+  }
 }
 ```
 
@@ -1615,9 +1264,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[ResolvedItemsOfFieldMapping](#schemaresolveditemsoffieldmapping)|An object with a "TimeOfResolution" and a collection of "Items", the `FieldMapping`s that resolved.|
-|403|[ResultError](#schemaresulterror)|You are not authorized for this operation<br/>|
-|404|[ResultError](#schemaresulterror)|The data view or query does not exist<br/>|
-|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details.<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|You are not authorized for this operation<br/>|
+|404|[ErrorResponse](#schemaerrorresponse)|The data view or query does not exist<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Response Headers
 
@@ -1689,44 +1338,17 @@ HTTP 200 OK
 
 ```json
 {
-  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "Kind": 0,
   "Parameters": {
     "property1": "string",
     "property2": "string"
   },
-  "ChildErrors": [
-    {
-      "OperationId": "string",
-      "Error": "string",
-      "Reason": "string",
-      "Resolution": "string",
-      "Kind": 0,
-      "Parameters": {
-        "property1": "string",
-        "property2": "string"
-      },
-      "ChildErrors": [
-        {
-          "OperationId": "string",
-          "Error": "string",
-          "Reason": "string",
-          "Resolution": "string",
-          "Kind": 0,
-          "Parameters": {
-            "property1": "string",
-            "property2": "string"
-          },
-          "ChildErrors": [
-            {}
-          ]
-        }
-      ]
-    }
-  ]
+  "ChildErrors": {
+    "property1": null,
+    "property2": null
+  }
 }
 ```
 
@@ -1760,9 +1382,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[ResolvedItemsOfGroup](#schemaresolveditemsofgroup)|An object with a "TimeOfResolution" and a collection of "Items", the `Group`s that resolved.|
-|403|[ResultError](#schemaresulterror)|You are not authorized for this operation<br/>|
-|404|[ResultError](#schemaresulterror)|The requested data view was not found<br/>|
-|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details.<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|You are not authorized for this operation<br/>|
+|404|[ErrorResponse](#schemaerrorresponse)|The requested data view was not found<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Response Headers
 
@@ -1840,44 +1462,17 @@ Content-Type: application/json
 
 ```json
 {
-  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "Kind": 0,
   "Parameters": {
     "property1": "string",
     "property2": "string"
   },
-  "ChildErrors": [
-    {
-      "OperationId": "string",
-      "Error": "string",
-      "Reason": "string",
-      "Resolution": "string",
-      "Kind": 0,
-      "Parameters": {
-        "property1": "string",
-        "property2": "string"
-      },
-      "ChildErrors": [
-        {
-          "OperationId": "string",
-          "Error": "string",
-          "Reason": "string",
-          "Resolution": "string",
-          "Kind": 0,
-          "Parameters": {
-            "property1": "string",
-            "property2": "string"
-          },
-          "ChildErrors": [
-            {}
-          ]
-        }
-      ]
-    }
-  ]
+  "ChildErrors": {
+    "property1": null,
+    "property2": null
+  }
 }
 ```
 
@@ -1912,9 +1507,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[ResolvedItemsOfDataItem](#schemaresolveditemsofdataitem)|An object with a "TimeOfResolution" and a collection of "Items", the `DataItem`s that resolved.|
-|403|[ResultError](#schemaresulterror)|You are not authorized for this operation<br/>|
-|404|[ResultError](#schemaresulterror)|The data view or query does not exist<br/>|
-|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details.<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|You are not authorized for this operation<br/>|
+|404|[ErrorResponse](#schemaerrorresponse)|The data view or query does not exist<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Response Headers
 
@@ -1965,44 +1560,17 @@ Content-Type: application/json
 
 ```json
 {
-  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "Kind": 0,
   "Parameters": {
     "property1": "string",
     "property2": "string"
   },
-  "ChildErrors": [
-    {
-      "OperationId": "string",
-      "Error": "string",
-      "Reason": "string",
-      "Resolution": "string",
-      "Kind": 0,
-      "Parameters": {
-        "property1": "string",
-        "property2": "string"
-      },
-      "ChildErrors": [
-        {
-          "OperationId": "string",
-          "Error": "string",
-          "Reason": "string",
-          "Resolution": "string",
-          "Kind": 0,
-          "Parameters": {
-            "property1": "string",
-            "property2": "string"
-          },
-          "ChildErrors": [
-            {}
-          ]
-        }
-      ]
-    }
-  ]
+  "ChildErrors": {
+    "property1": null,
+    "property2": null
+  }
 }
 ```
 
@@ -2034,9 +1602,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[ResolvedItemOfStatistics](#schemaresolveditemofstatistics)|Successfully retrieved data.<br/>|
-|403|[ResultError](#schemaresulterror)|You are not authorized for this operation<br/>|
-|404|[ResultError](#schemaresulterror)|https://raw.githubusercontent.com/stanasse/OCS-Docs/patch-3/content/external-references/dataviews-response-codes.yaml#404-dataviewid-standard-message|
-|500|[ResultError](#schemaresulterror)|An error occurred while processing the request. See the response body for details.<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|You are not authorized for this operation<br/>|
+|404|[ErrorResponse](#schemaerrorresponse)|https://raw.githubusercontent.com/stanasse/OCS-Docs/patch-3/content/external-references/dataviews-response-codes.yaml#404-dataviewid-standard-message|
+|500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Example response body
 > 200 Response
@@ -2086,44 +1654,17 @@ HTTP 200 OK
 
 ```json
 {
-  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "Kind": 0,
   "Parameters": {
     "property1": "string",
     "property2": "string"
   },
-  "ChildErrors": [
-    {
-      "OperationId": "string",
-      "Error": "string",
-      "Reason": "string",
-      "Resolution": "string",
-      "Kind": 0,
-      "Parameters": {
-        "property1": "string",
-        "property2": "string"
-      },
-      "ChildErrors": [
-        {
-          "OperationId": "string",
-          "Error": "string",
-          "Reason": "string",
-          "Resolution": "string",
-          "Kind": 0,
-          "Parameters": {
-            "property1": "string",
-            "property2": "string"
-          },
-          "ChildErrors": [
-            {}
-          ]
-        }
-      ]
-    }
-  ]
+  "ChildErrors": {
+    "property1": null,
+    "property2": null
+  }
 }
 ```
 
@@ -2554,89 +2095,39 @@ HTTP 200 OK
 
 ---
 
-## ResultError
+## ErrorResponse
 
-<a id="schemaresulterror"></a>
-<a id="schema_ResultError"></a>
-<a id="tocSresulterror"></a>
-<a id="tocsresulterror"></a>
+<a id="schemaerrorresponse"></a>
+<a id="schema_ErrorResponse"></a>
+<a id="tocSerrorresponse"></a>
+<a id="tocserrorresponse"></a>
 
 ### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|false|true|None|
 |Error|string|false|true|None|
 |Reason|string|false|true|None|
 |Resolution|string|false|true|None|
-|Kind|[ResultErrorKind](#schemaresulterrorkind)|false|false|None|
 |Parameters|object|false|true|None|
-|ChildErrors|[[ResultError](#schemaresulterror)]|false|true|None|
+|ChildErrors|object|false|true|None|
 
 ```json
 {
-  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "Kind": 0,
   "Parameters": {
     "property1": "string",
     "property2": "string"
   },
-  "ChildErrors": [
-    {
-      "OperationId": "string",
-      "Error": "string",
-      "Reason": "string",
-      "Resolution": "string",
-      "Kind": 0,
-      "Parameters": {
-        "property1": "string",
-        "property2": "string"
-      },
-      "ChildErrors": [
-        {
-          "OperationId": "string",
-          "Error": "string",
-          "Reason": "string",
-          "Resolution": "string",
-          "Kind": 0,
-          "Parameters": {
-            "property1": "string",
-            "property2": "string"
-          },
-          "ChildErrors": [
-            {}
-          ]
-        }
-      ]
-    }
-  ]
+  "ChildErrors": {
+    "property1": null,
+    "property2": null
+  }
 }
 
 ```
-
----
-
-## ResultErrorKind
-
-<a id="schemaresulterrorkind"></a>
-<a id="schema_ResultErrorKind"></a>
-<a id="tocSresulterrorkind"></a>
-<a id="tocsresulterrorkind"></a>
-
-#### Enumerated Values
-
-|Property|Value|
-|---|---|
-|UnspecifiedServerError|0|
-|RequestInvalid|1|
-|ResourceNotFound|2|
-|OperationForbidden|3|
-|OperationInvalid|4|
-|OperationFailed|5|
-|ResourceUnavailable|6|
 
 ---
 
