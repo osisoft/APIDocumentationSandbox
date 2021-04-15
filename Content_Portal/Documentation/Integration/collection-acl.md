@@ -1,5 +1,5 @@
 ---
-title: Integration/collection-acl v20210414.6
+title: Integration/collection-acl v20210415.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -142,6 +142,7 @@ An [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentati
 
 ```json
 {
+  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
@@ -329,6 +330,7 @@ An [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentati
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
+|OperationId|string|false|true|None|
 |Error|string|false|true|None|
 |Reason|string|false|true|None|
 |Resolution|string|false|true|None|
@@ -337,6 +339,7 @@ An [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentati
 
 ```json
 {
+  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",

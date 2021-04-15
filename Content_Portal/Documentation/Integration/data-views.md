@@ -1,5 +1,5 @@
 ---
-title: Integration/data-views v20210414.6
+title: Integration/data-views v20210415.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -74,6 +74,7 @@ Content-Type: application/json
 
 ```json
 {
+  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
@@ -207,6 +208,7 @@ Content-Type: application/json
 
 ```json
 {
+  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
@@ -277,6 +279,7 @@ Content-Type: application/json
 
 ```json
 {
+  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
@@ -413,6 +416,7 @@ Content-Type: application/json
 
 ```json
 {
+  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
@@ -645,6 +649,7 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 
 ```json
 {
+  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
@@ -727,6 +732,7 @@ HTTP 200 OK
 
 ```json
 {
+  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
@@ -792,6 +798,7 @@ An [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentati
 
 ```json
 {
+  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
@@ -851,6 +858,7 @@ HTTP 200 OK
 
 ```json
 {
+  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
@@ -920,6 +928,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/data/inte
 
 ```json
 {
+  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
@@ -977,6 +986,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/owner
 
 ```json
 {
+  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
@@ -1038,6 +1048,7 @@ A [`Trustee`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_C
 
 ```json
 {
+  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
@@ -1107,6 +1118,7 @@ Content-Type: application/json
 
 ```json
 {
+  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
@@ -1220,6 +1232,7 @@ Content-Type: application/json
 
 ```json
 {
+  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
@@ -1338,6 +1351,7 @@ HTTP 200 OK
 
 ```json
 {
+  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
@@ -1462,6 +1476,7 @@ Content-Type: application/json
 
 ```json
 {
+  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
@@ -1560,6 +1575,7 @@ Content-Type: application/json
 
 ```json
 {
+  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
@@ -1654,6 +1670,7 @@ HTTP 200 OK
 
 ```json
 {
+  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
@@ -2106,6 +2123,7 @@ HTTP 200 OK
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
+|OperationId|string|false|true|None|
 |Error|string|false|true|None|
 |Reason|string|false|true|None|
 |Resolution|string|false|true|None|
@@ -2114,6 +2132,7 @@ HTTP 200 OK
 
 ```json
 {
+  "OperationId": "string",
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
