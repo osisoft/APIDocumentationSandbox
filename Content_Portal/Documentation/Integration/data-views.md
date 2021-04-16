@@ -1,5 +1,5 @@
 ---
-title: Integration/data-views v20210416.2
+title: Integration/data-views v20210416.3
 language_tabs: []
 toc_footers: []
 includes: []
@@ -922,6 +922,14 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/data/inte
 |404|[ErrorResponse](#schemaerrorresponse)|The specified data view identifier is not found<br/>|
 |500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
+#### Response Headers
+
+|Status|Header|Type|Description|
+|---|---|---|---|
+|200|Link|string|Hyperlinks to the first page and next page of data as applicable. Absence of the next link indicates that there is no additional data to be retrieved.<br/>|
+|200|Next-Page|string|Hyperlink to the next page of results<br/>|
+|200|First-Page|string|Hyperlink to the first page of results<br/>|
+
 #### Example response body
 > 200 Response
 
@@ -1645,7 +1653,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 |---|---|---|
 |200|[ResolvedItemOfStatistics](#schemaresolveditemofstatistics)|Successfully retrieved data.<br/>|
 |403|[ErrorResponse](#schemaerrorresponse)|You are not authorized for this operation<br/>|
-|404|[ErrorResponse](#schemaerrorresponse)|https://raw.githubusercontent.com/stanasse/OCS-Docs/patch-3/content/external-references/dataviews-response-codes.yaml#404-dataviewid-standard-message|
+|404|[ErrorResponse](#schemaerrorresponse)|The specified data view identifier is not found<br/>|
 |500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Example response body
