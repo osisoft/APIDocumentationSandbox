@@ -1,5 +1,5 @@
 ---
-title: Integration/data-views-preview v20210416.3
+title: Integration/data-views-preview v20210416.4
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,9 +14,9 @@ generator: osisoft.widdershins v1.0.7
 # Data Views Preview
 APIs for previewing data view methods without saving the data view<br/>
 
-## Get Data View Data
+## Get Data View Interpolated Data
 
-<a id="opIdDataViewsPreview_Get Data View Data"></a>
+<a id="opIdDataViewsPreview_Get Data View Interpolated Data"></a>
 
 Gets data for the provided data view and index parameters with paging. See [documentation on paging](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#paging) for further information.
 
@@ -120,7 +120,7 @@ A `DataView` object to get the results for.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|string|Successfully retrieved data.<br/>|
-|400|[ErrorResponse](#schemaerrorresponse)|The request could not be understood by the server due to malformed syntax.<br/>|
+|400|[ErrorResponse](#schemaerrorresponse)|The data view or the query parameters are not valid. See the response body for details.<br/>|
 |403|[ErrorResponse](#schemaerrorresponse)|You are not authorized for this operation<br/>|
 |500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
@@ -272,30 +272,20 @@ A `DataView` object to get the results for.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[ResolvedItemsOfFieldSet](#schemaresolveditemsoffieldset)|An object with a "TimeOfResolution" and a collection of "Items", the `FieldSet`s that resolved and which are still available|
+|400|[ErrorResponse](#schemaerrorresponse)|The data view or the query parameters are not valid. See the response body for details.<br/>|
 |403|[ErrorResponse](#schemaerrorresponse)|You are not authorized for this operation<br/>|
-|404|[ErrorResponse](#schemaerrorresponse)|The requested data view was not found<br/>|
 |500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Example response body
 > 200 Response
 
 ```json
-HTTP 200 OK
-Content-Type: application/json  
 {
-  [
-    {
-      "Id": "demo view 1",
-      ... etc.
-    },
-    {
-      "Id": "demo view 2",
-      ... etc.
-    }
-  ]
+  "Invalid URL": null
 }
 ```
-> 403 Response
+
+> 400 Response
 
 ```json
 {
@@ -412,8 +402,8 @@ A `DataView` object to get the results for.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[ResolvedItemsOfDataItem](#schemaresolveditemsofdataitem)|An object with a "TimeOfResolution" and a collection of "Items", the `DataItem`s that resolved.|
+|400|[ErrorResponse](#schemaerrorresponse)|The data view or the query parameters are not valid. See the response body for details.<br/>|
 |403|[ErrorResponse](#schemaerrorresponse)|You are not authorized for this operation<br/>|
-|404|[ErrorResponse](#schemaerrorresponse)|The data view or query does not exist<br/>|
 |500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Response Headers
@@ -476,7 +466,7 @@ Content-Type: application/json
   ]
 }
 ```
-> 403 Response
+> 400 Response
 
 ```json
 {
@@ -592,8 +582,7 @@ A `DataView` object to get the results for.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[ResolvedItemsOfFieldMapping](#schemaresolveditemsoffieldmapping)|An object with a "TimeOfResolution" and a collection of "Items", the `FieldMapping`s that resolved.|
-|403|[ErrorResponse](#schemaerrorresponse)|You are not authorized for this operation<br/>|
-|404|[ErrorResponse](#schemaerrorresponse)|The data view or query does not exist<br/>|
+|400|[ErrorResponse](#schemaerrorresponse)|The data view or the query parameters are not valid. See the response body for details.<br/>|
 |500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Response Headers
@@ -662,7 +651,7 @@ HTTP 200 OK
     ]
 }
 ```
-> 403 Response
+> 400 Response
 
 ```json
 {
@@ -778,6 +767,7 @@ A `DataView` object to get the results for.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[ResolvedItemsOfGroup](#schemaresolveditemsofgroup)|An object with a "TimeOfResolution" and a collection of "Items", the `Group`s that resolved.|
+|400|[ErrorResponse](#schemaerrorresponse)|The data view or the query parameters are not valid. See the response body for details.<br/>|
 |403|[ErrorResponse](#schemaerrorresponse)|You are not authorized for this operation<br/>|
 |500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
@@ -853,7 +843,7 @@ Content-Type: application/json
   ]
 }
 ```
-> 403 Response
+> 400 Response
 
 ```json
 {
@@ -891,7 +881,7 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/dataviews/resol
 `string tenantId`
 <br/>Tenant identifier<br/><br/><br/>`string namespaceId`
 <br/>Namespace identifier<br/><br/><br/>`string queryId`
-<br/>Cancellation token<br/><br/><br/>
+<br/>Query identifier<br/><br/><br/>
 `[optional] integer skip`
 <br/>An optional parameter representing the zero-based offset of the first data item to retrieve. If not specified, a default value of 0 is used.<br/><br/><br/>`[optional] integer count`
 <br/>An optional parameter representing the maximum number of data items to retrieve. If not specified, a default value of 100 is used.<br/><br/><br/>
@@ -970,8 +960,8 @@ A `DataView` object to get the results for.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[ResolvedItemsOfDataItem](#schemaresolveditemsofdataitem)|An object with a "TimeOfResolution" and a collection of "Items", the `DataItem`s that resolved.|
+|400|[ErrorResponse](#schemaerrorresponse)|The data view or the query parameters are not valid. See the response body for details.<br/>|
 |403|[ErrorResponse](#schemaerrorresponse)|You are not authorized for this operation<br/>|
-|404|[ErrorResponse](#schemaerrorresponse)|The data view or query does not exist<br/>|
 |500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Response Headers
@@ -1019,7 +1009,7 @@ Content-Type: application/json
 }
 ```
 # access control responses
-> 403 Response
+> 400 Response
 
 ```json
 {
@@ -1131,8 +1121,8 @@ A `DataView` object to get the results for.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[ResolvedItemOfStatistics](#schemaresolveditemofstatistics)|Successfully retrieved data.<br/>|
+|400|[ErrorResponse](#schemaerrorresponse)|The data view or the query parameters are not valid. See the response body for details.<br/>|
 |403|[ErrorResponse](#schemaerrorresponse)|You are not authorized for this operation<br/>|
-|404|[ErrorResponse](#schemaerrorresponse)|The specified data view identifier is not found<br/>|
 |500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Example response body
@@ -1179,7 +1169,7 @@ HTTP 200 OK
     ]
 }
 ```
-> 403 Response
+> 400 Response
 
 ```json
 {

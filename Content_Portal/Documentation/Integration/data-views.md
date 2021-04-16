@@ -1,5 +1,5 @@
 ---
-title: Integration/data-views v20210416.3
+title: Integration/data-views v20210416.4
 language_tabs: []
 toc_footers: []
 includes: []
@@ -874,9 +874,9 @@ HTTP 200 OK
 
 ---
 
-## Get Data View Data
+## Get Data View Interpolated Data
 
-<a id="opIdDataViews_Get Data View Data"></a>
+<a id="opIdDataViews_Get Data View Interpolated Data"></a>
 
 Gets data for the provided index parameters with paging. See [documentation on paging](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#paging) for further information.
 
@@ -1134,18 +1134,45 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 
 ```json
 HTTP 200 OK
-Content-Type: application/json  
 {
-  [
-    {
-      "Id": "demo view 1",
-      ... etc.
-    },
-    {
-      "Id": "demo view 2",
-      ... etc.
-    }
-  ]
+    "TimeOfResolution": "2019-12-13T01:23:45Z",
+    "Items": [
+        {
+            "QueryId": "weather",
+            "DataFields": [
+                {
+                    "Source": "Id",
+                    "Keys": [],
+                    "Label": "{IdentifyingValue} Id"
+                },
+                {
+                    "Source": "PropertyId",
+                    "Keys": [
+                        "SolarRadiation"
+                    ],
+                    "Label": "{IdentifyingValue} SolarRadiation {Uom} {SummaryType}"
+                },
+                {
+                    "Source": "Metadata",
+                    "Keys": [
+                        "Site"
+                    ],
+                    "Label": "{IdentifyingValue} Site {Uom}"
+                },
+                {
+                    "Source": "Tags",
+                    "Keys": [
+                        "Weather",
+                        "Low Resolution",
+                        "High Resolution",
+                        "Gen1",
+                        "Gen2",
+                    ],
+                    "Label": "{IdentifyingValue} Tags"
+                }
+            ]
+        }
+    ]
 }
 ```
 > 403 Response
@@ -1545,7 +1572,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/resolved/
 <br/>Tenant identifier<br/><br/><br/>`string namespaceId`
 <br/>Namespace identifier<br/><br/><br/>`string id`
 <br/>Data view identifier<br/><br/><br/>`string queryId`
-<br/>Cancellation token<br/><br/><br/>
+<br/>Query identifier<br/><br/><br/>
 `[optional] string cache`
 <br/>"Refresh" to force the resource to re-resolve.<br/>"Preserve" to use cached information, if available. This is the default value<br/><br/><br/>`[optional] integer skip`
 <br/>An optional parameter representing the zero-based offset of the first data item to retrieve. If not specified, a default value of 0 is used.<br/><br/><br/>`[optional] integer count`
