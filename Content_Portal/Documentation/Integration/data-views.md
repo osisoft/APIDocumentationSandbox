@@ -1,5 +1,5 @@
 ---
-title: Integration/data-views v20210415.1
+title: Integration/data-views v20210416.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -95,7 +95,7 @@ Content-Type: application/json
 
 <a id="opIdDataViews_Create Data View"></a>
 
-Create a new data view with a system-generated identifier.<br/>
+Creates a new data view with a system-generated identifier.<br/>
 
 ### Request
 ```text 
@@ -300,7 +300,7 @@ Content-Type: application/json
 
 <a id="opIdDataViews_Get or Create Data View"></a>
 
-This call creates the specified data view. If a data view with the same id already exists, the existing data view is compared with the specified data view. If they are identical, a redirect (`302 Found`) is returned with the `Location` response header indicating the URL where the data view may be retrieved using a Get function. If the data views do not match, the request fails with `409 Conflict`.
+This method creates the specified data view. If a data view with the same id already exists, the existing data view is compared with the specified data view. If they are identical, a redirect (`302 Found`) is returned with the `Location` response header indicating the URL where the data view may be retrieved using a Get function. If the data views do not match, the request fails with `409 Conflict`.
 
 ### Request
 ```text 
@@ -620,7 +620,7 @@ A `DataView` object whose `Id` matches the `dataViewId` in the URL.<br/>
 
 <a id="opIdDataViews_Delete Data View"></a>
 
-Delete the data view with the specified id.<br/>
+Deletes the data view with the specified id.<br/>
 
 ### Request
 ```text 
@@ -641,7 +641,6 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 |204|None|Successfully updated the data view<br/>|
 |403|[ErrorResponse](#schemaerrorresponse)|You are not authorized for this operation<br/>|
 |404|[ErrorResponse](#schemaerrorresponse)|The specified data view identifier is not found<br/>|
-|409|[ErrorResponse](#schemaerrorresponse)|None|
 |500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Example response body
@@ -670,7 +669,7 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 
 <a id="opIdDataViews_Get Data View Access Control List"></a>
 
-Get the default [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#access-control-lists) for the DataViews collection.
+Gets the default [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#access-control-lists) for the DataViews collection.
 
 ### Request
 ```text 
@@ -753,7 +752,7 @@ HTTP 200 OK
 
 <a id="opIdDataViews_Update Data View Access Control List"></a>
 
-Update the default [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#access-control-lists) for the DataViews collection.
+Updates the default [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#access-control-lists) for the DataViews collection.
 
 ### Request
 ```text 
@@ -819,7 +818,7 @@ An [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentati
 
 <a id="opIdDataViews_List Data View Access Rights"></a>
 
-Get access rights to the requested data view for the calling user or client.<br/>
+Gets the access rights to the requested data view for the calling user or client.<br/>
 
 ### Request
 ```text 
@@ -879,7 +878,7 @@ HTTP 200 OK
 
 <a id="opIdDataViews_Get Data View Data"></a>
 
-Get data for the provided index parameters with paging. See [documentation on paging](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#paging) for further information.
+Gets data for the provided index parameters with paging. See [documentation on paging](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#paging) for further information.
 
 ### Request
 ```text 
@@ -917,13 +916,40 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/data/inte
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|None|Successfully retrieved data.<br/>|
+|200|string|Successfully retrieved data.<br/>|
 |400|[ErrorResponse](#schemaerrorresponse)|The request could not be understood by the server due to malformed syntax.<br/>|
 |403|[ErrorResponse](#schemaerrorresponse)|You are not authorized for this operation<br/>|
 |404|[ErrorResponse](#schemaerrorresponse)|The specified data view identifier is not found<br/>|
 |500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Example response body
+> 200 Response
+
+```json
+{
+  "1": {
+    "value": "```json\nform=default\nHTTP 200 OK\nContent-Type: application/json\n[\n    {\n        \"Time\": \"2018-01-01T00:00:00Z\",\n        \"Temperature\": 24,\n        \"Flowrate\": 44,\n        \"Volume\": 245\n    },\n    {\n        \"Time\": \"2018-01-01T00:00:01Z\",\n        \"Temperature\": 24,\n        \"Flowrate\": 44,\n        \"Volume\": 245\n    },\n    {\n        \"Time\": \"2018-01-01T00:00:02Z\",\n        \"Temperature\": 24,\n        \"Flowrate\": 44,\n        \"Volume\": 245\n    }\n]\n```\n",
+    "HrefFileType": "markdown"
+  },
+  "2": {
+    "value": "```json\nform=table\nHTTP 200 OK\nContent-Type: application/json\n{\n   \"Columns\": [\n      {\n          \"Name\": \"Time\",\n          \"Type\": \"DateTime\"\n      },\n      {\n          \"Name\": \"Temperature\",\n          \"Type\": \"Int32\"\n      },\n      {\n          \"Name\": \"Flowrate\",\n          \"Type\": \"Int32\"\n      },\n      {\n          \"Name\": \"Volume\",\n          \"Type\": \"Int32\"\n      }\n  ],\n  \"Rows\": [\n    [\n      \"2018-01-01T00:00:00Z\",\n      24,\n      44,\n      245\n    ],\n    [\n      \"2018-01-01T00:00:01Z\",\n      24,\n      44,\n      245\n    ],\n    [\n      \"2018-01-01T00:00:02Z\",\n      24,\n      44,\n      245\n    ]\n  ]\n}\n```\n",
+    "HrefFileType": "markdown"
+  },
+  "3": {
+    "value": "```json\nform=tableh\nHTTP 200 OK\nContent-Type: application/json\n{\n  \"Columns\": [\n      {\n          \"Name\": \"Time\",\n          \"Type\": \"DateTime\"\n      },\n      {\n          \"Name\": \"Temperature\",\n          \"Type\": \"Int32\"\n      },\n      {\n          \"Name\": \"Flowrate\",\n          \"Type\": \"Int32\"\n      },\n      {\n          \"Name\": \"Volume\",\n          \"Type\": \"Int32\"\n      }\n  ],\n  \"Rows\": [\n      [\n          \"Time\",\n          \"Temperature\",\n          \"Flowrate\",\n          \"Volume\"\n      ],\n      [\n          \"2018-01-01T00:00:00Z\",\n          24,\n          44,\n          245\n      ],\n      [\n          \"2018-01-01T00:00:01Z\",\n          24,\n          44,\n          245\n      ],\n      [\n          \"2018-01-01T00:00:02Z\",\n          24,\n          44,\n          245\n      ]\n   ]\n}\n```\n",
+    "HrefFileType": "markdown"
+  },
+  "4": {
+    "value": "```csv\nform=csv\nHTTP 200 OK\nContent-Type: text/csv\n2018-01-01T00:00:00Z,24,44,245\n2018-01-01T00:00:01Z,24,44,245\n2018-01-01T00:00:02Z,24,44,245\n```\n",
+    "HrefFileType": "markdown"
+  },
+  "5": {
+    "value": "```csv\nform=csvh\nHTTP 200 OK\nContent-Type: text/csv\nTime,Temperature,Flowrate,Volume\n2018-01-01T00:00:00Z,24,44,245\n2018-01-01T00:00:01Z,24,44,245\n2018-01-01T00:00:02Z,24,44,245\n```\n",
+    "HrefFileType": "markdown"
+  }
+}
+```
+
 > 400 Response
 
 ```json
@@ -949,7 +975,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/data/inte
 
 <a id="opIdDataViews_Get Data View Owner"></a>
 
-Get the owner [`Trustee`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#owner) of the specified data view.
+Gets the owner [`Trustee`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#owner) of the specified data view.
 
 ### Request
 ```text 
@@ -1007,7 +1033,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/owner
 
 <a id="opIdDataViews_Update Data View Owner"></a>
 
-Update the owner [`Trustee`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#owner) of the specified data view.
+Updates the owner [`Trustee`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#owner) of the specified data view.
 
 ### Request
 ```text 
@@ -1596,7 +1622,7 @@ Content-Type: application/json
 
 <a id="opIdDataViews_Get Statistics"></a>
 
-Gets statistics about the size and shape on how the data view resolved. <br/>
+Gets the statistics about the size and shape on how the data view resolved. <br/>
 
 ### Request
 ```text 

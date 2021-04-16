@@ -1,5 +1,5 @@
 ---
-title: Integration/collection-acl v20210415.1
+title: Integration/collection-acl v20210416.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -18,7 +18,7 @@ APIs for working with Data View collection Access Control Lists<br/>
 
 <a id="opIdCollectionAcl_Get Data Views Access Control List"></a>
 
-Get the default [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#access-control-lists) for the DataViews collection.
+Gets the default [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#access-control-lists) for the DataViews collection.
 
 ### Request
 ```text 
@@ -36,8 +36,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/dataviews
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[AccessControlList](#schemaaccesscontrollist)|The default access control list of the data views collection<br/>|
-|403|string|You are not authorized to view the requested data view collection's access control list<br/>|
-|500|[Exception](#schemaexception)|An error occurred while processing the request. See the response body for details.<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|You are not authorized to view the requested data view collection's access control list<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|An error occurred while processing the request. See the response body for details.<br/>|
 
 #### Example response body
 > 200 Response
@@ -74,24 +74,22 @@ HTTP 200 OK
   ]
 }
 ```
-> 500 Response
+> 403 Response
 
 ```json
 {
-  "StackTrace": "string",
-  "Message": "string",
-  "InnerException": {
-    "StackTrace": "string",
-    "Message": "string",
-    "InnerException": {
-      "StackTrace": null,
-      "Message": null,
-      "InnerException": null,
-      "Source": null
-    },
-    "Source": "string"
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "Parameters": {
+    "property1": "string",
+    "property2": "string"
   },
-  "Source": "string"
+  "ChildErrors": {
+    "property1": null,
+    "property2": null
+  }
 }
 ```
 
@@ -278,44 +276,6 @@ An [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentati
 |---|---|
 |Allowed|0|
 |Denied|1|
-
----
-
-## Exception
-
-<a id="schemaexception"></a>
-<a id="schema_Exception"></a>
-<a id="tocSexception"></a>
-<a id="tocsexception"></a>
-
-### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|StackTrace|string|false|true|None|
-|Message|string|false|false|None|
-|InnerException|[Exception](#schemaexception)|false|true|None|
-|Source|string|false|true|None|
-
-```json
-{
-  "StackTrace": "string",
-  "Message": "string",
-  "InnerException": {
-    "StackTrace": "string",
-    "Message": "string",
-    "InnerException": {
-      "StackTrace": null,
-      "Message": null,
-      "InnerException": null,
-      "Source": null
-    },
-    "Source": "string"
-  },
-  "Source": "string"
-}
-
-```
 
 ---
 

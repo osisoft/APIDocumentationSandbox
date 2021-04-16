@@ -1,5 +1,5 @@
 ---
-title: Integration/collection-access-rights v20210415.1
+title: Integration/collection-access-rights v20210416.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -18,7 +18,7 @@ API for retrieving access rights on the data views collection<br/>
 
 <a id="opIdCollectionAccessRights_List Data Views Access Rights"></a>
 
-Get access rights to the data views collection for the calling user or client<br/>
+Gets the access rights to the data views collection for the calling user or client<br/>
 
 ### Request
 ```text 
