@@ -1,5 +1,5 @@
 ---
-title: Integration/data-views-preview v20210416.1
+title: Integration/data-views-preview v20210416.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -12,13 +12,13 @@ generator: osisoft.widdershins v1.0.7
 ---
 
 # Data Views Preview
-APIs for previewing data view endpoints without saving the data view
+APIs for previewing data view methods without saving the data view<br/>
 
 ## Get Data Interpolated
 
 <a id="opIdDataViewsPreview_Get Data Interpolated"></a>
 
-Get data preview based on provided data view
+Gets data for the provided data view and index parameters with paging. See [documentation on paging](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#paging) for further information.
 
 ### Request
 ```text 
@@ -29,21 +29,26 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/dataviews/data/
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string startIndex`
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>`string startIndex`
+<br/>The requested start index, inclusive. The default value is the ```.DefaultStartIndex``` of the data view. Optional if a default value is specified
 <br/><br/>`string endIndex`
+<br/>The requested end index, inclusive. The default value is the ```.DefaultEndIndex``` of the data view. Optional if a default value is specified.
 <br/><br/>`string interval`
-<br/><br/>`string form`
+<br/>The requested interval between index values. The default value is the ```.DefaultInterval``` of the data view. Optional if a default is specified.<br/><br/><br/>`string form`
+<br/>The requested data [output format](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#format). Output formats: `default`, `table`, `tableh`, `csv`, `csvh`.
 <br/><br/>`integer countPerGroup`
-<br/><br/>`integer groupCount`
-<br/><br/>`integer count`
+<br/>The number of rows per group. It overrides the endIndex.<br/><br/><br/>`integer groupCount`
+<br/>The requested number of groups.<br/><br/><br/>`integer count`
+<br/>The requested page size. The maximum is 250,000. If the parameter is not provided, [an optimal page size will be calculated](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#page-size).
 <br/><br/>
 `[optional] string continuationToken`
+<br/>Used only when [paging](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#paging). Not specified when requesting the first page of data.
 <br/><br/>
 
 ### Request Body
 
-<br/>
+A `DataView` object to get the results for.<br/>
 
 ```json
 {
@@ -122,7 +127,7 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/dataviews/data/
 
 <a id="opIdDataViewsPreview_Get Available Field Sets"></a>
 
-Get available field sets for the provided Data View
+Gets the collection of field sets that are available for use in the data view, and which are not already included in the data view.<br/>
 
 ### Request
 ```text 
@@ -132,12 +137,12 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/dataviews/resol
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>
 
 ### Request Body
 
-<br/>
+A `DataView` object to get the results for.<br/>
 
 ```json
 {
@@ -216,7 +221,7 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/dataviews/resol
 
 <a id="opIdDataViewsPreview_Get Data Items"></a>
 
-Get data items for the provided Data View
+Gets the paged collection of data items that are the results of an individual query, and which are eligible for use in the current data view. A data view has a collection of zero or more queries. Each query has an identifier. Those identifiers are used here as part of the request path.<br/>
 
 ### Request
 ```text 
@@ -227,16 +232,16 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/dataviews/resol
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string queryId`
-<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>`string queryId`
+<br/>Query identifier<br/><br/><br/>
 `[optional] integer skip`
-<br/><br/>`[optional] integer count`
-<br/><br/>
+<br/>An optional parameter representing the zero-based offset of the first data item to retrieve. If not specified, a default value of 0 is used.<br/><br/><br/>`[optional] integer count`
+<br/>An optional parameter representing the maximum number of data items to retrieve. If not specified, a default value of 100 is used.<br/><br/><br/>
 
 ### Request Body
 
-<br/>
+A `DataView` object to get the results for.<br/>
 
 ```json
 {
@@ -315,7 +320,7 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/dataviews/resol
 
 <a id="opIdDataViewsPreview_Get Field Mappings"></a>
 
-Get field mappings for the provided Data View
+Gets the collection of field mappings resolved for the data view. These show the exact data behind every field, for each data item, for each group.<br/>
 
 ### Request
 ```text 
@@ -326,15 +331,15 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/dataviews/resol
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>
 `[optional] integer skip`
-<br/><br/>`[optional] integer count`
-<br/><br/>
+<br/>An optional parameter representing the zero-based offset of the first field mapping to retrieve. If not specified, a default value of 0 is used.<br/><br/><br/>`[optional] integer count`
+<br/>An optional parameter representing the maximum number of field mappings to retrieve. If not specified, a default value of 100 is used.<br/><br/><br/>
 
 ### Request Body
 
-<br/>
+A `DataView` object to get the results for.<br/>
 
 ```json
 {
@@ -413,7 +418,7 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/dataviews/resol
 
 <a id="opIdDataViewsPreview_Get Groups"></a>
 
-Get data groups for the provided Data View
+Gets the collection of `Group`s that resolved for the data view.
 
 ### Request
 ```text 
@@ -424,15 +429,15 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/dataviews/resol
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>
 `[optional] integer skip`
-<br/><br/>`[optional] integer count`
-<br/><br/>
+<br/>An optional parameter representing the zero-based offset of the first group to retrieve. If not specified, a default value of 0 is used.<br/><br/><br/>`[optional] integer count`
+<br/>An optional parameter representing the maximum number of groups to retrieve. If not specified, a default value of 100 is used.<br/><br/><br/>
 
 ### Request Body
 
-<br/>
+A `DataView` object to get the results for.<br/>
 
 ```json
 {
@@ -511,7 +516,7 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/dataviews/resol
 
 <a id="opIdDataViewsPreview_Get Ineligible Data Items"></a>
 
-Get ineligible data items for the provided Data View
+Gets the paged collection of data items that are the results of an individual query, but which are not eligible for use in the current data view. A common reason for ineligibility is that the item's index property is of a different type than the data view expects. A data view has a collection of zero or more queries. Each query has an identifier. Those identifiers are used here as part of the request path.<br/>
 
 ### Request
 ```text 
@@ -522,16 +527,16 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/dataviews/resol
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string queryId`
-<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>`string queryId`
+<br/>Cancellation token<br/><br/><br/>
 `[optional] integer skip`
-<br/><br/>`[optional] integer count`
-<br/><br/>
+<br/>An optional parameter representing the zero-based offset of the first data item to retrieve. If not specified, a default value of 0 is used.<br/><br/><br/>`[optional] integer count`
+<br/>An optional parameter representing the maximum number of data items to retrieve. If not specified, a default value of 100 is used.<br/><br/><br/>
 
 ### Request Body
 
-<br/>
+A `DataView` object to get the results for.<br/>
 
 ```json
 {
@@ -610,7 +615,7 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/dataviews/resol
 
 <a id="opIdDataViewsPreview_Get Statistics"></a>
 
-Get available field sets for the provided Data View
+Gets the statistics about the size and shape on how the data view resolved. <br/>
 
 ### Request
 ```text 
@@ -620,12 +625,12 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/dataviews/resol
 #### Parameters
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>
 
 ### Request Body
 
-<br/>
+A `DataView` object to get the results for.<br/>
 
 ```json
 {

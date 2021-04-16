@@ -1,5 +1,5 @@
 ---
-title: Integration/data-views v20210416.1
+title: Integration/data-views v20210416.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -926,30 +926,30 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/data/inte
 > 200 Response
 
 ```json
-{
-  "1": {
-    "value": "```json\nform=default\nHTTP 200 OK\nContent-Type: application/json\n[\n    {\n        \"Time\": \"2018-01-01T00:00:00Z\",\n        \"Temperature\": 24,\n        \"Flowrate\": 44,\n        \"Volume\": 245\n    },\n    {\n        \"Time\": \"2018-01-01T00:00:01Z\",\n        \"Temperature\": 24,\n        \"Flowrate\": 44,\n        \"Volume\": 245\n    },\n    {\n        \"Time\": \"2018-01-01T00:00:02Z\",\n        \"Temperature\": 24,\n        \"Flowrate\": 44,\n        \"Volume\": 245\n    }\n]\n```\n",
-    "HrefFileType": "markdown"
-  },
-  "2": {
-    "value": "```json\nform=table\nHTTP 200 OK\nContent-Type: application/json\n{\n   \"Columns\": [\n      {\n          \"Name\": \"Time\",\n          \"Type\": \"DateTime\"\n      },\n      {\n          \"Name\": \"Temperature\",\n          \"Type\": \"Int32\"\n      },\n      {\n          \"Name\": \"Flowrate\",\n          \"Type\": \"Int32\"\n      },\n      {\n          \"Name\": \"Volume\",\n          \"Type\": \"Int32\"\n      }\n  ],\n  \"Rows\": [\n    [\n      \"2018-01-01T00:00:00Z\",\n      24,\n      44,\n      245\n    ],\n    [\n      \"2018-01-01T00:00:01Z\",\n      24,\n      44,\n      245\n    ],\n    [\n      \"2018-01-01T00:00:02Z\",\n      24,\n      44,\n      245\n    ]\n  ]\n}\n```\n",
-    "HrefFileType": "markdown"
-  },
-  "3": {
-    "value": "```json\nform=tableh\nHTTP 200 OK\nContent-Type: application/json\n{\n  \"Columns\": [\n      {\n          \"Name\": \"Time\",\n          \"Type\": \"DateTime\"\n      },\n      {\n          \"Name\": \"Temperature\",\n          \"Type\": \"Int32\"\n      },\n      {\n          \"Name\": \"Flowrate\",\n          \"Type\": \"Int32\"\n      },\n      {\n          \"Name\": \"Volume\",\n          \"Type\": \"Int32\"\n      }\n  ],\n  \"Rows\": [\n      [\n          \"Time\",\n          \"Temperature\",\n          \"Flowrate\",\n          \"Volume\"\n      ],\n      [\n          \"2018-01-01T00:00:00Z\",\n          24,\n          44,\n          245\n      ],\n      [\n          \"2018-01-01T00:00:01Z\",\n          24,\n          44,\n          245\n      ],\n      [\n          \"2018-01-01T00:00:02Z\",\n          24,\n          44,\n          245\n      ]\n   ]\n}\n```\n",
-    "HrefFileType": "markdown"
-  },
-  "4": {
-    "value": "```csv\nform=csv\nHTTP 200 OK\nContent-Type: text/csv\n2018-01-01T00:00:00Z,24,44,245\n2018-01-01T00:00:01Z,24,44,245\n2018-01-01T00:00:02Z,24,44,245\n```\n",
-    "HrefFileType": "markdown"
-  },
-  "5": {
-    "value": "```csv\nform=csvh\nHTTP 200 OK\nContent-Type: text/csv\nTime,Temperature,Flowrate,Volume\n2018-01-01T00:00:00Z,24,44,245\n2018-01-01T00:00:01Z,24,44,245\n2018-01-01T00:00:02Z,24,44,245\n```\n",
-    "HrefFileType": "markdown"
-  }
-}
+form=default
+HTTP 200 OK
+Content-Type: application/json
+[
+    {
+        "Time": "2018-01-01T00:00:00Z",
+        "Temperature": 24,
+        "Flowrate": 44,
+        "Volume": 245
+    },
+    {
+        "Time": "2018-01-01T00:00:01Z",
+        "Temperature": 24,
+        "Flowrate": 44,
+        "Volume": 245
+    },
+    {
+        "Time": "2018-01-01T00:00:02Z",
+        "Temperature": 24,
+        "Flowrate": 44,
+        "Volume": 245
+    }
+]
 ```
-
 > 400 Response
 
 ```json
@@ -1398,7 +1398,7 @@ HTTP 200 OK
 
 <a id="opIdDataViews_Get Groups"></a>
 
-Gets the collection of `Group`s that resolved for a data view.
+Gets the collection of `Group`s that resolved for the data view.
 
 ### Request
 ```text 
