@@ -1,5 +1,5 @@
 ---
-title: Context/metadata-rule-preview v20210416.1
+title: Context/metadata-rule-preview v20210417.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -511,13 +511,11 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
 |Field|string|false|true|None|
-|Pattern|string|false|true|None|
 |Specifications|[[Specification](#schemaspecification)]|false|true|None|
 
 ```json
 {
   "Field": "string",
-  "Pattern": "string",
   "Specifications": [
     {
       "Type": "Unspecified",

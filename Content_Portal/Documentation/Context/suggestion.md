@@ -1,5 +1,5 @@
 ---
-title: Context/suggestion v20210416.1
+title: Context/suggestion v20210417.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -285,13 +285,11 @@ The RuleModel object to create suggestions for.<br/>
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
 |Field|string|false|true|None|
-|Pattern|string|false|true|None|
 |Specifications|[[Specification](#schemaspecification)]|false|true|None|
 
 ```json
 {
   "Field": "string",
-  "Pattern": "string",
   "Specifications": [
     {
       "Type": "Unspecified",
