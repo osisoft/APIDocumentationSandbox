@@ -1,5 +1,5 @@
 ---
-title: Integration/data-views v20210416.4
+title: Integration/data-views v20210419.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -957,6 +957,123 @@ Content-Type: application/json
         "Volume": 245
     }
 ]
+```
+
+```csv
+form=csv
+HTTP 200 OK
+Content-Type: text/csv
+2018-01-01T00:00:00Z,24,44,245
+2018-01-01T00:00:01Z,24,44,245
+2018-01-01T00:00:02Z,24,44,245
+```
+
+```csv
+form=csvh
+HTTP 200 OK
+Content-Type: text/csv
+Time,Temperature,Flowrate,Volume
+2018-01-01T00:00:00Z,24,44,245
+2018-01-01T00:00:01Z,24,44,245
+2018-01-01T00:00:02Z,24,44,245
+```
+
+```json
+form=table
+HTTP 200 OK
+Content-Type: application/json
+{
+   "Columns": [
+      {
+          "Name": "Time",
+          "Type": "DateTime"
+      },
+      {
+          "Name": "Temperature",
+          "Type": "Int32"
+      },
+      {
+          "Name": "Flowrate",
+          "Type": "Int32"
+      },
+      {
+          "Name": "Volume",
+          "Type": "Int32"
+      }
+  ],
+  "Rows": [
+    [
+      "2018-01-01T00:00:00Z",
+      24,
+      44,
+      245
+    ],
+    [
+      "2018-01-01T00:00:01Z",
+      24,
+      44,
+      245
+    ],
+    [
+      "2018-01-01T00:00:02Z",
+      24,
+      44,
+      245
+    ]
+  ]
+}
+```
+
+```json
+form=tableh
+HTTP 200 OK
+Content-Type: application/json
+{
+  "Columns": [
+      {
+          "Name": "Time",
+          "Type": "DateTime"
+      },
+      {
+          "Name": "Temperature",
+          "Type": "Int32"
+      },
+      {
+          "Name": "Flowrate",
+          "Type": "Int32"
+      },
+      {
+          "Name": "Volume",
+          "Type": "Int32"
+      }
+  ],
+  "Rows": [
+      [
+          "Time",
+          "Temperature",
+          "Flowrate",
+          "Volume"
+      ],
+      [
+          "2018-01-01T00:00:00Z",
+          24,
+          44,
+          245
+      ],
+      [
+          "2018-01-01T00:00:01Z",
+          24,
+          44,
+          245
+      ],
+      [
+          "2018-01-01T00:00:02Z",
+          24,
+          44,
+          245
+      ]
+   ]
+}
 ```
 > 400 Response
 
