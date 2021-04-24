@@ -1,5 +1,5 @@
 ---
-title: Context/metadata-rule-preview v20210422.1
+title: Context/metadata-rule-preview v20210424.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -187,11 +187,6 @@ The RuleModel object to preview.<br/>
       }
     }
   ],
-  "ValueMappings": {
-    "{id}": {
-      "key": "value"
-    }
-  },
   "CreationTime": "0001-01-01T00:00:00",
   "ModifiedTime": "0001-01-01T00:00:00"
 }
@@ -462,7 +457,6 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
 |AutomationId|string|false|true|None|
 |Expressions|[[RuleExpression](#schemaruleexpression)]|false|true|None|
 |Outputs|[[RuleOutput](#schemaruleoutput)]|false|true|None|
-|ValueMappings|object|false|true|None|
 |CreationTime|date-time|false|false|None|
 |ModifiedTime|date-time|false|false|None|
 
@@ -486,11 +480,6 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
       }
     }
   ],
-  "ValueMappings": {
-    "{id}": {
-      "key": "value"
-    }
-  },
   "CreationTime": "0001-01-01T00:00:00",
   "ModifiedTime": "0001-01-01T00:00:00"
 }

@@ -1,5 +1,5 @@
 ---
-title: Context/asset-rule-preview v20210422.1
+title: Context/asset-rule-preview v20210424.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -209,11 +209,6 @@ The RuleModel object to preview.<br/>
       }
     }
   ],
-  "ValueMappings": {
-    "{id}": {
-      "key": "value"
-    }
-  },
   "CreationTime": "0001-01-01T00:00:00",
   "ModifiedTime": "0001-01-01T00:00:00"
 }
@@ -484,7 +479,6 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/preview/asset
 |AutomationId|string|false|true|None|
 |Expressions|[[RuleExpression](#schemaruleexpression)]|false|true|None|
 |Outputs|[[RuleOutput](#schemaruleoutput)]|false|true|None|
-|ValueMappings|object|false|true|None|
 |CreationTime|date-time|false|false|None|
 |ModifiedTime|date-time|false|false|None|
 
@@ -508,11 +502,6 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/preview/asset
       }
     }
   ],
-  "ValueMappings": {
-    "{id}": {
-      "key": "value"
-    }
-  },
   "CreationTime": "0001-01-01T00:00:00",
   "ModifiedTime": "0001-01-01T00:00:00"
 }

@@ -1,5 +1,5 @@
 ---
-title: Context/rules v20210422.1
+title: Context/rules v20210424.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -70,11 +70,6 @@ Defaults to false.<br/><br/>
         }
       }
     ],
-    "ValueMappings": {
-      "{id}": {
-        "key": "value"
-      }
-    },
     "CreationTime": "0001-01-01T00:00:00",
     "ModifiedTime": "0001-01-01T00:00:00"
   },
@@ -97,11 +92,6 @@ Defaults to false.<br/><br/>
         }
       }
     ],
-    "ValueMappings": {
-      "{id}": {
-        "key": "value"
-      }
-    },
     "CreationTime": "0001-01-01T00:00:00",
     "ModifiedTime": "0001-01-01T00:00:00"
   }
@@ -196,11 +186,6 @@ The RuleModel object to create.<br/>
       }
     }
   ],
-  "ValueMappings": {
-    "{id}": {
-      "key": "value"
-    }
-  },
   "CreationTime": "0001-01-01T00:00:00",
   "ModifiedTime": "0001-01-01T00:00:00"
 }
@@ -239,11 +224,6 @@ The RuleModel object to create.<br/>
       }
     }
   ],
-  "ValueMappings": {
-    "{id}": {
-      "key": "value"
-    }
-  },
   "CreationTime": "0001-01-01T00:00:00",
   "ModifiedTime": "0001-01-01T00:00:00"
 }
@@ -362,11 +342,6 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
       }
     }
   ],
-  "ValueMappings": {
-    "{id}": {
-      "key": "value"
-    }
-  },
   "CreationTime": "0001-01-01T00:00:00",
   "ModifiedTime": "0001-01-01T00:00:00"
 }
@@ -462,11 +437,6 @@ The RuleModel object.<br/>
       }
     }
   ],
-  "ValueMappings": {
-    "{id}": {
-      "key": "value"
-    }
-  },
   "CreationTime": "0001-01-01T00:00:00",
   "ModifiedTime": "0001-01-01T00:00:00"
 }
@@ -506,11 +476,6 @@ The RuleModel object.<br/>
       }
     }
   ],
-  "ValueMappings": {
-    "{id}": {
-      "key": "value"
-    }
-  },
   "CreationTime": "0001-01-01T00:00:00",
   "ModifiedTime": "0001-01-01T00:00:00"
 }
@@ -627,11 +592,6 @@ The RuleModel object to create or update.<br/>
       }
     }
   ],
-  "ValueMappings": {
-    "{id}": {
-      "key": "value"
-    }
-  },
   "CreationTime": "0001-01-01T00:00:00",
   "ModifiedTime": "0001-01-01T00:00:00"
 }
@@ -670,11 +630,6 @@ The RuleModel object to create or update.<br/>
       }
     }
   ],
-  "ValueMappings": {
-    "{id}": {
-      "key": "value"
-    }
-  },
   "CreationTime": "0001-01-01T00:00:00",
   "ModifiedTime": "0001-01-01T00:00:00"
 }
@@ -702,11 +657,6 @@ The RuleModel object to create or update.<br/>
       }
     }
   ],
-  "ValueMappings": {
-    "{id}": {
-      "key": "value"
-    }
-  },
   "CreationTime": "0001-01-01T00:00:00",
   "ModifiedTime": "0001-01-01T00:00:00"
 }
@@ -973,11 +923,6 @@ Defaults to false.<br/><br/>
         }
       }
     ],
-    "ValueMappings": {
-      "{id}": {
-        "key": "value"
-      }
-    },
     "CreationTime": "0001-01-01T00:00:00",
     "ModifiedTime": "0001-01-01T00:00:00"
   },
@@ -1000,11 +945,6 @@ Defaults to false.<br/><br/>
         }
       }
     ],
-    "ValueMappings": {
-      "{id}": {
-        "key": "value"
-      }
-    },
     "CreationTime": "0001-01-01T00:00:00",
     "ModifiedTime": "0001-01-01T00:00:00"
   }
@@ -1099,11 +1039,6 @@ The RuleModel object to create.<br/>
       }
     }
   ],
-  "ValueMappings": {
-    "{id}": {
-      "key": "value"
-    }
-  },
   "CreationTime": "0001-01-01T00:00:00",
   "ModifiedTime": "0001-01-01T00:00:00"
 }
@@ -1142,11 +1077,6 @@ The RuleModel object to create.<br/>
       }
     }
   ],
-  "ValueMappings": {
-    "{id}": {
-      "key": "value"
-    }
-  },
   "CreationTime": "0001-01-01T00:00:00",
   "ModifiedTime": "0001-01-01T00:00:00"
 }
@@ -1265,11 +1195,6 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}
       }
     }
   ],
-  "ValueMappings": {
-    "{id}": {
-      "key": "value"
-    }
-  },
   "CreationTime": "0001-01-01T00:00:00",
   "ModifiedTime": "0001-01-01T00:00:00"
 }
@@ -1365,11 +1290,6 @@ The RuleModel object.<br/>
       }
     }
   ],
-  "ValueMappings": {
-    "{id}": {
-      "key": "value"
-    }
-  },
   "CreationTime": "0001-01-01T00:00:00",
   "ModifiedTime": "0001-01-01T00:00:00"
 }
@@ -1409,11 +1329,6 @@ The RuleModel object.<br/>
       }
     }
   ],
-  "ValueMappings": {
-    "{id}": {
-      "key": "value"
-    }
-  },
   "CreationTime": "0001-01-01T00:00:00",
   "ModifiedTime": "0001-01-01T00:00:00"
 }
@@ -1530,11 +1445,6 @@ The RuleModel object to create or update.<br/>
       }
     }
   ],
-  "ValueMappings": {
-    "{id}": {
-      "key": "value"
-    }
-  },
   "CreationTime": "0001-01-01T00:00:00",
   "ModifiedTime": "0001-01-01T00:00:00"
 }
@@ -1573,11 +1483,6 @@ The RuleModel object to create or update.<br/>
       }
     }
   ],
-  "ValueMappings": {
-    "{id}": {
-      "key": "value"
-    }
-  },
   "CreationTime": "0001-01-01T00:00:00",
   "ModifiedTime": "0001-01-01T00:00:00"
 }
@@ -1605,11 +1510,6 @@ The RuleModel object to create or update.<br/>
       }
     }
   ],
-  "ValueMappings": {
-    "{id}": {
-      "key": "value"
-    }
-  },
   "CreationTime": "0001-01-01T00:00:00",
   "ModifiedTime": "0001-01-01T00:00:00"
 }
@@ -1838,7 +1738,6 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/
 |AutomationId|string|false|true|None|
 |Expressions|[[RuleExpression](#schemaruleexpression)]|false|true|None|
 |Outputs|[[RuleOutput](#schemaruleoutput)]|false|true|None|
-|ValueMappings|object|false|true|None|
 |CreationTime|date-time|false|false|None|
 |ModifiedTime|date-time|false|false|None|
 
@@ -1862,11 +1761,6 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/
       }
     }
   ],
-  "ValueMappings": {
-    "{id}": {
-      "key": "value"
-    }
-  },
   "CreationTime": "0001-01-01T00:00:00",
   "ModifiedTime": "0001-01-01T00:00:00"
 }

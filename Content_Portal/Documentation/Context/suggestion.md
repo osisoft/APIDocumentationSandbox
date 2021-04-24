@@ -1,5 +1,5 @@
 ---
-title: Context/suggestion v20210422.1
+title: Context/suggestion v20210424.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -54,11 +54,6 @@ The RuleModel object to create suggestions for.<br/>
       }
     }
   ],
-  "ValueMappings": {
-    "{id}": {
-      "key": "value"
-    }
-  },
   "CreationTime": "0001-01-01T00:00:00",
   "ModifiedTime": "0001-01-01T00:00:00"
 }
@@ -236,7 +231,6 @@ The RuleModel object to create suggestions for.<br/>
 |AutomationId|string|false|true|None|
 |Expressions|[[RuleExpression](#schemaruleexpression)]|false|true|None|
 |Outputs|[[RuleOutput](#schemaruleoutput)]|false|true|None|
-|ValueMappings|object|false|true|None|
 |CreationTime|date-time|false|false|None|
 |ModifiedTime|date-time|false|false|None|
 
@@ -260,11 +254,6 @@ The RuleModel object to create suggestions for.<br/>
       }
     }
   ],
-  "ValueMappings": {
-    "{id}": {
-      "key": "value"
-    }
-  },
   "CreationTime": "0001-01-01T00:00:00",
   "ModifiedTime": "0001-01-01T00:00:00"
 }
