@@ -1,5 +1,5 @@
 ---
-title: Integration/data-views-preview v20210423.1
+title: Integration/data-views-preview v20210426.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -12,7 +12,7 @@ generator: osisoft.widdershins v1.0.7
 ---
 
 # Data Views Preview
-APIs for previewing data view methods without saving the data view<br/>
+The Preview Data API allows users to [retrieve data](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html) for a specified data view.  This API is one portion of the [data views API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Data_Views_API_Overview.html).<br/>
 
 ## Get Available Field Sets
 
