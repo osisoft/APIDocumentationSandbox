@@ -1,5 +1,5 @@
 ---
-title: integration/collection-access-rights v20210426.3
+title: integration/collection-access-rights v20210426.4
 language_tabs: []
 toc_footers: []
 includes: []
@@ -12,7 +12,7 @@ generator: osisoft.widdershins v1.0.7
 ---
 
 # Collection Access Rights
-API for retrieving access rights on the data views collection<br/>
+APIs for retrieving access rights on the data views collection<br/>
 
 ## List Data Views Access Rights
 

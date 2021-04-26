@@ -1,5 +1,5 @@
 ---
-title: integration/data-queries v20210426.3
+title: integration/data-queries v20210426.4
 language_tabs: []
 toc_footers: []
 includes: []
@@ -12,7 +12,7 @@ generator: osisoft.widdershins v1.0.7
 ---
 
 # Data Queries
-The Data API allows users to [retrieve data](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html) for a specified data view.  This API is one portion of the [data views API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Data_Views_API_Overview.html).<br/>
+The Data API allows users to [retrieve data](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html) for a specified data view.  This API is one portion of the [data views API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Data_Views_API_Overview.html).
 
 ## Get Data View Interpolated Data
 

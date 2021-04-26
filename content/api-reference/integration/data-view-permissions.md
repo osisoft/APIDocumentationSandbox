@@ -1,5 +1,5 @@
 ---
-title: integration/data-view-permissions v20210426.3
+title: integration/data-view-permissions v20210426.4
 language_tabs: []
 toc_footers: []
 includes: []
@@ -12,7 +12,7 @@ generator: osisoft.widdershins v1.0.7
 ---
 
 # Data View Permissions
-This portion of the [overall data views API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Data_Views_API_Overview.html) focuses on [securing data views](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/SecureDataViews/Securing_Data_Views.html) by setting their ownership and permissions.<br/>
+This portion of the [overall data views API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Data_Views_API_Overview.html) focuses on [securing data views](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/SecureDataViews/Securing_Data_Views.html) by setting their ownership and permissions.
 
 ## Get Data View Access Control List
 

@@ -1,5 +1,5 @@
 ---
-title: integration/resolved-data-views v20210426.3
+title: integration/resolved-data-views v20210426.4
 language_tabs: []
 toc_footers: []
 includes: []
@@ -12,7 +12,7 @@ generator: osisoft.widdershins v1.0.7
 ---
 
 # Resolved Data Views
-This portion of the overall [data views API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Data_Views_API_Overview.html) is the resources that resolve per-user for each data view. For a description of what this information is, and how to use it, see the [documentation](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetResolvedDataView/Resolved_Data_View.html) for resolved data views.<br/>
+This portion of the overall [data views API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Data_Views_API_Overview.html) is the resources that resolve per-user for each data view. For a description of what this information is, and how to use it, see the [documentation](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetResolvedDataView/Resolved_Data_View.html) for resolved data views.
 
 ## Get Available Field Sets
 

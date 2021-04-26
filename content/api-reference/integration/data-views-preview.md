@@ -1,5 +1,5 @@
 ---
-title: integration/data-views-preview v20210426.3
+title: integration/data-views-preview v20210426.4
 language_tabs: []
 toc_footers: []
 includes: []
@@ -12,7 +12,7 @@ generator: osisoft.widdershins v1.0.7
 ---
 
 # Data Views Preview
-This portion of the overall [data views API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Data_Views_API_Overview.html) specifies the resources that resolve per-user for an input data view. <br/>The preview APIs require a data view to be passed in the request body for each request, which provides the user the flexibility to change the data view on the fly without saving/updating it.<br/>
+This portion of the overall [data views API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Data_Views_API_Overview.html) specifies the resources that resolve per-user for an input data view. The preview APIs require a data view to be passed in the request body for each request, which provides the user the flexibility to change the data view on the fly without saving/updating it.
 
 ## Get Available Field Sets
 

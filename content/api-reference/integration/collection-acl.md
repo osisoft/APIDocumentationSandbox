@@ -1,5 +1,5 @@
 ---
-title: integration/collection-acl v20210426.3
+title: integration/collection-acl v20210426.4
 language_tabs: []
 toc_footers: []
 includes: []
@@ -12,7 +12,7 @@ generator: osisoft.widdershins v1.0.7
 ---
 
 # Collection Acl
-APIs for working with Data View collection Access Control Lists<br/>
+APIs for working with the Access Control List of the data view collection<br/>
 
 ## Get Data Views Access Control List
 

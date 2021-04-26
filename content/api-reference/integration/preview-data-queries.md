@@ -1,5 +1,5 @@
 ---
-title: integration/preview-data-queries v20210426.3
+title: integration/preview-data-queries v20210426.4
 language_tabs: []
 toc_footers: []
 includes: []
@@ -12,7 +12,7 @@ generator: osisoft.widdershins v1.0.7
 ---
 
 # Preview Data Queries
-The Preview Data API allows users to [retrieve data](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html) for a specified data view.  This API is one portion of the [data views API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Data_Views_API_Overview.html).<br/>
+The Preview Data API allows users to [retrieve data](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html) for a specified data view.  This API is one portion of the [data views API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Data_Views_API_Overview.html).
 
 ## Get Data View Interpolated Data
 
@@ -133,33 +133,6 @@ A `DataView` object to get the results for.<br/>
 |200|First-Page|string|Hyperlink to the first page of results<br/>|
 
 #### Example response body
-> 200 Response
-
-```json
-form=default
-HTTP 200 OK
-Content-Type: application/json
-[
-    {
-        "Time": "2018-01-01T00:00:00Z",
-        "Temperature": 24,
-        "Flowrate": 44,
-        "Volume": 245
-    },
-    {
-        "Time": "2018-01-01T00:00:01Z",
-        "Temperature": 24,
-        "Flowrate": 44,
-        "Volume": 245
-    },
-    {
-        "Time": "2018-01-01T00:00:02Z",
-        "Temperature": 24,
-        "Flowrate": 44,
-        "Volume": 245
-    }
-]
-```
 > 400 Response
 
 ```json
