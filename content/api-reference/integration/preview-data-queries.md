@@ -1,20 +1,9 @@
----
-title: integration/preview-data-queries v20210426.4
-language_tabs: []
-toc_footers: []
-includes: []
-search: true
-code_clipboard: true
-highlight_theme: darkula
-headingLevel: 2
-generator: osisoft.widdershins v1.0.7
 
----
 
 # Preview Data Queries
 The Preview Data API allows users to [retrieve data](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html) for a specified data view.  This API is one portion of the [data views API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Data_Views_API_Overview.html).
 
-## Get Data View Interpolated Data
+## `Get Data View Interpolated Data`
 
 <a id="opIdPreviewDataQueries_Get Data View Interpolated Data"></a>
 
@@ -153,16 +142,16 @@ A `DataView` object to get the results for.<br/>
 ```
 
 ---
-# Definitions
+## Definitions
 
-## ErrorResponse
+### ErrorResponse
 
 <a id="schemaerrorresponse"></a>
 <a id="schema_ErrorResponse"></a>
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -193,14 +182,14 @@ A `DataView` object to get the results for.<br/>
 
 ---
 
-## DataView
+### DataView
 
 <a id="schemadataview"></a>
 <a id="schema_DataView"></a>
 <a id="tocSdataview"></a>
 <a id="tocsdataview"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -301,14 +290,14 @@ A `DataView` object to get the results for.<br/>
 
 ---
 
-## Field
+### Field
 
 <a id="schemafield"></a>
 <a id="schema_Field"></a>
 <a id="tocSfield"></a>
 <a id="tocsfield"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -339,7 +328,7 @@ A `DataView` object to get the results for.<br/>
 
 ---
 
-## FieldSource
+### FieldSource
 
 <a id="schemafieldsource"></a>
 <a id="schema_FieldSource"></a>
@@ -360,7 +349,7 @@ A `DataView` object to get the results for.<br/>
 
 ---
 
-## SdsSummaryType
+### SdsSummaryType
 
 <a id="schemasdssummarytype"></a>
 <a id="schema_SdsSummaryType"></a>
@@ -388,7 +377,7 @@ A `DataView` object to get the results for.<br/>
 
 ---
 
-## SummaryDirection
+### SummaryDirection
 
 <a id="schemasummarydirection"></a>
 <a id="schema_SummaryDirection"></a>
@@ -404,14 +393,14 @@ A `DataView` object to get the results for.<br/>
 
 ---
 
-## Query
+### Query
 
 <a id="schemaquery"></a>
 <a id="schema_Query"></a>
 <a id="tocSquery"></a>
 <a id="tocsquery"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -430,7 +419,7 @@ A `DataView` object to get the results for.<br/>
 
 ---
 
-## DataItemResourceType
+### DataItemResourceType
 
 <a id="schemadataitemresourcetype"></a>
 <a id="schema_DataItemResourceType"></a>
@@ -446,14 +435,14 @@ A `DataView` object to get the results for.<br/>
 
 ---
 
-## FieldSet
+### FieldSet
 
 <a id="schemafieldset"></a>
 <a id="schema_FieldSet"></a>
 <a id="tocSfieldset"></a>
 <a id="tocsfieldset"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -498,7 +487,7 @@ A `DataView` object to get the results for.<br/>
 
 ---
 
-## SdsTypeCode
+### SdsTypeCode
 
 <a id="schemasdstypecode"></a>
 <a id="schema_SdsTypeCode"></a>
@@ -601,7 +590,7 @@ A `DataView` object to get the results for.<br/>
 
 ---
 
-## DataViewShape
+### DataViewShape
 
 <a id="schemadataviewshape"></a>
 <a id="schema_DataViewShape"></a>

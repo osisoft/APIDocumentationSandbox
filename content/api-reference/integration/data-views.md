@@ -1,15 +1,4 @@
----
-title: integration/data-views v20210426.4
-language_tabs: []
-toc_footers: []
-includes: []
-search: true
-code_clipboard: true
-highlight_theme: darkula
-headingLevel: 2
-generator: osisoft.widdershins v1.0.7
 
----
 
 # Data Views
 The `DataView` API provides mechanisms to create, read, update, and delete data views. This is one portion of the whole [data views API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Data_Views_API_Overview.html).
@@ -18,7 +7,7 @@ For a description of the `DataView` object type, see the [DataView documentation
 
 Other sections of documentation describe how to [secure data views](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/SecureDataViews/Securing_Data_Views.html) by setting their ownership and permissions, and the corresponding [API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Access_Control_API.html).
 
-## List Data Views
+## `List Data Views`
 
 <a id="opIdDataViews_List Data Views"></a>
 
@@ -95,7 +84,7 @@ Content-Type: application/json
 
 ---
 
-## Create Data View
+## `Create Data View`
 
 <a id="opIdDataViews_Create Data View"></a>
 
@@ -229,7 +218,7 @@ Content-Type: application/json
 
 ---
 
-## Get Data View
+## `Get Data View`
 
 <a id="opIdDataViews_Get Data View"></a>
 
@@ -300,7 +289,7 @@ Content-Type: application/json
 
 ---
 
-## Get or Create Data View
+## `Get or Create Data View`
 
 <a id="opIdDataViews_Get or Create Data View"></a>
 
@@ -437,7 +426,7 @@ Content-Type: application/json
 
 ---
 
-## Create or Update Data View
+## `Create or Update Data View`
 
 <a id="opIdDataViews_Create or Update Data View"></a>
 
@@ -620,7 +609,7 @@ A `DataView` object whose `Id` matches the `dataViewId` in the URL.<br/>
 
 ---
 
-## Delete Data View
+## `Delete Data View`
 
 <a id="opIdDataViews_Delete Data View"></a>
 
@@ -668,16 +657,16 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 ```
 
 ---
-# Definitions
+## Definitions
 
-## DataView
+### DataView
 
 <a id="schemadataview"></a>
 <a id="schema_DataView"></a>
 <a id="tocSdataview"></a>
 <a id="tocsdataview"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -778,14 +767,14 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 
 ---
 
-## Field
+### Field
 
 <a id="schemafield"></a>
 <a id="schema_Field"></a>
 <a id="tocSfield"></a>
 <a id="tocsfield"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -816,7 +805,7 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 
 ---
 
-## FieldSource
+### FieldSource
 
 <a id="schemafieldsource"></a>
 <a id="schema_FieldSource"></a>
@@ -837,7 +826,7 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 
 ---
 
-## SdsSummaryType
+### SdsSummaryType
 
 <a id="schemasdssummarytype"></a>
 <a id="schema_SdsSummaryType"></a>
@@ -865,7 +854,7 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 
 ---
 
-## SummaryDirection
+### SummaryDirection
 
 <a id="schemasummarydirection"></a>
 <a id="schema_SummaryDirection"></a>
@@ -881,14 +870,14 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 
 ---
 
-## Query
+### Query
 
 <a id="schemaquery"></a>
 <a id="schema_Query"></a>
 <a id="tocSquery"></a>
 <a id="tocsquery"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -907,7 +896,7 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 
 ---
 
-## DataItemResourceType
+### DataItemResourceType
 
 <a id="schemadataitemresourcetype"></a>
 <a id="schema_DataItemResourceType"></a>
@@ -923,14 +912,14 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 
 ---
 
-## FieldSet
+### FieldSet
 
 <a id="schemafieldset"></a>
 <a id="schema_FieldSet"></a>
 <a id="tocSfieldset"></a>
 <a id="tocsfieldset"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -975,7 +964,7 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 
 ---
 
-## SdsTypeCode
+### SdsTypeCode
 
 <a id="schemasdstypecode"></a>
 <a id="schema_SdsTypeCode"></a>
@@ -1078,7 +1067,7 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 
 ---
 
-## DataViewShape
+### DataViewShape
 
 <a id="schemadataviewshape"></a>
 <a id="schema_DataViewShape"></a>
@@ -1094,14 +1083,14 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}
 
 ---
 
-## ErrorResponse
+### ErrorResponse
 
 <a id="schemaerrorresponse"></a>
 <a id="schema_ErrorResponse"></a>
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|

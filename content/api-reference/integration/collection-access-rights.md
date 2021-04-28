@@ -1,20 +1,9 @@
----
-title: integration/collection-access-rights v20210426.4
-language_tabs: []
-toc_footers: []
-includes: []
-search: true
-code_clipboard: true
-highlight_theme: darkula
-headingLevel: 2
-generator: osisoft.widdershins v1.0.7
 
----
 
 # Collection Access Rights
 APIs for retrieving access rights on the data views collection<br/>
 
-## List Data Views Access Rights
+## `List Data Views Access Rights`
 
 <a id="opIdCollectionAccessRights_List Data Views Access Rights"></a>
 
@@ -71,16 +60,16 @@ HTTP 200 OK
 ```
 
 ---
-# Definitions
+## Definitions
 
-## ErrorResponse
+### ErrorResponse
 
 <a id="schemaerrorresponse"></a>
 <a id="schema_ErrorResponse"></a>
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|

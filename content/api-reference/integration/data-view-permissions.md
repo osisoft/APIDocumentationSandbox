@@ -1,20 +1,9 @@
----
-title: integration/data-view-permissions v20210426.4
-language_tabs: []
-toc_footers: []
-includes: []
-search: true
-code_clipboard: true
-highlight_theme: darkula
-headingLevel: 2
-generator: osisoft.widdershins v1.0.7
 
----
 
 # Data View Permissions
 This portion of the [overall data views API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Data_Views_API_Overview.html) focuses on [securing data views](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/SecureDataViews/Securing_Data_Views.html) by setting their ownership and permissions.
 
-## Get Data View Access Control List
+## `Get Data View Access Control List`
 
 <a id="opIdDataViewPermissions_Get Data View Access Control List"></a>
 
@@ -97,7 +86,7 @@ HTTP 200 OK
 
 ---
 
-## Update Data View Access Control List
+## `Update Data View Access Control List`
 
 <a id="opIdDataViewPermissions_Update Data View Access Control List"></a>
 
@@ -163,7 +152,7 @@ An [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentati
 
 ---
 
-## List Data View Access Rights
+## `List Data View Access Rights`
 
 <a id="opIdDataViewPermissions_List Data View Access Rights"></a>
 
@@ -223,7 +212,7 @@ HTTP 200 OK
 
 ---
 
-## Get Data View Owner
+## `Get Data View Owner`
 
 <a id="opIdDataViewPermissions_Get Data View Owner"></a>
 
@@ -281,7 +270,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/owner
 
 ---
 
-## Update Data View Owner
+## `Update Data View Owner`
 
 <a id="opIdDataViewPermissions_Update Data View Owner"></a>
 
@@ -342,16 +331,16 @@ A [`Trustee`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_C
 ```
 
 ---
-# Definitions
+## Definitions
 
-## AccessControlList
+### AccessControlList
 
 <a id="schemaaccesscontrollist"></a>
 <a id="schema_AccessControlList"></a>
 <a id="tocSaccesscontrollist"></a>
 <a id="tocsaccesscontrollist"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -376,14 +365,14 @@ A [`Trustee`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_C
 
 ---
 
-## AccessControlEntry
+### AccessControlEntry
 
 <a id="schemaaccesscontrolentry"></a>
 <a id="schema_AccessControlEntry"></a>
 <a id="tocSaccesscontrolentry"></a>
 <a id="tocsaccesscontrolentry"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -406,14 +395,14 @@ A [`Trustee`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_C
 
 ---
 
-## Trustee
+### Trustee
 
 <a id="schematrustee"></a>
 <a id="schema_Trustee"></a>
 <a id="tocStrustee"></a>
 <a id="tocstrustee"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -432,7 +421,7 @@ A [`Trustee`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_C
 
 ---
 
-## TrusteeType
+### TrusteeType
 
 <a id="schematrusteetype"></a>
 <a id="schema_TrusteeType"></a>
@@ -449,7 +438,7 @@ A [`Trustee`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_C
 
 ---
 
-## AccessType
+### AccessType
 
 <a id="schemaaccesstype"></a>
 <a id="schema_AccessType"></a>
@@ -465,14 +454,14 @@ A [`Trustee`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_C
 
 ---
 
-## ErrorResponse
+### ErrorResponse
 
 <a id="schemaerrorresponse"></a>
 <a id="schema_ErrorResponse"></a>
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|

@@ -1,20 +1,9 @@
----
-title: integration/resolved-data-views v20210426.4
-language_tabs: []
-toc_footers: []
-includes: []
-search: true
-code_clipboard: true
-highlight_theme: darkula
-headingLevel: 2
-generator: osisoft.widdershins v1.0.7
 
----
 
 # Resolved Data Views
 This portion of the overall [data views API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Data_Views_API_Overview.html) is the resources that resolve per-user for each data view. For a description of what this information is, and how to use it, see the [documentation](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetResolvedDataView/Resolved_Data_View.html) for resolved data views.
 
-## Get Available Field Sets
+## `Get Available Field Sets`
 
 <a id="opIdResolvedDataViews_Get Available Field Sets"></a>
 
@@ -111,7 +100,7 @@ HTTP 200 OK
 
 ---
 
-## Get Data Items by Query
+## `Get Data Items by Query`
 
 <a id="opIdResolvedDataViews_Get Data Items by Query"></a>
 
@@ -225,7 +214,7 @@ Content-Type: application/json
 
 ---
 
-## Get Field Mappings
+## `Get Field Mappings`
 
 <a id="opIdResolvedDataViews_Get Field Mappings"></a>
 
@@ -344,7 +333,7 @@ HTTP 200 OK
 
 ---
 
-## Get Groups
+## `Get Groups`
 
 <a id="opIdResolvedDataViews_Get Groups"></a>
 
@@ -469,7 +458,7 @@ Content-Type: application/json
 
 ---
 
-## Get Ineligible Data Items by Query
+## `Get Ineligible Data Items by Query`
 
 <a id="opIdResolvedDataViews_Get Ineligible Data Items by Query"></a>
 
@@ -568,7 +557,7 @@ Content-Type: application/json
 
 ---
 
-## Get Statistics
+## `Get Statistics`
 
 <a id="opIdResolvedDataViews_Get Statistics"></a>
 
@@ -662,16 +651,16 @@ HTTP 200 OK
 ```
 
 ---
-# Definitions
+## Definitions
 
-## ResolvedItemsOfDataItem
+### ResolvedItemsOfDataItem
 
 <a id="schemaresolveditemsofdataitem"></a>
 <a id="schema_ResolvedItemsOfDataItem"></a>
 <a id="tocSresolveditemsofdataitem"></a>
 <a id="tocsresolveditemsofdataitem"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -728,14 +717,14 @@ HTTP 200 OK
 
 ---
 
-## DataItem
+### DataItem
 
 <a id="schemadataitem"></a>
 <a id="schema_DataItem"></a>
 <a id="tocSdataitem"></a>
 <a id="tocsdataitem"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -794,7 +783,7 @@ HTTP 200 OK
 
 ---
 
-## DataItemResourceType
+### DataItemResourceType
 
 <a id="schemadataitemresourcetype"></a>
 <a id="schema_DataItemResourceType"></a>
@@ -810,14 +799,14 @@ HTTP 200 OK
 
 ---
 
-## MetadataValueOfObject
+### MetadataValueOfObject
 
 <a id="schemametadatavalueofobject"></a>
 <a id="schema_MetadataValueOfObject"></a>
 <a id="tocSmetadatavalueofobject"></a>
 <a id="tocsmetadatavalueofobject"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -840,7 +829,7 @@ HTTP 200 OK
 
 ---
 
-## SdsTypeCode
+### SdsTypeCode
 
 <a id="schemasdstypecode"></a>
 <a id="schema_SdsTypeCode"></a>
@@ -943,14 +932,14 @@ HTTP 200 OK
 
 ---
 
-## DataItemField
+### DataItemField
 
 <a id="schemadataitemfield"></a>
 <a id="schema_DataItemField"></a>
 <a id="tocSdataitemfield"></a>
 <a id="tocsdataitemfield"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -975,14 +964,14 @@ HTTP 200 OK
 
 ---
 
-## ErrorResponse
+### ErrorResponse
 
 <a id="schemaerrorresponse"></a>
 <a id="schema_ErrorResponse"></a>
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1013,14 +1002,14 @@ HTTP 200 OK
 
 ---
 
-## ResolvedItemsOfGroup
+### ResolvedItemsOfGroup
 
 <a id="schemaresolveditemsofgroup"></a>
 <a id="schema_ResolvedItemsOfGroup"></a>
 <a id="tocSresolveditemsofgroup"></a>
 <a id="tocsresolveditemsofgroup"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1091,14 +1080,14 @@ HTTP 200 OK
 
 ---
 
-## Group
+### Group
 
 <a id="schemagroup"></a>
 <a id="schema_Group"></a>
 <a id="tocSgroup"></a>
 <a id="tocsgroup"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1204,14 +1193,14 @@ HTTP 200 OK
 
 ---
 
-## GroupingValueOfObject
+### GroupingValueOfObject
 
 <a id="schemagroupingvalueofobject"></a>
 <a id="schema_GroupingValueOfObject"></a>
 <a id="tocSgroupingvalueofobject"></a>
 <a id="tocsgroupingvalueofobject"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1230,14 +1219,14 @@ HTTP 200 OK
 
 ---
 
-## DataItemOfObject
+### DataItemOfObject
 
 <a id="schemadataitemofobject"></a>
 <a id="schema_DataItemOfObject"></a>
 <a id="tocSdataitemofobject"></a>
 <a id="tocsdataitemofobject"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1296,14 +1285,14 @@ HTTP 200 OK
 
 ---
 
-## ResolvedItemsOfFieldMapping
+### ResolvedItemsOfFieldMapping
 
 <a id="schemaresolveditemsoffieldmapping"></a>
 <a id="schema_ResolvedItemsOfFieldMapping"></a>
 <a id="tocSresolveditemsoffieldmapping"></a>
 <a id="tocsresolveditemsoffieldmapping"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1343,14 +1332,14 @@ HTTP 200 OK
 
 ---
 
-## FieldMapping
+### FieldMapping
 
 <a id="schemafieldmapping"></a>
 <a id="schema_FieldMapping"></a>
 <a id="tocSfieldmapping"></a>
 <a id="tocsfieldmapping"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1391,7 +1380,7 @@ HTTP 200 OK
 
 ---
 
-## FieldKind
+### FieldKind
 
 <a id="schemafieldkind"></a>
 <a id="schema_FieldKind"></a>
@@ -1410,7 +1399,7 @@ HTTP 200 OK
 
 ---
 
-## SdsSummaryType
+### SdsSummaryType
 
 <a id="schemasdssummarytype"></a>
 <a id="schema_SdsSummaryType"></a>
@@ -1438,7 +1427,7 @@ HTTP 200 OK
 
 ---
 
-## SummaryDirection
+### SummaryDirection
 
 <a id="schemasummarydirection"></a>
 <a id="schema_SummaryDirection"></a>
@@ -1454,14 +1443,14 @@ HTTP 200 OK
 
 ---
 
-## DataMapping
+### DataMapping
 
 <a id="schemadatamapping"></a>
 <a id="schema_DataMapping"></a>
 <a id="tocSdatamapping"></a>
 <a id="tocsdatamapping"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1492,14 +1481,14 @@ HTTP 200 OK
 
 ---
 
-## ResolvedItemsOfFieldSet
+### ResolvedItemsOfFieldSet
 
 <a id="schemaresolveditemsoffieldset"></a>
 <a id="schema_ResolvedItemsOfFieldSet"></a>
 <a id="tocSresolveditemsoffieldset"></a>
 <a id="tocsresolveditemsoffieldset"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1548,14 +1537,14 @@ HTTP 200 OK
 
 ---
 
-## FieldSet
+### FieldSet
 
 <a id="schemafieldset"></a>
 <a id="schema_FieldSet"></a>
 <a id="tocSfieldset"></a>
 <a id="tocsfieldset"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1600,14 +1589,14 @@ HTTP 200 OK
 
 ---
 
-## Field
+### Field
 
 <a id="schemafield"></a>
 <a id="schema_Field"></a>
 <a id="tocSfield"></a>
 <a id="tocsfield"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1638,7 +1627,7 @@ HTTP 200 OK
 
 ---
 
-## FieldSource
+### FieldSource
 
 <a id="schemafieldsource"></a>
 <a id="schema_FieldSource"></a>
@@ -1659,14 +1648,14 @@ HTTP 200 OK
 
 ---
 
-## ResolvedItemOfStatistics
+### ResolvedItemOfStatistics
 
 <a id="schemaresolveditemofstatistics"></a>
 <a id="schema_ResolvedItemOfStatistics"></a>
 <a id="tocSresolveditemofstatistics"></a>
 <a id="tocsresolveditemofstatistics"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1704,14 +1693,14 @@ HTTP 200 OK
 
 ---
 
-## Statistics
+### Statistics
 
 <a id="schemastatistics"></a>
 <a id="schema_Statistics"></a>
 <a id="tocSstatistics"></a>
 <a id="tocsstatistics"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1754,14 +1743,14 @@ HTTP 200 OK
 
 ---
 
-## QueryStatistics
+### QueryStatistics
 
 <a id="schemaquerystatistics"></a>
 <a id="schema_QueryStatistics"></a>
 <a id="tocSquerystatistics"></a>
 <a id="tocsquerystatistics"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1782,14 +1771,14 @@ HTTP 200 OK
 
 ---
 
-## DataFieldSetStatistics
+### DataFieldSetStatistics
 
 <a id="schemadatafieldsetstatistics"></a>
 <a id="schema_DataFieldSetStatistics"></a>
 <a id="tocSdatafieldsetstatistics"></a>
 <a id="tocsdatafieldsetstatistics"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1815,14 +1804,14 @@ HTTP 200 OK
 
 ---
 
-## DataFieldStatistics
+### DataFieldStatistics
 
 <a id="schemadatafieldstatistics"></a>
 <a id="schema_DataFieldStatistics"></a>
 <a id="tocSdatafieldstatistics"></a>
 <a id="tocsdatafieldstatistics"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|

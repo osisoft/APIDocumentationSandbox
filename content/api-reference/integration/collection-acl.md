@@ -1,20 +1,9 @@
----
-title: integration/collection-acl v20210426.4
-language_tabs: []
-toc_footers: []
-includes: []
-search: true
-code_clipboard: true
-highlight_theme: darkula
-headingLevel: 2
-generator: osisoft.widdershins v1.0.7
 
----
 
 # Collection Acl
 APIs for working with the Access Control List of the data view collection<br/>
 
-## Get Data Views Access Control List
+## `Get Data Views Access Control List`
 
 <a id="opIdCollectionAcl_Get Data Views Access Control List"></a>
 
@@ -95,7 +84,7 @@ HTTP 200 OK
 
 ---
 
-## Update Data Views Access Control List
+## `Update Data Views Access Control List`
 
 <a id="opIdCollectionAcl_Update Data Views Access Control List"></a>
 
@@ -156,16 +145,16 @@ An [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentati
 ```
 
 ---
-# Definitions
+## Definitions
 
-## AccessControlList
+### AccessControlList
 
 <a id="schemaaccesscontrollist"></a>
 <a id="schema_AccessControlList"></a>
 <a id="tocSaccesscontrollist"></a>
 <a id="tocsaccesscontrollist"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -190,14 +179,14 @@ An [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentati
 
 ---
 
-## AccessControlEntry
+### AccessControlEntry
 
 <a id="schemaaccesscontrolentry"></a>
 <a id="schema_AccessControlEntry"></a>
 <a id="tocSaccesscontrolentry"></a>
 <a id="tocsaccesscontrolentry"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -220,14 +209,14 @@ An [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentati
 
 ---
 
-## Trustee
+### Trustee
 
 <a id="schematrustee"></a>
 <a id="schema_Trustee"></a>
 <a id="tocStrustee"></a>
 <a id="tocstrustee"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -246,7 +235,7 @@ An [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentati
 
 ---
 
-## TrusteeType
+### TrusteeType
 
 <a id="schematrusteetype"></a>
 <a id="schema_TrusteeType"></a>
@@ -263,7 +252,7 @@ An [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentati
 
 ---
 
-## AccessType
+### AccessType
 
 <a id="schemaaccesstype"></a>
 <a id="schema_AccessType"></a>
@@ -279,14 +268,14 @@ An [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentati
 
 ---
 
-## ErrorResponse
+### ErrorResponse
 
 <a id="schemaerrorresponse"></a>
 <a id="schema_ErrorResponse"></a>
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
