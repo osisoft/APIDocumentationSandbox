@@ -1,15 +1,4 @@
----
-title: assets/request-manager v20210427.1
-language_tabs: []
-toc_footers: []
-includes: []
-search: true
-code_clipboard: true
-highlight_theme: darkula
-headingLevel: 2
-generator: osisoft.widdershins v1.0.7
 
----
 
 # Request Manager
 
@@ -238,14 +227,13 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/bulk/assets/del
 
 ---
 
-## `Bulk Get Resolved Assets`
+## `Bulk Deprecated Get Resolved Assets`
 
-<a id="opIdRequestManager_Bulk Get Resolved Assets"></a>
+<a id="opIdRequestManager_Bulk Deprecated Get Resolved Assets"></a>
 
 ### Request
 ```text 
 POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/bulk/assets/resolved
-?shapeId={shapeId}
 ```
 
 #### Parameters
@@ -253,7 +241,38 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/bulk/assets/res
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
-`[optional] string shapeId`
+
+### Request Body
+
+<br/>
+
+```json
+[
+  "string"
+]
+```
+
+### Response
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|string|None|
+
+---
+
+## `Bulk Get Resolved Assets`
+
+<a id="opIdRequestManager_Bulk Get Resolved Assets"></a>
+
+### Request
+```text 
+POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/bulk/assets/resolved2
+```
+
+#### Parameters
+
+`string tenantId`
+<br/><br/>`string namespaceId`
 <br/><br/>
 
 ### Request Body
@@ -329,6 +348,33 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/search/assets
 <br/><br/>`[optional] integer pageSize`
 <br/><br/>`[optional] integer maxPages`
 <br/><br/>`[optional] string continuationToken`
+<br/><br/>
+
+### Response
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|string|None|
+
+---
+
+## `Get Faceted Search Results`
+
+<a id="opIdRequestManager_Get Faceted Search Results"></a>
+
+### Request
+```text 
+GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/search/assets/facets
+?count={count}&name={name}
+```
+
+#### Parameters
+
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
+`[optional] integer count`
+<br/><br/>`[optional] string name`
 <br/><br/>
 
 ### Response
