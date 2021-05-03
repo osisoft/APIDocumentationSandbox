@@ -1,15 +1,4 @@
----
-title: operations/query v20210427.2
-language_tabs: []
-toc_footers: []
-includes: []
-search: true
-code_clipboard: true
-highlight_theme: darkula
-headingLevel: 2
-generator: osisoft.widdershins v1.0.7
 
----
 
 # Query
 APIs related to querying OCS Service health states.
@@ -63,9 +52,9 @@ GET /api/v1/tenants/{tenantId}/health
 ```
 
 ---
-# Definitions
+## Definitions
 
-## TenantViewModel
+### TenantViewModel
 
 <a id="schematenantviewmodel"></a>
 <a id="schema_TenantViewModel"></a>
@@ -74,7 +63,7 @@ GET /api/v1/tenants/{tenantId}/health
 
 This represents a view model of a TenantDbo
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -103,7 +92,7 @@ This represents a view model of a TenantDbo
 
 ---
 
-## State
+### State
 
 <a id="schemastate"></a>
 <a id="schema_State"></a>
@@ -124,7 +113,7 @@ Represents the various health states a HealthEventViewModel can represent.
 
 ---
 
-## NamespaceViewModel
+### NamespaceViewModel
 
 <a id="schemanamespaceviewmodel"></a>
 <a id="schema_NamespaceViewModel"></a>
@@ -133,7 +122,7 @@ Represents the various health states a HealthEventViewModel can represent.
 
 This represents a view model of a TenantDbo namespace and its underlying services.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -159,7 +148,7 @@ This represents a view model of a TenantDbo namespace and its underlying service
 
 ---
 
-## Region
+### Region
 
 <a id="schemaregion"></a>
 <a id="schema_Region"></a>
@@ -175,7 +164,7 @@ This represents a view model of a TenantDbo namespace and its underlying service
 
 ---
 
-## ServiceForTenantViewModel
+### ServiceForTenantViewModel
 
 <a id="schemaservicefortenantviewmodel"></a>
 <a id="schema_ServiceForTenantViewModel"></a>
@@ -184,7 +173,7 @@ This represents a view model of a TenantDbo namespace and its underlying service
 
 This represents a view model of a ServiceForTenantDbo
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -201,7 +190,7 @@ This represents a view model of a ServiceForTenantDbo
 
 ---
 
-## ErrorResponse
+### ErrorResponse
 
 <a id="schemaerrorresponse"></a>
 <a id="schema_ErrorResponse"></a>
@@ -210,7 +199,7 @@ This represents a view model of a ServiceForTenantDbo
 
 Object used to represent error information.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
