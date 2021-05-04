@@ -420,6 +420,7 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadataru
 |Id|string|false|true|None|
 |Name|string|false|true|None|
 |Description|string|false|true|None|
+|ExampleStreamId|string|false|true|None|
 |AutomationId|string|false|true|None|
 |Expressions|[[RuleExpression](#schemaruleexpression)]|false|true|None|
 |Outputs|[[RuleOutput](#schemaruleoutput)]|false|true|None|
