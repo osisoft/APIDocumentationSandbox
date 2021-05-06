@@ -6,6 +6,8 @@
 
 <a id="opIdAssetChangeData_List Change Data For Asset"></a>
 
+Gets the `ICollection`1` for the `!:assetId`.
+
 ### Request
 ```text 
 GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/changedata/asset/{assetId}
@@ -14,7 +16,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules
 #### Parameters
 
 `string assetId`
-<br/><br/>`string tenantId`
+<br/>The Id of an Asset.<br/><br/>`string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
 
@@ -22,9 +24,9 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[AssetChangeData](#schemaassetchangedata)[]|None|
-|403|[ResponseBody](#schemaresponsebody)|None|
-|500|[ResponseBody](#schemaresponsebody)|None|
+|200|[AssetChangeData](#schemaassetchangedata)[]|The `ICollection`1` for the `!:assetId`.|
+|403|[ResponseBody](#schemaresponsebody)|Forbidden.|
+|500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
 #### Example response body
 > 200 Response
@@ -152,6 +154,8 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules
 
 <a id="opIdAssetChangeData_List Change Data For Rule"></a>
 
+Gets the `ICollection`1` for the `!:ruleId`.
+
 ### Request
 ```text 
 GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/changedata/rule/{ruleId}
@@ -161,7 +165,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules
 #### Parameters
 
 `string ruleId`
-<br/><br/>`string tenantId`
+<br/>The Id of an Asset Rule.<br/><br/>`string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
 `[optional] integer Skip`
@@ -174,10 +178,10 @@ Defaults to 100.<br/><br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[AssetChangeData](#schemaassetchangedata)[]|None|
+|200|[AssetChangeData](#schemaassetchangedata)[]|The `ICollection`1` for the `!:ruleId`.|
 |400|[ResponseBody](#schemaresponsebody)|None|
-|403|[ResponseBody](#schemaresponsebody)|None|
-|500|[ResponseBody](#schemaresponsebody)|None|
+|403|[ResponseBody](#schemaresponsebody)|Forbidden.|
+|500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
 #### Example response body
 > 200 Response
@@ -320,6 +324,8 @@ Defaults to 100.<br/><br/>
 
 <a id="opIdAssetChangeData_Get Statistics For Rule"></a>
 
+Gets the `AssetRuleStatistics` for the `!:ruleId`.
+
 ### Request
 ```text 
 GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/changedata/rule/{ruleId}/statistics
@@ -328,7 +334,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules
 #### Parameters
 
 `string ruleId`
-<br/><br/>`string tenantId`
+<br/>The Id of an Asset Rule.<br/><br/>`string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
 
@@ -336,9 +342,9 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[AssetRuleStatistics](#schemaassetrulestatistics)|None|
-|403|[ResponseBody](#schemaresponsebody)|None|
-|500|[ResponseBody](#schemaresponsebody)|None|
+|200|[AssetRuleStatistics](#schemaassetrulestatistics)|The `AssetRuleStatistics` for the `!:ruleId`.|
+|403|[ResponseBody](#schemaresponsebody)|Forbidden.|
+|500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
 #### Example response body
 > 200 Response
@@ -386,6 +392,8 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules
 
 <a id="opIdAssetChangeData_List Change Data For Stream"></a>
 
+Gets the `ICollection`1` for the `!:streamId`.
+
 ### Request
 ```text 
 GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/changedata/stream/{streamId}
@@ -394,7 +402,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules
 #### Parameters
 
 `string streamId`
-<br/><br/>`string tenantId`
+<br/>The Id of a Stream.<br/><br/>`string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
 
@@ -402,9 +410,9 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[AssetChangeData](#schemaassetchangedata)[]|None|
-|403|[ResponseBody](#schemaresponsebody)|None|
-|500|[ResponseBody](#schemaresponsebody)|None|
+|200|[AssetChangeData](#schemaassetchangedata)[]|The `ICollection`1` for the `!:streamId`.|
+|403|[ResponseBody](#schemaresponsebody)|Forbidden.|
+|500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
 #### Example response body
 > 200 Response
