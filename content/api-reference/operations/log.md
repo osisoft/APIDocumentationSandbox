@@ -3,9 +3,9 @@
 # Log
 APIs related to querying logs.
 
-## `List Tenant Logs`
+## `Get Tenant Logs`
 
-<a id="opIdLog_List Tenant Logs"></a>
+<a id="opIdLog_Get Tenant Logs"></a>
 
 Get logs for a **Tenant**.
 
@@ -41,33 +41,17 @@ GET /api/v1/tenants/{tenantId}/logs
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[CustomerLogEntry](#schemacustomerlogentry)[]|Customer facing logs for specified tenant.|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
+|200|None|Customer facing logs for specified tenant.|
+|400|None|Missing or invalid inputs.|
 |401|None|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
-
-#### Example response body
-> 200 Response
-
-```json
-[
-  {
-    "Message": "string",
-    "Timestamp": "2019-08-24T14:15:22Z",
-    "Severity": 0,
-    "Source": "string",
-    "OperationId": "string",
-    "EventId": 0
-  }
-]
-```
+|403|None|Forbidden.|
+|500|None|Internal server error.|
 
 ---
 
-## `List Namespace Logs`
+## `Get Namespace Logs`
 
-<a id="opIdLog_List Namespace Logs"></a>
+<a id="opIdLog_Get Namespace Logs"></a>
 
 Get logs for a **Namespace**.
 
@@ -104,64 +88,14 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/logs
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[CustomerLogEntry](#schemacustomerlogentry)[]|Customer facing logs for specified tenant.|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
+|200|None|Customer facing logs for specified tenant.|
+|400|None|Missing or invalid inputs.|
 |401|None|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
-
-#### Example response body
-> 200 Response
-
-```json
-[
-  {
-    "Message": "string",
-    "Timestamp": "2019-08-24T14:15:22Z",
-    "Severity": 0,
-    "Source": "string",
-    "OperationId": "string",
-    "EventId": 0
-  }
-]
-```
+|403|None|Forbidden.|
+|500|None|Internal server error.|
 
 ---
 ## Definitions
-
-### CustomerLogEntry
-
-<a id="schemacustomerlogentry"></a>
-<a id="schema_CustomerLogEntry"></a>
-<a id="tocScustomerlogentry"></a>
-<a id="tocscustomerlogentry"></a>
-
-Object representing a log entry returned as a stream when getting customer logs.
-
-#### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Message|string|true|false|Gets or sets the log message.|
-|Timestamp|date-time|true|false|Gets or sets the Timestamp of the log.|
-|Severity|[SeverityLevel](#schemaseveritylevel)|true|false|Gets or sets the Severity of the log.|
-|Source|string|true|false|Gets or sets the Source of the log.|
-|OperationId|string|true|false|Gets or sets the Operation Id of the request.|
-|EventId|int32|true|false|Gets or sets the Event Id of the log.|
-
-```json
-{
-  "Message": "string",
-  "Timestamp": "2019-08-24T14:15:22Z",
-  "Severity": 0,
-  "Source": "string",
-  "OperationId": "string",
-  "EventId": 0
-}
-
-```
-
----
 
 ### SeverityLevel
 
@@ -181,41 +115,6 @@ Object describing the Severity Level of customer logs.
 |Warning|2|
 |Error|3|
 |Critical|4|
-
----
-
-### ErrorResponse
-
-<a id="schemaerrorresponse"></a>
-<a id="schema_ErrorResponse"></a>
-<a id="tocSerrorresponse"></a>
-<a id="tocserrorresponse"></a>
-
-Object returned when there is an error within an API request.
-
-#### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|OperationId|string|true|false|Gets or sets the Operation Id of the action that caused the Error.|
-|Error|string|true|false|Gets or sets Error description.|
-|Reason|string|true|false|Gets or sets reason for the Error.|
-|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
-|Parameters|object|true|false|Gets additional properties.|
-
-```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "Parameters": {
-    "property1": null,
-    "property2": null
-  }
-}
-
-```
 
 ---
 
