@@ -1,76 +1,173 @@
 
 
 # Query
-APIs related to querying tenant metrics.
+APIs related to querying OCS Service health states.
 
-## `List Namespace Metrics`
+## `Get Tenant Health`
 
-<a id="opIdQuery_List Namespace Metrics"></a>
+<a id="opIdQuery_Get Tenant Health"></a>
 
-Gets a namespace scoped metric.
+Get **Tenant** health data containing an aggregated health state and a list of services related to the tenant.
 
 ### Request
 ```text 
-GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metrics/{collection}/{metricId}
-?start={start}&end={end}
+GET /api/v1/tenants/{tenantId}/health
 ```
 
 #### Parameters
 
 `string tenantId`
-<br/>Id of the tenant for this metric.<br/><br/>`string namespaceId`
-<br/>Id of the namespace for this metric.<br/><br/>`string collection`
-<br/>Collection name of this metric.<br/><br/>`string metricId`
-<br/>Id of this metric under the supplied collection.<br/><br/>`string start`
-<br/>Start date of the metric results to return.<br/><br/>`string end`
-<br/>End date of the metric results to return.<br/><br/>
+<br/>Id of the Tenant<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[AiMetricSample](#schemaaimetricsample)[]|Time series values for this queried metric.|
+|200|[TenantViewModel](#schematenantviewmodel)|Health data for the requested **Tenant**|
 |400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
 |401|None|Unauthorized|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
-|404|None|Metric Not Found|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
 > 200 Response
 
 ```json
-[
-  {
-    "Timestamp": "2019-08-24T14:15:22Z",
-    "Value": 0
-  }
-]
+{
+  "HealthState": 0,
+  "Namespaces": [
+    {
+      "NamespaceId": "string",
+      "Region": "string",
+      "HealthState": 0,
+      "Services": [
+        {
+          "Name": "string",
+          "HealthState": null
+        }
+      ]
+    }
+  ]
+}
 ```
 
 ---
 ## Definitions
 
-### AiMetricSample
+### TenantViewModel
 
-<a id="schemaaimetricsample"></a>
-<a id="schema_AiMetricSample"></a>
-<a id="tocSaimetricsample"></a>
-<a id="tocsaimetricsample"></a>
+<a id="schematenantviewmodel"></a>
+<a id="schema_TenantViewModel"></a>
+<a id="tocStenantviewmodel"></a>
+<a id="tocstenantviewmodel"></a>
 
-Represents a sample from a range of requested metrics. Mainly used in testing and documentation.
+This represents a view model of a TenantDbo
 
 #### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Timestamp|date-time|false|false|The timestamp of when the value was sampled|
-|Value|double|false|false|The value of the metric at the given timestamp|
+|HealthState|[State](#schemastate)|false|false|Health state of the tenant|
+|Namespaces|[[NamespaceViewModel](#schemanamespaceviewmodel)]|false|true|Namespaces scoped to this tenant|
 
 ```json
 {
-  "Timestamp": "2019-08-24T14:15:22Z",
-  "Value": 0
+  "HealthState": 0,
+  "Namespaces": [
+    {
+      "NamespaceId": "string",
+      "Region": "string",
+      "HealthState": 0,
+      "Services": [
+        {
+          "Name": "string",
+          "HealthState": null
+        }
+      ]
+    }
+  ]
+}
+
+```
+
+---
+
+### State
+
+<a id="schemastate"></a>
+<a id="schema_State"></a>
+<a id="tocSstate"></a>
+<a id="tocsstate"></a>
+
+Represents the various health states a HealthEventViewModel can represent.
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|Invalid|0|
+|Ok|1|
+|Warning|2|
+|Error|3|
+|Unknown|65535|
+
+---
+
+### NamespaceViewModel
+
+<a id="schemanamespaceviewmodel"></a>
+<a id="schema_NamespaceViewModel"></a>
+<a id="tocSnamespaceviewmodel"></a>
+<a id="tocsnamespaceviewmodel"></a>
+
+This represents a view model of a TenantDbo namespace and its underlying services.
+
+#### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|NamespaceId|string|false|true|Id of the Namespace|
+|Region|string|false|true|Region of the Namespace|
+|HealthState|[State](#schemastate)|false|false|Health state of the Namespace|
+|Services|[[ServiceForTenantViewModel](#schemaservicefortenantviewmodel)]|false|true|Services scoped to this Namespace|
+
+```json
+{
+  "NamespaceId": "string",
+  "Region": "string",
+  "HealthState": 0,
+  "Services": [
+    {
+      "Name": "string",
+      "HealthState": 0
+    }
+  ]
+}
+
+```
+
+---
+
+### ServiceForTenantViewModel
+
+<a id="schemaservicefortenantviewmodel"></a>
+<a id="schema_ServiceForTenantViewModel"></a>
+<a id="tocSservicefortenantviewmodel"></a>
+<a id="tocsservicefortenantviewmodel"></a>
+
+This represents a view model of a ServiceForTenantDbo
+
+#### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Name|string|false|true|Name of the Service|
+|HealthState|[State](#schemastate)|false|false|Health state of the service|
+
+```json
+{
+  "Name": "string",
+  "HealthState": 0
 }
 
 ```
