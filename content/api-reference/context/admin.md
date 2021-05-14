@@ -2,6 +2,75 @@
 
 # Admin
 
+## `Reset Tracking (`assetrules` path)`
+
+<a id="opIdAdmin_Reset Tracking (`assetrules` path)"></a>
+
+Resets the asset tracking table. If is specified it will only clear the entries for those assets.
+
+### Request
+```text 
+POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/resetassettracking
+?assetIds={assetIds}
+```
+
+#### Parameters
+
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
+`[optional] array assetIds`
+<br/><br/>
+
+### Response
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[StoreStatistics](#schemastorestatistics)|Cleared successfully.|
+|403|[ResponseBody](#schemaresponsebody)|Forbidden.|
+|500|[ResponseBody](#schemaresponsebody)|Internal server error.|
+
+#### Example response body
+> 200 Response
+
+```json
+{
+  "RuleCount": 0
+}
+```
+
+> 403 Response
+
+```json
+{
+  "OperationId": "00000000-0000-0000-0000-000000000000",
+  "Error": "Error message.",
+  "Reason": "Reason that caused the error.",
+  "Resolution": "Possible resolution for the error.",
+  "Parameters": {
+    "key1": "value1",
+    "key2": "value2"
+  }
+}
+```
+
+> 500 Response
+
+```json
+{
+  "OperationId": "00000000-0000-0000-0000-000000000000",
+  "Error": "Error message.",
+  "Reason": "Reason that caused the error.",
+  "Resolution": "Possible resolution for the error.",
+  "Parameters": {
+    "key1": "value1",
+    "key2": "value2"
+  }
+}
+```
+
+---
+
 ## `Get Statistics (`assetrules` path)`
 
 <a id="opIdAdmin_Get Statistics (`assetrules` path)"></a>
@@ -24,6 +93,75 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/statist
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[StoreStatistics](#schemastorestatistics)|The `IRuleStore` `StoreStatistics`.|
+|403|[ResponseBody](#schemaresponsebody)|Forbidden.|
+|500|[ResponseBody](#schemaresponsebody)|Internal server error.|
+
+#### Example response body
+> 200 Response
+
+```json
+{
+  "RuleCount": 0
+}
+```
+
+> 403 Response
+
+```json
+{
+  "OperationId": "00000000-0000-0000-0000-000000000000",
+  "Error": "Error message.",
+  "Reason": "Reason that caused the error.",
+  "Resolution": "Possible resolution for the error.",
+  "Parameters": {
+    "key1": "value1",
+    "key2": "value2"
+  }
+}
+```
+
+> 500 Response
+
+```json
+{
+  "OperationId": "00000000-0000-0000-0000-000000000000",
+  "Error": "Error message.",
+  "Reason": "Reason that caused the error.",
+  "Resolution": "Possible resolution for the error.",
+  "Parameters": {
+    "key1": "value1",
+    "key2": "value2"
+  }
+}
+```
+
+---
+
+## `Reset Tracking (`metadatarules` path)`
+
+<a id="opIdAdmin_Reset Tracking (`metadatarules` path)"></a>
+
+Resets the asset tracking table. If is specified it will only clear the entries for those assets.
+
+### Request
+```text 
+POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/admin/metadatarules/resetassettracking
+?assetIds={assetIds}
+```
+
+#### Parameters
+
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
+`[optional] array assetIds`
+<br/><br/>
+
+### Response
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[StoreStatistics](#schemastorestatistics)|Cleared successfully.|
 |403|[ResponseBody](#schemaresponsebody)|Forbidden.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
