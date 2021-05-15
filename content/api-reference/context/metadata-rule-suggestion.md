@@ -1,4 +1,15 @@
+---
+title: Metadata Rule Suggestion v20210515.1
+language_tabs: []
+toc_footers: []
+includes: []
+search: true
+code_clipboard: true
+highlight_theme: darkula
+headingLevel: 2
+generator: osisoft.widdershins v1.0.7
 
+---
 
 # Metadata Rule Suggestion
 
