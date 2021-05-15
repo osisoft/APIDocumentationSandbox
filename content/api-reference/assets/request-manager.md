@@ -1,4 +1,15 @@
+---
+title: Request Manager v20210515.1
+language_tabs: []
+toc_footers: []
+includes: []
+search: true
+code_clipboard: true
+highlight_theme: darkula
+headingLevel: 2
+generator: osisoft.widdershins v1.0.7
 
+---
 
 # Request Manager
 
@@ -9,7 +20,7 @@
 ### Request
 ```text 
 GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets
-?skip={skip}&count={count}&orderBy={orderBy}&query={query}&pageSize={pageSize}&maxPages={maxPages}&continuationToken={continuationToken}
+?skip={skip}&count={count}&orderBy={orderBy}&query={query}&pageSize={pageSize}&maxPages={maxPages}&continuationToken={continuationToken}&Comparer={Comparer}&Count={Count}&Keys={Keys}&System.Collections.Generic.IDictionary<TKey,TValue>.Keys={System.Collections.Generic.IDictionary<TKey,TValue>.Keys}&System.Collections.Generic.IReadOnlyDictionary<TKey,TValue>.Keys={System.Collections.Generic.IReadOnlyDictionary<TKey,TValue>.Keys}&Values={Values}&System.Collections.Generic.IDictionary<TKey,TValue>.Values={System.Collections.Generic.IDictionary<TKey,TValue>.Values}&System.Collections.Generic.IReadOnlyDictionary<TKey,TValue>.Values={System.Collections.Generic.IReadOnlyDictionary<TKey,TValue>.Values}&Item={Item}&System.Collections.Generic.ICollection<System.Collections.Generic.KeyValuePair<TKey,TValue>>.IsReadOnly={System.Collections.Generic.ICollection<System.Collections.Generic.KeyValuePair<TKey,TValue>>.IsReadOnly}&System.Collections.ICollection.IsSynchronized={System.Collections.ICollection.IsSynchronized}&System.Collections.ICollection.SyncRoot={System.Collections.ICollection.SyncRoot}&System.Collections.IDictionary.IsFixedSize={System.Collections.IDictionary.IsFixedSize}&System.Collections.IDictionary.IsReadOnly={System.Collections.IDictionary.IsReadOnly}&System.Collections.IDictionary.Keys={System.Collections.IDictionary.Keys}&System.Collections.IDictionary.Values={System.Collections.IDictionary.Values}&System.Collections.IDictionary.Item={System.Collections.IDictionary.Item}
 ```
 
 #### Parameters
@@ -24,6 +35,23 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets
 <br/><br/>`[optional] integer pageSize`
 <br/><br/>`[optional] integer maxPages`
 <br/><br/>`[optional] string continuationToken`
+<br/><br/>`[optional] object Comparer`
+<br/><br/>`[optional] integer Count`
+<br/><br/>`[optional] array Keys`
+<br/><br/>`[optional] array System.Collections.Generic.IDictionary<TKey,TValue>.Keys`
+<br/><br/>`[optional] array System.Collections.Generic.IReadOnlyDictionary<TKey,TValue>.Keys`
+<br/><br/>`[optional] array Values`
+<br/><br/>`[optional] array System.Collections.Generic.IDictionary<TKey,TValue>.Values`
+<br/><br/>`[optional] array System.Collections.Generic.IReadOnlyDictionary<TKey,TValue>.Values`
+<br/><br/>`[optional] array Item`
+<br/><br/>`[optional] boolean System.Collections.Generic.ICollection<System.Collections.Generic.KeyValuePair<TKey,TValue>>.IsReadOnly`
+<br/><br/>`[optional] boolean System.Collections.ICollection.IsSynchronized`
+<br/><br/>`[optional] any System.Collections.ICollection.SyncRoot`
+<br/><br/>`[optional] boolean System.Collections.IDictionary.IsFixedSize`
+<br/><br/>`[optional] boolean System.Collections.IDictionary.IsReadOnly`
+<br/><br/>`[optional] array System.Collections.IDictionary.Keys`
+<br/><br/>`[optional] array System.Collections.IDictionary.Values`
+<br/><br/>`[optional] any System.Collections.IDictionary.Item`
 <br/><br/>
 
 ### Response
@@ -333,7 +361,7 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/bulk/assets/sta
 ### Request
 ```text 
 GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/search/assets
-?skip={skip}&count={count}&orderBy={orderBy}&query={query}&pageSize={pageSize}&maxPages={maxPages}&continuationToken={continuationToken}
+?skip={skip}&count={count}&orderBy={orderBy}&query={query}&pageSize={pageSize}&maxPages={maxPages}&continuationToken={continuationToken}&Comparer={Comparer}&Count={Count}&Keys={Keys}&System.Collections.Generic.IDictionary<TKey,TValue>.Keys={System.Collections.Generic.IDictionary<TKey,TValue>.Keys}&System.Collections.Generic.IReadOnlyDictionary<TKey,TValue>.Keys={System.Collections.Generic.IReadOnlyDictionary<TKey,TValue>.Keys}&Values={Values}&System.Collections.Generic.IDictionary<TKey,TValue>.Values={System.Collections.Generic.IDictionary<TKey,TValue>.Values}&System.Collections.Generic.IReadOnlyDictionary<TKey,TValue>.Values={System.Collections.Generic.IReadOnlyDictionary<TKey,TValue>.Values}&Item={Item}&System.Collections.Generic.ICollection<System.Collections.Generic.KeyValuePair<TKey,TValue>>.IsReadOnly={System.Collections.Generic.ICollection<System.Collections.Generic.KeyValuePair<TKey,TValue>>.IsReadOnly}&System.Collections.ICollection.IsSynchronized={System.Collections.ICollection.IsSynchronized}&System.Collections.ICollection.SyncRoot={System.Collections.ICollection.SyncRoot}&System.Collections.IDictionary.IsFixedSize={System.Collections.IDictionary.IsFixedSize}&System.Collections.IDictionary.IsReadOnly={System.Collections.IDictionary.IsReadOnly}&System.Collections.IDictionary.Keys={System.Collections.IDictionary.Keys}&System.Collections.IDictionary.Values={System.Collections.IDictionary.Values}&System.Collections.IDictionary.Item={System.Collections.IDictionary.Item}
 ```
 
 #### Parameters
@@ -348,6 +376,23 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/search/assets
 <br/><br/>`[optional] integer pageSize`
 <br/><br/>`[optional] integer maxPages`
 <br/><br/>`[optional] string continuationToken`
+<br/><br/>`[optional] object Comparer`
+<br/><br/>`[optional] integer Count`
+<br/><br/>`[optional] array Keys`
+<br/><br/>`[optional] array System.Collections.Generic.IDictionary<TKey,TValue>.Keys`
+<br/><br/>`[optional] array System.Collections.Generic.IReadOnlyDictionary<TKey,TValue>.Keys`
+<br/><br/>`[optional] array Values`
+<br/><br/>`[optional] array System.Collections.Generic.IDictionary<TKey,TValue>.Values`
+<br/><br/>`[optional] array System.Collections.Generic.IReadOnlyDictionary<TKey,TValue>.Values`
+<br/><br/>`[optional] array Item`
+<br/><br/>`[optional] boolean System.Collections.Generic.ICollection<System.Collections.Generic.KeyValuePair<TKey,TValue>>.IsReadOnly`
+<br/><br/>`[optional] boolean System.Collections.ICollection.IsSynchronized`
+<br/><br/>`[optional] any System.Collections.ICollection.SyncRoot`
+<br/><br/>`[optional] boolean System.Collections.IDictionary.IsFixedSize`
+<br/><br/>`[optional] boolean System.Collections.IDictionary.IsReadOnly`
+<br/><br/>`[optional] array System.Collections.IDictionary.Keys`
+<br/><br/>`[optional] array System.Collections.IDictionary.Values`
+<br/><br/>`[optional] any System.Collections.IDictionary.Item`
 <br/><br/>
 
 ### Response
@@ -785,6 +830,20 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/search/assets/fa
 |Good|1|
 |Warning|2|
 |Bad|3|
+
+---
+
+### IEqualityComparerOfString
+
+<a id="schemaiequalitycomparerofstring"></a>
+<a id="schema_IEqualityComparerOfString"></a>
+<a id="tocSiequalitycomparerofstring"></a>
+<a id="tocsiequalitycomparerofstring"></a>
+
+```json
+{}
+
+```
 
 ---
 
