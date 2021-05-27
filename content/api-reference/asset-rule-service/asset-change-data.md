@@ -23,6 +23,11 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules
 <br/><br/>`string namespaceId`
 <br/><br/>
 
+#### Request Headers
+
+|Header|Type|Required|Description|
+|---|---|---|---|
+
 ### Response
 
 |Status Code|Body Type|Description|
@@ -171,11 +176,16 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules
 <br/>The Id of an Asset Rule.<br/><br/>`string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
-`[optional] integer Skip`
+`[optional] integer Skip Skip`
 <br/>An Int32 specifying the number of results to skip.
-Defaults to 0.<br/><br/>`[optional] integer Count`
+Defaults to 0.<br/><br/>`[optional] integer Count Count`
 <br/>An Int32 specifying the number of results to return.
 Defaults to 100.<br/><br/>
+
+#### Request Headers
+
+|Header|Type|Required|Description|
+|---|---|---|---|
 
 ### Response
 
@@ -341,6 +351,11 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules
 <br/><br/>`string namespaceId`
 <br/><br/>
 
+#### Request Headers
+
+|Header|Type|Required|Description|
+|---|---|---|---|
+
 ### Response
 
 |Status Code|Body Type|Description|
@@ -408,6 +423,11 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules
 <br/>The Id of a Stream.<br/><br/>`string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
+
+#### Request Headers
+
+|Header|Type|Required|Description|
+|---|---|---|---|
 
 ### Response
 
