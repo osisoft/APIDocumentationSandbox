@@ -22,11 +22,16 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
-`[optional] integer Skip`
+`[optional] integer Skip Skip`
 <br/>An Int32 specifying the number of results to skip.
-Defaults to 0.<br/><br/>`[optional] integer Count`
+Defaults to 0.<br/><br/>`[optional] integer Count Count`
 <br/>An Int32 specifying the number of results to return.
 Defaults to 100.<br/><br/>
+
+#### Request Headers
+
+|Header|Type|Required|Description|
+|---|---|---|---|
 
 ### Request Body
 

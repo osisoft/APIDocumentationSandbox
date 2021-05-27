@@ -24,6 +24,11 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/asset
 <br/><br/>`string namespaceId`
 <br/><br/>
 
+#### Request Headers
+
+|Header|Type|Required|Description|
+|---|---|---|---|
+
 ### Response
 
 |Status Code|Body Type|Description|
@@ -131,6 +136,11 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/asse
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
+
+#### Request Headers
+
+|Header|Type|Required|Description|
+|---|---|---|---|
 
 ### Request Body
 
@@ -277,6 +287,11 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/as
 <br/>A Guid which corresponds to a SuggestionResponse that has been created using the CancellationToken) method.<br/><br/>`string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
+
+#### Request Headers
+
+|Header|Type|Required|Description|
+|---|---|---|---|
 
 ### Response
 

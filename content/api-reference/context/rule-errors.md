@@ -9,7 +9,7 @@ uid: ""
 
 <a id="opIdRuleErrors_List Rule Errors By Rule Id"></a>
 
-Gets the `RuleErrorDto` objects for the specified ruleId.
+Gets the `RuleError` objects for the specified ruleId.
 
 ### Request
 ```text 
@@ -23,11 +23,16 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{rule
 <br/><br/>`string namespaceId`
 <br/><br/>
 
+#### Request Headers
+
+|Header|Type|Required|Description|
+|---|---|---|---|
+
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[RuleErrorDto](#schemaruleerrordto)[]|An `IEnumerable`1`|
+|200|[RuleError](#schemaruleerror)[]|An `IEnumerable`1`|
 |403|[ResponseBody](#schemaresponsebody)|Forbidden.|
 |404|[ResponseBody](#schemaresponsebody)|The specified rule was not found.|
 |500|[ResponseBody](#schemaresponsebody)|None|
@@ -105,7 +110,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{rule
 
 <a id="opIdRuleErrors_Delete Rule Errors By Rule Id"></a>
 
-Deletes the `RuleErrorDto` objects associated with the specified rule.
+Deletes the `RuleError` objects associated with the specified rule.
 
 ### Request
 ```text 
@@ -118,6 +123,11 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{r
 <br/>The rule Id.<br/><br/>`string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
+
+#### Request Headers
+
+|Header|Type|Required|Description|
+|---|---|---|---|
 
 ### Response
 
@@ -177,12 +187,12 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{r
 ---
 ## Definitions
 
-### RuleErrorDto
+### RuleError
 
-<a id="schemaruleerrordto"></a>
-<a id="schema_RuleErrorDto"></a>
-<a id="tocSruleerrordto"></a>
-<a id="tocsruleerrordto"></a>
+<a id="schemaruleerror"></a>
+<a id="schema_RuleError"></a>
+<a id="tocSruleerror"></a>
+<a id="tocsruleerror"></a>
 
 #### Properties
 

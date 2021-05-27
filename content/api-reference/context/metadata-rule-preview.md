@@ -24,8 +24,13 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
 <br/>An Int32 to determine the number of preview results to skip.<br/><br/>`string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
-`[optional] integer count`
+`[optional] integer count count`
 <br/>An Int32 to determine the number of preview results to return.<br/><br/>
+
+#### Request Headers
+
+|Header|Type|Required|Description|
+|---|---|---|---|
 
 ### Response
 
@@ -150,10 +155,15 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
-`[optional] boolean KeepOldMetadata`
-<br/><br/>`[optional] integer Skip`
-<br/><br/>`[optional] integer Count`
+`[optional] boolean KeepOldMetadata KeepOldMetadata`
+<br/><br/>`[optional] integer Skip Skip`
+<br/><br/>`[optional] integer Count Count`
 <br/><br/>
+
+#### Request Headers
+
+|Header|Type|Required|Description|
+|---|---|---|---|
 
 ### Request Body
 
@@ -300,6 +310,11 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
 <br/>A Guid which corresponds to a preview that has been created using the CancellationToken) method.<br/><br/>`string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
+
+#### Request Headers
+
+|Header|Type|Required|Description|
+|---|---|---|---|
 
 ### Response
 

@@ -22,8 +22,13 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/reseta
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
-`[optional] array assetIds`
+`[optional] array assetIds assetIds`
 <br/><br/>
+
+#### Request Headers
+
+|Header|Type|Required|Description|
+|---|---|---|---|
 
 ### Response
 
@@ -91,6 +96,11 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/statist
 <br/><br/>`string namespaceId`
 <br/><br/>
 
+#### Request Headers
+
+|Header|Type|Required|Description|
+|---|---|---|---|
+
 ### Response
 
 |Status Code|Body Type|Description|
@@ -157,8 +167,13 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/admin/metadatarules/res
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
-`[optional] array assetIds`
+`[optional] array assetIds assetIds`
 <br/><br/>
+
+#### Request Headers
+
+|Header|Type|Required|Description|
+|---|---|---|---|
 
 ### Response
 
@@ -225,6 +240,11 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/admin/metadatarules/stat
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
+
+#### Request Headers
+
+|Header|Type|Required|Description|
+|---|---|---|---|
 
 ### Response
 
