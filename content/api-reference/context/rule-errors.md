@@ -110,7 +110,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{rule
 
 <a id="opIdRuleErrors_Delete Rule Errors By Rule Id"></a>
 
-Deletes the `RuleError` objects associated with the specified rule.
+Deletes the `!:RuleErrorDto` objects associated with the specified rule.
 
 ### Request
 ```text 
