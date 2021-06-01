@@ -46,28 +46,52 @@ Defaults to false.<br/><br/>
 > 200 Response
 
 ```json
-{
-  "Id": "ruleId",
-  "Name": "name",
-  "Description": "description",
-  "AutomationId": "00000000-0000-0000-0000-000000000000",
-  "Expressions": [
-    {
-      "Field": "Id",
-      "Pattern": "{id}"
-    }
-  ],
-  "Outputs": [
-    {
-      "Field": "Asset",
-      "Value": {
-        "key": "{id}"
+[
+  {
+    "Id": "ruleId",
+    "Name": "name",
+    "Description": "description",
+    "AutomationId": "00000000-0000-0000-0000-000000000000",
+    "Expressions": [
+      {
+        "Field": "Id",
+        "Pattern": "{id}"
       }
-    }
-  ],
-  "CreationTime": "0001-01-01T00:00:00",
-  "ModifiedTime": "0001-01-01T00:00:00"
-}
+    ],
+    "Outputs": [
+      {
+        "Field": "Metadata",
+        "Value": {
+          "key": "{id}"
+        }
+      }
+    ],
+    "CreationTime": "0001-01-01T00:00:00",
+    "ModifiedTime": "0001-01-01T00:00:00"
+  },
+  {
+    "Id": "ruleId",
+    "Name": "name",
+    "Description": "description",
+    "AutomationId": "00000000-0000-0000-0000-000000000000",
+    "Expressions": [
+      {
+        "Field": "Id",
+        "Pattern": "{id}"
+      }
+    ],
+    "Outputs": [
+      {
+        "Field": "Metadata",
+        "Value": {
+          "key": "{id}"
+        }
+      }
+    ],
+    "CreationTime": "0001-01-01T00:00:00",
+    "ModifiedTime": "0001-01-01T00:00:00"
+  }
+]
 ```
 
 > 400 Response
@@ -195,7 +219,7 @@ The RuleModel object to create.<br/>
   ],
   "Outputs": [
     {
-      "Field": "Asset",
+      "Field": "Metadata",
       "Value": {
         "key": "{id}"
       }
@@ -318,7 +342,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
   ],
   "Outputs": [
     {
-      "Field": "Asset",
+      "Field": "Metadata",
       "Value": {
         "key": "{id}"
       }
@@ -457,7 +481,7 @@ The RuleModel object.<br/>
   ],
   "Outputs": [
     {
-      "Field": "Asset",
+      "Field": "Metadata",
       "Value": {
         "key": "{id}"
       }
@@ -616,7 +640,7 @@ The RuleModel object to create or update.<br/>
   ],
   "Outputs": [
     {
-      "Field": "Asset",
+      "Field": "Metadata",
       "Value": {
         "key": "{id}"
       }
