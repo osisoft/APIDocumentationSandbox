@@ -9,7 +9,7 @@ uid: ""
 
 <a id="opIdAssetRules_List Rules"></a>
 
-Gets all `RuleModel` objects from the `IRuleStore` the requesting `Identity` has access to.
+Gets all `RuleModel` objects from the `IRuleStore` the requesting `!:Identity` has access to.
 
 ### Request
 ```text 
@@ -46,52 +46,28 @@ Defaults to false.<br/><br/>
 > 200 Response
 
 ```json
-[
-  {
-    "Id": "ruleId",
-    "Name": "name",
-    "Description": "description",
-    "AutomationId": "00000000-0000-0000-0000-000000000000",
-    "Expressions": [
-      {
-        "Field": "Id",
-        "Pattern": "{id}"
+{
+  "Id": "ruleId",
+  "Name": "name",
+  "Description": "description",
+  "AutomationId": "00000000-0000-0000-0000-000000000000",
+  "Expressions": [
+    {
+      "Field": "Id",
+      "Pattern": "{id}"
+    }
+  ],
+  "Outputs": [
+    {
+      "Field": "Asset",
+      "Value": {
+        "key": "{id}"
       }
-    ],
-    "Outputs": [
-      {
-        "Field": "Metadata",
-        "Value": {
-          "key": "{id}"
-        }
-      }
-    ],
-    "CreationTime": "0001-01-01T00:00:00",
-    "ModifiedTime": "0001-01-01T00:00:00"
-  },
-  {
-    "Id": "ruleId",
-    "Name": "name",
-    "Description": "description",
-    "AutomationId": "00000000-0000-0000-0000-000000000000",
-    "Expressions": [
-      {
-        "Field": "Id",
-        "Pattern": "{id}"
-      }
-    ],
-    "Outputs": [
-      {
-        "Field": "Metadata",
-        "Value": {
-          "key": "{id}"
-        }
-      }
-    ],
-    "CreationTime": "0001-01-01T00:00:00",
-    "ModifiedTime": "0001-01-01T00:00:00"
-  }
-]
+    }
+  ],
+  "CreationTime": "0001-01-01T00:00:00",
+  "ModifiedTime": "0001-01-01T00:00:00"
+}
 ```
 
 > 400 Response
@@ -219,7 +195,7 @@ The RuleModel object to create.<br/>
   ],
   "Outputs": [
     {
-      "Field": "Metadata",
+      "Field": "Asset",
       "Value": {
         "key": "{id}"
       }
@@ -342,7 +318,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
   ],
   "Outputs": [
     {
-      "Field": "Metadata",
+      "Field": "Asset",
       "Value": {
         "key": "{id}"
       }
@@ -481,7 +457,7 @@ The RuleModel object.<br/>
   ],
   "Outputs": [
     {
-      "Field": "Metadata",
+      "Field": "Asset",
       "Value": {
         "key": "{id}"
       }
@@ -640,7 +616,7 @@ The RuleModel object to create or update.<br/>
   ],
   "Outputs": [
     {
-      "Field": "Metadata",
+      "Field": "Asset",
       "Value": {
         "key": "{id}"
       }
