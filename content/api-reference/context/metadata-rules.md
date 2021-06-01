@@ -48,28 +48,52 @@ The `RuleModel` objects.|
 > 200 Response
 
 ```json
-{
-  "Id": "ruleId",
-  "Name": "name",
-  "Description": "description",
-  "AutomationId": "00000000-0000-0000-0000-000000000000",
-  "Expressions": [
-    {
-      "Field": "Id",
-      "Pattern": "{id}"
-    }
-  ],
-  "Outputs": [
-    {
-      "Field": "Metadata",
-      "Value": {
-        "key": "{id}"
+[
+  {
+    "Id": "ruleId",
+    "Name": "name",
+    "Description": "description",
+    "AutomationId": "00000000-0000-0000-0000-000000000000",
+    "Expressions": [
+      {
+        "Field": "Id",
+        "Pattern": "{id}"
       }
-    }
-  ],
-  "CreationTime": "0001-01-01T00:00:00",
-  "ModifiedTime": "0001-01-01T00:00:00"
-}
+    ],
+    "Outputs": [
+      {
+        "Field": "Metadata",
+        "Value": {
+          "key": "{id}"
+        }
+      }
+    ],
+    "CreationTime": "0001-01-01T00:00:00",
+    "ModifiedTime": "0001-01-01T00:00:00"
+  },
+  {
+    "Id": "ruleId",
+    "Name": "name",
+    "Description": "description",
+    "AutomationId": "00000000-0000-0000-0000-000000000000",
+    "Expressions": [
+      {
+        "Field": "Id",
+        "Pattern": "{id}"
+      }
+    ],
+    "Outputs": [
+      {
+        "Field": "Metadata",
+        "Value": {
+          "key": "{id}"
+        }
+      }
+    ],
+    "CreationTime": "0001-01-01T00:00:00",
+    "ModifiedTime": "0001-01-01T00:00:00"
+  }
+]
 ```
 
 > 400 Response
