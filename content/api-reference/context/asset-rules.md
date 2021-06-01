@@ -4,6 +4,7 @@ uid: ""
 ---
 
 # Asset Rules
+Interacts with the IRuleStore and IAuthorizationService to process requests.
 
 ## `List Rules`
 
