@@ -9,7 +9,7 @@ uid: ""
 
 <a id="opIdMetadataRules_List Rules"></a>
 
-Gets all `RuleModel` objects from the `IRuleStore` the requesting `Identity` has access to.
+Gets all `RuleModel` objects from the `IRuleStore` the requesting `!:Identity` has access to.
 
 ### Request
 ```text 
@@ -37,61 +37,39 @@ Defaults to false.<br/><br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[RuleModel](#schemarulemodel)[]|The `RuleModel` objects.|
-|400|[ResponseBody](#schemaresponsebody)|Invalid uri query parameters.|
-|403|[ResponseBody](#schemaresponsebody)|Forbidden.|
-|500|[ResponseBody](#schemaresponsebody)|Internal server error.|
+|200|[RuleModel](#schemarulemodel)[]|The `RuleModel` objects.
+or
+The `RuleModel` objects.|
+|400|[ResponseBody](#schemaresponsebody)|or|
+|403|[ResponseBody](#schemaresponsebody)|or|
+|500|[ResponseBody](#schemaresponsebody)|or|
 
 #### Example response body
 > 200 Response
 
 ```json
-[
-  {
-    "Id": "ruleId",
-    "Name": "name",
-    "Description": "description",
-    "AutomationId": "00000000-0000-0000-0000-000000000000",
-    "Expressions": [
-      {
-        "Field": "Id",
-        "Pattern": "{id}"
+{
+  "Id": "ruleId",
+  "Name": "name",
+  "Description": "description",
+  "AutomationId": "00000000-0000-0000-0000-000000000000",
+  "Expressions": [
+    {
+      "Field": "Id",
+      "Pattern": "{id}"
+    }
+  ],
+  "Outputs": [
+    {
+      "Field": "Metadata",
+      "Value": {
+        "key": "{id}"
       }
-    ],
-    "Outputs": [
-      {
-        "Field": "Metadata",
-        "Value": {
-          "key": "{id}"
-        }
-      }
-    ],
-    "CreationTime": "0001-01-01T00:00:00",
-    "ModifiedTime": "0001-01-01T00:00:00"
-  },
-  {
-    "Id": "ruleId",
-    "Name": "name",
-    "Description": "description",
-    "AutomationId": "00000000-0000-0000-0000-000000000000",
-    "Expressions": [
-      {
-        "Field": "Id",
-        "Pattern": "{id}"
-      }
-    ],
-    "Outputs": [
-      {
-        "Field": "Metadata",
-        "Value": {
-          "key": "{id}"
-        }
-      }
-    ],
-    "CreationTime": "0001-01-01T00:00:00",
-    "ModifiedTime": "0001-01-01T00:00:00"
-  }
-]
+    }
+  ],
+  "CreationTime": "0001-01-01T00:00:00",
+  "ModifiedTime": "0001-01-01T00:00:00"
+}
 ```
 
 > 400 Response
@@ -196,11 +174,13 @@ The RuleModel object to create.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|201|[RuleModel](#schemarulemodel)|A link to the `RuleModel` object.|
-|400|[ResponseBody](#schemaresponsebody)|The rule is malformed or invalid.|
-|403|[ResponseBody](#schemaresponsebody)|Forbidden.|
-|409|[ResponseBody](#schemaresponsebody)|A non-equivalent rule with the same id already exists.|
-|500|[ResponseBody](#schemaresponsebody)|Internal server error.|
+|201|[RuleModel](#schemarulemodel)|A link to the `RuleModel` object.
+or
+A link to the `RuleModel` object.|
+|400|[ResponseBody](#schemaresponsebody)|or|
+|403|[ResponseBody](#schemaresponsebody)|or|
+|409|[ResponseBody](#schemaresponsebody)|or|
+|500|[ResponseBody](#schemaresponsebody)|or|
 
 #### Example response body
 > 201 Response
@@ -320,10 +300,12 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[RuleModel](#schemarulemodel)|The specified rule.|
-|403|[ResponseBody](#schemaresponsebody)|Forbidden.|
-|404|[ResponseBody](#schemaresponsebody)|The specified rule was not found.|
-|500|[ResponseBody](#schemaresponsebody)|Internal server error.|
+|200|[RuleModel](#schemarulemodel)|The specified rule.
+or
+The specified rule.|
+|403|[ResponseBody](#schemaresponsebody)|or|
+|404|[ResponseBody](#schemaresponsebody)|or|
+|500|[ResponseBody](#schemaresponsebody)|or|
 
 #### Example response body
 > 200 Response
@@ -457,12 +439,14 @@ The RuleModel object.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|201|[RuleModel](#schemarulemodel)|A link to the `RuleModel` object.|
-|302|None|An equivalent rule with the same id and definition already exists.|
-|400|[ResponseBody](#schemaresponsebody)|The rule is malformed or invalid.|
-|403|[ResponseBody](#schemaresponsebody)|None|
-|409|[ResponseBody](#schemaresponsebody)|A non-equivalent rule with the specified id already exists.|
-|500|[ResponseBody](#schemaresponsebody)|Internal server error.|
+|201|[RuleModel](#schemarulemodel)|A link to the `RuleModel` object.
+or
+A link to the `RuleModel` object.|
+|302|None|or|
+|400|[ResponseBody](#schemaresponsebody)|or|
+|403|[ResponseBody](#schemaresponsebody)|or|
+|409|[ResponseBody](#schemaresponsebody)|or|
+|500|[ResponseBody](#schemaresponsebody)|or|
 
 #### Example response body
 > 201 Response
@@ -617,11 +601,15 @@ The RuleModel object to create or update.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[RuleModel](#schemarulemodel)|The updated `RuleModel` object or a link to the new `RuleModel` object.|
-|201|[RuleModel](#schemarulemodel)|The updated `RuleModel` object or a link to the new `RuleModel` object.|
-|400|[ResponseBody](#schemaresponsebody)|The rule is malformed or invalid.|
-|403|[ResponseBody](#schemaresponsebody)|Forbidden.|
-|500|[ResponseBody](#schemaresponsebody)|Internal server error.|
+|200|[RuleModel](#schemarulemodel)|The updated `RuleModel` object or a link to the new `RuleModel` object.
+or
+The updated `RuleModel` object or a link to the new `RuleModel` object.|
+|201|[RuleModel](#schemarulemodel)|The updated `RuleModel` object or a link to the new `RuleModel` object.
+or
+The updated `RuleModel` object or a link to the new `RuleModel` object.|
+|400|[ResponseBody](#schemaresponsebody)|or|
+|403|[ResponseBody](#schemaresponsebody)|or|
+|500|[ResponseBody](#schemaresponsebody)|or|
 
 #### Example response body
 > 200 Response
