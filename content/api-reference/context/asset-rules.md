@@ -50,37 +50,49 @@ The `RuleModel` objects.|
 ```json
 [
   {
-    "Id": "string",
-    "Name": "string",
-    "Description": "string",
-    "ExampleStreamId": "string",
-    "AutomationId": "string",
+    "Id": "ruleId",
+    "Name": "name",
+    "Description": "description",
+    "AutomationId": "00000000-0000-0000-0000-000000000000",
     "Expressions": [
       {
-        "Field": "string",
+        "Field": "Id",
         "Specifications": [
           {
-            "Type": "[",
-            "Value": "string",
-            "Name": "string",
-            "CharacterType": "[",
-            "CharacterLength": 0,
-            "RequiredDelimiters": [
-              null
-            ],
-            "ValueMappings": {}
+            "Type": "Group",
+            "Name": "streamId"
           }
         ]
       }
     ],
     "Outputs": [
       {
-        "Field": "string",
-        "Value": null
+        "Field": "Asset",
+        "Value": {
+          "Id": "assetId",
+          "Name": "name",
+          "Description": "description",
+          "Metadata": [
+            {
+              "Id": "metadataId",
+              "Name": "name",
+              "Description": "description",
+              "SdsTypecode": "18",
+              "Value": "{streamId}"
+            }
+          ],
+          "StreamReferences": [
+            {
+              "Id": "streamReferenceName",
+              "Description": "description",
+              "StreamdId": "{streamId}"
+            }
+          ]
+        }
       }
     ],
-    "CreationTime": "2019-08-24T14:15:22Z",
-    "ModifiedTime": "2019-08-24T14:15:22Z"
+    "CreationTime": "0001-01-01T00:00:00",
+    "ModifiedTime": "0001-01-01T00:00:00"
   }
 ]
 ```
