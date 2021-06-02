@@ -37,9 +37,9 @@ Defaults to false.<br/><br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|Inline|The `RuleModel` objects.
+|200|Inline|The `AssetRuleModel` objects.
 or
-The `RuleModel` objects.|
+The `AssetRuleModel` objects.|
 |400|[ResponseBody](#schemaresponsebody)|or|
 |403|[ResponseBody](#schemaresponsebody)|or|
 |500|[ResponseBody](#schemaresponsebody)|or|
