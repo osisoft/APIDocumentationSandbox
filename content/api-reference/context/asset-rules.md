@@ -10,7 +10,7 @@ Interacts with the IRuleStore and IAuthorizationService to process requests.
 
 <a id="opIdAssetRules_List Rules"></a>
 
-Gets all `RuleModel` objects from the `IRuleStore` the requesting `!:Identity` has access to.
+Gets all `AssetRuleModel` objects from the `IRuleStore` the requesting `!:Identity` has access to.
 
 ### Request
 ```text 
@@ -38,7 +38,7 @@ Defaults to false.<br/><br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[RuleModel](#schemarulemodel)[]|The `RuleModel` objects.|
+|200|[AssetRuleModel](#schemaassetrulemodel)[]|The `AssetRuleModel` objects.|
 |400|[ResponseBody](#schemaresponsebody)|Invalid uri query parameters.|
 |403|[ResponseBody](#schemaresponsebody)|Forbidden.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
@@ -48,39 +48,7 @@ Defaults to false.<br/><br/>
 
 ```json
 [
-  {
-    "Id": "string",
-    "Name": "string",
-    "Description": "string",
-    "ExampleStreamId": "string",
-    "AutomationId": "string",
-    "Expressions": [
-      {
-        "Field": "string",
-        "Specifications": [
-          {
-            "Type": "[",
-            "Value": "string",
-            "Name": "string",
-            "CharacterType": "[",
-            "CharacterLength": 0,
-            "RequiredDelimiters": [
-              null
-            ],
-            "ValueMappings": {}
-          }
-        ]
-      }
-    ],
-    "Outputs": [
-      {
-        "Field": "string",
-        "Value": null
-      }
-    ],
-    "CreationTime": "2019-08-24T14:15:22Z",
-    "ModifiedTime": "2019-08-24T14:15:22Z"
-  }
+  "{\n    \"Id\": \"assetRuleId\",\n    \"Name\": \"name\",\n    \"Description\": \"description\",\n    \"ExampleStreamId\": \"exampleId\"\n    \"AutomationId\": \"00000000-0000-0000-0000-000000000000\",\n    \"Expressions\": [\n        {\n            \"Field\": \"Id\",\n            \"Specifications\": [\n                {\n                    \"Type\": \"Group\",\n                    \"Name\": \"id\"\n                }\n            ]\n        }\n    ],\n    \"Outputs\": [\n        {\n            \"Field\": \"asset\",\n            \"Value\": {\n                \"Id\" : \"assetId,\n                \"Name\": assetName,\n                \"Description\": description,\n                \"Metadata: [\n                    {\n                        \"Id\": \"metadataId\",\n                        \"Name\": \"name\",\n                        \"Description\": description,\n                        \"SdsTypeCode\": \"18\"\n                        \"key\": \"{id}\"\n                    }\n                ]\n                \"StreamReferences\": [\n                    {\n                        \"Id\": \"streamReferenceId\",\n                        \"Description\": \"description\",\n                        \"StreamId\": \"{id}\n                    }\n                ]\n            }\n        }\n    ],\n    \"CreationTime\": \"0001-01-01T00:00:00.0000000\",\n    \"ModifiedTime\": \"0001-01-01T00:00:00.0000000\"\n}"
 ]
 ```
 
@@ -155,7 +123,7 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules
 
 ### Request Body
 
-The RuleModel object to create.<br/>
+The AssetRuleModel object to create.<br/>
 
 ```json
 {
@@ -195,7 +163,7 @@ The RuleModel object to create.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|201|[RuleModel](#schemarulemodel)|A link to the `RuleModel` object.|
+|201|[AssetRuleModel](#schemaassetrulemodel)|A link to the `AssetRuleModel` object.|
 |400|[ResponseBody](#schemaresponsebody)|The rule is malformed or invalid.|
 |403|[ResponseBody](#schemaresponsebody)|Forbidden.|
 |409|[ResponseBody](#schemaresponsebody)|A non-equivalent rule with the same id already exists.|
@@ -205,42 +173,7 @@ The RuleModel object to create.<br/>
 > 201 Response
 
 ```json
-{
-  "Id": "string",
-  "Name": "string",
-  "Description": "string",
-  "ExampleStreamId": "string",
-  "AutomationId": "string",
-  "Expressions": [
-    {
-      "Field": "string",
-      "Specifications": [
-        {
-          "Type": "Unspecified",
-          "Value": "string",
-          "Name": "string",
-          "CharacterType": "Any",
-          "CharacterLength": 0,
-          "RequiredDelimiters": [
-            "string"
-          ],
-          "ValueMappings": {
-            "property1": "string",
-            "property2": "string"
-          }
-        }
-      ]
-    }
-  ],
-  "Outputs": [
-    {
-      "Field": "string",
-      "Value": null
-    }
-  ],
-  "CreationTime": "2019-08-24T14:15:22Z",
-  "ModifiedTime": "2019-08-24T14:15:22Z"
-}
+"{\n    \"Id\": \"assetRuleId\",\n    \"Name\": \"name\",\n    \"Description\": \"description\",\n    \"ExampleStreamId\": \"exampleId\"\n    \"AutomationId\": \"00000000-0000-0000-0000-000000000000\",\n    \"Expressions\": [\n        {\n            \"Field\": \"Id\",\n            \"Specifications\": [\n                {\n                    \"Type\": \"Group\",\n                    \"Name\": \"id\"\n                }\n            ]\n        }\n    ],\n    \"Outputs\": [\n        {\n            \"Field\": \"asset\",\n            \"Value\": {\n                \"Id\" : \"assetId,\n                \"Name\": assetName,\n                \"Description\": description,\n                \"Metadata: [\n                    {\n                        \"Id\": \"metadataId\",\n                        \"Name\": \"name\",\n                        \"Description\": description,\n                        \"SdsTypeCode\": \"18\"\n                        \"key\": \"{id}\"\n                    }\n                ]\n                \"StreamReferences\": [\n                    {\n                        \"Id\": \"streamReferenceId\",\n                        \"Description\": \"description\",\n                        \"StreamId\": \"{id}\n                    }\n                ]\n            }\n        }\n    ],\n    \"CreationTime\": \"0001-01-01T00:00:00.0000000\",\n    \"ModifiedTime\": \"0001-01-01T00:00:00.0000000\"\n}"
 ```
 
 > 400 Response
@@ -333,7 +266,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[RuleModel](#schemarulemodel)|The specified rule.|
+|200|[AssetRuleModel](#schemaassetrulemodel)|The specified rule.|
 |403|[ResponseBody](#schemaresponsebody)|Forbidden.|
 |404|[ResponseBody](#schemaresponsebody)|The specified rule was not found.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
@@ -342,42 +275,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
 > 200 Response
 
 ```json
-{
-  "Id": "string",
-  "Name": "string",
-  "Description": "string",
-  "ExampleStreamId": "string",
-  "AutomationId": "string",
-  "Expressions": [
-    {
-      "Field": "string",
-      "Specifications": [
-        {
-          "Type": "Unspecified",
-          "Value": "string",
-          "Name": "string",
-          "CharacterType": "Any",
-          "CharacterLength": 0,
-          "RequiredDelimiters": [
-            "string"
-          ],
-          "ValueMappings": {
-            "property1": "string",
-            "property2": "string"
-          }
-        }
-      ]
-    }
-  ],
-  "Outputs": [
-    {
-      "Field": "string",
-      "Value": null
-    }
-  ],
-  "CreationTime": "2019-08-24T14:15:22Z",
-  "ModifiedTime": "2019-08-24T14:15:22Z"
-}
+"{\n    \"Id\": \"assetRuleId\",\n    \"Name\": \"name\",\n    \"Description\": \"description\",\n    \"ExampleStreamId\": \"exampleId\"\n    \"AutomationId\": \"00000000-0000-0000-0000-000000000000\",\n    \"Expressions\": [\n        {\n            \"Field\": \"Id\",\n            \"Specifications\": [\n                {\n                    \"Type\": \"Group\",\n                    \"Name\": \"id\"\n                }\n            ]\n        }\n    ],\n    \"Outputs\": [\n        {\n            \"Field\": \"asset\",\n            \"Value\": {\n                \"Id\" : \"assetId,\n                \"Name\": assetName,\n                \"Description\": description,\n                \"Metadata: [\n                    {\n                        \"Id\": \"metadataId\",\n                        \"Name\": \"name\",\n                        \"Description\": description,\n                        \"SdsTypeCode\": \"18\"\n                        \"key\": \"{id}\"\n                    }\n                ]\n                \"StreamReferences\": [\n                    {\n                        \"Id\": \"streamReferenceId\",\n                        \"Description\": \"description\",\n                        \"StreamId\": \"{id}\n                    }\n                ]\n            }\n        }\n    ],\n    \"CreationTime\": \"0001-01-01T00:00:00.0000000\",\n    \"ModifiedTime\": \"0001-01-01T00:00:00.0000000\"\n}"
 ```
 
 > 403 Response
@@ -431,7 +329,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
 
 <a id="opIdAssetRules_Create Rule"></a>
 
-Gets or creates a `RuleModel` object with the specified id in the `IRuleStore`.
+Gets or creates a `AssetRuleModel` object with the specified id in the `IRuleStore`.
 
 ### Request
 ```text 
@@ -453,7 +351,7 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
 
 ### Request Body
 
-The RuleModel object.<br/>
+The AssetRuleModel object.<br/>
 
 ```json
 {
@@ -493,7 +391,7 @@ The RuleModel object.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|201|[RuleModel](#schemarulemodel)|A link to the `RuleModel` object.|
+|201|[AssetRuleModel](#schemaassetrulemodel)|A link to the `AssetRuleModel` object.|
 |302|None|An equivalent rule with the same id and definition already exists.|
 |400|[ResponseBody](#schemaresponsebody)|The rule is malformed or invalid.|
 |403|[ResponseBody](#schemaresponsebody)|None|
@@ -504,42 +402,7 @@ The RuleModel object.<br/>
 > 201 Response
 
 ```json
-{
-  "Id": "string",
-  "Name": "string",
-  "Description": "string",
-  "ExampleStreamId": "string",
-  "AutomationId": "string",
-  "Expressions": [
-    {
-      "Field": "string",
-      "Specifications": [
-        {
-          "Type": "Unspecified",
-          "Value": "string",
-          "Name": "string",
-          "CharacterType": "Any",
-          "CharacterLength": 0,
-          "RequiredDelimiters": [
-            "string"
-          ],
-          "ValueMappings": {
-            "property1": "string",
-            "property2": "string"
-          }
-        }
-      ]
-    }
-  ],
-  "Outputs": [
-    {
-      "Field": "string",
-      "Value": null
-    }
-  ],
-  "CreationTime": "2019-08-24T14:15:22Z",
-  "ModifiedTime": "2019-08-24T14:15:22Z"
-}
+"{\n    \"Id\": \"assetRuleId\",\n    \"Name\": \"name\",\n    \"Description\": \"description\",\n    \"ExampleStreamId\": \"exampleId\"\n    \"AutomationId\": \"00000000-0000-0000-0000-000000000000\",\n    \"Expressions\": [\n        {\n            \"Field\": \"Id\",\n            \"Specifications\": [\n                {\n                    \"Type\": \"Group\",\n                    \"Name\": \"id\"\n                }\n            ]\n        }\n    ],\n    \"Outputs\": [\n        {\n            \"Field\": \"asset\",\n            \"Value\": {\n                \"Id\" : \"assetId,\n                \"Name\": assetName,\n                \"Description\": description,\n                \"Metadata: [\n                    {\n                        \"Id\": \"metadataId\",\n                        \"Name\": \"name\",\n                        \"Description\": description,\n                        \"SdsTypeCode\": \"18\"\n                        \"key\": \"{id}\"\n                    }\n                ]\n                \"StreamReferences\": [\n                    {\n                        \"Id\": \"streamReferenceId\",\n                        \"Description\": \"description\",\n                        \"StreamId\": \"{id}\n                    }\n                ]\n            }\n        }\n    ],\n    \"CreationTime\": \"0001-01-01T00:00:00.0000000\",\n    \"ModifiedTime\": \"0001-01-01T00:00:00.0000000\"\n}"
 ```
 
 > 400 Response
@@ -636,7 +499,7 @@ Defaults to false.<br/><br/>
 
 ### Request Body
 
-The RuleModel object to create or update.<br/>
+The AssetRuleModel object to create or update.<br/>
 
 ```json
 {
@@ -676,8 +539,8 @@ The RuleModel object to create or update.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[RuleModel](#schemarulemodel)|The updated `RuleModel` object or a link to the new `RuleModel` object.|
-|201|[RuleModel](#schemarulemodel)|The updated `RuleModel` object or a link to the new `RuleModel` object.|
+|200|[AssetRuleModel](#schemaassetrulemodel)|The updated `AssetRuleModel` object or a link to the new `AssetRuleModel` object.|
+|201|[AssetRuleModel](#schemaassetrulemodel)|The updated `AssetRuleModel` object or a link to the new `AssetRuleModel` object.|
 |400|[ResponseBody](#schemaresponsebody)|The rule is malformed or invalid.|
 |403|[ResponseBody](#schemaresponsebody)|Forbidden.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
@@ -686,42 +549,7 @@ The RuleModel object to create or update.<br/>
 > 200 Response
 
 ```json
-{
-  "Id": "string",
-  "Name": "string",
-  "Description": "string",
-  "ExampleStreamId": "string",
-  "AutomationId": "string",
-  "Expressions": [
-    {
-      "Field": "string",
-      "Specifications": [
-        {
-          "Type": "Unspecified",
-          "Value": "string",
-          "Name": "string",
-          "CharacterType": "Any",
-          "CharacterLength": 0,
-          "RequiredDelimiters": [
-            "string"
-          ],
-          "ValueMappings": {
-            "property1": "string",
-            "property2": "string"
-          }
-        }
-      ]
-    }
-  ],
-  "Outputs": [
-    {
-      "Field": "string",
-      "Value": null
-    }
-  ],
-  "CreationTime": "2019-08-24T14:15:22Z",
-  "ModifiedTime": "2019-08-24T14:15:22Z"
-}
+"{\n    \"Id\": \"assetRuleId\",\n    \"Name\": \"name\",\n    \"Description\": \"description\",\n    \"ExampleStreamId\": \"exampleId\"\n    \"AutomationId\": \"00000000-0000-0000-0000-000000000000\",\n    \"Expressions\": [\n        {\n            \"Field\": \"Id\",\n            \"Specifications\": [\n                {\n                    \"Type\": \"Group\",\n                    \"Name\": \"id\"\n                }\n            ]\n        }\n    ],\n    \"Outputs\": [\n        {\n            \"Field\": \"asset\",\n            \"Value\": {\n                \"Id\" : \"assetId,\n                \"Name\": assetName,\n                \"Description\": description,\n                \"Metadata: [\n                    {\n                        \"Id\": \"metadataId\",\n                        \"Name\": \"name\",\n                        \"Description\": description,\n                        \"SdsTypeCode\": \"18\"\n                        \"key\": \"{id}\"\n                    }\n                ]\n                \"StreamReferences\": [\n                    {\n                        \"Id\": \"streamReferenceId\",\n                        \"Description\": \"description\",\n                        \"StreamId\": \"{id}\n                    }\n                ]\n            }\n        }\n    ],\n    \"CreationTime\": \"0001-01-01T00:00:00.0000000\",\n    \"ModifiedTime\": \"0001-01-01T00:00:00.0000000\"\n}"
 ```
 
 > 400 Response
@@ -940,12 +768,12 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/exe
 ---
 ## Definitions
 
-### RuleModel
+### AssetRuleModel
 
-<a id="schemarulemodel"></a>
-<a id="schema_RuleModel"></a>
-<a id="tocSrulemodel"></a>
-<a id="tocsrulemodel"></a>
+<a id="schemaassetrulemodel"></a>
+<a id="schema_AssetRuleModel"></a>
+<a id="tocSassetrulemodel"></a>
+<a id="tocsassetrulemodel"></a>
 
 #### Properties
 
@@ -962,42 +790,7 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/exe
 |ModifiedTime|date-time|false|false|None|
 
 ```json
-{
-  "Id": "string",
-  "Name": "string",
-  "Description": "string",
-  "ExampleStreamId": "string",
-  "AutomationId": "string",
-  "Expressions": [
-    {
-      "Field": "string",
-      "Specifications": [
-        {
-          "Type": "Unspecified",
-          "Value": "string",
-          "Name": "string",
-          "CharacterType": "Any",
-          "CharacterLength": 0,
-          "RequiredDelimiters": [
-            "string"
-          ],
-          "ValueMappings": {
-            "property1": "string",
-            "property2": "string"
-          }
-        }
-      ]
-    }
-  ],
-  "Outputs": [
-    {
-      "Field": "string",
-      "Value": null
-    }
-  ],
-  "CreationTime": "2019-08-24T14:15:22Z",
-  "ModifiedTime": "2019-08-24T14:15:22Z"
-}
+"{\n    \"Id\": \"assetRuleId\",\n    \"Name\": \"name\",\n    \"Description\": \"description\",\n    \"ExampleStreamId\": \"exampleId\"\n    \"AutomationId\": \"00000000-0000-0000-0000-000000000000\",\n    \"Expressions\": [\n        {\n            \"Field\": \"Id\",\n            \"Specifications\": [\n                {\n                    \"Type\": \"Group\",\n                    \"Name\": \"id\"\n                }\n            ]\n        }\n    ],\n    \"Outputs\": [\n        {\n            \"Field\": \"asset\",\n            \"Value\": {\n                \"Id\" : \"assetId,\n                \"Name\": assetName,\n                \"Description\": description,\n                \"Metadata: [\n                    {\n                        \"Id\": \"metadataId\",\n                        \"Name\": \"name\",\n                        \"Description\": description,\n                        \"SdsTypeCode\": \"18\"\n                        \"key\": \"{id}\"\n                    }\n                ]\n                \"StreamReferences\": [\n                    {\n                        \"Id\": \"streamReferenceId\",\n                        \"Description\": \"description\",\n                        \"StreamId\": \"{id}\n                    }\n                ]\n            }\n        }\n    ],\n    \"CreationTime\": \"0001-01-01T00:00:00.0000000\",\n    \"ModifiedTime\": \"0001-01-01T00:00:00.0000000\"\n}"
 
 ```
 
@@ -1190,6 +983,69 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/exe
 ```json
 {
   "RuleId": "string"
+}
+
+```
+
+---
+
+### RuleModel
+
+<a id="schemarulemodel"></a>
+<a id="schema_RuleModel"></a>
+<a id="tocSrulemodel"></a>
+<a id="tocsrulemodel"></a>
+
+#### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|string|false|true|None|
+|Name|string|false|true|None|
+|Description|string|false|true|None|
+|ExampleStreamId|string|false|true|None|
+|AutomationId|string|false|true|None|
+|Expressions|[[RuleExpression](#schemaruleexpression)]|false|true|None|
+|Outputs|[[RuleOutput](#schemaruleoutput)]|false|true|None|
+|CreationTime|date-time|false|false|None|
+|ModifiedTime|date-time|false|false|None|
+
+```json
+{
+  "Id": "string",
+  "Name": "string",
+  "Description": "string",
+  "ExampleStreamId": "string",
+  "AutomationId": "string",
+  "Expressions": [
+    {
+      "Field": "string",
+      "Specifications": [
+        {
+          "Type": "Unspecified",
+          "Value": "string",
+          "Name": "string",
+          "CharacterType": "Any",
+          "CharacterLength": 0,
+          "RequiredDelimiters": [
+            "string"
+          ],
+          "ValueMappings": {
+            "property1": "string",
+            "property2": "string"
+          }
+        }
+      ]
+    }
+  ],
+  "Outputs": [
+    {
+      "Field": "string",
+      "Value": null
+    }
+  ],
+  "CreationTime": "2019-08-24T14:15:22Z",
+  "ModifiedTime": "2019-08-24T14:15:22Z"
 }
 
 ```
