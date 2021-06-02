@@ -50,48 +50,37 @@ The `RuleModel` objects.|
 ```json
 [
   {
-    "Id": "ruleId",
-    "Name": "name",
-    "Description": "description",
-    "AutomationId": "00000000-0000-0000-0000-000000000000",
+    "Id": "string",
+    "Name": "string",
+    "Description": "string",
+    "ExampleStreamId": "string",
+    "AutomationId": "string",
     "Expressions": [
       {
-        "Field": "Id",
-        "Pattern": "{id}"
+        "Field": "string",
+        "Specifications": [
+          {
+            "Type": "[",
+            "Value": "string",
+            "Name": "string",
+            "CharacterType": "[",
+            "CharacterLength": 0,
+            "RequiredDelimiters": [
+              null
+            ],
+            "ValueMappings": {}
+          }
+        ]
       }
     ],
     "Outputs": [
       {
-        "Field": "Metadata",
-        "Value": {
-          "key": "{id}"
-        }
+        "Field": "string",
+        "Value": null
       }
     ],
-    "CreationTime": "0001-01-01T00:00:00",
-    "ModifiedTime": "0001-01-01T00:00:00"
-  },
-  {
-    "Id": "ruleId",
-    "Name": "name",
-    "Description": "description",
-    "AutomationId": "00000000-0000-0000-0000-000000000000",
-    "Expressions": [
-      {
-        "Field": "Id",
-        "Pattern": "{id}"
-      }
-    ],
-    "Outputs": [
-      {
-        "Field": "Metadata",
-        "Value": {
-          "key": "{id}"
-        }
-      }
-    ],
-    "CreationTime": "0001-01-01T00:00:00",
-    "ModifiedTime": "0001-01-01T00:00:00"
+    "CreationTime": "2019-08-24T14:15:22Z",
+    "ModifiedTime": "2019-08-24T14:15:22Z"
   }
 ]
 ```
@@ -171,26 +160,35 @@ The RuleModel object to create.<br/>
 
 ```json
 {
-  "Id": "ruleId",
-  "Name": "name",
-  "Description": "description",
-  "AutomationId": "00000000-0000-0000-0000-000000000000",
+  "Id": "string",
+  "Name": "string",
+  "Description": "string",
+  "ExampleStreamId": "string",
+  "AutomationId": "string",
   "Expressions": [
     {
-      "Field": "Id",
-      "Pattern": "{id}"
+      "Field": "string",
+      "Specifications": [
+        {
+          "Type": null,
+          "Value": null,
+          "Name": null,
+          "CharacterType": null,
+          "CharacterLength": null,
+          "RequiredDelimiters": null,
+          "ValueMappings": null
+        }
+      ]
     }
   ],
   "Outputs": [
     {
-      "Field": "Metadata",
-      "Value": {
-        "key": "{id}"
-      }
+      "Field": "string",
+      "Value": null
     }
   ],
-  "CreationTime": "0001-01-01T00:00:00",
-  "ModifiedTime": "0001-01-01T00:00:00"
+  "CreationTime": "2019-08-24T14:15:22Z",
+  "ModifiedTime": "2019-08-24T14:15:22Z"
 }
 ```
 
@@ -209,26 +207,40 @@ The RuleModel object to create.<br/>
 
 ```json
 {
-  "Id": "ruleId",
-  "Name": "name",
-  "Description": "description",
-  "AutomationId": "00000000-0000-0000-0000-000000000000",
+  "Id": "string",
+  "Name": "string",
+  "Description": "string",
+  "ExampleStreamId": "string",
+  "AutomationId": "string",
   "Expressions": [
     {
-      "Field": "Id",
-      "Pattern": "{id}"
+      "Field": "string",
+      "Specifications": [
+        {
+          "Type": "Unspecified",
+          "Value": "string",
+          "Name": "string",
+          "CharacterType": "Any",
+          "CharacterLength": 0,
+          "RequiredDelimiters": [
+            "string"
+          ],
+          "ValueMappings": {
+            "property1": "string",
+            "property2": "string"
+          }
+        }
+      ]
     }
   ],
   "Outputs": [
     {
-      "Field": "Metadata",
-      "Value": {
-        "key": "{id}"
-      }
+      "Field": "string",
+      "Value": null
     }
   ],
-  "CreationTime": "0001-01-01T00:00:00",
-  "ModifiedTime": "0001-01-01T00:00:00"
+  "CreationTime": "2019-08-24T14:15:22Z",
+  "ModifiedTime": "2019-08-24T14:15:22Z"
 }
 ```
 
@@ -332,26 +344,40 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
 
 ```json
 {
-  "Id": "ruleId",
-  "Name": "name",
-  "Description": "description",
-  "AutomationId": "00000000-0000-0000-0000-000000000000",
+  "Id": "string",
+  "Name": "string",
+  "Description": "string",
+  "ExampleStreamId": "string",
+  "AutomationId": "string",
   "Expressions": [
     {
-      "Field": "Id",
-      "Pattern": "{id}"
+      "Field": "string",
+      "Specifications": [
+        {
+          "Type": "Unspecified",
+          "Value": "string",
+          "Name": "string",
+          "CharacterType": "Any",
+          "CharacterLength": 0,
+          "RequiredDelimiters": [
+            "string"
+          ],
+          "ValueMappings": {
+            "property1": "string",
+            "property2": "string"
+          }
+        }
+      ]
     }
   ],
   "Outputs": [
     {
-      "Field": "Metadata",
-      "Value": {
-        "key": "{id}"
-      }
+      "Field": "string",
+      "Value": null
     }
   ],
-  "CreationTime": "0001-01-01T00:00:00",
-  "ModifiedTime": "0001-01-01T00:00:00"
+  "CreationTime": "2019-08-24T14:15:22Z",
+  "ModifiedTime": "2019-08-24T14:15:22Z"
 }
 ```
 
@@ -432,26 +458,35 @@ The RuleModel object.<br/>
 
 ```json
 {
-  "Id": "ruleId",
-  "Name": "name",
-  "Description": "description",
-  "AutomationId": "00000000-0000-0000-0000-000000000000",
+  "Id": "string",
+  "Name": "string",
+  "Description": "string",
+  "ExampleStreamId": "string",
+  "AutomationId": "string",
   "Expressions": [
     {
-      "Field": "Id",
-      "Pattern": "{id}"
+      "Field": "string",
+      "Specifications": [
+        {
+          "Type": null,
+          "Value": null,
+          "Name": null,
+          "CharacterType": null,
+          "CharacterLength": null,
+          "RequiredDelimiters": null,
+          "ValueMappings": null
+        }
+      ]
     }
   ],
   "Outputs": [
     {
-      "Field": "Metadata",
-      "Value": {
-        "key": "{id}"
-      }
+      "Field": "string",
+      "Value": null
     }
   ],
-  "CreationTime": "0001-01-01T00:00:00",
-  "ModifiedTime": "0001-01-01T00:00:00"
+  "CreationTime": "2019-08-24T14:15:22Z",
+  "ModifiedTime": "2019-08-24T14:15:22Z"
 }
 ```
 
@@ -471,26 +506,40 @@ The RuleModel object.<br/>
 
 ```json
 {
-  "Id": "ruleId",
-  "Name": "name",
-  "Description": "description",
-  "AutomationId": "00000000-0000-0000-0000-000000000000",
+  "Id": "string",
+  "Name": "string",
+  "Description": "string",
+  "ExampleStreamId": "string",
+  "AutomationId": "string",
   "Expressions": [
     {
-      "Field": "Id",
-      "Pattern": "{id}"
+      "Field": "string",
+      "Specifications": [
+        {
+          "Type": "Unspecified",
+          "Value": "string",
+          "Name": "string",
+          "CharacterType": "Any",
+          "CharacterLength": 0,
+          "RequiredDelimiters": [
+            "string"
+          ],
+          "ValueMappings": {
+            "property1": "string",
+            "property2": "string"
+          }
+        }
+      ]
     }
   ],
   "Outputs": [
     {
-      "Field": "Metadata",
-      "Value": {
-        "key": "{id}"
-      }
+      "Field": "string",
+      "Value": null
     }
   ],
-  "CreationTime": "0001-01-01T00:00:00",
-  "ModifiedTime": "0001-01-01T00:00:00"
+  "CreationTime": "2019-08-24T14:15:22Z",
+  "ModifiedTime": "2019-08-24T14:15:22Z"
 }
 ```
 
@@ -592,26 +641,35 @@ The RuleModel object to create or update.<br/>
 
 ```json
 {
-  "Id": "ruleId",
-  "Name": "name",
-  "Description": "description",
-  "AutomationId": "00000000-0000-0000-0000-000000000000",
+  "Id": "string",
+  "Name": "string",
+  "Description": "string",
+  "ExampleStreamId": "string",
+  "AutomationId": "string",
   "Expressions": [
     {
-      "Field": "Id",
-      "Pattern": "{id}"
+      "Field": "string",
+      "Specifications": [
+        {
+          "Type": null,
+          "Value": null,
+          "Name": null,
+          "CharacterType": null,
+          "CharacterLength": null,
+          "RequiredDelimiters": null,
+          "ValueMappings": null
+        }
+      ]
     }
   ],
   "Outputs": [
     {
-      "Field": "Metadata",
-      "Value": {
-        "key": "{id}"
-      }
+      "Field": "string",
+      "Value": null
     }
   ],
-  "CreationTime": "0001-01-01T00:00:00",
-  "ModifiedTime": "0001-01-01T00:00:00"
+  "CreationTime": "2019-08-24T14:15:22Z",
+  "ModifiedTime": "2019-08-24T14:15:22Z"
 }
 ```
 
@@ -630,53 +688,40 @@ The RuleModel object to create or update.<br/>
 
 ```json
 {
-  "Id": "ruleId",
-  "Name": "name",
-  "Description": "description",
-  "AutomationId": "00000000-0000-0000-0000-000000000000",
+  "Id": "string",
+  "Name": "string",
+  "Description": "string",
+  "ExampleStreamId": "string",
+  "AutomationId": "string",
   "Expressions": [
     {
-      "Field": "Id",
-      "Pattern": "{id}"
+      "Field": "string",
+      "Specifications": [
+        {
+          "Type": "Unspecified",
+          "Value": "string",
+          "Name": "string",
+          "CharacterType": "Any",
+          "CharacterLength": 0,
+          "RequiredDelimiters": [
+            "string"
+          ],
+          "ValueMappings": {
+            "property1": "string",
+            "property2": "string"
+          }
+        }
+      ]
     }
   ],
   "Outputs": [
     {
-      "Field": "Metadata",
-      "Value": {
-        "key": "{id}"
-      }
+      "Field": "string",
+      "Value": null
     }
   ],
-  "CreationTime": "0001-01-01T00:00:00",
-  "ModifiedTime": "0001-01-01T00:00:00"
-}
-```
-
-> 201 Response
-
-```json
-{
-  "Id": "ruleId",
-  "Name": "name",
-  "Description": "description",
-  "AutomationId": "00000000-0000-0000-0000-000000000000",
-  "Expressions": [
-    {
-      "Field": "Id",
-      "Pattern": "{id}"
-    }
-  ],
-  "Outputs": [
-    {
-      "Field": "Metadata",
-      "Value": {
-        "key": "{id}"
-      }
-    }
-  ],
-  "CreationTime": "0001-01-01T00:00:00",
-  "ModifiedTime": "0001-01-01T00:00:00"
+  "CreationTime": "2019-08-24T14:15:22Z",
+  "ModifiedTime": "2019-08-24T14:15:22Z"
 }
 ```
 
@@ -919,26 +964,40 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/exe
 
 ```json
 {
-  "Id": "ruleId",
-  "Name": "name",
-  "Description": "description",
-  "AutomationId": "00000000-0000-0000-0000-000000000000",
+  "Id": "string",
+  "Name": "string",
+  "Description": "string",
+  "ExampleStreamId": "string",
+  "AutomationId": "string",
   "Expressions": [
     {
-      "Field": "Id",
-      "Pattern": "{id}"
+      "Field": "string",
+      "Specifications": [
+        {
+          "Type": "Unspecified",
+          "Value": "string",
+          "Name": "string",
+          "CharacterType": "Any",
+          "CharacterLength": 0,
+          "RequiredDelimiters": [
+            "string"
+          ],
+          "ValueMappings": {
+            "property1": "string",
+            "property2": "string"
+          }
+        }
+      ]
     }
   ],
   "Outputs": [
     {
-      "Field": "Metadata",
-      "Value": {
-        "key": "{id}"
-      }
+      "Field": "string",
+      "Value": null
     }
   ],
-  "CreationTime": "0001-01-01T00:00:00",
-  "ModifiedTime": "0001-01-01T00:00:00"
+  "CreationTime": "2019-08-24T14:15:22Z",
+  "ModifiedTime": "2019-08-24T14:15:22Z"
 }
 
 ```
