@@ -37,12 +37,10 @@ Defaults to false.<br/><br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[RuleModel](#schemarulemodel)[]|The `RuleModel` objects.
-or
-The `RuleModel` objects.|
-|400|[ResponseBody](#schemaresponsebody)|or|
-|403|[ResponseBody](#schemaresponsebody)|or|
-|500|[ResponseBody](#schemaresponsebody)|or|
+|200|[RuleModel](#schemarulemodel)[]|The `RuleModel` objects.|
+|400|[ResponseBody](#schemaresponsebody)|Invalid uri query parameters.|
+|403|[ResponseBody](#schemaresponsebody)|Forbidden.|
+|500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
 #### Example response body
 > 200 Response
