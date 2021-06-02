@@ -46,56 +46,52 @@ Defaults to false.<br/><br/>
 > 200 Response
 
 ```json
-{
-  "1": {
-    "value": {
-      "Id": "ruleId",
-      "Name": "name",
-      "Description": "description",
-      "AutomationId": "00000000-0000-0000-0000-000000000000",
-      "Expressions": [
-        {
-          "Field": "Id",
-          "Pattern": "{id}"
+[
+  {
+    "Id": "ruleId",
+    "Name": "name",
+    "Description": "description",
+    "AutomationId": "00000000-0000-0000-0000-000000000000",
+    "Expressions": [
+      {
+        "Field": "Id",
+        "Pattern": "{id}"
+      }
+    ],
+    "Outputs": [
+      {
+        "Field": "Metadata",
+        "Value": {
+          "key": "{id}"
         }
-      ],
-      "Outputs": [
-        {
-          "Field": "Metadata",
-          "Value": {
-            "key": "{id}"
-          }
-        }
-      ],
-      "CreationTime": "0001-01-01T00:00:00",
-      "ModifiedTime": "0001-01-01T00:00:00"
-    }
+      }
+    ],
+    "CreationTime": "0001-01-01T00:00:00",
+    "ModifiedTime": "0001-01-01T00:00:00"
   },
-  "2": {
-    "value": {
-      "Id": "ruleId",
-      "Name": "name",
-      "Description": "description",
-      "AutomationId": "00000000-0000-0000-0000-000000000000",
-      "Expressions": [
-        {
-          "Field": "Id",
-          "Pattern": "{id}"
+  {
+    "Id": "ruleId",
+    "Name": "name",
+    "Description": "description",
+    "AutomationId": "00000000-0000-0000-0000-000000000000",
+    "Expressions": [
+      {
+        "Field": "Id",
+        "Pattern": "{id}"
+      }
+    ],
+    "Outputs": [
+      {
+        "Field": "Metadata",
+        "Value": {
+          "key": "{id}"
         }
-      ],
-      "Outputs": [
-        {
-          "Field": "Metadata",
-          "Value": {
-            "key": "{id}"
-          }
-        }
-      ],
-      "CreationTime": "0001-01-01T00:00:00",
-      "ModifiedTime": "0001-01-01T00:00:00"
-    }
+      }
+    ],
+    "CreationTime": "0001-01-01T00:00:00",
+    "ModifiedTime": "0001-01-01T00:00:00"
   }
-}
+]
 ```
 
 > 400 Response
