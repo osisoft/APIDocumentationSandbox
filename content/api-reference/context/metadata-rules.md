@@ -51,11 +51,17 @@ Defaults to false.<br/><br/>
     "Id": "ruleId",
     "Name": "name",
     "Description": "description",
+    "ExampleStreamId": "exampleId",
     "AutomationId": "00000000-0000-0000-0000-000000000000",
     "Expressions": [
       {
         "Field": "Id",
-        "Pattern": "{id}"
+        "Specification": [
+          {
+            "Type": "Wildcard",
+            "Name": "id"
+          }
+        ]
       }
     ],
     "Outputs": [
@@ -73,11 +79,17 @@ Defaults to false.<br/><br/>
     "Id": "ruleId",
     "Name": "name",
     "Description": "description",
+    "ExampleStreamId": "exampleId",
     "AutomationId": "00000000-0000-0000-0000-000000000000",
     "Expressions": [
       {
         "Field": "Id",
-        "Pattern": "{id}"
+        "Specification": [
+          {
+            "Type": "Wildcard",
+            "Name": "id"
+          }
+        ]
       }
     ],
     "Outputs": [
@@ -172,11 +184,17 @@ The RuleModel object to create.<br/>
   "Id": "ruleId",
   "Name": "name",
   "Description": "description",
+  "ExampleStreamId": "exampleId",
   "AutomationId": "00000000-0000-0000-0000-000000000000",
   "Expressions": [
     {
       "Field": "Id",
-      "Pattern": "{id}"
+      "Specification": [
+        {
+          "Type": "Wildcard",
+          "Name": "id"
+        }
+      ]
     }
   ],
   "Outputs": [
@@ -210,11 +228,17 @@ The RuleModel object to create.<br/>
   "Id": "ruleId",
   "Name": "name",
   "Description": "description",
+  "ExampleStreamId": "exampleId",
   "AutomationId": "00000000-0000-0000-0000-000000000000",
   "Expressions": [
     {
       "Field": "Id",
-      "Pattern": "{id}"
+      "Specification": [
+        {
+          "Type": "Wildcard",
+          "Name": "id"
+        }
+      ]
     }
   ],
   "Outputs": [
@@ -333,11 +357,17 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}
   "Id": "ruleId",
   "Name": "name",
   "Description": "description",
+  "ExampleStreamId": "exampleId",
   "AutomationId": "00000000-0000-0000-0000-000000000000",
   "Expressions": [
     {
       "Field": "Id",
-      "Pattern": "{id}"
+      "Specification": [
+        {
+          "Type": "Wildcard",
+          "Name": "id"
+        }
+      ]
     }
   ],
   "Outputs": [
@@ -433,11 +463,17 @@ The RuleModel object.<br/>
   "Id": "ruleId",
   "Name": "name",
   "Description": "description",
+  "ExampleStreamId": "exampleId",
   "AutomationId": "00000000-0000-0000-0000-000000000000",
   "Expressions": [
     {
       "Field": "Id",
-      "Pattern": "{id}"
+      "Specification": [
+        {
+          "Type": "Wildcard",
+          "Name": "id"
+        }
+      ]
     }
   ],
   "Outputs": [
@@ -472,11 +508,17 @@ The RuleModel object.<br/>
   "Id": "ruleId",
   "Name": "name",
   "Description": "description",
+  "ExampleStreamId": "exampleId",
   "AutomationId": "00000000-0000-0000-0000-000000000000",
   "Expressions": [
     {
       "Field": "Id",
-      "Pattern": "{id}"
+      "Specification": [
+        {
+          "Type": "Wildcard",
+          "Name": "id"
+        }
+      ]
     }
   ],
   "Outputs": [
@@ -593,11 +635,17 @@ The RuleModel object to create or update.<br/>
   "Id": "ruleId",
   "Name": "name",
   "Description": "description",
+  "ExampleStreamId": "exampleId",
   "AutomationId": "00000000-0000-0000-0000-000000000000",
   "Expressions": [
     {
       "Field": "Id",
-      "Pattern": "{id}"
+      "Specification": [
+        {
+          "Type": "Wildcard",
+          "Name": "id"
+        }
+      ]
     }
   ],
   "Outputs": [
@@ -631,11 +679,17 @@ The RuleModel object to create or update.<br/>
   "Id": "ruleId",
   "Name": "name",
   "Description": "description",
+  "ExampleStreamId": "exampleId",
   "AutomationId": "00000000-0000-0000-0000-000000000000",
   "Expressions": [
     {
       "Field": "Id",
-      "Pattern": "{id}"
+      "Specification": [
+        {
+          "Type": "Wildcard",
+          "Name": "id"
+        }
+      ]
     }
   ],
   "Outputs": [
@@ -658,11 +712,17 @@ The RuleModel object to create or update.<br/>
   "Id": "ruleId",
   "Name": "name",
   "Description": "description",
+  "ExampleStreamId": "exampleId",
   "AutomationId": "00000000-0000-0000-0000-000000000000",
   "Expressions": [
     {
       "Field": "Id",
-      "Pattern": "{id}"
+      "Specification": [
+        {
+          "Type": "Wildcard",
+          "Name": "id"
+        }
+      ]
     }
   ],
   "Outputs": [
@@ -920,11 +980,17 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/
   "Id": "ruleId",
   "Name": "name",
   "Description": "description",
+  "ExampleStreamId": "exampleId",
   "AutomationId": "00000000-0000-0000-0000-000000000000",
   "Expressions": [
     {
       "Field": "Id",
-      "Pattern": "{id}"
+      "Specification": [
+        {
+          "Type": "Wildcard",
+          "Name": "id"
+        }
+      ]
     }
   ],
   "Outputs": [
