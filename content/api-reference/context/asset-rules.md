@@ -199,11 +199,13 @@ The RuleModel object to create.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|201|[RuleModel](#schemarulemodel)|A link to the `RuleModel` object.|
-|400|[ResponseBody](#schemaresponsebody)|The rule is malformed or invalid.|
-|403|[ResponseBody](#schemaresponsebody)|Forbidden.|
-|409|[ResponseBody](#schemaresponsebody)|A non-equivalent rule with the same id already exists.|
-|500|[ResponseBody](#schemaresponsebody)|Internal server error.|
+|201|[RuleModel](#schemarulemodel)|A link to the `RuleModel` object.
+or
+A link to the `RuleModel` object.|
+|400|[ResponseBody](#schemaresponsebody)|or|
+|403|[ResponseBody](#schemaresponsebody)|or|
+|409|[ResponseBody](#schemaresponsebody)|or|
+|500|[ResponseBody](#schemaresponsebody)|or|
 
 #### Example response body
 > 201 Response
@@ -323,10 +325,12 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[RuleModel](#schemarulemodel)|The specified rule.|
-|403|[ResponseBody](#schemaresponsebody)|Forbidden.|
-|404|[ResponseBody](#schemaresponsebody)|The specified rule was not found.|
-|500|[ResponseBody](#schemaresponsebody)|Internal server error.|
+|200|[RuleModel](#schemarulemodel)|The specified rule.
+or
+The specified rule.|
+|403|[ResponseBody](#schemaresponsebody)|or|
+|404|[ResponseBody](#schemaresponsebody)|or|
+|500|[ResponseBody](#schemaresponsebody)|or|
 
 #### Example response body
 > 200 Response
@@ -340,14 +344,37 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
   "Expressions": [
     {
       "Field": "Id",
-      "Pattern": "{id}"
+      "Specifications": [
+        {
+          "Type": "Group",
+          "Name": "streamId"
+        }
+      ]
     }
   ],
   "Outputs": [
     {
-      "Field": "Metadata",
+      "Field": "Asset",
       "Value": {
-        "key": "{id}"
+        "Id": "assetId",
+        "Name": "name",
+        "Description": "description",
+        "Metadata": [
+          {
+            "Id": "metadataId",
+            "Name": "name",
+            "Description": "description",
+            "SdsTypecode": "18",
+            "Value": "{streamId}"
+          }
+        ],
+        "StreamReferences": [
+          {
+            "Id": "streamReferenceName",
+            "Description": "description",
+            "StreamdId": "{streamId}"
+          }
+        ]
       }
     }
   ],
@@ -460,12 +487,14 @@ The RuleModel object.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|201|[RuleModel](#schemarulemodel)|A link to the `RuleModel` object.|
-|302|None|An equivalent rule with the same id and definition already exists.|
-|400|[ResponseBody](#schemaresponsebody)|The rule is malformed or invalid.|
-|403|[ResponseBody](#schemaresponsebody)|None|
-|409|[ResponseBody](#schemaresponsebody)|A non-equivalent rule with the specified id already exists.|
-|500|[ResponseBody](#schemaresponsebody)|Internal server error.|
+|201|[RuleModel](#schemarulemodel)|A link to the `RuleModel` object.
+or
+A link to the `RuleModel` object.|
+|302|None|or|
+|400|[ResponseBody](#schemaresponsebody)|or|
+|403|[ResponseBody](#schemaresponsebody)|or|
+|409|[ResponseBody](#schemaresponsebody)|or|
+|500|[ResponseBody](#schemaresponsebody)|or|
 
 #### Example response body
 > 201 Response
@@ -620,11 +649,15 @@ The RuleModel object to create or update.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[RuleModel](#schemarulemodel)|The updated `RuleModel` object or a link to the new `RuleModel` object.|
-|201|[RuleModel](#schemarulemodel)|The updated `RuleModel` object or a link to the new `RuleModel` object.|
-|400|[ResponseBody](#schemaresponsebody)|The rule is malformed or invalid.|
-|403|[ResponseBody](#schemaresponsebody)|Forbidden.|
-|500|[ResponseBody](#schemaresponsebody)|Internal server error.|
+|200|[RuleModel](#schemarulemodel)|The updated `RuleModel` object or a link to the new `RuleModel` object.
+or
+The updated `RuleModel` object or a link to the new `RuleModel` object.|
+|201|[RuleModel](#schemarulemodel)|The updated `RuleModel` object or a link to the new `RuleModel` object.
+or
+The updated `RuleModel` object or a link to the new `RuleModel` object.|
+|400|[ResponseBody](#schemaresponsebody)|or|
+|403|[ResponseBody](#schemaresponsebody)|or|
+|500|[ResponseBody](#schemaresponsebody)|or|
 
 #### Example response body
 > 200 Response
@@ -638,14 +671,37 @@ The RuleModel object to create or update.<br/>
   "Expressions": [
     {
       "Field": "Id",
-      "Pattern": "{id}"
+      "Specifications": [
+        {
+          "Type": "Group",
+          "Name": "streamId"
+        }
+      ]
     }
   ],
   "Outputs": [
     {
-      "Field": "Metadata",
+      "Field": "Asset",
       "Value": {
-        "key": "{id}"
+        "Id": "assetId",
+        "Name": "name",
+        "Description": "description",
+        "Metadata": [
+          {
+            "Id": "metadataId",
+            "Name": "name",
+            "Description": "description",
+            "SdsTypecode": "18",
+            "Value": "{streamId}"
+          }
+        ],
+        "StreamReferences": [
+          {
+            "Id": "streamReferenceName",
+            "Description": "description",
+            "StreamdId": "{streamId}"
+          }
+        ]
       }
     }
   ],
@@ -762,10 +818,12 @@ Defaults to false.<br/><br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|No content.|
-|403|[ResponseBody](#schemaresponsebody)|Forbidden.|
-|404|[ResponseBody](#schemaresponsebody)|The specified rule was not found.|
-|500|[ResponseBody](#schemaresponsebody)|Internal server error.|
+|204|None|No content.
+or
+No content.|
+|403|[ResponseBody](#schemaresponsebody)|or|
+|404|[ResponseBody](#schemaresponsebody)|or|
+|500|[ResponseBody](#schemaresponsebody)|or|
 
 #### Example response body
 > 403 Response
@@ -843,10 +901,12 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/exe
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|No content.|
-|403|[ResponseBody](#schemaresponsebody)|Forbidden.|
-|404|[ResponseBody](#schemaresponsebody)|The specified rule was not found.|
-|500|[ResponseBody](#schemaresponsebody)|Internal server error.|
+|204|None|No content.
+or
+No content.|
+|403|[ResponseBody](#schemaresponsebody)|or|
+|404|[ResponseBody](#schemaresponsebody)|or|
+|500|[ResponseBody](#schemaresponsebody)|or|
 
 #### Example response body
 > 403 Response
