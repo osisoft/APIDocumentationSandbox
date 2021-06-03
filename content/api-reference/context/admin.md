@@ -9,7 +9,7 @@ uid: ""
 
 <a id="opIdAdmin_Reset Tracking (`assetrules` path)"></a>
 
-Resets the asset tracking table. If is specified it will only clear the entries for those assets.
+Resets the asset tracking table. If is specified it will only clear the entries for those assets. This will cause Rules to no longer identify rule-generated asset properties as rule-generated. That means Rules will not delete or edit those asset properties. Only call this route if directed to by OCS Support.
 
 ### Request
 ```text 
@@ -154,7 +154,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/statist
 
 <a id="opIdAdmin_Reset Tracking (`metadatarules` path)"></a>
 
-Resets the asset tracking table. If is specified it will only clear the entries for those assets.
+Resets the asset tracking table. If is specified it will only clear the entries for those assets. This will cause Rules to no longer identify rule-generated asset properties as rule-generated. That means Rules will not delete or edit those asset properties. Only call this route if directed to by OCS Support.
 
 ### Request
 ```text 
