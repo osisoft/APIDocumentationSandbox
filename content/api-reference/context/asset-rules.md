@@ -719,41 +719,24 @@ The RuleModel object to create or update.<br/>
   "Id": "ruleId",
   "Name": "name",
   "Description": "description",
+  "ExampleStreamId": "exampleId",
   "AutomationId": "00000000-0000-0000-0000-000000000000",
   "Expressions": [
     {
       "Field": "Id",
-      "Specifications": [
+      "Specification": [
         {
-          "Type": "Group",
-          "Name": "streamId"
+          "Type": "Wildcard",
+          "Name": "id"
         }
       ]
     }
   ],
   "Outputs": [
     {
-      "Field": "Asset",
+      "Field": "Metadata",
       "Value": {
-        "Id": "assetId",
-        "Name": "name",
-        "Description": "description",
-        "Metadata": [
-          {
-            "Id": "metadataId",
-            "Name": "name",
-            "Description": "description",
-            "SdsTypecode": "18",
-            "Value": "{streamId}"
-          }
-        ],
-        "StreamReferences": [
-          {
-            "Id": "streamReferenceName",
-            "Description": "description",
-            "StreamdId": "{streamId}"
-          }
-        ]
+        "key": "{id}"
       }
     }
   ],
