@@ -6,9 +6,9 @@ uid: ""
 # Rules
 Interacts with the IRuleStore and IAuthorizationService to process requests.
 
-## `List Rules (`assetrules` path)`
+## `List Rules (assetrules path)`
 
-<a id="opIdRules_List Rules (`assetrules` path)"></a>
+<a id="opIdRules_List Rules (assetrules path)"></a>
 
 Gets all `RuleModel` objects from the `IRuleStore` the requesting `Identity` has access to.
 
@@ -142,9 +142,9 @@ Defaults to false.<br/><br/>
 
 ---
 
-## `Create Rule With Server Generated Id (`assetrules` path)`
+## `Create Rule With Server Generated Id (assetrules path)`
 
-<a id="opIdRules_Create Rule With Server Generated Id (`assetrules` path)"></a>
+<a id="opIdRules_Create Rule With Server Generated Id (assetrules path)"></a>
 
 Creates a `RuleModel` object with a server generated `Id` in the `IRuleStore`.
 
@@ -293,9 +293,9 @@ The RuleModel object to create.<br/>
 
 ---
 
-## `Get Rule (`assetrules` path)`
+## `Get Rule (assetrules path)`
 
-<a id="opIdRules_Get Rule (`assetrules` path)"></a>
+<a id="opIdRules_Get Rule (assetrules path)"></a>
 
 Gets the specified rule.
 
@@ -401,9 +401,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
 
 ---
 
-## `Create Rule (`assetrules` path)`
+## `Create Rule (assetrules path)`
 
-<a id="opIdRules_Create Rule (`assetrules` path)"></a>
+<a id="opIdRules_Create Rule (assetrules path)"></a>
 
 Gets or creates a `RuleModel` object with the specified id in the `IRuleStore`.
 
@@ -555,9 +555,9 @@ The RuleModel object.<br/>
 
 ---
 
-## `Create Or Update Rule (`assetrules` path)`
+## `Create Or Update Rule (assetrules path)`
 
-<a id="opIdRules_Create Or Update Rule (`assetrules` path)"></a>
+<a id="opIdRules_Create Or Update Rule (assetrules path)"></a>
 
 Creates or updates the specified rule in the `IRuleStore`.
 
@@ -726,9 +726,9 @@ The RuleModel object to create or update.<br/>
 
 ---
 
-## `Delete Rule (`assetrules` path)`
+## `Delete Rule (assetrules path)`
 
-<a id="opIdRules_Delete Rule (`assetrules` path)"></a>
+<a id="opIdRules_Delete Rule (assetrules path)"></a>
 
 Deletes the specified rule from the `IRuleStore`.
 
@@ -813,9 +813,9 @@ Defaults to false.<br/><br/>
 
 ---
 
-## `Execute Rule (`assetrules` path)`
+## `Execute Rule (assetrules path)`
 
-<a id="opIdRules_Execute Rule (`assetrules` path)"></a>
+<a id="opIdRules_Execute Rule (assetrules path)"></a>
 
 Executes the specified rule.
 
@@ -894,9 +894,9 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/exe
 
 ---
 
-## `List Rules (`metadatarules` path)`
+## `List Rules (metadatarules path)`
 
-<a id="opIdRules_List Rules (`metadatarules` path)"></a>
+<a id="opIdRules_List Rules (metadatarules path)"></a>
 
 Gets all `RuleModel` objects from the `IRuleStore` the requesting `Identity` has access to.
 
@@ -1030,9 +1030,9 @@ Defaults to false.<br/><br/>
 
 ---
 
-## `Create Rule With Server Generated Id (`metadatarules` path)`
+## `Create Rule With Server Generated Id (metadatarules path)`
 
-<a id="opIdRules_Create Rule With Server Generated Id (`metadatarules` path)"></a>
+<a id="opIdRules_Create Rule With Server Generated Id (metadatarules path)"></a>
 
 Creates a `RuleModel` object with a server generated `Id` in the `IRuleStore`.
 
@@ -1181,9 +1181,9 @@ The RuleModel object to create.<br/>
 
 ---
 
-## `Get Rule (`metadatarules` path)`
+## `Get Rule (metadatarules path)`
 
-<a id="opIdRules_Get Rule (`metadatarules` path)"></a>
+<a id="opIdRules_Get Rule (metadatarules path)"></a>
 
 Gets the specified rule.
 
@@ -1289,9 +1289,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}
 
 ---
 
-## `Create Rule (`metadatarules` path)`
+## `Create Rule (metadatarules path)`
 
-<a id="opIdRules_Create Rule (`metadatarules` path)"></a>
+<a id="opIdRules_Create Rule (metadatarules path)"></a>
 
 Gets or creates a `RuleModel` object with the specified id in the `IRuleStore`.
 
@@ -1443,9 +1443,9 @@ The RuleModel object.<br/>
 
 ---
 
-## `Create Or Update Rule (`metadatarules` path)`
+## `Create Or Update Rule (metadatarules path)`
 
-<a id="opIdRules_Create Or Update Rule (`metadatarules` path)"></a>
+<a id="opIdRules_Create Or Update Rule (metadatarules path)"></a>
 
 Creates or updates the specified rule in the `IRuleStore`.
 
@@ -1614,9 +1614,9 @@ The RuleModel object to create or update.<br/>
 
 ---
 
-## `Delete Rule (`metadatarules` path)`
+## `Delete Rule (metadatarules path)`
 
-<a id="opIdRules_Delete Rule (`metadatarules` path)"></a>
+<a id="opIdRules_Delete Rule (metadatarules path)"></a>
 
 Deletes the specified rule from the `IRuleStore`.
 
@@ -1701,9 +1701,9 @@ Defaults to false.<br/><br/>
 
 ---
 
-## `Execute Rule (`metadatarules` path)`
+## `Execute Rule (metadatarules path)`
 
-<a id="opIdRules_Execute Rule (`metadatarules` path)"></a>
+<a id="opIdRules_Execute Rule (metadatarules path)"></a>
 
 Executes the specified rule.
 

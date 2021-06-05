@@ -5,9 +5,9 @@ uid: ""
 
 # Acl
 
-## `Get Collection Acl (`assetrules` path)`
+## `Get Collection Acl (assetrules path)`
 
-<a id="opIdAcl_Get Collection Acl (`assetrules` path)"></a>
+<a id="opIdAcl_Get Collection Acl (assetrules path)"></a>
 
 Gets the `AccessControlList` for the rules collection.
 
@@ -85,9 +85,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/assetrules
 
 ---
 
-## `Set Collection Acl (`assetrules` path)`
+## `Set Collection Acl (assetrules path)`
 
-<a id="opIdAcl_Set Collection Acl (`assetrules` path)"></a>
+<a id="opIdAcl_Set Collection Acl (assetrules path)"></a>
 
 Replaces the `AccessControlList` for the rules collection.
 
@@ -197,9 +197,9 @@ The ACL.<br/>
 
 ---
 
-## `Get Collection Acl (`metadatarules` path)`
+## `Get Collection Acl (metadatarules path)`
 
-<a id="opIdAcl_Get Collection Acl (`metadatarules` path)"></a>
+<a id="opIdAcl_Get Collection Acl (metadatarules path)"></a>
 
 Gets the `AccessControlList` for the rules collection.
 
@@ -277,9 +277,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/metadataru
 
 ---
 
-## `Set Collection Acl (`metadatarules` path)`
+## `Set Collection Acl (metadatarules path)`
 
-<a id="opIdAcl_Set Collection Acl (`metadatarules` path)"></a>
+<a id="opIdAcl_Set Collection Acl (metadatarules path)"></a>
 
 Replaces the `AccessControlList` for the rules collection.
 
@@ -389,9 +389,9 @@ The ACL.<br/>
 
 ---
 
-## `Get Acl (`assetrules` path)`
+## `Get Acl (assetrules path)`
 
-<a id="opIdAcl_Get Acl (`assetrules` path)"></a>
+<a id="opIdAcl_Get Acl (assetrules path)"></a>
 
 Gets the `AccessControlList` of the specified rule.
 
@@ -487,9 +487,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/acce
 
 ---
 
-## `Set Acl (`assetrules` path)`
+## `Set Acl (assetrules path)`
 
-<a id="opIdAcl_Set Acl (`assetrules` path)"></a>
+<a id="opIdAcl_Set Acl (assetrules path)"></a>
 
 Replaces the `AccessControlList` of the specified rule.
 
@@ -617,9 +617,9 @@ The ACL object.<br/>
 
 ---
 
-## `Get Acl (`metadatarules` path)`
+## `Get Acl (metadatarules path)`
 
-<a id="opIdAcl_Get Acl (`metadatarules` path)"></a>
+<a id="opIdAcl_Get Acl (metadatarules path)"></a>
 
 Gets the `AccessControlList` of the specified rule.
 
@@ -715,9 +715,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/a
 
 ---
 
-## `Set Acl (`metadatarules` path)`
+## `Set Acl (metadatarules path)`
 
-<a id="opIdAcl_Set Acl (`metadatarules` path)"></a>
+<a id="opIdAcl_Set Acl (metadatarules path)"></a>
 
 Replaces the `AccessControlList` of the specified rule.
 

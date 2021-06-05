@@ -5,9 +5,9 @@ uid: ""
 
 # Admin
 
-## `Reset Tracking (`assetrules` path)`
+## `Reset Tracking (assetrules path)`
 
-<a id="opIdAdmin_Reset Tracking (`assetrules` path)"></a>
+<a id="opIdAdmin_Reset Tracking (assetrules path)"></a>
 
 Resets the asset tracking table. If is specified it will only clear the entries for those assets. This will cause Rules to no longer identify rule-generated asset properties as rule-generated. That means Rules will not delete or edit those asset properties. Only call this route if directed to by OCS Support.
 
@@ -79,9 +79,9 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/reseta
 
 ---
 
-## `Get Statistics (`assetrules` path)`
+## `Get Statistics (assetrules path)`
 
-<a id="opIdAdmin_Get Statistics (`assetrules` path)"></a>
+<a id="opIdAdmin_Get Statistics (assetrules path)"></a>
 
 Gets the `StoreStatistics` on the `IRuleStore`.
 
@@ -150,9 +150,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/statist
 
 ---
 
-## `Reset Tracking (`metadatarules` path)`
+## `Reset Tracking (metadatarules path)`
 
-<a id="opIdAdmin_Reset Tracking (`metadatarules` path)"></a>
+<a id="opIdAdmin_Reset Tracking (metadatarules path)"></a>
 
 Resets the asset tracking table. If is specified it will only clear the entries for those assets. This will cause Rules to no longer identify rule-generated asset properties as rule-generated. That means Rules will not delete or edit those asset properties. Only call this route if directed to by OCS Support.
 
@@ -224,9 +224,9 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/admin/metadatarules/res
 
 ---
 
-## `Get Statistics (`metadatarules` path)`
+## `Get Statistics (metadatarules path)`
 
-<a id="opIdAdmin_Get Statistics (`metadatarules` path)"></a>
+<a id="opIdAdmin_Get Statistics (metadatarules path)"></a>
 
 Gets the `StoreStatistics` on the `IRuleStore`.
 

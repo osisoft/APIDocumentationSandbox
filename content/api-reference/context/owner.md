@@ -5,9 +5,9 @@ uid: ""
 
 # Owner
 
-## `Get Owner (`assetrules` path)`
+## `Get Owner (assetrules path)`
 
-<a id="opIdOwner_Get Owner (`assetrules` path)"></a>
+<a id="opIdOwner_Get Owner (assetrules path)"></a>
 
 Gets the `Trustee` of the specified rule.
 
@@ -96,9 +96,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/owne
 
 ---
 
-## `Set Owner (`assetrules` path)`
+## `Set Owner (assetrules path)`
 
-<a id="opIdOwner_Set Owner (`assetrules` path)"></a>
+<a id="opIdOwner_Set Owner (assetrules path)"></a>
 
 Replaces the `Trustee` of the specified rule.
 
@@ -215,9 +215,9 @@ The owner.<br/>
 
 ---
 
-## `Get Owner (`metadatarules` path)`
+## `Get Owner (metadatarules path)`
 
-<a id="opIdOwner_Get Owner (`metadatarules` path)"></a>
+<a id="opIdOwner_Get Owner (metadatarules path)"></a>
 
 Gets the `Trustee` of the specified rule.
 
@@ -306,9 +306,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/o
 
 ---
 
-## `Set Owner (`metadatarules` path)`
+## `Set Owner (metadatarules path)`
 
-<a id="opIdOwner_Set Owner (`metadatarules` path)"></a>
+<a id="opIdOwner_Set Owner (metadatarules path)"></a>
 
 Replaces the `Trustee` of the specified rule.
 

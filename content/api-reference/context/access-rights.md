@@ -5,9 +5,9 @@ uid: ""
 
 # Access Rights
 
-## `List Access Rights (`assetrules` path)`
+## `List Access Rights (assetrules path)`
 
-<a id="opIdAccessRights_List Access Rights (`assetrules` path)"></a>
+<a id="opIdAccessRights_List Access Rights (assetrules path)"></a>
 
 Gets a list of the `CommonAccessRights` the requesting `Identity` has on the specified rule.
 
@@ -97,9 +97,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/acce
 
 ---
 
-## `List Access Rights (`metadatarules` path)`
+## `List Access Rights (metadatarules path)`
 
-<a id="opIdAccessRights_List Access Rights (`metadatarules` path)"></a>
+<a id="opIdAccessRights_List Access Rights (metadatarules path)"></a>
 
 Gets a list of the `CommonAccessRights` the requesting `Identity` has on the specified rule.
 
