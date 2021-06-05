@@ -469,9 +469,9 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/AssetTypes/{asse
 
 ---
 
-## `Create Asset Types (`bulk` path)`
+## `Create Asset Types (bulk path)`
 
-<a id="opIdAssetTypes_Create Asset Types (`bulk` path)"></a>
+<a id="opIdAssetTypes_Create Asset Types (bulk path)"></a>
 
 ### Request
 ```text 
