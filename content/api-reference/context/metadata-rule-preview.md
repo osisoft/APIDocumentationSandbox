@@ -174,11 +174,17 @@ The RuleModel object to preview.<br/>
   "Id": "ruleId",
   "Name": "name",
   "Description": "description",
+  "ExampleStreamId": "exampleId",
   "AutomationId": "00000000-0000-0000-0000-000000000000",
   "Expressions": [
     {
       "Field": "Id",
-      "Pattern": "{id}"
+      "Specification": [
+        {
+          "Type": "Wildcard",
+          "Name": "id"
+        }
+      ]
     }
   ],
   "Outputs": [
@@ -473,11 +479,17 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
   "Id": "ruleId",
   "Name": "name",
   "Description": "description",
+  "ExampleStreamId": "exampleId",
   "AutomationId": "00000000-0000-0000-0000-000000000000",
   "Expressions": [
     {
       "Field": "Id",
-      "Pattern": "{id}"
+      "Specification": [
+        {
+          "Type": "Wildcard",
+          "Name": "id"
+        }
+      ]
     }
   ],
   "Outputs": [
@@ -699,6 +711,7 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
 |Description|string|false|true|None|
 |NewMetadata|object|false|true|None|
 |UpdatedMetadata|object|false|true|None|
+|UnchangedMetadata|object|false|true|None|
 |RemovedMetadata|object|false|true|None|
 
 ```json
@@ -711,6 +724,10 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
     "property2": "string"
   },
   "UpdatedMetadata": {
+    "property1": "string",
+    "property2": "string"
+  },
+  "UnchangedMetadata": {
     "property1": "string",
     "property2": "string"
   },
@@ -739,6 +756,7 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
 |NewMetadataKeys|int32|false|false|None|
 |NewMetadataValues|int32|false|false|None|
 |UpdatedMetadataValues|int32|false|false|None|
+|UnchangedMetadataValues|int32|false|false|None|
 |RemovedMetadataKeys|int32|false|false|None|
 |TotalResults|int32|false|false|None|
 |PageCount|int32|false|false|None|
@@ -749,6 +767,7 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
   "NewMetadataKeys": 0,
   "NewMetadataValues": 0,
   "UpdatedMetadataValues": 0,
+  "UnchangedMetadataValues": 0,
   "RemovedMetadataKeys": 0,
   "TotalResults": 0,
   "PageCount": 0

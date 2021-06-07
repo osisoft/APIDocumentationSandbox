@@ -42,11 +42,17 @@ The RuleModel object to preview.<br/>
   "Id": "ruleId",
   "Name": "name",
   "Description": "description",
+  "ExampleStreamId": "exampleId",
   "AutomationId": "00000000-0000-0000-0000-000000000000",
   "Expressions": [
     {
       "Field": "Id",
-      "Pattern": "{id}"
+      "Specification": [
+        {
+          "Type": "Wildcard",
+          "Name": "id"
+        }
+      ]
     }
   ],
   "Outputs": [
@@ -315,11 +321,17 @@ The RuleModel object to preview.<br/>
   "Id": "ruleId",
   "Name": "name",
   "Description": "description",
+  "ExampleStreamId": "exampleId",
   "AutomationId": "00000000-0000-0000-0000-000000000000",
   "Expressions": [
     {
       "Field": "Id",
-      "Pattern": "{id}"
+      "Specification": [
+        {
+          "Type": "Wildcard",
+          "Name": "id"
+        }
+      ]
     }
   ],
   "Outputs": [
