@@ -24,7 +24,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/preview/assetrul
 <br/>An Int32 to determine the number of preview results to skip.<br/><br/>`string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
-`[optional] integer count count`
+`[optional] integer count`
 <br/>An Int32 to determine the number of preview results to return.<br/><br/>
 
 #### Request Headers
@@ -177,9 +177,9 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/preview/assetru
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
-`[optional] boolean KeepOldMetadata KeepOldMetadata`
-<br/><br/>`[optional] integer Skip Skip`
-<br/><br/>`[optional] integer Count Count`
+`[optional] boolean KeepOldMetadata`
+<br/><br/>`[optional] integer Skip`
+<br/><br/>`[optional] integer Count`
 <br/><br/>
 
 #### Request Headers
@@ -196,17 +196,11 @@ The RuleModel object to preview.<br/>
   "Id": "ruleId",
   "Name": "name",
   "Description": "description",
-  "ExampleStreamId": "exampleId",
   "AutomationId": "00000000-0000-0000-0000-000000000000",
   "Expressions": [
     {
       "Field": "Id",
-      "Specification": [
-        {
-          "Type": "Wildcard",
-          "Name": "id"
-        }
-      ]
+      "Pattern": "{id}"
     }
   ],
   "Outputs": [
@@ -501,17 +495,11 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/preview/asset
   "Id": "ruleId",
   "Name": "name",
   "Description": "description",
-  "ExampleStreamId": "exampleId",
   "AutomationId": "00000000-0000-0000-0000-000000000000",
   "Expressions": [
     {
       "Field": "Id",
-      "Specification": [
-        {
-          "Type": "Wildcard",
-          "Name": "id"
-        }
-      ]
+      "Pattern": "{id}"
     }
   ],
   "Outputs": [

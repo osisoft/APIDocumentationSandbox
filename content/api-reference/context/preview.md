@@ -22,9 +22,9 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
-`[optional] integer Skip Skip`
+`[optional] integer Skip`
 <br/>An Int32 specifying the number of results to skip.
-Defaults to 0.<br/><br/>`[optional] integer Count Count`
+Defaults to 0.<br/><br/>`[optional] integer Count`
 <br/>An Int32 specifying the number of results to return.
 Defaults to 100.<br/><br/>
 
@@ -42,17 +42,11 @@ The RuleModel object to preview.<br/>
   "Id": "ruleId",
   "Name": "name",
   "Description": "description",
-  "ExampleStreamId": "exampleId",
   "AutomationId": "00000000-0000-0000-0000-000000000000",
   "Expressions": [
     {
       "Field": "Id",
-      "Specification": [
-        {
-          "Type": "Wildcard",
-          "Name": "id"
-        }
-      ]
+      "Pattern": "{id}"
     }
   ],
   "Outputs": [
@@ -321,17 +315,11 @@ The RuleModel object to preview.<br/>
   "Id": "ruleId",
   "Name": "name",
   "Description": "description",
-  "ExampleStreamId": "exampleId",
   "AutomationId": "00000000-0000-0000-0000-000000000000",
   "Expressions": [
     {
       "Field": "Id",
-      "Specification": [
-        {
-          "Type": "Wildcard",
-          "Name": "id"
-        }
-      ]
+      "Pattern": "{id}"
     }
   ],
   "Outputs": [

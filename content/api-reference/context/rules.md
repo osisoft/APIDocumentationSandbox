@@ -23,9 +23,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
-`[optional] integer Skip Skip`
-<br/>An Int32 to determine how many results to skip. Defaults to DefaultSkip<br/><br/>`[optional] integer Count Count`
-<br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata KeepOldMetadata`
+`[optional] integer Skip`
+<br/>An Int32 to determine how many results to skip. Defaults to DefaultSkip<br/><br/>`[optional] integer Count`
+<br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata`
 <br/>A Boolean to determine whether or not existing metadata should be kept.
 Defaults to false.<br/><br/>
 
@@ -574,9 +574,9 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
 <br/><br/>`string namespaceId`
 <br/><br/>`string ruleId`
 <br/><br/>
-`[optional] integer Skip Skip`
-<br/>An Int32 to determine how many results to skip. Defaults to DefaultSkip<br/><br/>`[optional] integer Count Count`
-<br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata KeepOldMetadata`
+`[optional] integer Skip`
+<br/>An Int32 to determine how many results to skip. Defaults to DefaultSkip<br/><br/>`[optional] integer Count`
+<br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata`
 <br/>A Boolean to determine whether or not existing metadata should be kept.
 Defaults to false.<br/><br/>
 
@@ -745,9 +745,9 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
 <br/><br/>`string namespaceId`
 <br/><br/>`string ruleId`
 <br/><br/>
-`[optional] integer Skip Skip`
-<br/>An Int32 to determine how many results to skip. Defaults to DefaultSkip<br/><br/>`[optional] integer Count Count`
-<br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata KeepOldMetadata`
+`[optional] integer Skip`
+<br/>An Int32 to determine how many results to skip. Defaults to DefaultSkip<br/><br/>`[optional] integer Count`
+<br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata`
 <br/>A Boolean to determine whether or not existing metadata should be kept.
 Defaults to false.<br/><br/>
 
@@ -911,9 +911,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
-`[optional] integer Skip Skip`
-<br/>An Int32 to determine how many results to skip. Defaults to DefaultSkip<br/><br/>`[optional] integer Count Count`
-<br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata KeepOldMetadata`
+`[optional] integer Skip`
+<br/>An Int32 to determine how many results to skip. Defaults to DefaultSkip<br/><br/>`[optional] integer Count`
+<br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata`
 <br/>A Boolean to determine whether or not existing metadata should be kept.
 Defaults to false.<br/><br/>
 
@@ -1462,9 +1462,9 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}
 <br/><br/>`string namespaceId`
 <br/><br/>`string ruleId`
 <br/><br/>
-`[optional] integer Skip Skip`
-<br/>An Int32 to determine how many results to skip. Defaults to DefaultSkip<br/><br/>`[optional] integer Count Count`
-<br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata KeepOldMetadata`
+`[optional] integer Skip`
+<br/>An Int32 to determine how many results to skip. Defaults to DefaultSkip<br/><br/>`[optional] integer Count`
+<br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata`
 <br/>A Boolean to determine whether or not existing metadata should be kept.
 Defaults to false.<br/><br/>
 
@@ -1633,9 +1633,9 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId
 <br/><br/>`string namespaceId`
 <br/><br/>`string ruleId`
 <br/><br/>
-`[optional] integer Skip Skip`
-<br/>An Int32 to determine how many results to skip. Defaults to DefaultSkip<br/><br/>`[optional] integer Count Count`
-<br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata KeepOldMetadata`
+`[optional] integer Skip`
+<br/>An Int32 to determine how many results to skip. Defaults to DefaultSkip<br/><br/>`[optional] integer Count`
+<br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata`
 <br/>A Boolean to determine whether or not existing metadata should be kept.
 Defaults to false.<br/><br/>
 
