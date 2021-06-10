@@ -22,7 +22,7 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/reseta
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
-`[optional] array assetIds assetIds`
+`[optional] array assetIds`
 <br/><br/>
 
 #### Request Headers
