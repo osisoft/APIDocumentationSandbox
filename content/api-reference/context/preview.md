@@ -28,11 +28,6 @@ Defaults to 0.<br/><br/>`[optional] integer Count`
 <br/>An Int32 specifying the number of results to return.
 Defaults to 100.<br/><br/>
 
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
-
 ### Request Body
 
 The RuleModel object to preview.<br/>

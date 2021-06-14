@@ -27,11 +27,6 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
 `[optional] integer count`
 <br/>An Int32 to determine the number of preview results to return.<br/><br/>
 
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
-
 ### Response
 
 |Status Code|Body Type|Description|
@@ -159,11 +154,6 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
 <br/><br/>`[optional] integer Skip`
 <br/><br/>`[optional] integer Count`
 <br/><br/>
-
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
 
 ### Request Body
 
@@ -310,11 +300,6 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/metadatarules
 <br/>A Guid which corresponds to a preview that has been created using the CancellationToken) method.<br/><br/>`string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
-
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
 
 ### Response
 

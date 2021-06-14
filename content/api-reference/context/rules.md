@@ -29,11 +29,6 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules
 <br/>A Boolean to determine whether or not existing metadata should be kept.
 Defaults to false.<br/><br/>
 
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
-
 ### Response
 
 |Status Code|Body Type|Description|
@@ -158,11 +153,6 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
-
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
 
 ### Request Body
 
@@ -312,11 +302,6 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
 <br/><br/>`string ruleId`
 <br/><br/>
 
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
-
 ### Response
 
 |Status Code|Body Type|Description|
@@ -419,11 +404,6 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
 <br/><br/>`string namespaceId`
 <br/><br/>`string ruleId`
 <br/><br/>
-
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
 
 ### Request Body
 
@@ -579,11 +559,6 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
 <br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata`
 <br/>A Boolean to determine whether or not existing metadata should be kept.
 Defaults to false.<br/><br/>
-
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
 
 ### Request Body
 
@@ -751,11 +726,6 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
 <br/>A Boolean to determine whether or not existing metadata should be kept.
 Defaults to false.<br/><br/>
 
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
-
 ### Response
 
 |Status Code|Body Type|Description|
@@ -831,11 +801,6 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/exe
 <br/><br/>`string namespaceId`
 <br/><br/>`string ruleId`
 <br/><br/>
-
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
 
 ### Response
 
@@ -916,11 +881,6 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules
 <br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata`
 <br/>A Boolean to determine whether or not existing metadata should be kept.
 Defaults to false.<br/><br/>
-
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
 
 ### Response
 
@@ -1046,11 +1006,6 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
-
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
 
 ### Request Body
 
@@ -1200,11 +1155,6 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}
 <br/><br/>`string ruleId`
 <br/><br/>
 
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
-
 ### Response
 
 |Status Code|Body Type|Description|
@@ -1307,11 +1257,6 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}
 <br/><br/>`string namespaceId`
 <br/><br/>`string ruleId`
 <br/><br/>
-
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
 
 ### Request Body
 
@@ -1467,11 +1412,6 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}
 <br/>An Int32 to determine how many results to return. Defaults to DefaultCount<br/><br/>`[optional] boolean KeepOldMetadata`
 <br/>A Boolean to determine whether or not existing metadata should be kept.
 Defaults to false.<br/><br/>
-
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
 
 ### Request Body
 
@@ -1639,11 +1579,6 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId
 <br/>A Boolean to determine whether or not existing metadata should be kept.
 Defaults to false.<br/><br/>
 
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
-
 ### Response
 
 |Status Code|Body Type|Description|
@@ -1719,11 +1654,6 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/
 <br/><br/>`string namespaceId`
 <br/><br/>`string ruleId`
 <br/><br/>
-
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
 
 ### Response
 

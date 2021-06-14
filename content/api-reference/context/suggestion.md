@@ -22,11 +22,6 @@ POST /api/v1/tenants/{tenantid}/namespaces/{namespaceid}/suggestion/metadatarule
 <br/><br/>`string namespaceid`
 <br/><br/>
 
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
-
 ### Request Body
 
 The RuleModel object to create suggestions for.<br/>

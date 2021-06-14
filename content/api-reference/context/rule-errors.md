@@ -23,11 +23,6 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{rule
 <br/><br/>`string namespaceId`
 <br/><br/>
 
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
-
 ### Response
 
 |Status Code|Body Type|Description|
@@ -123,11 +118,6 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{r
 <br/>The rule Id.<br/><br/>`string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
-
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
 
 ### Response
 
