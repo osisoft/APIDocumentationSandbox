@@ -24,11 +24,6 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/o
 <br/><br/>`string ruleId`
 <br/><br/>
 
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
-
 ### Response
 
 |Status Code|Body Type|Description|
@@ -114,11 +109,6 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/o
 <br/><br/>`string namespaceId`
 <br/><br/>`string ruleId`
 <br/><br/>
-
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
 
 ### Request Body
 

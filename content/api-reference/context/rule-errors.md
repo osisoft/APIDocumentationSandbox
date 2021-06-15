@@ -224,6 +224,7 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{r
 |AutomationId|3|
 |ConflictBetweenStreams|4|
 |MissingMappings|5|
+|ConflictBetweenRuleAndUser|6|
 
 ---
 

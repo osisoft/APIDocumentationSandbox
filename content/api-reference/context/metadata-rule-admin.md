@@ -22,11 +22,6 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/admin/metadatarules/stat
 <br/><br/>`string namespaceId`
 <br/><br/>
 
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
-
 ### Response
 
 |Status Code|Body Type|Description|

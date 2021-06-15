@@ -28,11 +28,6 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules
 <br/>A Boolean to determine whether or not existing metadata should be kept.
 Defaults to false.<br/><br/>
 
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
-
 ### Response
 
 |Status Code|Body Type|Description|
@@ -158,11 +153,6 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>
-
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
 
 ### Request Body
 
@@ -341,11 +331,6 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
 <br/><br/>`string ruleId`
 <br/><br/>
 
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
-
 ### Response
 
 |Status Code|Body Type|Description|
@@ -471,11 +456,6 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
 <br/><br/>`string namespaceId`
 <br/><br/>`string ruleId`
 <br/><br/>
-
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
 
 ### Request Body
 
@@ -661,11 +641,6 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
 <br/>A Boolean to determine whether or not existing metadata should be kept.
 Defaults to false.<br/><br/>
 
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
-
 ### Request Body
 
 The RuleModel object to create or update.<br/>
@@ -850,11 +825,6 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
 <br/>A Boolean to determine whether or not existing metadata should be kept.
 Defaults to false.<br/><br/>
 
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
-
 ### Response
 
 |Status Code|Body Type|Description|
@@ -930,11 +900,6 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/exe
 <br/><br/>`string namespaceId`
 <br/><br/>`string ruleId`
 <br/><br/>
-
-#### Request Headers
-
-|Header|Type|Required|Description|
-|---|---|---|---|
 
 ### Response
 
