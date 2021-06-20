@@ -456,6 +456,7 @@ The RuleModel object to preview.<br/>
 |Any|Any|
 |Letter|Letter|
 |Digit|Digit|
+|Alphanumeric|Alphanumeric|
 
 ---
 

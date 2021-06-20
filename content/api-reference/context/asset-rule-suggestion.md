@@ -581,6 +581,7 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/as
 |Any|Any|
 |Letter|Letter|
 |Digit|Digit|
+|Alphanumeric|Alphanumeric|
 
 ---
 

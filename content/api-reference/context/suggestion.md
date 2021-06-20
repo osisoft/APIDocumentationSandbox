@@ -378,6 +378,7 @@ The RuleModel object to create suggestions for.<br/>
 |Any|Any|
 |Letter|Letter|
 |Digit|Digit|
+|Alphanumeric|Alphanumeric|
 
 ---
 

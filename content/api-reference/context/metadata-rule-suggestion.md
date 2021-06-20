@@ -581,6 +581,7 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/metadataru
 |Any|Any|
 |Letter|Letter|
 |Digit|Digit|
+|Alphanumeric|Alphanumeric|
 
 ---
 

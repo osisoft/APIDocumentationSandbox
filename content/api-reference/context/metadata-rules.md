@@ -1085,6 +1085,7 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}/
 |Any|Any|
 |Letter|Letter|
 |Digit|Digit|
+|Alphanumeric|Alphanumeric|
 
 ---
 
