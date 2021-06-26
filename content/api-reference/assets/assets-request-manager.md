@@ -315,9 +315,9 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/bulk/assets
 
 ---
 
-## `Bulk Deprecated Get Resolved Assets`
+## `Bulk Get Resolved Assets`
 
-<a id="opIdRequestManager_Bulk Deprecated Get Resolved Assets"></a>
+<a id="opIdRequestManager_Bulk Get Resolved Assets"></a>
 
 ### Request
 ```text 
@@ -348,9 +348,9 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/bulk/assets/res
 
 ---
 
-## `Bulk Get Resolved Assets`
+## `Bulk Deprecated Get Resolved Assets`
 
-<a id="opIdRequestManager_Bulk Get Resolved Assets"></a>
+<a id="opIdRequestManager_Bulk Deprecated Get Resolved Assets"></a>
 
 ### Request
 ```text 
