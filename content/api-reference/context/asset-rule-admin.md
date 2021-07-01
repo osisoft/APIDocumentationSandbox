@@ -9,7 +9,7 @@ uid: ""
 
 <a id="opIdAssetRuleAdmin_Reset Tracking"></a>
 
-Resets the asset tracking table. If is specified it will only clear the entries for those assets. This will cause Rules to no longer identify rule-generated asset properties as rule-generated. That means Rules will not delete or edit those asset properties. Only call this route if directed to by OCS Support.
+Resets the asset tracking table. If is specified, it will only clear the entries for those assets. This will cause Rules to no longer identify rule-generated asset properties as rule-generated. That means Rules will not delete or edit those asset properties. Only call this route if directed to by OCS Support.
 
 ### Request
 ```text 
@@ -29,7 +29,7 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/reseta
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[StoreStatistics](#schemastorestatistics)|Cleared successfully.|
+|200|[StoreStatistics](#schemastorestatistics)|Request tracking table entries cleared successfully.|
 |403|[ResponseBody](#schemaresponsebody)|Forbidden.|
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 

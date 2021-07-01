@@ -43,18 +43,35 @@ Defaults to false.<br/><br/>
 ```json
 [
   {
-    "Id": "ruleId",
+    "Id": "rule",
     "Name": "name",
     "Description": "description",
-    "ExampleStreamId": "exampleId",
     "AutomationId": "00000000-0000-0000-0000-000000000000",
     "Expressions": [
       {
-        "Field": "Id",
-        "Specification": [
+        "Field": "Name",
+        "Specifications": [
           {
-            "Type": "Wildcard",
-            "Name": "id"
+            "Type": "Group",
+            "Name": "location",
+            "CharacterType": "Any",
+            "RequiredDelimiters": [],
+            "ValueMappings": {
+              "SL": "San leandro",
+              "AUS": "Austin"
+            }
+          },
+          {
+            "Type": "Delimiter",
+            "Value": ".",
+            "CharacterType": "Any",
+            "RequiredDelimiters": []
+          },
+          {
+            "Type": "Literal",
+            "Value": "test",
+            "CharacterType": "Any",
+            "RequiredDelimiters": []
           }
         ]
       }
@@ -63,35 +80,7 @@ Defaults to false.<br/><br/>
       {
         "Field": "Metadata",
         "Value": {
-          "key": "{id}"
-        }
-      }
-    ],
-    "CreationTime": "0001-01-01T00:00:00",
-    "ModifiedTime": "0001-01-01T00:00:00"
-  },
-  {
-    "Id": "ruleId",
-    "Name": "name",
-    "Description": "description",
-    "ExampleStreamId": "exampleId",
-    "AutomationId": "00000000-0000-0000-0000-000000000000",
-    "Expressions": [
-      {
-        "Field": "Id",
-        "Specification": [
-          {
-            "Type": "Wildcard",
-            "Name": "id"
-          }
-        ]
-      }
-    ],
-    "Outputs": [
-      {
-        "Field": "Metadata",
-        "Value": {
-          "key": "{id}"
+          "location": "{location}"
         }
       }
     ],
@@ -339,18 +328,35 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}
 
 ```json
 {
-  "Id": "ruleId",
+  "Id": "rule",
   "Name": "name",
   "Description": "description",
-  "ExampleStreamId": "exampleId",
   "AutomationId": "00000000-0000-0000-0000-000000000000",
   "Expressions": [
     {
-      "Field": "Id",
-      "Specification": [
+      "Field": "Name",
+      "Specifications": [
         {
-          "Type": "Wildcard",
-          "Name": "id"
+          "Type": "Group",
+          "Name": "location",
+          "CharacterType": "Any",
+          "RequiredDelimiters": [],
+          "ValueMappings": {
+            "SL": "San leandro",
+            "AUS": "Austin"
+          }
+        },
+        {
+          "Type": "Delimiter",
+          "Value": ".",
+          "CharacterType": "Any",
+          "RequiredDelimiters": []
+        },
+        {
+          "Type": "Literal",
+          "Value": "test",
+          "CharacterType": "Any",
+          "RequiredDelimiters": []
         }
       ]
     }
@@ -359,7 +365,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metadatarules/{ruleId}
     {
       "Field": "Metadata",
       "Value": {
-        "key": "{id}"
+        "location": "{location}"
       }
     }
   ],

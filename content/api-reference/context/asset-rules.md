@@ -64,6 +64,7 @@ Defaults to false.<br/><br/>
         "Value": {
           "Id": "assetId",
           "Name": "name",
+          "AssetTypeId": "TypeId",
           "Description": "description",
           "Metadata": [
             {
@@ -80,12 +81,26 @@ Defaults to false.<br/><br/>
               "Description": "description",
               "StreamdId": "{streamId}"
             }
-          ]
+          ],
+          "Status": {
+            "StreamReferenceId": "StreamRefId",
+            "StreamPropertyId": "Value",
+            "ValueStatusMappings": [
+              {
+                "Value": "value",
+                "Status": 1,
+                "DisplayName": "Display Name Indicater"
+              }
+            ]
+          }
         }
       }
     ],
     "CreationTime": "0001-01-01T00:00:00",
-    "ModifiedTime": "0001-01-01T00:00:00"
+    "ModifiedTime": "0001-01-01T00:00:00",
+    "ErrorInfo": {
+      "ErrorCount": 0
+    }
   }
 ]
 ```
@@ -225,6 +240,7 @@ The RuleModel object to create.<br/>
       "Value": {
         "Id": "assetId",
         "Name": "name",
+        "AssetTypeId": "TypeId",
         "Description": "description",
         "Metadata": [
           {
@@ -241,12 +257,26 @@ The RuleModel object to create.<br/>
             "Description": "description",
             "StreamdId": "{streamId}"
           }
-        ]
+        ],
+        "Status": {
+          "StreamReferenceId": "StreamRefId",
+          "StreamPropertyId": "Value",
+          "ValueStatusMappings": [
+            {
+              "Value": "value",
+              "Status": 1,
+              "DisplayName": "Display Name Indicater"
+            }
+          ]
+        }
       }
     }
   ],
   "CreationTime": "0001-01-01T00:00:00",
-  "ModifiedTime": "0001-01-01T00:00:00"
+  "ModifiedTime": "0001-01-01T00:00:00",
+  "ErrorInfo": {
+    "ErrorCount": 0
+  }
 }
 ```
 
@@ -366,6 +396,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
       "Value": {
         "Id": "assetId",
         "Name": "name",
+        "AssetTypeId": "TypeId",
         "Description": "description",
         "Metadata": [
           {
@@ -382,12 +413,26 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}
             "Description": "description",
             "StreamdId": "{streamId}"
           }
-        ]
+        ],
+        "Status": {
+          "StreamReferenceId": "StreamRefId",
+          "StreamPropertyId": "Value",
+          "ValueStatusMappings": [
+            {
+              "Value": "value",
+              "Status": 1,
+              "DisplayName": "Display Name Indicater"
+            }
+          ]
+        }
       }
     }
   ],
   "CreationTime": "0001-01-01T00:00:00",
-  "ModifiedTime": "0001-01-01T00:00:00"
+  "ModifiedTime": "0001-01-01T00:00:00",
+  "ErrorInfo": {
+    "ErrorCount": 0
+  }
 }
 ```
 
@@ -529,6 +574,7 @@ The RuleModel object.<br/>
       "Value": {
         "Id": "assetId",
         "Name": "name",
+        "AssetTypeId": "TypeId",
         "Description": "description",
         "Metadata": [
           {
@@ -545,12 +591,26 @@ The RuleModel object.<br/>
             "Description": "description",
             "StreamdId": "{streamId}"
           }
-        ]
+        ],
+        "Status": {
+          "StreamReferenceId": "StreamRefId",
+          "StreamPropertyId": "Value",
+          "ValueStatusMappings": [
+            {
+              "Value": "value",
+              "Status": 1,
+              "DisplayName": "Display Name Indicater"
+            }
+          ]
+        }
       }
     }
   ],
   "CreationTime": "0001-01-01T00:00:00",
-  "ModifiedTime": "0001-01-01T00:00:00"
+  "ModifiedTime": "0001-01-01T00:00:00",
+  "ErrorInfo": {
+    "ErrorCount": 0
+  }
 }
 ```
 
