@@ -404,7 +404,7 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/assetrules
 
 ### Request Body
 
-The new ACL for the rules collection.<br/>
+The ACL.<br/>
 
 ```json
 {

@@ -143,6 +143,7 @@ The RuleModel object to create a suggestion for.<br/>
   "Description": "description",
   "ExampleStreamId": "exampleId",
   "AutomationId": "00000000-0000-0000-0000-000000000000",
+  "IsDraft": "false",
   "Expressions": [
     {
       "Field": "Id",
@@ -431,6 +432,7 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/as
 |Description|string|false|true|None|
 |ExampleStreamId|string|false|true|None|
 |AutomationId|string|false|true|None|
+|IsDraft|boolean|false|false|None|
 |Expressions|[[RuleExpression](#schemaruleexpression)]|false|true|None|
 |Outputs|[[RuleOutput](#schemaruleoutput)]|false|true|None|
 |CreationTime|date-time|false|false|None|
@@ -443,6 +445,7 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/as
   "Description": "description",
   "ExampleStreamId": "exampleId",
   "AutomationId": "00000000-0000-0000-0000-000000000000",
+  "IsDraft": "false",
   "Expressions": [
     {
       "Field": "Id",
