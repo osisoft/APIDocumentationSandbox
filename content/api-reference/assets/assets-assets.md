@@ -5,13 +5,13 @@ uid: assets-assets
 
 # Assets
 
-## `Get Asset`
+## `Get Asset Owner`
 
-<a id="opIdAssets_Get Asset"></a>
+<a id="opIdAssets_Get Asset Owner"></a>
 
 ### Request
 ```text 
-GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
+GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}/owner
 ```
 
 #### Parameters
@@ -29,20 +29,20 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
 
 ---
 
-## `Create Asset`
+## `Update Asset Owner`
 
-<a id="opIdAssets_Create Asset"></a>
+<a id="opIdAssets_Update Asset Owner"></a>
 
 ### Request
 ```text 
-POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
+PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}/owner
 ```
 
 #### Parameters
 
-`string assetId`
-<br/><br/>`string tenantId`
+`string tenantId`
 <br/><br/>`string namespaceId`
+<br/><br/>`string assetId`
 <br/><br/>
 
 ### Request Body
@@ -51,123 +51,11 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId
 
 ```json
 {
-  "Id": "string",
-  "AssetTypeId": "string",
-  "Name": "string",
-  "Description": "string",
-  "Metadata": [
-    {
-      "Id": "string",
-      "Name": "string",
-      "Description": "string",
-      "SdsTypeCode": "Empty",
-      "Value": null,
-      "Uom": "string"
-    }
-  ],
-  "StreamReferences": [
-    {
-      "Id": "string",
-      "Name": "string",
-      "Description": "string",
-      "StreamId": "string"
-    }
-  ],
-  "Status": {
-    "StreamReferenceId": "string",
-    "StreamPropertyId": "string",
-    "ValueStatusMappings": [
-      {}
-    ]
-  }
+  "Type": 1,
+  "ObjectId": "string",
+  "TenantId": "string"
 }
 ```
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|string|None|
-
----
-
-## `Create Or Update Asset (assets path)`
-
-<a id="opIdAssets_Create Or Update Asset (assets path)"></a>
-
-### Request
-```text 
-PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
-```
-
-#### Parameters
-
-`string assetId`
-<br/><br/>`string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>
-
-### Request Body
-
-<br/>
-
-```json
-{
-  "Id": "string",
-  "AssetTypeId": "string",
-  "Name": "string",
-  "Description": "string",
-  "Metadata": [
-    {
-      "Id": "string",
-      "Name": "string",
-      "Description": "string",
-      "SdsTypeCode": "Empty",
-      "Value": null,
-      "Uom": "string"
-    }
-  ],
-  "StreamReferences": [
-    {
-      "Id": "string",
-      "Name": "string",
-      "Description": "string",
-      "StreamId": "string"
-    }
-  ],
-  "Status": {
-    "StreamReferenceId": "string",
-    "StreamPropertyId": "string",
-    "ValueStatusMappings": [
-      {}
-    ]
-  }
-}
-```
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|string|None|
-
----
-
-## `Delete Asset`
-
-<a id="opIdAssets_Delete Asset"></a>
-
-### Request
-```text 
-DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
-```
-
-#### Parameters
-
-`string assetId`
-<br/><br/>`string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>
 
 ### Response
 
@@ -265,66 +153,6 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
 
 ---
 
-## `Get Asset Owner`
-
-<a id="opIdAssets_Get Asset Owner"></a>
-
-### Request
-```text 
-GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}/owner
-```
-
-#### Parameters
-
-`string assetId`
-<br/><br/>`string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|string|None|
-
----
-
-## `Update Asset Owner`
-
-<a id="opIdAssets_Update Asset Owner"></a>
-
-### Request
-```text 
-PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}/owner
-```
-
-#### Parameters
-
-`string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string assetId`
-<br/><br/>
-
-### Request Body
-
-<br/>
-
-```json
-{
-  "Type": 1,
-  "ObjectId": "string",
-  "TenantId": "string"
-}
-```
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|string|None|
-
----
-
 ## `Get Asset2`
 
 <a id="opIdAssets_Get Asset2"></a>
@@ -349,9 +177,9 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets2/{assetId
 
 ---
 
-## `Create Asset Type`
+## `Create Asset (assets2 path)`
 
-<a id="opIdAssets_Create Asset Type"></a>
+<a id="opIdAssets_Create Asset (assets2 path)"></a>
 
 ### Request
 ```text 
@@ -458,6 +286,172 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets2/{assetId
   }
 }
 ```
+
+### Response
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|string|None|
+
+---
+
+## `Get Asset`
+
+<a id="opIdAssets_Get Asset"></a>
+
+### Request
+```text 
+GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
+```
+
+#### Parameters
+
+`string assetId`
+<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
+
+### Response
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|string|None|
+
+---
+
+## `Create Asset (assets path)`
+
+<a id="opIdAssets_Create Asset (assets path)"></a>
+
+### Request
+```text 
+POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
+```
+
+#### Parameters
+
+`string assetId`
+<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
+
+### Request Body
+
+<br/>
+
+```json
+{
+  "Id": "string",
+  "AssetTypeId": "string",
+  "Name": "string",
+  "Description": "string",
+  "Metadata": [
+    {
+      "Id": "string",
+      "Name": "string",
+      "Description": "string",
+      "SdsTypeCode": "Empty",
+      "Value": null,
+      "Uom": "string"
+    }
+  ],
+  "StreamReferences": [
+    {
+      "Id": "string",
+      "Name": "string",
+      "Description": "string",
+      "StreamId": "string"
+    }
+  ],
+  "Status": {
+    "DefinitionType": 0,
+    "Definition": null
+  }
+}
+```
+
+### Response
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|string|None|
+
+---
+
+## `Create Or Update Asset (assets path)`
+
+<a id="opIdAssets_Create Or Update Asset (assets path)"></a>
+
+### Request
+```text 
+PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
+```
+
+#### Parameters
+
+`string assetId`
+<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
+
+### Request Body
+
+<br/>
+
+```json
+{
+  "Id": "string",
+  "AssetTypeId": "string",
+  "Name": "string",
+  "Description": "string",
+  "Metadata": [
+    {
+      "Id": "string",
+      "Name": "string",
+      "Description": "string",
+      "SdsTypeCode": "Empty",
+      "Value": null,
+      "Uom": "string"
+    }
+  ],
+  "StreamReferences": [
+    {
+      "Id": "string",
+      "Name": "string",
+      "Description": "string",
+      "StreamId": "string"
+    }
+  ],
+  "Status": {
+    "DefinitionType": 0,
+    "Definition": null
+  }
+}
+```
+
+### Response
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|string|None|
+
+---
+
+## `Delete Asset`
+
+<a id="opIdAssets_Delete Asset"></a>
+
+### Request
+```text 
+DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
+```
+
+#### Parameters
+
+`string assetId`
+<br/><br/>`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
 
 ### Response
 
@@ -945,142 +939,6 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets2/{assetId
 |---|---|
 |Unspecified|0|
 |StreamPropertyMapping|1|
-
----
-
-### DeprecatedAsset
-
-<a id="schemadeprecatedasset"></a>
-<a id="schema_DeprecatedAsset"></a>
-<a id="tocSdeprecatedasset"></a>
-<a id="tocsdeprecatedasset"></a>
-
-#### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Id|string|false|true|None|
-|AssetTypeId|string|false|true|None|
-|Name|string|false|true|None|
-|Description|string|false|true|None|
-|Metadata|[[MetadataItem](#schemametadataitem)]|false|true|None|
-|StreamReferences|[[StreamReference](#schemastreamreference)]|false|true|None|
-|Status|[StatusMapping](#schemastatusmapping)|false|true|None|
-
-```json
-{
-  "Id": "string",
-  "AssetTypeId": "string",
-  "Name": "string",
-  "Description": "string",
-  "Metadata": [
-    {
-      "Id": "string",
-      "Name": "string",
-      "Description": "string",
-      "SdsTypeCode": "Empty",
-      "Value": null,
-      "Uom": "string"
-    }
-  ],
-  "StreamReferences": [
-    {
-      "Id": "string",
-      "Name": "string",
-      "Description": "string",
-      "StreamId": "string"
-    }
-  ],
-  "Status": {
-    "StreamReferenceId": "string",
-    "StreamPropertyId": "string",
-    "ValueStatusMappings": [
-      {
-        "Value": null,
-        "Status": "[",
-        "DisplayName": "string"
-      }
-    ]
-  }
-}
-
-```
-
----
-
-### StatusMapping
-
-<a id="schemastatusmapping"></a>
-<a id="schema_StatusMapping"></a>
-<a id="tocSstatusmapping"></a>
-<a id="tocsstatusmapping"></a>
-
-#### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|StreamReferenceId|string|true|false|None|
-|StreamPropertyId|string|true|false|None|
-|ValueStatusMappings|[[ValueStatusMapping](#schemavaluestatusmapping)]|false|true|None|
-
-```json
-{
-  "StreamReferenceId": "string",
-  "StreamPropertyId": "string",
-  "ValueStatusMappings": [
-    {
-      "Value": null,
-      "Status": 0,
-      "DisplayName": "string"
-    }
-  ]
-}
-
-```
-
----
-
-### ValueStatusMapping
-
-<a id="schemavaluestatusmapping"></a>
-<a id="schema_ValueStatusMapping"></a>
-<a id="tocSvaluestatusmapping"></a>
-<a id="tocsvaluestatusmapping"></a>
-
-#### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Value|any|false|true|None|
-|Status|[StatusEnum](#schemastatusenum)|true|false|None|
-|DisplayName|string|false|true|None|
-
-```json
-{
-  "Value": null,
-  "Status": 0,
-  "DisplayName": "string"
-}
-
-```
-
----
-
-### StatusEnum
-
-<a id="schemastatusenum"></a>
-<a id="schema_StatusEnum"></a>
-<a id="tocSstatusenum"></a>
-<a id="tocsstatusenum"></a>
-
-#### Enumerated Values
-
-|Property|Value|
-|---|---|
-|Unknown|0|
-|Good|1|
-|Warning|2|
-|Bad|3|
 
 ---
 
