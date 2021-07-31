@@ -113,7 +113,11 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
 {
   "RoleTrusteeAccessControlEntries": [
     {
-      "Trustee": {},
+      "Trustee": {
+        "Type": 1,
+        "ObjectId": "string",
+        "TenantId": "string"
+      },
       "AccessType": 0,
       "AccessRights": 0
     }
@@ -153,148 +157,6 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
 
 ---
 
-## `Get Asset2`
-
-<a id="opIdAssets_Get Asset2"></a>
-
-### Request
-```text 
-GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets2/{assetId}
-```
-
-#### Parameters
-
-`string assetId`
-<br/><br/>`string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|string|None|
-
----
-
-## `Create Asset (assets2 path)`
-
-<a id="opIdAssets_Create Asset (assets2 path)"></a>
-
-### Request
-```text 
-POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets2/{assetId}
-```
-
-#### Parameters
-
-`string assetId`
-<br/><br/>`string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>
-
-### Request Body
-
-<br/>
-
-```json
-{
-  "Id": "string",
-  "AssetTypeId": "string",
-  "Name": "string",
-  "Description": "string",
-  "Metadata": [
-    {
-      "Id": "string",
-      "Name": "string",
-      "Description": "string",
-      "SdsTypeCode": "Empty",
-      "Value": null,
-      "Uom": "string"
-    }
-  ],
-  "StreamReferences": [
-    {
-      "Id": "string",
-      "Name": "string",
-      "Description": "string",
-      "StreamId": "string"
-    }
-  ],
-  "Status": {
-    "DefinitionType": 0,
-    "Definition": null
-  }
-}
-```
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|string|None|
-
----
-
-## `Create Or Update Asset (assets2 path)`
-
-<a id="opIdAssets_Create Or Update Asset (assets2 path)"></a>
-
-### Request
-```text 
-PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets2/{assetId}
-```
-
-#### Parameters
-
-`string assetId`
-<br/><br/>`string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>
-
-### Request Body
-
-<br/>
-
-```json
-{
-  "Id": "string",
-  "AssetTypeId": "string",
-  "Name": "string",
-  "Description": "string",
-  "Metadata": [
-    {
-      "Id": "string",
-      "Name": "string",
-      "Description": "string",
-      "SdsTypeCode": "Empty",
-      "Value": null,
-      "Uom": "string"
-    }
-  ],
-  "StreamReferences": [
-    {
-      "Id": "string",
-      "Name": "string",
-      "Description": "string",
-      "StreamId": "string"
-    }
-  ],
-  "Status": {
-    "DefinitionType": 0,
-    "Definition": null
-  }
-}
-```
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|string|None|
-
----
-
 ## `Get Asset`
 
 <a id="opIdAssets_Get Asset"></a>
@@ -319,9 +181,9 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId}
 
 ---
 
-## `Create Asset (assets path)`
+## `Create Asset`
 
-<a id="opIdAssets_Create Asset (assets path)"></a>
+<a id="opIdAssets_Create Asset"></a>
 
 ### Request
 ```text 
@@ -378,9 +240,9 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{assetId
 
 ---
 
-## `Create Or Update Asset (assets path)`
+## `Create Or Update Asset`
 
-<a id="opIdAssets_Create Or Update Asset (assets path)"></a>
+<a id="opIdAssets_Create Or Update Asset"></a>
 
 ### Request
 ```text 
@@ -523,7 +385,7 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assets/{asset
   "RoleTrusteeAccessControlEntries": [
     {
       "Trustee": {
-        "Type": "[",
+        "Type": 1,
         "ObjectId": "string",
         "TenantId": "string"
       },

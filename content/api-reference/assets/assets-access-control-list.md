@@ -53,7 +53,11 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/{r
 {
   "RoleTrusteeAccessControlEntries": [
     {
-      "Trustee": {},
+      "Trustee": {
+        "Type": 1,
+        "ObjectId": "string",
+        "TenantId": "string"
+      },
       "AccessType": 0,
       "AccessRights": 0
     }
@@ -112,7 +116,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/accessrights/{re
   "RoleTrusteeAccessControlEntries": [
     {
       "Trustee": {
-        "Type": "[",
+        "Type": 1,
         "ObjectId": "string",
         "TenantId": "string"
       },
