@@ -20,8 +20,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>The Id of the OCS Tenant the resource belongs to.<br/><br/>`string namespaceId`
-<br/>The Namespace that the DataSource collection belongs to.<br/><br/>
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>
 
 <h3>Response</h3>
 
@@ -107,8 +107,8 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>The Id of the OCS Tenant the resource belongs to.<br/><br/>`string namespaceId`
-<br/>The Id of the OCS Namespace the resource belongs to.<br/><br/>
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>
 
 <h4>Request Body</h4>
 
@@ -203,8 +203,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>The Id of the OCS Tenant the resource belongs to.<br/><br/>`string namespaceId`
-<br/>The Id of the OCS Namespace the resource belongs to.<br/><br/>`string dataSourceId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string dataSourceId`
 <br/>The Id of the requested DataSource.<br/><br/>
 
 <h3>Response</h3>
@@ -386,8 +386,8 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataS
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>The Id of the OCS Tenant the resource belongs to.<br/><br/>`string namespaceId`
-<br/>The Id of the OCS Namespace the resource belongs to.<br/><br/>`string dataSourceId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string dataSourceId`
 <br/>The Id of the DataSource to be deleted.<br/><br/>
 
 <h3>Response</h3>
@@ -403,8 +403,6 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataS
 
 <a id="opIdDataSources_Get All Namespace PISystems"></a>
 
-Get the `PISystemDto` objects belonging to the Namespace specified by the `namespaceId`.
-
 <h3>Request</h3>
 
 ```text 
@@ -414,51 +412,14 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/PISystems
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>The Id of the OCS Tenant the resource belongs to.<br/><br/>`string namespaceId`
-<br/>The Id of the OCS Namespace the resource belongs to.<br/><br/>
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[PISystemDto](#schemapisystemdto)|A collection of `PISystemDto` objects in the namespace.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
-
-<h4>Example response body</h4>
-
-> 200 Response ([PISystemDto](#schemapisystemdto))
-
-```json
-{
-  "ServerId": "string",
-  "Name": "string",
-  "Version": "string",
-  "AFServerId": "string",
-  "AFName": "string",
-  "AFVersion": "string",
-  "LastCommunicationTime": "2019-08-24T14:15:22Z",
-  "Transfers": [
-    {
-      "Id": "string",
-      "HistoricalDataStartTime": "2019-08-24T14:15:22Z",
-      "Description": "string",
-      "Status": 0,
-      "LatestStreamingRead": "2019-08-24T14:15:22Z",
-      "OnPremTransferStatus": 0,
-      "PIPointCount": 0,
-      "Metrics": {
-        "StreamingEventCountPerSecond": 0,
-        "HistoricalEventCountPerSecond": 0
-      },
-      "Name": "string",
-      "MetadataPrivacy": 0
-    }
-  ],
-  "AFIndexProgress": 0,
-  "ElementsIndexed": 0,
-  "TotalElements": 0
-}
-```
+|500|[ErrorResponse](#schemaerrorresponse)|None|
 
 ---
 
@@ -477,8 +438,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{dataSour
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>The Id of the OCS Tenant the resource belongs to.<br/><br/>`string namespaceId`
-<br/>The Id of the OCS Namespace the resource belongs to.<br/><br/>`string dataSourceId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string dataSourceId`
 <br/>The Id of the requested DataSource.<br/><br/>`string agentId`
 <br/>The Id of the requested Agent.<br/><br/>
 
@@ -549,11 +510,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{dataSour
 
 ---
 
-## `Get PISystems`
+## `List PISystems`
 
-<a id="opIdDataSources_Get PISystems"></a>
-
-Get the `PISystemDto` objects belonging to the dataSource specified by the `dataSourceId`.
+<a id="opIdDataSources_List PISystems"></a>
 
 <h3>Request</h3>
 
@@ -566,25 +525,57 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string dataSourceId`
-<br/>The Id of the Datasource the resource belongs to.<br/><br/>`string agentId`
-<br/>The Id of the Agent the resource belongs to.<br/><br/>
+<br/>The Id of the requested DataSource.<br/><br/>`string agentId`
+<br/>The Id of the requested Agent.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|Inline|A collection of `PISystemDto` objects in the namespace.
-or
-A collection of `PISystemDto` objects in the namespace.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
+|200|[TransferDto](#schematransferdto)[]|None|
+|500|[ErrorResponse](#schemaerrorresponse)|None|
+
+<h4>Example response body</h4>
+
+> 200 Response ([TransferDto](#schematransferdto)[])
+
+```json
+[
+  {
+    "Id": "string",
+    "HistoricalDataStartTime": "2019-08-24T14:15:22Z",
+    "Description": "string",
+    "Status": 0,
+    "PreviousHistoricChunkStart": "2019-08-24T14:15:22Z",
+    "CurrentHistoricChunkStart": "2019-08-24T14:15:22Z",
+    "LatestStreamingRead": "2019-08-24T14:15:22Z",
+    "HistoricalDataEndTime": "2019-08-24T14:15:22Z",
+    "TransferredElementsCount": 0,
+    "AssetsCreatedCount": 0,
+    "AssetsUpdatedCount": 0,
+    "AssetsFailedCount": 0,
+    "OnPremTransferStatus": 0,
+    "DesiredStatus": 0,
+    "PIPointIds": [
+      0
+    ],
+    "AFElementIds": [
+      "string"
+    ],
+    "PIPointsReferencedByAF": [
+      0
+    ],
+    "Name": "string",
+    "MetadataPrivacy": 0
+  }
+]
+```
 
 ---
 
-## `Get PISystem`
+## `List PISystem`
 
-<a id="opIdDataSources_Get PISystem"></a>
-
-Get the `PISystemDto` objects belonging to the Datasource and Agent specified by the `agentId` and `piSystemId`.
+<a id="opIdDataSources_List PISystem"></a>
 
 <h3>Request</h3>
 
@@ -597,51 +588,51 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string dataSourceId`
-<br/>The Id of the Datasource the resource belongs to.<br/><br/>`string agentId`
-<br/>The Id of the Agent the resource belongs to.<br/><br/>`string piSystemId`
-<br/>The Id of the PI System the resource belongs to.<br/><br/>
+<br/>The Id of the requested DataSource.<br/><br/>`string agentId`
+<br/>The Id of the requested Agent.<br/><br/>`string piSystemId`
+<br/>The id of the requested PI System<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[PISystemDto](#schemapisystemdto)|A `PISystemDto` objects in the namespace.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
+|200|[TransferDto](#schematransferdto)[]|None|
+|500|[ErrorResponse](#schemaerrorresponse)|None|
 
 <h4>Example response body</h4>
 
-> 200 Response ([PISystemDto](#schemapisystemdto))
+> 200 Response ([TransferDto](#schematransferdto)[])
 
 ```json
-{
-  "ServerId": "string",
-  "Name": "string",
-  "Version": "string",
-  "AFServerId": "string",
-  "AFName": "string",
-  "AFVersion": "string",
-  "LastCommunicationTime": "2019-08-24T14:15:22Z",
-  "Transfers": [
-    {
-      "Id": "string",
-      "HistoricalDataStartTime": "2019-08-24T14:15:22Z",
-      "Description": "string",
-      "Status": 0,
-      "LatestStreamingRead": "2019-08-24T14:15:22Z",
-      "OnPremTransferStatus": 0,
-      "PIPointCount": 0,
-      "Metrics": {
-        "StreamingEventCountPerSecond": 0,
-        "HistoricalEventCountPerSecond": 0
-      },
-      "Name": "string",
-      "MetadataPrivacy": 0
-    }
-  ],
-  "AFIndexProgress": 0,
-  "ElementsIndexed": 0,
-  "TotalElements": 0
-}
+[
+  {
+    "Id": "string",
+    "HistoricalDataStartTime": "2019-08-24T14:15:22Z",
+    "Description": "string",
+    "Status": 0,
+    "PreviousHistoricChunkStart": "2019-08-24T14:15:22Z",
+    "CurrentHistoricChunkStart": "2019-08-24T14:15:22Z",
+    "LatestStreamingRead": "2019-08-24T14:15:22Z",
+    "HistoricalDataEndTime": "2019-08-24T14:15:22Z",
+    "TransferredElementsCount": 0,
+    "AssetsCreatedCount": 0,
+    "AssetsUpdatedCount": 0,
+    "AssetsFailedCount": 0,
+    "OnPremTransferStatus": 0,
+    "DesiredStatus": 0,
+    "PIPointIds": [
+      0
+    ],
+    "AFElementIds": [
+      "string"
+    ],
+    "PIPointsReferencedByAF": [
+      0
+    ],
+    "Name": "string",
+    "MetadataPrivacy": 0
+  }
+]
 ```
 
 ---
@@ -649,8 +640,6 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 ## `Get Transfers`
 
 <a id="opIdDataSources_Get Transfers"></a>
-
-Get the `TransferDto` objects belonging to the Datasource and Agent specified by the `dataSourceId` and `agentId`.
 
 <h3>Request</h3>
 
@@ -663,51 +652,14 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string dataSourceId`
-<br/>The Id of the Datasource the resource belongs to.<br/><br/>`string agentId`
-<br/>The Id of the Agent the resource belongs to.<br/><br/>
+<br/>The Id of the requested DataSource.<br/><br/>`string agentId`
+<br/>The Id of the requested Agent.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[PISystemDto](#schemapisystemdto)|A set of `TransferDto` objects in the namespace.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
-
-<h4>Example response body</h4>
-
-> 200 Response ([PISystemDto](#schemapisystemdto))
-
-```json
-{
-  "ServerId": "string",
-  "Name": "string",
-  "Version": "string",
-  "AFServerId": "string",
-  "AFName": "string",
-  "AFVersion": "string",
-  "LastCommunicationTime": "2019-08-24T14:15:22Z",
-  "Transfers": [
-    {
-      "Id": "string",
-      "HistoricalDataStartTime": "2019-08-24T14:15:22Z",
-      "Description": "string",
-      "Status": 0,
-      "LatestStreamingRead": "2019-08-24T14:15:22Z",
-      "OnPremTransferStatus": 0,
-      "PIPointCount": 0,
-      "Metrics": {
-        "StreamingEventCountPerSecond": 0,
-        "HistoricalEventCountPerSecond": 0
-      },
-      "Name": "string",
-      "MetadataPrivacy": 0
-    }
-  ],
-  "AFIndexProgress": 0,
-  "ElementsIndexed": 0,
-  "TotalElements": 0
-}
-```
+|500|[ErrorResponse](#schemaerrorresponse)|None|
 
 ---
 
@@ -911,8 +863,8 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSou
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>The Id of the OCS Tenant the resource belongs to.<br/><br/>`string namespaceId`
-<br/>The Id of the OCS Namespace the resource belongs to.<br/><br/>`string dataSourceId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string dataSourceId`
 <br/>The Id of the DataSource the resource belongs to.<br/><br/>`string agentId`
 <br/>The Id of the Agent the resource belongs to.<br/><br/>
 
@@ -1022,8 +974,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>The Id of the OCS Tenant the resource belongs to.<br/><br/>`string namespaceId`
-<br/>The Id of the OCS Namespace the resource belongs to.<br/><br/>`string dataSourceId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string dataSourceId`
 <br/>The Id of the DataSource associated with the resource.<br/><br/>`string agentId`
 <br/>The Id of the Agent the Query collection belongs to.<br/><br/>`string queryId`
 <br/>The Id of the query.<br/><br/>
@@ -1094,8 +1046,8 @@ PATCH /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSo
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>The Id of the OCS Tenant the resource belongs to.<br/><br/>`string namespaceId`
-<br/>The Id of the OCS Namespace the resource belongs to.<br/><br/>`string dataSourceId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string dataSourceId`
 <br/>The Id of the DataSource the resource belongs to.<br/><br/>`string agentId`
 <br/>The Id of the Agent the resource belongs to.<br/><br/>`string queryId`
 <br/>The Id of the Query to update.<br/><br/>
@@ -1180,8 +1132,8 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataS
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>The Id of the OCS Tenant the resource belongs to.<br/><br/>`string namespaceId`
-<br/>The Id of the OCS Namespace the resource belongs to.<br/><br/>`string dataSourceId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string dataSourceId`
 <br/>The Id of the DataSource the resource belongs to.<br/><br/>`string agentId`
 <br/>The Id of the Agent the resource belongs to.<br/><br/>`string queryId`
 <br/>The Id of the Query to be deleted.<br/><br/>
@@ -1254,8 +1206,8 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSou
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>The Id of the OCS Tenant the resource belongs to.<br/><br/>`string namespaceId`
-<br/>The Id of the OCS Namespace the resource belongs to.<br/><br/>`string dataSourceId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string dataSourceId`
 <br/>The Id of the DataSource the resource belongs to.<br/><br/>`string agentId`
 <br/>The Id of the Agent the resource belongs to.<br/><br/>
 
@@ -1307,8 +1259,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>The Id of the OCS Tenant the resource belongs to.<br/><br/>`string namespaceId`
-<br/>The Id of the OCS Namespace the resource belongs to.<br/><br/>`string dataSourceId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string dataSourceId`
 <br/>The Id of the DataSource associated with the resource.<br/><br/>`string agentId`
 <br/>The Id of the Agent the Query collection belongs to.<br/><br/>`string piPointQueryId`
 <br/>The Id of the query.<br/><br/>
@@ -1350,8 +1302,8 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataS
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>The Id of the OCS Tenant the resource belongs to.<br/><br/>`string namespaceId`
-<br/>The Id of the OCS Namespace the resource belongs to.<br/><br/>`string dataSourceId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string dataSourceId`
 <br/>The Id of the DataSource the resource belongs to.<br/><br/>`string agentId`
 <br/>The Id of the Agent the resource belongs to.<br/><br/>`string piPointQueryId`
 <br/>The Id of the PIPointQuery" to be deleted.<br/><br/>
@@ -1380,8 +1332,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>The Id of the OCS Tenant the resource belongs to.<br/><br/>`string namespaceId`
-<br/>The Id of the OCS Namespace the resource belongs to.<br/><br/>`string dataSourceId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string dataSourceId`
 <br/>The Id of the DataSource associated with the resource.<br/><br/>`string agentId`
 <br/>The Id of the Agent associated with the resource.<br/><br/>`string queryId`
 <br/>The Id of the query.<br/><br/>
@@ -1426,8 +1378,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>The Id of the OCS Tenant the resource belongs to.<br/><br/>`string namespaceId`
-<br/>The Id of the OCS Namespace the resource belongs to.<br/><br/>`string dataSourceId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string dataSourceId`
 <br/>The Id of the DataSource associated with the resource.<br/><br/>`string agentId`
 <br/>The Id of the Agent associated with the resource.<br/><br/>`string queryId`
 <br/>The Id of the query.<br/><br/>
@@ -1472,8 +1424,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>The Id of the OCS Tenant the resource belongs to.<br/><br/>`string namespaceId`
-<br/>The Id of the OCS Namespace the resource belongs to.<br/><br/>`string dataSourceId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string dataSourceId`
 <br/>The Id of the DataSource associated with the resource.<br/><br/>`string agentId`
 <br/>The Id of the Agent associated with the resource.<br/><br/>`string piPointQueryId`
 <br/>The Id of the PIPointQuery.<br/><br/>
@@ -1946,8 +1898,8 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataS
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>The Id of the OCS Tenant the resource belongs to.<br/><br/>`string namespaceId`
-<br/>The Id of the OCS Namespace the resource belongs to.<br/><br/>`string dataSourceId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string dataSourceId`
 <br/>The Id of the DataSource the resource belongs to.<br/><br/>`string agentId`
 <br/>The Id of the Agent to be deleted.<br/><br/>
 
@@ -1964,8 +1916,6 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataS
 
 <a id="opIdDataSources_Delete PISystem"></a>
 
-Delete the `PISystemDto` object belonging to the Datasource and Agent specified by the `dataSourceId` and `agentId`.
-
 <h3>Request</h3>
 
 ```text 
@@ -1977,60 +1927,21 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataS
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string dataSourceId`
-<br/>The Id of the Datasource the resource belongs to.<br/><br/>`string agentId`
-<br/>The Id of the Agent the resource belongs to.<br/><br/>`string piSystemName`
-<br/>The name of the PISystem to delete.<br/><br/>
+<br/>The Id of the requested DataSource.<br/><br/>`string agentId`
+<br/>The Id of the requested Agent.<br/><br/>`string piSystemName`
+<br/>The name of the requested PI System<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[PISystemDto](#schemapisystemdto)|A set of `TransferDto` objects in the namespace.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
-
-<h4>Example response body</h4>
-
-> 200 Response ([PISystemDto](#schemapisystemdto))
-
-```json
-{
-  "ServerId": "string",
-  "Name": "string",
-  "Version": "string",
-  "AFServerId": "string",
-  "AFName": "string",
-  "AFVersion": "string",
-  "LastCommunicationTime": "2019-08-24T14:15:22Z",
-  "Transfers": [
-    {
-      "Id": "string",
-      "HistoricalDataStartTime": "2019-08-24T14:15:22Z",
-      "Description": "string",
-      "Status": 0,
-      "LatestStreamingRead": "2019-08-24T14:15:22Z",
-      "OnPremTransferStatus": 0,
-      "PIPointCount": 0,
-      "Metrics": {
-        "StreamingEventCountPerSecond": 0,
-        "HistoricalEventCountPerSecond": 0
-      },
-      "Name": "string",
-      "MetadataPrivacy": 0
-    }
-  ],
-  "AFIndexProgress": 0,
-  "ElementsIndexed": 0,
-  "TotalElements": 0
-}
-```
+|500|[ErrorResponse](#schemaerrorresponse)|None|
 
 ---
 
 ## `Delete PISystem By Server Id`
 
 <a id="opIdDataSources_Delete PISystem By Server Id"></a>
-
-Delete the `PISystemDto` object belonging to the Datasource and Agent specified by the `agentId` and `piServerId`.
 
 <h3>Request</h3>
 
@@ -2043,52 +1954,15 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataS
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string dataSourceId`
-<br/>The Id of the Datasource the resource belongs to.<br/><br/>`string agentId`
-<br/>The Id of the Agent the resource belongs to.<br/><br/>`string piServerId`
-<br/>The Id of the PISystem to delete.<br/><br/>
+<br/>The Id of the requested DataSource.<br/><br/>`string agentId`
+<br/>The Id of the requested Agent.<br/><br/>`string piServerId`
+<br/>The id of the requested PI server<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[PISystemDto](#schemapisystemdto)|A set of `TransferDto` objects in the namespace.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
-
-<h4>Example response body</h4>
-
-> 200 Response ([PISystemDto](#schemapisystemdto))
-
-```json
-{
-  "ServerId": "string",
-  "Name": "string",
-  "Version": "string",
-  "AFServerId": "string",
-  "AFName": "string",
-  "AFVersion": "string",
-  "LastCommunicationTime": "2019-08-24T14:15:22Z",
-  "Transfers": [
-    {
-      "Id": "string",
-      "HistoricalDataStartTime": "2019-08-24T14:15:22Z",
-      "Description": "string",
-      "Status": 0,
-      "LatestStreamingRead": "2019-08-24T14:15:22Z",
-      "OnPremTransferStatus": 0,
-      "PIPointCount": 0,
-      "Metrics": {
-        "StreamingEventCountPerSecond": 0,
-        "HistoricalEventCountPerSecond": 0
-      },
-      "Name": "string",
-      "MetadataPrivacy": 0
-    }
-  ],
-  "AFIndexProgress": 0,
-  "ElementsIndexed": 0,
-  "TotalElements": 0
-}
-```
+|500|[ErrorResponse](#schemaerrorresponse)|None|
 
 ---
 ## Definitions

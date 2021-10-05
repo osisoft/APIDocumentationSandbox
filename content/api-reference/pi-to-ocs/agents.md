@@ -227,8 +227,8 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/sync/{agentId}
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>The Id of the OCS Tenant the namespace belongs to.<br/><br/>`string namespaceId`
-<br/>The Namespace that the DataSources collection belongs to.<br/><br/>`string agentId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string agentId`
 <br/>The Id of the specified on-prem agent.<br/><br/>
 
 <h3>Response</h3>

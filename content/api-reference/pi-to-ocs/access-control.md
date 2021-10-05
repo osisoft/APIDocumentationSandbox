@@ -67,7 +67,7 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/AccessControl/DataSou
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>The Id of the OCS Tenant the namespace belongs to.<br/><br/>`string namespaceId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
 <br/><br/>
 
 <h4>Request Body</h4>
@@ -162,7 +162,7 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>The Id of the OCS Tenant the namespace belongs to.<br/><br/>`string namespaceId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
 <br/><br/>`string dataSourceId`
 <br/>The Id of the specified DataSource.<br/><br/>
 
@@ -250,7 +250,7 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>The Id of the OCS Tenant the namespace belongs to.<br/><br/>`string namespaceId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
 <br/><br/>`string dataSourceId`
 <br/>The Id of the specified DataSource.<br/><br/>
 

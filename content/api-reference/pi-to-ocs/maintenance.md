@@ -60,8 +60,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pitoocs/maintenance/Name
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>The Id of the OCS Tenant the namespace belongs to.<br/><br/>`string namespaceId`
-<br/>The Id of the OCS Namespace that the agent resource belongs to.<br/><br/>
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>
 
 <h3>Response</h3>
 
@@ -88,8 +88,8 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pitoocs/maintenance/Name
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>The Id of the OCS Tenant the namespace belongs to.<br/><br/>`string namespaceId`
-<br/>The Id of the OCS Namespace that the agent resource belongs to.<br/><br/>
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>
 
 <h3>Response</h3>
 
@@ -115,8 +115,8 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pitoocs/maintenance/N
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>The Id of the OCS Tenant the namespace belongs to.<br/><br/>`string namespaceId`
-<br/>The Id of the OCS Namespace that the agent resource belongs to.<br/><br/>
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>
 
 <h3>Response</h3>
 
