@@ -63,7 +63,10 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/sync/agents
           "PIPointCount": 0,
           "Metrics": {
             "StreamingEventCountPerSecond": 0,
-            "HistoricalEventCountPerSecond": 0
+            "HistoricalEventCountPerSecond": 0,
+            "SuccessfulCreations": 0,
+            "FailedCreations": 0,
+            "TotalPoints": 0
           },
           "Name": "string",
           "MetadataPrivacy": 0
@@ -78,7 +81,10 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/sync/agents
     "IsDeprecated": true,
     "TransferMetrics": {
       "StreamingEventCountPerSecond": 0,
-      "HistoricalEventCountPerSecond": 0
+      "HistoricalEventCountPerSecond": 0,
+      "SuccessfulCreations": 0,
+      "FailedCreations": 0,
+      "TotalPoints": 0
     }
   }
 ]
@@ -300,7 +306,10 @@ Allowed for these roles:
         "PIPointCount": 0,
         "Metrics": {
           "StreamingEventCountPerSecond": 0,
-          "HistoricalEventCountPerSecond": 0
+          "HistoricalEventCountPerSecond": 0,
+          "SuccessfulCreations": 0,
+          "FailedCreations": 0,
+          "TotalPoints": 0
         },
         "Name": "string",
         "MetadataPrivacy": 0
@@ -315,7 +324,10 @@ Allowed for these roles:
   "IsDeprecated": true,
   "TransferMetrics": {
     "StreamingEventCountPerSecond": 0,
-    "HistoricalEventCountPerSecond": 0
+    "HistoricalEventCountPerSecond": 0,
+    "SuccessfulCreations": 0,
+    "FailedCreations": 0,
+    "TotalPoints": 0
   }
 }
 
@@ -390,7 +402,10 @@ Allowed for these roles:
       "PIPointCount": 0,
       "Metrics": {
         "StreamingEventCountPerSecond": 0,
-        "HistoricalEventCountPerSecond": 0
+        "HistoricalEventCountPerSecond": 0,
+        "SuccessfulCreations": 0,
+        "FailedCreations": 0,
+        "TotalPoints": 0
       },
       "Name": "string",
       "MetadataPrivacy": 0
@@ -440,7 +455,10 @@ Before making additions or any modifications to this class, please consult the f
   "PIPointCount": 0,
   "Metrics": {
     "StreamingEventCountPerSecond": 0,
-    "HistoricalEventCountPerSecond": 0
+    "HistoricalEventCountPerSecond": 0,
+    "SuccessfulCreations": 0,
+    "FailedCreations": 0,
+    "TotalPoints": 0
   },
   "Name": "string",
   "MetadataPrivacy": 0
@@ -464,6 +482,7 @@ Before making additions or any modifications to this class, please consult the f
 |NotSet|0|
 |Started|1|
 |Stopped|2|
+|Initializing|3|
 
 ---
 
@@ -492,6 +511,7 @@ Before making additions or any modifications to this class, please consult the f
 |PIPointTypeChangeDetected|1024|
 |CreatingStreams|2048|
 |NoValidPIPointsInTransfer|4096|
+|UpdatingTransfer|8192|
 
 ---
 
@@ -508,11 +528,17 @@ Before making additions or any modifications to this class, please consult the f
 |---|---|---|---|---|
 |StreamingEventCountPerSecond|float|false|false|None|
 |HistoricalEventCountPerSecond|float|false|false|None|
+|SuccessfulCreations|int64|false|false|None|
+|FailedCreations|int64|false|false|None|
+|TotalPoints|int64|false|false|None|
 
 ```json
 {
   "StreamingEventCountPerSecond": 0,
-  "HistoricalEventCountPerSecond": 0
+  "HistoricalEventCountPerSecond": 0,
+  "SuccessfulCreations": 0,
+  "FailedCreations": 0,
+  "TotalPoints": 0
 }
 
 ```
@@ -555,6 +581,7 @@ None means all metadata is filtered out Low filters all but 3 metadata items Med
 |AFIndexInProgress|1|
 |AFIndexingFailed|2|
 |AFIndexingSucceeded|3|
+|Restarting|4|
 
 ---
 

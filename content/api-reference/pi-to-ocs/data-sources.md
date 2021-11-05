@@ -68,7 +68,10 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources
             "PIPointCount": 0,
             "Metrics": {
               "StreamingEventCountPerSecond": null,
-              "HistoricalEventCountPerSecond": null
+              "HistoricalEventCountPerSecond": null,
+              "SuccessfulCreations": null,
+              "FailedCreations": null,
+              "TotalPoints": null
             },
             "Name": "string",
             "MetadataPrivacy": 0
@@ -83,7 +86,10 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources
       "IsDeprecated": true,
       "TransferMetrics": {
         "StreamingEventCountPerSecond": 0,
-        "HistoricalEventCountPerSecond": 0
+        "HistoricalEventCountPerSecond": 0,
+        "SuccessfulCreations": 0,
+        "FailedCreations": 0,
+        "TotalPoints": 0
       }
     }
   }
@@ -165,7 +171,10 @@ The DataSourceCreateUpdateDto to use when creating the DataSource.<br/>
           "PIPointCount": 0,
           "Metrics": {
             "StreamingEventCountPerSecond": 0,
-            "HistoricalEventCountPerSecond": 0
+            "HistoricalEventCountPerSecond": 0,
+            "SuccessfulCreations": 0,
+            "FailedCreations": 0,
+            "TotalPoints": 0
           },
           "Name": "string",
           "MetadataPrivacy": 0
@@ -180,7 +189,10 @@ The DataSourceCreateUpdateDto to use when creating the DataSource.<br/>
     "IsDeprecated": true,
     "TransferMetrics": {
       "StreamingEventCountPerSecond": 0,
-      "HistoricalEventCountPerSecond": 0
+      "HistoricalEventCountPerSecond": 0,
+      "SuccessfulCreations": 0,
+      "FailedCreations": 0,
+      "TotalPoints": 0
     }
   }
 }
@@ -251,7 +263,10 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
           "PIPointCount": 0,
           "Metrics": {
             "StreamingEventCountPerSecond": 0,
-            "HistoricalEventCountPerSecond": 0
+            "HistoricalEventCountPerSecond": 0,
+            "SuccessfulCreations": 0,
+            "FailedCreations": 0,
+            "TotalPoints": 0
           },
           "Name": "string",
           "MetadataPrivacy": 0
@@ -266,7 +281,10 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
     "IsDeprecated": true,
     "TransferMetrics": {
       "StreamingEventCountPerSecond": 0,
-      "HistoricalEventCountPerSecond": 0
+      "HistoricalEventCountPerSecond": 0,
+      "SuccessfulCreations": 0,
+      "FailedCreations": 0,
+      "TotalPoints": 0
     }
   }
 }
@@ -348,7 +366,10 @@ The new property values that will be set on the DataSource.<br/>
           "PIPointCount": 0,
           "Metrics": {
             "StreamingEventCountPerSecond": 0,
-            "HistoricalEventCountPerSecond": 0
+            "HistoricalEventCountPerSecond": 0,
+            "SuccessfulCreations": 0,
+            "FailedCreations": 0,
+            "TotalPoints": 0
           },
           "Name": "string",
           "MetadataPrivacy": 0
@@ -363,7 +384,10 @@ The new property values that will be set on the DataSource.<br/>
     "IsDeprecated": true,
     "TransferMetrics": {
       "StreamingEventCountPerSecond": 0,
-      "HistoricalEventCountPerSecond": 0
+      "HistoricalEventCountPerSecond": 0,
+      "SuccessfulCreations": 0,
+      "FailedCreations": 0,
+      "TotalPoints": 0
     }
   }
 }
@@ -487,7 +511,10 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{dataSour
           "PIPointCount": 0,
           "Metrics": {
             "StreamingEventCountPerSecond": 0,
-            "HistoricalEventCountPerSecond": 0
+            "HistoricalEventCountPerSecond": 0,
+            "SuccessfulCreations": 0,
+            "FailedCreations": 0,
+            "TotalPoints": 0
           },
           "Name": "string",
           "MetadataPrivacy": 0
@@ -502,7 +529,10 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{dataSour
     "IsDeprecated": true,
     "TransferMetrics": {
       "StreamingEventCountPerSecond": 0,
-      "HistoricalEventCountPerSecond": 0
+      "HistoricalEventCountPerSecond": 0,
+      "SuccessfulCreations": 0,
+      "FailedCreations": 0,
+      "TotalPoints": 0
     }
   }
 }
@@ -525,15 +555,15 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string dataSourceId`
-<br/>The Id of the requested DataSource.<br/><br/>`string agentId`
-<br/>The Id of the requested Agent.<br/><br/>
+<br/>Data source identifier.<br/><br/>`string agentId`
+<br/><span style="background-color:red;color:white">ERROR: Parameter "agentId" could not be found in external reference file</span><br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[TransferDto](#schematransferdto)[]|None|
-|500|[ErrorResponse](#schemaerrorresponse)|None|
+|200|[TransferDto](#schematransferdto)[]|Success.|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 <h4>Example response body</h4>
 
@@ -566,9 +596,119 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
       0
     ],
     "Name": "string",
-    "MetadataPrivacy": 0
+    "MetadataPrivacy": 0,
+    "TransferRevisionNumber": 0,
+    "LastEditDate": "2019-08-24T14:15:22Z",
+    "LastEditBy": "string"
   }
 ]
+```
+
+---
+
+## `Update PISystem`
+
+<a id="opIdDataSources_Update PISystem"></a>
+
+Update an existing PiSystem.
+
+<h3>Request</h3>
+
+```text 
+PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSourceId}/agents/{agentId}/PISystems
+```
+
+<h4>Parameters</h4>
+
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
+<br/>The Id of the DataSource the resource belongs to.<br/><br/>`string agentId`
+<br/>The Id of the Agent the resource belongs to.<br/><br/>
+
+<h4>Request Body</h4>
+
+The PiSystem properties to update.<br/>
+
+```json
+{
+  "ServerId": "string",
+  "Name": "string",
+  "Version": "string",
+  "AFServerId": "string",
+  "AFName": "string",
+  "AFVersion": "string",
+  "LastCommunicationTime": "2019-08-24T14:15:22Z",
+  "Transfers": [
+    {
+      "Id": "string",
+      "HistoricalDataStartTime": "2019-08-24T14:15:22Z",
+      "Description": "string",
+      "Status": 0,
+      "LatestStreamingRead": "2019-08-24T14:15:22Z",
+      "OnPremTransferStatus": 0,
+      "PIPointCount": 0,
+      "Metrics": {
+        "StreamingEventCountPerSecond": 0,
+        "HistoricalEventCountPerSecond": 0,
+        "SuccessfulCreations": 0,
+        "FailedCreations": 0,
+        "TotalPoints": 0
+      },
+      "Name": "string",
+      "MetadataPrivacy": 0
+    }
+  ],
+  "AFIndexProgress": 0,
+  "ElementsIndexed": 0,
+  "TotalElements": 0
+}
+```
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[PISystemDto](#schemapisystemdto)|A `PISystemDto` object representing the PiSystem that was updated.|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
+
+<h4>Example response body</h4>
+
+> 200 Response ([PISystemDto](#schemapisystemdto))
+
+```json
+{
+  "ServerId": "string",
+  "Name": "string",
+  "Version": "string",
+  "AFServerId": "string",
+  "AFName": "string",
+  "AFVersion": "string",
+  "LastCommunicationTime": "2019-08-24T14:15:22Z",
+  "Transfers": [
+    {
+      "Id": "string",
+      "HistoricalDataStartTime": "2019-08-24T14:15:22Z",
+      "Description": "string",
+      "Status": 0,
+      "LatestStreamingRead": "2019-08-24T14:15:22Z",
+      "OnPremTransferStatus": 0,
+      "PIPointCount": 0,
+      "Metrics": {
+        "StreamingEventCountPerSecond": 0,
+        "HistoricalEventCountPerSecond": 0,
+        "SuccessfulCreations": 0,
+        "FailedCreations": 0,
+        "TotalPoints": 0
+      },
+      "Name": "string",
+      "MetadataPrivacy": 0
+    }
+  ],
+  "AFIndexProgress": 0,
+  "ElementsIndexed": 0,
+  "TotalElements": 0
+}
 ```
 
 ---
@@ -588,16 +728,16 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string dataSourceId`
-<br/>The Id of the requested DataSource.<br/><br/>`string agentId`
-<br/>The Id of the requested Agent.<br/><br/>`string piSystemId`
-<br/>The id of the requested PI System<br/><br/>
+<br/>Data source identifier.<br/><br/>`string agentId`
+<br/><span style="background-color:red;color:white">ERROR: Parameter "agentId" could not be found in external reference file</span><br/><br/>`string piSystemId`
+<br/>PI System ID<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[TransferDto](#schematransferdto)[]|None|
-|500|[ErrorResponse](#schemaerrorresponse)|None|
+|200|[TransferDto](#schematransferdto)[]|Success.|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 <h4>Example response body</h4>
 
@@ -630,9 +770,76 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
       0
     ],
     "Name": "string",
-    "MetadataPrivacy": 0
+    "MetadataPrivacy": 0,
+    "TransferRevisionNumber": 0,
+    "LastEditDate": "2019-08-24T14:15:22Z",
+    "LastEditBy": "string"
   }
 ]
+```
+
+---
+
+## `Get Status`
+
+<a id="opIdDataSources_Get Status"></a>
+
+Retrieves the current overall status of an agent
+
+<h3>Request</h3>
+
+```text 
+GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{dataSourceId}/agents/{agentId}/status
+```
+
+<h4>Parameters</h4>
+
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
+<br/>Data source identifier.<br/><br/>`string agentId`
+<br/><span style="background-color:red;color:white">ERROR: Parameter "agentId" could not be found in external reference file</span><br/><br/>
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[AgentStatusDto](#schemaagentstatusdto)|Success.|
+|404|None|Client or tenant not found.|
+
+<h4>Example response body</h4>
+
+> 200 Response ([AgentStatusDto](#schemaagentstatusdto))
+
+```json
+{
+  "Agent": {
+    "HealthStatus": 0,
+    "InternalStatus": [
+      "string"
+    ]
+  },
+  "AssetFrameworkIndexing": {
+    "HealthStatus": 0,
+    "InternalStatus": [
+      "string"
+    ]
+  },
+  "Transfers": {
+    "property1": {
+      "HealthStatus": 0,
+      "InternalStatus": [
+        "string"
+      ]
+    },
+    "property2": {
+      "HealthStatus": 0,
+      "InternalStatus": [
+        "string"
+      ]
+    }
+  }
+}
 ```
 
 ---
@@ -652,8 +859,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string dataSourceId`
-<br/>The Id of the requested DataSource.<br/><br/>`string agentId`
-<br/>The Id of the requested Agent.<br/><br/>
+<br/>Data source identifier.<br/><br/>`string agentId`
+<br/><span style="background-color:red;color:white">ERROR: Parameter "agentId" could not be found in external reference file</span><br/><br/>
 
 <h3>Response</h3>
 
@@ -739,7 +946,10 @@ Properties of the Transfer to create.<br/>
     0
   ],
   "Name": "string",
-  "MetadataPrivacy": 0
+  "MetadataPrivacy": 0,
+  "TransferRevisionNumber": 0,
+  "LastEditDate": "2019-08-24T14:15:22Z",
+  "LastEditBy": "string"
 }
 ```
 
@@ -1504,7 +1714,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 
 <a id="opIdDataSources_Update Transfer"></a>
 
-Replace an existing Transfer specified by the `transferId`.
+Update Transfer specified by the `transferId`.
 
 <h3>Request</h3>
 
@@ -1530,7 +1740,13 @@ The Transfer properties to update.<br/>
   "Description": "string",
   "DesiredStatus": 0,
   "Name": "string",
-  "MetadataPrivacy": 0
+  "MetadataPrivacy": 0,
+  "PIPointIds": [
+    0
+  ],
+  "AFElementIds": [
+    "string"
+  ]
 }
 ```
 
@@ -1571,7 +1787,10 @@ The Transfer properties to update.<br/>
     0
   ],
   "Name": "string",
-  "MetadataPrivacy": 0
+  "MetadataPrivacy": 0,
+  "TransferRevisionNumber": 0,
+  "LastEditDate": "2019-08-24T14:15:22Z",
+  "LastEditBy": "string"
 }
 ```
 
@@ -1607,16 +1826,16 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataS
 
 ---
 
-## `Update PISystem`
+## `Update Transfer Status`
 
-<a id="opIdDataSources_Update PISystem"></a>
+<a id="opIdDataSources_Update Transfer Status"></a>
 
-Update an existing PiSystem.
+Update desired status of the `transferId`.
 
 <h3>Request</h3>
 
 ```text 
-PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSourceId}/agents/{agentId}/pisystems
+PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSourceId}/agents/{agentId}/transfers/{transferId}/status
 ```
 
 <h4>Parameters</h4>
@@ -1625,41 +1844,16 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 <br/><br/>`string namespaceId`
 <br/><br/>`string dataSourceId`
 <br/>The Id of the DataSource the resource belongs to.<br/><br/>`string agentId`
-<br/>The Id of the Agent the resource belongs to.<br/><br/>
+<br/>The Id of the Agent the resource belongs to.<br/><br/>`string transferId`
+<br/>The Id of the Transfer" to be replaced.<br/><br/>
 
 <h4>Request Body</h4>
 
-The PiSystem properties to update.<br/>
+The Transfer status to be changed to.<br/>
 
 ```json
 {
-  "ServerId": "string",
-  "Name": "string",
-  "Version": "string",
-  "AFServerId": "string",
-  "AFName": "string",
-  "AFVersion": "string",
-  "LastCommunicationTime": "2019-08-24T14:15:22Z",
-  "Transfers": [
-    {
-      "Id": "string",
-      "HistoricalDataStartTime": "2019-08-24T14:15:22Z",
-      "Description": "string",
-      "Status": 0,
-      "LatestStreamingRead": "2019-08-24T14:15:22Z",
-      "OnPremTransferStatus": 0,
-      "PIPointCount": 0,
-      "Metrics": {
-        "StreamingEventCountPerSecond": 0,
-        "HistoricalEventCountPerSecond": 0
-      },
-      "Name": "string",
-      "MetadataPrivacy": 0
-    }
-  ],
-  "AFIndexProgress": 0,
-  "ElementsIndexed": 0,
-  "TotalElements": 0
+  "DesiredStatus": 0
 }
 ```
 
@@ -1667,42 +1861,43 @@ The PiSystem properties to update.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[PISystemDto](#schemapisystemdto)|A `PISystemDto` object representing the PiSystem that was updated.|
+|200|[TransferDto](#schematransferdto)|A `TransferDto` object representing the Transfer that was updated.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
 
 <h4>Example response body</h4>
 
-> 200 Response ([PISystemDto](#schemapisystemdto))
+> 200 Response ([TransferDto](#schematransferdto))
 
 ```json
 {
-  "ServerId": "string",
-  "Name": "string",
-  "Version": "string",
-  "AFServerId": "string",
-  "AFName": "string",
-  "AFVersion": "string",
-  "LastCommunicationTime": "2019-08-24T14:15:22Z",
-  "Transfers": [
-    {
-      "Id": "string",
-      "HistoricalDataStartTime": "2019-08-24T14:15:22Z",
-      "Description": "string",
-      "Status": 0,
-      "LatestStreamingRead": "2019-08-24T14:15:22Z",
-      "OnPremTransferStatus": 0,
-      "PIPointCount": 0,
-      "Metrics": {
-        "StreamingEventCountPerSecond": 0,
-        "HistoricalEventCountPerSecond": 0
-      },
-      "Name": "string",
-      "MetadataPrivacy": 0
-    }
+  "Id": "string",
+  "HistoricalDataStartTime": "2019-08-24T14:15:22Z",
+  "Description": "string",
+  "Status": 0,
+  "PreviousHistoricChunkStart": "2019-08-24T14:15:22Z",
+  "CurrentHistoricChunkStart": "2019-08-24T14:15:22Z",
+  "LatestStreamingRead": "2019-08-24T14:15:22Z",
+  "HistoricalDataEndTime": "2019-08-24T14:15:22Z",
+  "TransferredElementsCount": 0,
+  "AssetsCreatedCount": 0,
+  "AssetsUpdatedCount": 0,
+  "AssetsFailedCount": 0,
+  "OnPremTransferStatus": 0,
+  "DesiredStatus": 0,
+  "PIPointIds": [
+    0
   ],
-  "AFIndexProgress": 0,
-  "ElementsIndexed": 0,
-  "TotalElements": 0
+  "AFElementIds": [
+    "string"
+  ],
+  "PIPointsReferencedByAF": [
+    0
+  ],
+  "Name": "string",
+  "MetadataPrivacy": 0,
+  "TransferRevisionNumber": 0,
+  "LastEditDate": "2019-08-24T14:15:22Z",
+  "LastEditBy": "string"
 }
 ```
 
@@ -1717,7 +1912,7 @@ Update an existing AF Index Progress information for the PISystem.
 <h3>Request</h3>
 
 ```text 
-PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSourceId}/agents/{agentId}/pisystems/indexprogress
+PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSourceId}/agents/{agentId}/PISystems/indexprogress
 ```
 
 <h4>Parameters</h4>
@@ -1752,7 +1947,10 @@ The PiSystem properties to update.<br/>
       "PIPointCount": 0,
       "Metrics": {
         "StreamingEventCountPerSecond": 0,
-        "HistoricalEventCountPerSecond": 0
+        "HistoricalEventCountPerSecond": 0,
+        "SuccessfulCreations": 0,
+        "FailedCreations": 0,
+        "TotalPoints": 0
       },
       "Name": "string",
       "MetadataPrivacy": 0
@@ -1795,7 +1993,10 @@ The PiSystem properties to update.<br/>
       "PIPointCount": 0,
       "Metrics": {
         "StreamingEventCountPerSecond": 0,
-        "HistoricalEventCountPerSecond": 0
+        "HistoricalEventCountPerSecond": 0,
+        "SuccessfulCreations": 0,
+        "FailedCreations": 0,
+        "TotalPoints": 0
       },
       "Name": "string",
       "MetadataPrivacy": 0
@@ -1877,7 +2078,10 @@ The updated set of points referenced by AF.<br/>
     0
   ],
   "Name": "string",
-  "MetadataPrivacy": 0
+  "MetadataPrivacy": 0,
+  "TransferRevisionNumber": 0,
+  "LastEditDate": "2019-08-24T14:15:22Z",
+  "LastEditBy": "string"
 }
 ```
 
@@ -1965,6 +2169,35 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataS
 |500|[ErrorResponse](#schemaerrorresponse)|None|
 
 ---
+
+## `Agent AF Re Index`
+
+<a id="opIdDataSources_Agent AF Re Index"></a>
+
+Initiates the reindexing of the Agent specified by `agentId`.
+
+<h3>Request</h3>
+
+```text 
+POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSourceId}/agents/{agentId}/reindexaf
+```
+
+<h4>Parameters</h4>
+
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
+<br/>The Id of the DataSource the resource belongs to.<br/><br/>`string agentId`
+<br/>The Id of the Agent the resource belongs to.<br/><br/>
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|None|Success|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
+
+---
 ## Definitions
 
 ### DataSourceDto
@@ -2018,7 +2251,10 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataS
           "PIPointCount": 0,
           "Metrics": {
             "StreamingEventCountPerSecond": 0,
-            "HistoricalEventCountPerSecond": 0
+            "HistoricalEventCountPerSecond": 0,
+            "SuccessfulCreations": 0,
+            "FailedCreations": 0,
+            "TotalPoints": 0
           },
           "Name": "string",
           "MetadataPrivacy": 0
@@ -2033,7 +2269,10 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataS
     "IsDeprecated": true,
     "TransferMetrics": {
       "StreamingEventCountPerSecond": 0,
-      "HistoricalEventCountPerSecond": 0
+      "HistoricalEventCountPerSecond": 0,
+      "SuccessfulCreations": 0,
+      "FailedCreations": 0,
+      "TotalPoints": 0
     }
   }
 }
@@ -2092,7 +2331,10 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataS
         "PIPointCount": 0,
         "Metrics": {
           "StreamingEventCountPerSecond": 0,
-          "HistoricalEventCountPerSecond": 0
+          "HistoricalEventCountPerSecond": 0,
+          "SuccessfulCreations": 0,
+          "FailedCreations": 0,
+          "TotalPoints": 0
         },
         "Name": "string",
         "MetadataPrivacy": 0
@@ -2107,7 +2349,10 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataS
   "IsDeprecated": true,
   "TransferMetrics": {
     "StreamingEventCountPerSecond": 0,
-    "HistoricalEventCountPerSecond": 0
+    "HistoricalEventCountPerSecond": 0,
+    "SuccessfulCreations": 0,
+    "FailedCreations": 0,
+    "TotalPoints": 0
   }
 }
 
@@ -2182,7 +2427,10 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataS
       "PIPointCount": 0,
       "Metrics": {
         "StreamingEventCountPerSecond": 0,
-        "HistoricalEventCountPerSecond": 0
+        "HistoricalEventCountPerSecond": 0,
+        "SuccessfulCreations": 0,
+        "FailedCreations": 0,
+        "TotalPoints": 0
       },
       "Name": "string",
       "MetadataPrivacy": 0
@@ -2232,7 +2480,10 @@ Before making additions or any modifications to this class, please consult the f
   "PIPointCount": 0,
   "Metrics": {
     "StreamingEventCountPerSecond": 0,
-    "HistoricalEventCountPerSecond": 0
+    "HistoricalEventCountPerSecond": 0,
+    "SuccessfulCreations": 0,
+    "FailedCreations": 0,
+    "TotalPoints": 0
   },
   "Name": "string",
   "MetadataPrivacy": 0
@@ -2256,6 +2507,7 @@ Before making additions or any modifications to this class, please consult the f
 |NotSet|0||
 |Started|1||
 |Stopped|2||
+|Initializing|3||
 
 ---
 
@@ -2284,6 +2536,7 @@ Before making additions or any modifications to this class, please consult the f
 |PIPointTypeChangeDetected|1024|
 |CreatingStreams|2048|
 |NoValidPIPointsInTransfer|4096|
+|UpdatingTransfer|8192|
 
 ---
 
@@ -2300,11 +2553,17 @@ Before making additions or any modifications to this class, please consult the f
 |---|---|---|---|---|
 |StreamingEventCountPerSecond|float|false|false|None|
 |HistoricalEventCountPerSecond|float|false|false|None|
+|SuccessfulCreations|int64|false|false|None|
+|FailedCreations|int64|false|false|None|
+|TotalPoints|int64|false|false|None|
 
 ```json
 {
   "StreamingEventCountPerSecond": 0,
-  "HistoricalEventCountPerSecond": 0
+  "HistoricalEventCountPerSecond": 0,
+  "SuccessfulCreations": 0,
+  "FailedCreations": 0,
+  "TotalPoints": 0
 }
 
 ```
@@ -2347,6 +2606,7 @@ None means all metadata is filtered out Low filters all but 3 metadata items Med
 |AFIndexInProgress|1|
 |AFIndexingFailed|2|
 |AFIndexingSucceeded|3|
+|Restarting|4|
 
 ---
 
@@ -2417,6 +2677,9 @@ Before making additions or any modifications to this class, please consult the f
 |PIPointsReferencedByAF|[integer]|false|true|None|
 |Name|string|false|true|None|
 |MetadataPrivacy|[DataPrivacy](#schemadataprivacy)|false|false|None means all metadata is filtered out Low filters all but 3 metadata items Medium only filters out 2 metadata items High means no data is filtered out|
+|TransferRevisionNumber|int32|false|false|None|
+|LastEditDate|date-time|false|false|None|
+|LastEditBy|guid|false|false|None|
 
 ```json
 {
@@ -2444,10 +2707,107 @@ Before making additions or any modifications to this class, please consult the f
     0
   ],
   "Name": "string",
-  "MetadataPrivacy": 0
+  "MetadataPrivacy": 0,
+  "TransferRevisionNumber": 0,
+  "LastEditDate": "2019-08-24T14:15:22Z",
+  "LastEditBy": "string"
 }
 
 ```
+
+---
+
+### AgentStatusDto
+
+<a id="schemaagentstatusdto"></a>
+<a id="schema_AgentStatusDto"></a>
+<a id="tocSagentstatusdto"></a>
+<a id="tocsagentstatusdto"></a>
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Agent|[ExternalFacingStatus](#schemaexternalfacingstatus)|false|true|None|
+|AssetFrameworkIndexing|[ExternalFacingStatus](#schemaexternalfacingstatus)|false|true|None|
+|Transfers|object|false|true|Status of each Transfer, keyed on the Transfer's ID|
+
+```json
+{
+  "Agent": {
+    "HealthStatus": 0,
+    "InternalStatus": [
+      "string"
+    ]
+  },
+  "AssetFrameworkIndexing": {
+    "HealthStatus": 0,
+    "InternalStatus": [
+      "string"
+    ]
+  },
+  "Transfers": {
+    "property1": {
+      "HealthStatus": 0,
+      "InternalStatus": [
+        "string"
+      ]
+    },
+    "property2": {
+      "HealthStatus": 0,
+      "InternalStatus": [
+        "string"
+      ]
+    }
+  }
+}
+
+```
+
+---
+
+### ExternalFacingStatus
+
+<a id="schemaexternalfacingstatus"></a>
+<a id="schema_ExternalFacingStatus"></a>
+<a id="tocSexternalfacingstatus"></a>
+<a id="tocsexternalfacingstatus"></a>
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|HealthStatus|[ConsolidatedStatus](#schemaconsolidatedstatus)|false|false|None|
+|InternalStatus|string[]|false|true|None|
+
+```json
+{
+  "HealthStatus": 0,
+  "InternalStatus": [
+    "string"
+  ]
+}
+
+```
+
+---
+
+### ConsolidatedStatus
+
+<a id="schemaconsolidatedstatus"></a>
+<a id="schema_ConsolidatedStatus"></a>
+<a id="tocSconsolidatedstatus"></a>
+<a id="tocsconsolidatedstatus"></a>
+
+<h4>Enumerated Values</h4>
+
+|Property|Value|
+|---|---|
+|Starting|0|
+|Running|1|
+|Succeeded|2|
+|Warning|3|
+|Failed|4|
 
 ---
 
@@ -3056,13 +3416,45 @@ Before making additions or any modifications to this class, please consult the f
 |DesiredStatus|[TransferStatus](#schematransferstatus)|false|false|None|
 |Name|string|false|true|None|
 |MetadataPrivacy|[DataPrivacy](#schemadataprivacy)|false|false|None means all metadata is filtered out Low filters all but 3 metadata items Medium only filters out 2 metadata items High means no data is filtered out|
+|PIPointIds|[integer]|false|true|None|
+|AFElementIds|string[]|false|true|None|
 
 ```json
 {
   "Description": "string",
   "DesiredStatus": 0,
   "Name": "string",
-  "MetadataPrivacy": 0
+  "MetadataPrivacy": 0,
+  "PIPointIds": [
+    0
+  ],
+  "AFElementIds": [
+    "string"
+  ]
+}
+
+```
+
+---
+
+### TransferUpdateStatusDto
+
+<a id="schematransferupdatestatusdto"></a>
+<a id="schema_TransferUpdateStatusDto"></a>
+<a id="tocStransferupdatestatusdto"></a>
+<a id="tocstransferupdatestatusdto"></a>
+
+Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|DesiredStatus|[TransferStatus](#schematransferstatus)|false|false|None|
+
+```json
+{
+  "DesiredStatus": 0
 }
 
 ```
