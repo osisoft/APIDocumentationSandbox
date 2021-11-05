@@ -456,7 +456,7 @@ Get the `DataSourceDto` object specified by the `dataSourceId`.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{dataSourceId}/agents/{agentId}
+GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSourceId}/agents/{agentId}
 ```
 
 <h4>Parameters</h4>
@@ -537,6 +537,35 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{dataSour
   }
 }
 ```
+
+---
+
+## `Delete Agent`
+
+<a id="opIdDataSources_Delete Agent"></a>
+
+Delete the Agent specified by `agentId`.
+
+<h3>Request</h3>
+
+```text 
+DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSourceId}/agents/{agentId}
+```
+
+<h4>Parameters</h4>
+
+`string tenantId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/>The Id of the DataSource the resource belongs to.<br/><br/>`string agentId`
+<br/>The Id of the Agent to be deleted.<br/><br/>
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|204|None|The Agent was deleted.|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
 
 ---
 
@@ -789,7 +818,7 @@ Retrieves the current overall status of an agent
 <h3>Request</h3>
 
 ```text 
-GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{dataSourceId}/agents/{agentId}/status
+GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSourceId}/agents/{agentId}/status
 ```
 
 <h4>Parameters</h4>
@@ -2084,35 +2113,6 @@ The updated set of points referenced by AF.<br/>
   "LastEditBy": "string"
 }
 ```
-
----
-
-## `Delete Agent`
-
-<a id="opIdDataSources_Delete Agent"></a>
-
-Delete the Agent specified by `agentId`.
-
-<h3>Request</h3>
-
-```text 
-DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSourceId}/agents/{agentId}
-```
-
-<h4>Parameters</h4>
-
-`string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string dataSourceId`
-<br/>The Id of the DataSource the resource belongs to.<br/><br/>`string agentId`
-<br/>The Id of the Agent to be deleted.<br/><br/>
-
-<h3>Response</h3>
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|204|None|The Agent was deleted.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
 
 ---
 
