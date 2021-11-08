@@ -71,7 +71,10 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources
               "HistoricalEventCountPerSecond": null,
               "SuccessfulCreations": null,
               "FailedCreations": null,
-              "TotalPoints": null
+              "TotalPoints": null,
+              "AssetsCreatedPerSecond": null,
+              "AssetsProcessedCount": null,
+              "TotalAssetsInTransfer": null
             },
             "Name": "string",
             "MetadataPrivacy": 0
@@ -89,7 +92,10 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources
         "HistoricalEventCountPerSecond": 0,
         "SuccessfulCreations": 0,
         "FailedCreations": 0,
-        "TotalPoints": 0
+        "TotalPoints": 0,
+        "AssetsCreatedPerSecond": 0,
+        "AssetsProcessedCount": 0,
+        "TotalAssetsInTransfer": 0
       }
     }
   }
@@ -174,7 +180,10 @@ The DataSourceCreateUpdateDto to use when creating the DataSource.<br/>
             "HistoricalEventCountPerSecond": 0,
             "SuccessfulCreations": 0,
             "FailedCreations": 0,
-            "TotalPoints": 0
+            "TotalPoints": 0,
+            "AssetsCreatedPerSecond": 0,
+            "AssetsProcessedCount": 0,
+            "TotalAssetsInTransfer": 0
           },
           "Name": "string",
           "MetadataPrivacy": 0
@@ -192,7 +201,10 @@ The DataSourceCreateUpdateDto to use when creating the DataSource.<br/>
       "HistoricalEventCountPerSecond": 0,
       "SuccessfulCreations": 0,
       "FailedCreations": 0,
-      "TotalPoints": 0
+      "TotalPoints": 0,
+      "AssetsCreatedPerSecond": 0,
+      "AssetsProcessedCount": 0,
+      "TotalAssetsInTransfer": 0
     }
   }
 }
@@ -266,7 +278,10 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
             "HistoricalEventCountPerSecond": 0,
             "SuccessfulCreations": 0,
             "FailedCreations": 0,
-            "TotalPoints": 0
+            "TotalPoints": 0,
+            "AssetsCreatedPerSecond": 0,
+            "AssetsProcessedCount": 0,
+            "TotalAssetsInTransfer": 0
           },
           "Name": "string",
           "MetadataPrivacy": 0
@@ -284,7 +299,10 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
       "HistoricalEventCountPerSecond": 0,
       "SuccessfulCreations": 0,
       "FailedCreations": 0,
-      "TotalPoints": 0
+      "TotalPoints": 0,
+      "AssetsCreatedPerSecond": 0,
+      "AssetsProcessedCount": 0,
+      "TotalAssetsInTransfer": 0
     }
   }
 }
@@ -369,7 +387,10 @@ The new property values that will be set on the DataSource.<br/>
             "HistoricalEventCountPerSecond": 0,
             "SuccessfulCreations": 0,
             "FailedCreations": 0,
-            "TotalPoints": 0
+            "TotalPoints": 0,
+            "AssetsCreatedPerSecond": 0,
+            "AssetsProcessedCount": 0,
+            "TotalAssetsInTransfer": 0
           },
           "Name": "string",
           "MetadataPrivacy": 0
@@ -387,7 +408,10 @@ The new property values that will be set on the DataSource.<br/>
       "HistoricalEventCountPerSecond": 0,
       "SuccessfulCreations": 0,
       "FailedCreations": 0,
-      "TotalPoints": 0
+      "TotalPoints": 0,
+      "AssetsCreatedPerSecond": 0,
+      "AssetsProcessedCount": 0,
+      "TotalAssetsInTransfer": 0
     }
   }
 }
@@ -514,7 +538,10 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
             "HistoricalEventCountPerSecond": 0,
             "SuccessfulCreations": 0,
             "FailedCreations": 0,
-            "TotalPoints": 0
+            "TotalPoints": 0,
+            "AssetsCreatedPerSecond": 0,
+            "AssetsProcessedCount": 0,
+            "TotalAssetsInTransfer": 0
           },
           "Name": "string",
           "MetadataPrivacy": 0
@@ -532,7 +559,10 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
       "HistoricalEventCountPerSecond": 0,
       "SuccessfulCreations": 0,
       "FailedCreations": 0,
-      "TotalPoints": 0
+      "TotalPoints": 0,
+      "AssetsCreatedPerSecond": 0,
+      "AssetsProcessedCount": 0,
+      "TotalAssetsInTransfer": 0
     }
   }
 }
@@ -682,7 +712,10 @@ The PiSystem properties to update.<br/>
         "HistoricalEventCountPerSecond": 0,
         "SuccessfulCreations": 0,
         "FailedCreations": 0,
-        "TotalPoints": 0
+        "TotalPoints": 0,
+        "AssetsCreatedPerSecond": 0,
+        "AssetsProcessedCount": 0,
+        "TotalAssetsInTransfer": 0
       },
       "Name": "string",
       "MetadataPrivacy": 0
@@ -728,7 +761,10 @@ The PiSystem properties to update.<br/>
         "HistoricalEventCountPerSecond": 0,
         "SuccessfulCreations": 0,
         "FailedCreations": 0,
-        "TotalPoints": 0
+        "TotalPoints": 0,
+        "AssetsCreatedPerSecond": 0,
+        "AssetsProcessedCount": 0,
+        "TotalAssetsInTransfer": 0
       },
       "Name": "string",
       "MetadataPrivacy": 0
@@ -914,8 +950,8 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSou
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string dataSourceId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string dataSourceId`
 <br/>The Id of the DataSource the resource belongs to.<br/><br/>`string agentId`
 <br/>The Id of the Agent the resource belongs to.<br/><br/>
 
@@ -1775,7 +1811,8 @@ The Transfer properties to update.<br/>
   ],
   "AFElementIds": [
     "string"
-  ]
+  ],
+  "HistoricalDataStartTime": "2019-08-24T14:15:22Z"
 }
 ```
 
@@ -1979,7 +2016,10 @@ The PiSystem properties to update.<br/>
         "HistoricalEventCountPerSecond": 0,
         "SuccessfulCreations": 0,
         "FailedCreations": 0,
-        "TotalPoints": 0
+        "TotalPoints": 0,
+        "AssetsCreatedPerSecond": 0,
+        "AssetsProcessedCount": 0,
+        "TotalAssetsInTransfer": 0
       },
       "Name": "string",
       "MetadataPrivacy": 0
@@ -2025,7 +2065,10 @@ The PiSystem properties to update.<br/>
         "HistoricalEventCountPerSecond": 0,
         "SuccessfulCreations": 0,
         "FailedCreations": 0,
-        "TotalPoints": 0
+        "TotalPoints": 0,
+        "AssetsCreatedPerSecond": 0,
+        "AssetsProcessedCount": 0,
+        "TotalAssetsInTransfer": 0
       },
       "Name": "string",
       "MetadataPrivacy": 0
@@ -2254,7 +2297,10 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSou
             "HistoricalEventCountPerSecond": 0,
             "SuccessfulCreations": 0,
             "FailedCreations": 0,
-            "TotalPoints": 0
+            "TotalPoints": 0,
+            "AssetsCreatedPerSecond": 0,
+            "AssetsProcessedCount": 0,
+            "TotalAssetsInTransfer": 0
           },
           "Name": "string",
           "MetadataPrivacy": 0
@@ -2272,7 +2318,10 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSou
       "HistoricalEventCountPerSecond": 0,
       "SuccessfulCreations": 0,
       "FailedCreations": 0,
-      "TotalPoints": 0
+      "TotalPoints": 0,
+      "AssetsCreatedPerSecond": 0,
+      "AssetsProcessedCount": 0,
+      "TotalAssetsInTransfer": 0
     }
   }
 }
@@ -2334,7 +2383,10 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSou
           "HistoricalEventCountPerSecond": 0,
           "SuccessfulCreations": 0,
           "FailedCreations": 0,
-          "TotalPoints": 0
+          "TotalPoints": 0,
+          "AssetsCreatedPerSecond": 0,
+          "AssetsProcessedCount": 0,
+          "TotalAssetsInTransfer": 0
         },
         "Name": "string",
         "MetadataPrivacy": 0
@@ -2352,7 +2404,10 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSou
     "HistoricalEventCountPerSecond": 0,
     "SuccessfulCreations": 0,
     "FailedCreations": 0,
-    "TotalPoints": 0
+    "TotalPoints": 0,
+    "AssetsCreatedPerSecond": 0,
+    "AssetsProcessedCount": 0,
+    "TotalAssetsInTransfer": 0
   }
 }
 
@@ -2430,7 +2485,10 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSou
         "HistoricalEventCountPerSecond": 0,
         "SuccessfulCreations": 0,
         "FailedCreations": 0,
-        "TotalPoints": 0
+        "TotalPoints": 0,
+        "AssetsCreatedPerSecond": 0,
+        "AssetsProcessedCount": 0,
+        "TotalAssetsInTransfer": 0
       },
       "Name": "string",
       "MetadataPrivacy": 0
@@ -2483,7 +2541,10 @@ Before making additions or any modifications to this class, please consult the f
     "HistoricalEventCountPerSecond": 0,
     "SuccessfulCreations": 0,
     "FailedCreations": 0,
-    "TotalPoints": 0
+    "TotalPoints": 0,
+    "AssetsCreatedPerSecond": 0,
+    "AssetsProcessedCount": 0,
+    "TotalAssetsInTransfer": 0
   },
   "Name": "string",
   "MetadataPrivacy": 0
@@ -2556,6 +2617,9 @@ Before making additions or any modifications to this class, please consult the f
 |SuccessfulCreations|int64|false|false|None|
 |FailedCreations|int64|false|false|None|
 |TotalPoints|int64|false|false|None|
+|AssetsCreatedPerSecond|float|false|false|None|
+|AssetsProcessedCount|int64|false|false|None|
+|TotalAssetsInTransfer|int64|false|false|None|
 
 ```json
 {
@@ -2563,7 +2627,10 @@ Before making additions or any modifications to this class, please consult the f
   "HistoricalEventCountPerSecond": 0,
   "SuccessfulCreations": 0,
   "FailedCreations": 0,
-  "TotalPoints": 0
+  "TotalPoints": 0,
+  "AssetsCreatedPerSecond": 0,
+  "AssetsProcessedCount": 0,
+  "TotalAssetsInTransfer": 0
 }
 
 ```
@@ -2892,6 +2959,7 @@ Before making additions or any modifications to this class, please consult the f
 |AFAttributeLoad|64|undefined|
 |AFElementReferencedPIPoints|128|undefined|
 |PIPointListEx|256|undefined|
+|ValidateAFOnlyTransfer|512|undefined|
 
 ---
 
@@ -3418,6 +3486,7 @@ Before making additions or any modifications to this class, please consult the f
 |MetadataPrivacy|[DataPrivacy](#schemadataprivacy)|false|false|None means all metadata is filtered out Low filters all but 3 metadata items Medium only filters out 2 metadata items High means no data is filtered out|
 |PIPointIds|[integer]|false|true|None|
 |AFElementIds|string[]|false|true|None|
+|HistoricalDataStartTime|date-time|false|true|None|
 
 ```json
 {
@@ -3430,7 +3499,8 @@ Before making additions or any modifications to this class, please consult the f
   ],
   "AFElementIds": [
     "string"
-  ]
+  ],
+  "HistoricalDataStartTime": "2019-08-24T14:15:22Z"
 }
 
 ```

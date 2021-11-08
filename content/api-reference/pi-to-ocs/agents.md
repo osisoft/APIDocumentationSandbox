@@ -66,7 +66,10 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/sync/agents
             "HistoricalEventCountPerSecond": 0,
             "SuccessfulCreations": 0,
             "FailedCreations": 0,
-            "TotalPoints": 0
+            "TotalPoints": 0,
+            "AssetsCreatedPerSecond": 0,
+            "AssetsProcessedCount": 0,
+            "TotalAssetsInTransfer": 0
           },
           "Name": "string",
           "MetadataPrivacy": 0
@@ -84,7 +87,10 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/sync/agents
       "HistoricalEventCountPerSecond": 0,
       "SuccessfulCreations": 0,
       "FailedCreations": 0,
-      "TotalPoints": 0
+      "TotalPoints": 0,
+      "AssetsCreatedPerSecond": 0,
+      "AssetsProcessedCount": 0,
+      "TotalAssetsInTransfer": 0
     }
   }
 ]
@@ -309,7 +315,10 @@ Allowed for these roles:
           "HistoricalEventCountPerSecond": 0,
           "SuccessfulCreations": 0,
           "FailedCreations": 0,
-          "TotalPoints": 0
+          "TotalPoints": 0,
+          "AssetsCreatedPerSecond": 0,
+          "AssetsProcessedCount": 0,
+          "TotalAssetsInTransfer": 0
         },
         "Name": "string",
         "MetadataPrivacy": 0
@@ -327,7 +336,10 @@ Allowed for these roles:
     "HistoricalEventCountPerSecond": 0,
     "SuccessfulCreations": 0,
     "FailedCreations": 0,
-    "TotalPoints": 0
+    "TotalPoints": 0,
+    "AssetsCreatedPerSecond": 0,
+    "AssetsProcessedCount": 0,
+    "TotalAssetsInTransfer": 0
   }
 }
 
@@ -405,7 +417,10 @@ Allowed for these roles:
         "HistoricalEventCountPerSecond": 0,
         "SuccessfulCreations": 0,
         "FailedCreations": 0,
-        "TotalPoints": 0
+        "TotalPoints": 0,
+        "AssetsCreatedPerSecond": 0,
+        "AssetsProcessedCount": 0,
+        "TotalAssetsInTransfer": 0
       },
       "Name": "string",
       "MetadataPrivacy": 0
@@ -458,7 +473,10 @@ Before making additions or any modifications to this class, please consult the f
     "HistoricalEventCountPerSecond": 0,
     "SuccessfulCreations": 0,
     "FailedCreations": 0,
-    "TotalPoints": 0
+    "TotalPoints": 0,
+    "AssetsCreatedPerSecond": 0,
+    "AssetsProcessedCount": 0,
+    "TotalAssetsInTransfer": 0
   },
   "Name": "string",
   "MetadataPrivacy": 0
@@ -531,6 +549,9 @@ Before making additions or any modifications to this class, please consult the f
 |SuccessfulCreations|int64|false|false|None|
 |FailedCreations|int64|false|false|None|
 |TotalPoints|int64|false|false|None|
+|AssetsCreatedPerSecond|float|false|false|None|
+|AssetsProcessedCount|int64|false|false|None|
+|TotalAssetsInTransfer|int64|false|false|None|
 
 ```json
 {
@@ -538,7 +559,10 @@ Before making additions or any modifications to this class, please consult the f
   "HistoricalEventCountPerSecond": 0,
   "SuccessfulCreations": 0,
   "FailedCreations": 0,
-  "TotalPoints": 0
+  "TotalPoints": 0,
+  "AssetsCreatedPerSecond": 0,
+  "AssetsProcessedCount": 0,
+  "TotalAssetsInTransfer": 0
 }
 
 ```
