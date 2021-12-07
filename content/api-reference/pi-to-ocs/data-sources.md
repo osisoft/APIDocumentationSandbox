@@ -77,7 +77,10 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources
               "TotalAssetsInTransfer": null
             },
             "Name": "string",
-            "MetadataPrivacy": 0
+            "MetadataPrivacy": 0,
+            "TransferRevisionNumber": 0,
+            "LastEditDate": "2019-08-24T14:15:22Z",
+            "LastEditBy": "string"
           }
         ],
         "AFIndexProgress": 0,
@@ -186,7 +189,10 @@ The DataSourceCreateUpdateDto to use when creating the DataSource.<br/>
             "TotalAssetsInTransfer": 0
           },
           "Name": "string",
-          "MetadataPrivacy": 0
+          "MetadataPrivacy": 0,
+          "TransferRevisionNumber": 0,
+          "LastEditDate": "2019-08-24T14:15:22Z",
+          "LastEditBy": "string"
         }
       ],
       "AFIndexProgress": 0,
@@ -284,7 +290,10 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
             "TotalAssetsInTransfer": 0
           },
           "Name": "string",
-          "MetadataPrivacy": 0
+          "MetadataPrivacy": 0,
+          "TransferRevisionNumber": 0,
+          "LastEditDate": "2019-08-24T14:15:22Z",
+          "LastEditBy": "string"
         }
       ],
       "AFIndexProgress": 0,
@@ -393,7 +402,10 @@ The new property values that will be set on the DataSource.<br/>
             "TotalAssetsInTransfer": 0
           },
           "Name": "string",
-          "MetadataPrivacy": 0
+          "MetadataPrivacy": 0,
+          "TransferRevisionNumber": 0,
+          "LastEditDate": "2019-08-24T14:15:22Z",
+          "LastEditBy": "string"
         }
       ],
       "AFIndexProgress": 0,
@@ -544,7 +556,10 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
             "TotalAssetsInTransfer": 0
           },
           "Name": "string",
-          "MetadataPrivacy": 0
+          "MetadataPrivacy": 0,
+          "TransferRevisionNumber": 0,
+          "LastEditDate": "2019-08-24T14:15:22Z",
+          "LastEditBy": "string"
         }
       ],
       "AFIndexProgress": 0,
@@ -718,7 +733,10 @@ The PiSystem properties to update.<br/>
         "TotalAssetsInTransfer": 0
       },
       "Name": "string",
-      "MetadataPrivacy": 0
+      "MetadataPrivacy": 0,
+      "TransferRevisionNumber": 0,
+      "LastEditDate": "2019-08-24T14:15:22Z",
+      "LastEditBy": "string"
     }
   ],
   "AFIndexProgress": 0,
@@ -767,7 +785,10 @@ The PiSystem properties to update.<br/>
         "TotalAssetsInTransfer": 0
       },
       "Name": "string",
-      "MetadataPrivacy": 0
+      "MetadataPrivacy": 0,
+      "TransferRevisionNumber": 0,
+      "LastEditDate": "2019-08-24T14:15:22Z",
+      "LastEditBy": "string"
     }
   ],
   "AFIndexProgress": 0,
@@ -849,7 +870,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 
 <a id="opIdDataSources_Get Status"></a>
 
-Retrieves the current overall status of an agent
+Retrieves the current overall health status of an agent and its components
 
 <h3>Request</h3>
 
@@ -880,32 +901,284 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 {
   "Agent": {
     "HealthStatus": 0,
-    "InternalStatus": [
+    "InternalStatuses": [
       "string"
+    ],
+    "HealthEvents": [
+      {
+        "Id": "string",
+        "TimestampUtc": "2019-08-24T14:15:22Z",
+        "Category": 0,
+        "TransferId": "string",
+        "EventId": 400001,
+        "Severity": 0,
+        "Message": "string",
+        "ContextInformation": "string"
+      }
     ]
   },
-  "AssetFrameworkIndexing": {
+  "Indexing": {
     "HealthStatus": 0,
-    "InternalStatus": [
+    "InternalStatuses": [
       "string"
+    ],
+    "HealthEvents": [
+      {
+        "Id": "string",
+        "TimestampUtc": "2019-08-24T14:15:22Z",
+        "Category": 0,
+        "TransferId": "string",
+        "EventId": 400001,
+        "Severity": 0,
+        "Message": "string",
+        "ContextInformation": "string"
+      }
     ]
   },
   "Transfers": {
     "property1": {
       "HealthStatus": 0,
-      "InternalStatus": [
+      "InternalStatuses": [
         "string"
-      ]
+      ],
+      "HealthEvents": [
+        {
+          "Id": "string",
+          "TimestampUtc": "2019-08-24T14:15:22Z",
+          "Category": 0,
+          "TransferId": "string",
+          "EventId": 400001,
+          "Severity": 0,
+          "Message": "string",
+          "ContextInformation": "string"
+        }
+      ],
+      "TransferRevisionNumber": 0,
+      "LastEditDate": "2019-08-24T14:15:22Z",
+      "LastEditBy": "string"
     },
     "property2": {
       "HealthStatus": 0,
-      "InternalStatus": [
+      "InternalStatuses": [
         "string"
-      ]
+      ],
+      "HealthEvents": [
+        {
+          "Id": "string",
+          "TimestampUtc": "2019-08-24T14:15:22Z",
+          "Category": 0,
+          "TransferId": "string",
+          "EventId": 400001,
+          "Severity": 0,
+          "Message": "string",
+          "ContextInformation": "string"
+        }
+      ],
+      "TransferRevisionNumber": 0,
+      "LastEditDate": "2019-08-24T14:15:22Z",
+      "LastEditBy": "string"
     }
   }
 }
 ```
+
+---
+
+## `List Health Events`
+
+<a id="opIdDataSources_List Health Events"></a>
+
+Retrieves all current health events associated with an agent
+
+<h3>Request</h3>
+
+```text 
+GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSourceId}/agents/{agentId}/status/events
+```
+
+<h4>Parameters</h4>
+
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
+<br/>Data source identifier.<br/><br/>`string agentId`
+<br/><span style="background-color:red;color:white">ERROR: Parameter "agentId" could not be found in external reference file</span><br/><br/>
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[HealthEventDto](#schemahealtheventdto)[]|Success.|
+
+<h4>Example response body</h4>
+
+> 200 Response ([HealthEventDto](#schemahealtheventdto)[])
+
+```json
+[
+  {
+    "Id": "string",
+    "TimestampUtc": "2019-08-24T14:15:22Z",
+    "Category": 0,
+    "TransferId": "string",
+    "EventId": 400001,
+    "Severity": 0,
+    "Message": "string",
+    "ContextInformation": "string"
+  }
+]
+```
+
+---
+
+## `Add Health Event`
+
+<a id="opIdDataSources_Add Health Event"></a>
+
+Records a new health event associated with an agent
+
+<h3>Request</h3>
+
+```text 
+POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSourceId}/agents/{agentId}/status/events
+```
+
+<h4>Parameters</h4>
+
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
+<br/>Data source identifier.<br/><br/>`string agentId`
+<br/><span style="background-color:red;color:white">ERROR: Parameter "agentId" could not be found in external reference file</span><br/><br/>
+
+<h4>Request Body</h4>
+
+Health Event to record<br/>
+
+```json
+{
+  "Category": 0,
+  "TransferId": "string",
+  "EventId": 400001,
+  "Severity": 0,
+  "Message": "string",
+  "ContextInformation": "string"
+}
+```
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|201|None|Created.|
+|404|None|Client or tenant not found.|
+|422|None|Unprocessable Entity; invalid Health Event DTO in request body|
+
+---
+
+## `Remove Health Events`
+
+<a id="opIdDataSources_Remove Health Events"></a>
+
+Removes all health events associated with an agent
+
+<h3>Request</h3>
+
+```text 
+DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSourceId}/agents/{agentId}/status/events
+?category={category}
+```
+
+<h4>Parameters</h4>
+
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
+<br/>Data source identifier.<br/><br/>`string agentId`
+<br/><span style="background-color:red;color:white">ERROR: Parameter "agentId" could not be found in external reference file</span><br/><br/>`any category`
+<br/>Optional. If provided, will only delete health events with this category<br/><br/>
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|204|None|Deleted.|
+
+---
+
+## `Get Health Event`
+
+<a id="opIdDataSources_Get Health Event"></a>
+
+Retrieves a single current health event associated with an agent
+
+<h3>Request</h3>
+
+```text 
+GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSourceId}/agents/{agentId}/status/events/{healthEventId}
+```
+
+<h4>Parameters</h4>
+
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
+<br/>Data source identifier.<br/><br/>`string agentId`
+<br/><span style="background-color:red;color:white">ERROR: Parameter "agentId" could not be found in external reference file</span><br/><br/>`string healthEventId`
+<br/>Unique identifier for a Health Event<br/><br/>
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[HealthEventDto](#schemahealtheventdto)|Success.|
+|404|None|Client or tenant not found.|
+
+<h4>Example response body</h4>
+
+> 200 Response ([HealthEventDto](#schemahealtheventdto))
+
+```json
+{
+  "Id": "string",
+  "TimestampUtc": "2019-08-24T14:15:22Z",
+  "Category": 0,
+  "TransferId": "string",
+  "EventId": 400001,
+  "Severity": 0,
+  "Message": "string",
+  "ContextInformation": "string"
+}
+```
+
+---
+
+## `Remove Health Event`
+
+<a id="opIdDataSources_Remove Health Event"></a>
+
+Removes a health event associated with an agent
+
+<h3>Request</h3>
+
+```text 
+DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSourceId}/agents/{agentId}/status/events/{healthEventId}
+```
+
+<h4>Parameters</h4>
+
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
+<br/>Data source identifier.<br/><br/>`string agentId`
+<br/><span style="background-color:red;color:white">ERROR: Parameter "agentId" could not be found in external reference file</span><br/><br/>`string healthEventId`
+<br/>Unique identifier for a Health Event<br/><br/>
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|204|None|Deleted.|
 
 ---
 
@@ -1812,7 +2085,8 @@ The Transfer properties to update.<br/>
   "AFElementIds": [
     "string"
   ],
-  "HistoricalDataStartTime": "2019-08-24T14:15:22Z"
+  "HistoricalDataStartTime": "2019-08-24T14:15:22Z",
+  "ExpectedTransferRevisionNumber": 0
 }
 ```
 
@@ -2022,7 +2296,10 @@ The PiSystem properties to update.<br/>
         "TotalAssetsInTransfer": 0
       },
       "Name": "string",
-      "MetadataPrivacy": 0
+      "MetadataPrivacy": 0,
+      "TransferRevisionNumber": 0,
+      "LastEditDate": "2019-08-24T14:15:22Z",
+      "LastEditBy": "string"
     }
   ],
   "AFIndexProgress": 0,
@@ -2071,7 +2348,10 @@ The PiSystem properties to update.<br/>
         "TotalAssetsInTransfer": 0
       },
       "Name": "string",
-      "MetadataPrivacy": 0
+      "MetadataPrivacy": 0,
+      "TransferRevisionNumber": 0,
+      "LastEditDate": "2019-08-24T14:15:22Z",
+      "LastEditBy": "string"
     }
   ],
   "AFIndexProgress": 0,
@@ -2303,7 +2583,10 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSou
             "TotalAssetsInTransfer": 0
           },
           "Name": "string",
-          "MetadataPrivacy": 0
+          "MetadataPrivacy": 0,
+          "TransferRevisionNumber": 0,
+          "LastEditDate": "2019-08-24T14:15:22Z",
+          "LastEditBy": "string"
         }
       ],
       "AFIndexProgress": 0,
@@ -2389,7 +2672,10 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSou
           "TotalAssetsInTransfer": 0
         },
         "Name": "string",
-        "MetadataPrivacy": 0
+        "MetadataPrivacy": 0,
+        "TransferRevisionNumber": 0,
+        "LastEditDate": "2019-08-24T14:15:22Z",
+        "LastEditBy": "string"
       }
     ],
     "AFIndexProgress": 0,
@@ -2491,7 +2777,10 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSou
         "TotalAssetsInTransfer": 0
       },
       "Name": "string",
-      "MetadataPrivacy": 0
+      "MetadataPrivacy": 0,
+      "TransferRevisionNumber": 0,
+      "LastEditDate": "2019-08-24T14:15:22Z",
+      "LastEditBy": "string"
     }
   ],
   "AFIndexProgress": 0,
@@ -2526,6 +2815,9 @@ Before making additions or any modifications to this class, please consult the f
 |Metrics|[TransferMetricsDto](#schematransfermetricsdto)|false|true|None|
 |Name|string|false|true|None|
 |MetadataPrivacy|[DataPrivacy](#schemadataprivacy)|false|false|None means all metadata is filtered out Low filters all but 3 metadata items Medium only filters out 2 metadata items High means no data is filtered out|
+|TransferRevisionNumber|int32|false|false|None|
+|LastEditDate|date-time|false|false|None|
+|LastEditBy|guid|false|false|None|
 
 ```json
 {
@@ -2547,7 +2839,10 @@ Before making additions or any modifications to this class, please consult the f
     "TotalAssetsInTransfer": 0
   },
   "Name": "string",
-  "MetadataPrivacy": 0
+  "MetadataPrivacy": 0,
+  "TransferRevisionNumber": 0,
+  "LastEditDate": "2019-08-24T14:15:22Z",
+  "LastEditBy": "string"
 }
 
 ```
@@ -2795,36 +3090,90 @@ Before making additions or any modifications to this class, please consult the f
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Agent|[ExternalFacingStatus](#schemaexternalfacingstatus)|false|true|None|
-|AssetFrameworkIndexing|[ExternalFacingStatus](#schemaexternalfacingstatus)|false|true|None|
+|Agent|[HealthDto](#schemahealthdto)|false|true|None|
+|Indexing|[HealthDto](#schemahealthdto)|false|true|Status of any/all indexing tasks of the Agent (e.g. Asset Framework Indexing)|
 |Transfers|object|false|true|Status of each Transfer, keyed on the Transfer's ID|
 
 ```json
 {
   "Agent": {
     "HealthStatus": 0,
-    "InternalStatus": [
+    "InternalStatuses": [
       "string"
+    ],
+    "HealthEvents": [
+      {
+        "Id": "string",
+        "TimestampUtc": "2019-08-24T14:15:22Z",
+        "Category": 0,
+        "TransferId": "string",
+        "EventId": 400001,
+        "Severity": 0,
+        "Message": "string",
+        "ContextInformation": "string"
+      }
     ]
   },
-  "AssetFrameworkIndexing": {
+  "Indexing": {
     "HealthStatus": 0,
-    "InternalStatus": [
+    "InternalStatuses": [
       "string"
+    ],
+    "HealthEvents": [
+      {
+        "Id": "string",
+        "TimestampUtc": "2019-08-24T14:15:22Z",
+        "Category": 0,
+        "TransferId": "string",
+        "EventId": 400001,
+        "Severity": 0,
+        "Message": "string",
+        "ContextInformation": "string"
+      }
     ]
   },
   "Transfers": {
     "property1": {
       "HealthStatus": 0,
-      "InternalStatus": [
+      "InternalStatuses": [
         "string"
-      ]
+      ],
+      "HealthEvents": [
+        {
+          "Id": "string",
+          "TimestampUtc": "2019-08-24T14:15:22Z",
+          "Category": 0,
+          "TransferId": "string",
+          "EventId": 400001,
+          "Severity": 0,
+          "Message": "string",
+          "ContextInformation": "string"
+        }
+      ],
+      "TransferRevisionNumber": 0,
+      "LastEditDate": "2019-08-24T14:15:22Z",
+      "LastEditBy": "string"
     },
     "property2": {
       "HealthStatus": 0,
-      "InternalStatus": [
+      "InternalStatuses": [
         "string"
-      ]
+      ],
+      "HealthEvents": [
+        {
+          "Id": "string",
+          "TimestampUtc": "2019-08-24T14:15:22Z",
+          "Category": 0,
+          "TransferId": "string",
+          "EventId": 400001,
+          "Severity": 0,
+          "Message": "string",
+          "ContextInformation": "string"
+        }
+      ],
+      "TransferRevisionNumber": 0,
+      "LastEditDate": "2019-08-24T14:15:22Z",
+      "LastEditBy": "string"
     }
   }
 }
@@ -2833,25 +3182,38 @@ Before making additions or any modifications to this class, please consult the f
 
 ---
 
-### ExternalFacingStatus
+### HealthDto
 
-<a id="schemaexternalfacingstatus"></a>
-<a id="schema_ExternalFacingStatus"></a>
-<a id="tocSexternalfacingstatus"></a>
-<a id="tocsexternalfacingstatus"></a>
+<a id="schemahealthdto"></a>
+<a id="schema_HealthDto"></a>
+<a id="tocShealthdto"></a>
+<a id="tocshealthdto"></a>
 
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
 |HealthStatus|[ConsolidatedStatus](#schemaconsolidatedstatus)|false|false|None|
-|InternalStatus|string[]|false|true|None|
+|InternalStatuses|string[]|false|true|None|
+|HealthEvents|[[HealthEventDto](#schemahealtheventdto)]|false|true|None|
 
 ```json
 {
   "HealthStatus": 0,
-  "InternalStatus": [
+  "InternalStatuses": [
     "string"
+  ],
+  "HealthEvents": [
+    {
+      "Id": "string",
+      "TimestampUtc": "2019-08-24T14:15:22Z",
+      "Category": 0,
+      "TransferId": "string",
+      "EventId": 400001,
+      "Severity": 0,
+      "Message": "string",
+      "ContextInformation": "string"
+    }
   ]
 }
 
@@ -2870,11 +3232,737 @@ Before making additions or any modifications to this class, please consult the f
 
 |Property|Value|
 |---|---|
-|Starting|0|
-|Running|1|
-|Succeeded|2|
+|Okay|0|
+|Warning|1|
+|Error|2|
+
+---
+
+### HealthEventDto
+
+<a id="schemahealtheventdto"></a>
+<a id="schema_HealthEventDto"></a>
+<a id="tocShealtheventdto"></a>
+<a id="tocshealtheventdto"></a>
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|guid|false|false|None|
+|TimestampUtc|date-time|false|false|None|
+|Category|[HealthEventCategory](#schemahealtheventcategory)|false|false|The source of this health event|
+|TransferId|guid|false|true|None|
+|EventId|[EventIds](#schemaeventids)|false|false|None|
+|Severity|[LogLevel](#schemaloglevel)|false|false|None|
+|Message|string|false|true|None|
+|ContextInformation|byte|false|true|Optional blob for attaching additional information about the source/context of this health event|
+
+```json
+{
+  "Id": "string",
+  "TimestampUtc": "2019-08-24T14:15:22Z",
+  "Category": 0,
+  "TransferId": "string",
+  "EventId": 400001,
+  "Severity": 0,
+  "Message": "string",
+  "ContextInformation": "string"
+}
+
+```
+
+---
+
+### HealthEventCategory
+
+<a id="schemahealtheventcategory"></a>
+<a id="schema_HealthEventCategory"></a>
+<a id="tocShealtheventcategory"></a>
+<a id="tocshealtheventcategory"></a>
+
+<h4>Enumerated Values</h4>
+
+|Property|Value|
+|---|---|
+|Agent|0|
+|Asset|1|
+|Indexing|2|
+|Stream|3|
+|Transfer|4|
+
+---
+
+### EventIds
+
+<a id="schemaeventids"></a>
+<a id="schema_EventIds"></a>
+<a id="tocSeventids"></a>
+<a id="tocseventids"></a>
+
+<h4>Enumerated Values</h4>
+
+|Property|Value|
+|---|---|
+|StoppingAgent|400001|
+|StoppedAgent|400002|
+|ErrorDisposingServiceLocator|400003|
+|ProblemSyncingWithTheConfigService|400004|
+|SocketErrorDuringSendAgentStatus|400005|
+|UnexpectedExceptionTerminatingSyncProcess|400006|
+|ExitingConfigSyncManagerRunAsync|400007|
+|StoppingConfigSyncManager|400008|
+|AttemptingToStopConfigSyncManager|400009|
+|StoppedConfigSyncManager|400010|
+|ConfigSyncResponseContentUnrecognizedFormat|400011|
+|UnexpectedTransportMessageFromConfigSync|400012|
+|FailureInLogForwarding|400013|
+|TimedOutStoppingCheckCacheAndSendLogsAsync|400014|
+|FailedToSendLogMessagesToOcsWillRetry|400015|
+|TimedOutConnectingToDataArchive|400016|
+|ErrorConnectingToDataArchiveWillRetry|400017|
+|ConnectedToDataArchive|400018|
+|ErrorPerformingQuery|400019|
+|FailedToGetDataArchiveInfoRetrying|400020|
+|FailedToGetDataArchiveInfo|400021|
+|FailedToPerformQueryForTransferRetrying|400022|
+|FailedToPerformQueryForTransfer|400023|
+|DataArchiveVersionNotSupported|400024|
+|FailedToPerformQueryRetrying|400025|
+|FailedToPerformQuery|400026|
+|FailedToPerformQueryElementInvalid|400027|
+|ConfiguredConnectionsToOcs|400028|
+|CreatingOrVerifyingAgentRegistration|400029|
+|AgentRegistrationCompleted|400030|
+|AgentRegistrationInProgress|400031|
+|AgentRegistrationFailedWillRetry|400032|
+|AgentRegistrationFailed|400033|
+|BadResponseFromConfigSyncEndpoint|400034|
+|ErrorTryingToSyncWithConfigService|400035|
+|BadResponseSendingForwardedLogs|400036|
+|ErrorTryingToSendForwardedLogs|400037|
+|BadResponseSendingQueryResults|400038|
+|SentQueryResults|400039|
+|ErrorSendingQueryResults|400040|
+|HttpClientFailedToWriteDataToDataService|400041|
+|WroteTransportMessagesToDataService|400042|
+|ErrorSendingDataToDataService|400043|
+|WaitingForAgentServicesToBeReady|400044|
+|TimedOutWaitingForAgentServicesToBeReady|400045|
+|InvalidMessageTypeReceivedForStreamCreation|400046|
+|StreamCreationRequestFailed|400047|
+|ErrorSendingRequestToCreateStreams|400048|
+|StatusRequestFailedWaitingForStreamCreation|400049|
+|StreamCreationInOcsFailed|400050|
+|FailedToVerifyStreamCreationForPoints|400051|
+|CleaningUpAfterStreamCreationFailed|400052|
+|StreamCreationOrVerificationSucceeded|400053|
+|ErrorCleaningUpAfterStreamCreation|400054|
+|AgentServiceRetrievedSecrets|400055|
+|AgentWillTerminateDueToUnhandledException|400056|
+|ErrorShuttingDownAgentService|400057|
+|AgentShuttingDownDueToUnhandledException|400058|
+|AgentServiceHostStarted|400059|
+|AgentReceivedUnregisterRequest|400060|
+|AgentUnregisterWasRequestedWithInvalidSpec|400061|
+|AgentUnregistered|400062|
+|QueryRequestFromConfigService|400063|
+|SendingQueryResultsToConfigService|400064|
+|ProcessingTransferJobRequest|400065|
+|ProcessingTransferStopRequest|400066|
+|StoppingAllTransferJobs|400067|
+|ShutdownRequestReceivedWhileWritingDataToOcs|400068|
+|ErrorWritingToOcs|400069|
+|DoneTransferringDataToOcsForTransferStep|400070|
+|ErrorWhileWritingDataToOcs|400071|
+|HistoricalEventsChunkSentOutOfOrder|400072|
+|SpecifiedStartTimeInTheFutureForHistoricalData|400073|
+|GettingPagedDataRetryingForPoint|400074|
+|GettingPagedDataFailedForPoint|400075|
+|FailedToGetDataForPointAndRetrying|400076|
+|GettingPagedDataForPointAsDataExceededMaxArcCollect|400077|
+|FailedToGetDataForPoint|400078|
+|TransferringEventsForPoint|400079|
+|BusySendingDataToOcsCannotQueueMore|400080|
+|StartingHistoricalDataTransfer|400081|
+|WaitingToGetStartTimeOfStreamingUpdates|400082|
+|SettingEndOfHistoricalRecoveryPeriod|400083|
+|HistoricalStepWaitingForBackFillingStreamingData|400084|
+|BackfillingStreamingDataOverBeginningHistoricalTransferStep|400085|
+|AgentShutdownRequestedWhileRetrievingDataArchiveInfo|400086|
+|UnableToGetArchiveInfoFromDataArchive|400087|
+|BusyReadingFromDataArchiveCannotRequestMoreData|400088|
+|ShutdownRequestReceivedWhileReadingHistoricalDataFromDataArchive|400089|
+|ErrorReadingFromDataArchive|400090|
+|DoneReadingDataFromDataArchiveForTransferStep|400091|
+|TimedOutWaitingToSignUpForStreamingUpdates|400092|
+|StartingStreamingDataTransfer|400093|
+|RecievedDataLossNotificationOnDataArchive|400094|
+|RegisteredForStreamingUpdatesOnDataArchiveAsConsumer|400095|
+|FailedToGetStreamingUpdatesFromDataArchive|400096|
+|FailedToGetStreamingUpdatesFromDataArchiveRetrying|400097|
+|StreamingUpdatesForPointsWillSendData|400098|
+|SendingStreamingUpdates|400099|
+|StoppingStreamingDataTransfer|400100|
+|StopAlreadyStoppedStreamingDataTransferStepRequested|400101|
+|StartingTransferJob|400102|
+|StoppingTransferJob|400103|
+|NoProgressAvailableForTransferNotStartedSendingDataYet|400104|
+|HistoricalDataToOcsCompletedButNoStatusForTheStepAvailable|400105|
+|HistoricalDataToOcsCompletedButTheStepStatusIsNotCompleted|400106|
+|TransferInProgressCannotStartAgain|400107|
+|GotTransferJobIdFromConfigService|400108|
+|TransferManagerPreparingForTransferOfPoints|400109|
+|UnrecoverableErrorAcquiringPointMetaData|400110|
+|UnableToFindAnyMatchingPITagsOnDataArchive|400111|
+|CreatingOrVerifyingStreamsInOcsForPIPoints|400112|
+|TransferManagerCreatingPIDataTransferJob|400113|
+|ErrorTransferringDataToDataService|400114|
+|TransferManagerGotStopTransferRequest|400115|
+|UnableToStopTransferJobCouldNotFindTransfer|400116|
+|TransferManagerStoppingTransferJobs|400117|
+|DeleteClientCredentialsAndExit|400118|
+|UnknownCustomServiceCommand|400119|
+|UnexpectedNonFatalErrorInSendAgentStatus|400120|
+|FatalErrorWritingToOcs|400121|
+|UnexpectedErrorWritingToOcs|400122|
+|ErrorWhileStoppingTransferTasks|400123|
+|FatalErrorStartingAgent|400124|
+|UsingSettingsFileMessage|400125|
+|SignUpForArchiveUpdatesErrorForSingleStream|400126|
+|SigningUpForArchiveUpdates|400127|
+|RetrievedPointsFromDataArchiveForArchiveUpdates|400128|
+|AbortingWaitForStreamsCreationDueToPIPointTypeChangeDetected|400129|
+|UnableToRetrieveConfigurationalFileInformation|400130|
+|UnableToReadConfigurationalFileInformation|400131|
+|DataArchiveVersionChangeDetected|400132|
+|UnsupportedPointTypeInTransferRequest|400133|
+|MissingQueryResults|400134|
+|MultipleQueryClients|400135|
+|MissingQueryClient|400136|
+|MissingInformationForPIPointResult|400137|
+|ErrorSendingRequestToUpdateStreams|400138|
+|InvalidIdentityServiceClient|400139|
+|ErrorTryingToPublishCapabilities|400140|
+|PublishedCapabilities|400141|
+|ErrorTryingToSerializeCapabilities|400142|
+|ErrorTryingToPostCapabilities|400143|
+|BadResponseCodePublishingCapabilities|400144|
+|FailedToRetrieveStreamNameFromTransfer|400145|
+|TagNotFound|400146|
+|MetadataChangeFound|400147|
+|TagUpdate|400148|
+|GetOrUpdateStreamMetadata|400149|
+|FailedToRetrieveStreamMetadata|400150|
+|GetTransferFromTransferManager|400151|
+|NextUpdateOccursInXTime|400152|
+|FailedToGetStreamData|400153|
+|TaskCancelledExceptionoccurred|400154|
+|ErrorTryingToSyncCapabilities|400155|
+|GetCapabilityUpdates|400156|
+|ErrorTryingToGetCapabilities|400157|
+|CapabilityUpdatesEmptyMissing|400158|
+|ConnectedToAFServer|400159|
+|StartingInitialAFDataTransfer|400160|
+|ShutdownRequestReceivedWhileReadingFromAFServer|400161|
+|ErrorReadingFromAFServer|400162|
+|DoneReadingDataFromAFServerForTransferStep|400163|
+|AFVersionNotSupported|400164|
+|ErrorConnectingToAssetFrameworkWillRetry|400165|
+|TransferringAFMessage|400166|
+|BusyReadingFromAFServerCannotRequestMoreData|400167|
+|StartedConfigTool|400168|
+|SavedAgentConfiguration|400169|
+|UnexpectedErrorInConfigTool|400170|
+|ConfigToolFailedToStartService|400171|
+|ConfigToolFailedToStopService|400172|
+|ChangedAgentConfiguration|400173|
+|ConfigToolFailedToGetAFServerIPAddress|400174|
+|ConfigToolFailedToGetDAServerIPAddress|400175|
+|HostnameUpdated|400176|
+|PublishPointsFromAF|400177|
+|BadResponseCodePublishingPointsFromAF|400178|
+|ErrorTryingToSerializePointsFromAF|400179|
+|ErrorTryingToPutPointsFromAF|400180|
+|AddingPointsReferencedByAFToTransfer|400181|
+|ErrorRemovingAFObjectFromCache|400182|
+|EntitlementFailure|400183|
+|AssetFrameworkVersionChangeDetected|400184|
+|WaitingForDataServicesToBeReady|400185|
+|WaitingForAssetsServiceToBeReady|400186|
+|WaitingForStreamsServiceToBeReady|400187|
+|ConfigToolUserNotADomainUser|400188|
+|AssetFrameworkIndexingCompleted|400189|
+|AssetFrameworkIndexingProgress|400190|
+|AssetFrameworkIndexingFailed|400191|
+|BadResponseSendingAFIndexProgress|400192|
+|SentAFIndexProgress|400193|
+|ErrorSendingAFIndexProgress|400194|
+|PossibleDataCorruptionDetected|400195|
+|GotIngressMessage|400196|
+|StreamNotInUpdateContext|400197|
+|AssetFrameworkMismatchedUOM|400198|
+|AssetFrameworkMismatchedUOMSummary|400199|
+|ErrorResolvingPIPointAttributeForAsset|400200|
+|StartedAgent|400201|
+|UnexpectedFatalErrorInSendAgentStatus|400202|
+|UnexpectedErrorSerializingMessage|400203|
+|PIPointWithTypeChangeIgnoredInTransfer|400204|
+|NoValidPIPointsInTransfer|400205|
+|FailedToDeserializeStreamCreationStatus|400206|
+|ConfigToolFailedToLogIntoOCS|400207|
+|ConfigToolFailedToGetTenantId|400208|
+|ConfigToolFailedToGetUserId|400209|
+|ConfigToolFailedToGetRoles|400210|
+|ConfigToolUserLoggedIntoDifferentTenant|400211|
+|ConfigToolUserHasInsufficientOCSPermissions|400212|
+|ConfigToolIEEnhancedSecurityEnabled|400213|
+|ConfigToolWindowsRegisteryError|400214|
+|ConfigToolDAAlreadyRegistered|400215|
+|UnknownObjectInTransferCache|400216|
+|StreamingDataTransferStepCancelled|400217|
+|FailedToRemoveTransferCacheFiles|400218|
+|StartingAgent|400219|
+|EmptyAgentIdDetected|400220|
+|StreamingTransferErrorStatus|400221|
+|PISystemNotOwnedByAgent|400222|
+|ErrorPerformingSimplePIPointDataReferenceCheck|400223|
+|LoggerCreated|400224|
+|ElementFound|400225|
+|PossibleMalformedSubstitution|400226|
+|UnexpectedHttpRequestException|400227|
+|GetPISystemsFromConfigService|400228|
+|GetAgentFromConfigService|400229|
+|GetDataSourcesFromConfigService|400230|
+|DeletePISystemsFromConfigService|400231|
+|UnsupportedRegistrationMessageTypeForAgentVersion|400232|
+|ConfigToolFailedToRetrieveOCSRegisteredDataArchives|400233|
+|ConfigToolFailedToRetrieveAgentInformation|400234|
+|ErrorConnectingToAssetFramework|400235|
+|ConfigToolUserNotAServerAdmin|400236|
+|WarningStreamingFutureData|400237|
+|UnableToSetDefaultPIDataArchive|400238|
+|ConfigToolDetectingNoDataArchives|400239|
+|ConfigToolResolvedDefaultPIServerError|400240|
+|ErrorConnectingToDataArchive|400241|
+|WarningSendingRequestWithNoPartitionKey|400242|
+|WarningSendingRequestWithDefaultPartitionKey|400243|
+|ErrorSettingDesiredStatusInitializing|400244|
+|PointTransferLogEmpty|400245|
+|TransferJobReceivedEditTransferRequest|400246|
+|TransferJobReceivedEditTransferRequestWhileCreatingStreams|400247|
+|TraceProcessingTransferJobRequest|400248|
+|TraceGotTransferJobIdFromConfigService|400249|
+|TraceCreatingHistoricTransferStep|400250|
+|TraceCalculatedTimeContexts|400251|
+|TracePointDataRequestParameters|400252|
+|TracePointTransferLogFlushed|400253|
+|DeleteStreamFromContextPointsNotFound|400254|
+|PIPointAttributeCacheStarted|400255|
+|PIPointAttributeCacheFinished|400256|
+|PIPointAttributeCacheLoadingAttributes|400257|
+|FailedDeletingHealthEvents|400258|
+|StreamCreationForEditTransfer|400259|
+|StreamCreationForEditTransferError|400260|
+|EditTransferFailed|400261|
+|RegisteringServiceType|410000|
+|RegisteredServiceType|410001|
+|FailedToRegisterServiceType|410002|
+|LeavingServiceTypeHostProcess|410003|
+|GenericProvisioningNotificationException|420000|
+|ReceivedRemoveTenantRequest|420001|
+|RemovedTenant|420002|
+|FailedToRemoveTenant|420003|
+|ReceivedDeactivateTenantRequest|420004|
+|DeactivatedTenant|420005|
+|FailedToDeactivateTenant|420006|
+|ReceivedReactivateTenantRequest|420007|
+|ReactivatedTenant|420008|
+|FailedToReactivateTenant|420009|
+|ReceivedCreateNamespaceRequest|420010|
+|CreatedNamespace|420011|
+|FailedToCreateNamespace|420012|
+|ReceivedDeleteNamespaceRequest|420013|
+|DeletedNamespace|420014|
+|FailedToDeleteNamespace|420015|
+|ProvisionerServiceConstructed|420016|
+|ProvisionerServiceBeganRunAsync|420017|
+|StartingProvisioningHandler|420018|
+|StartedProvisioningHandler|420019|
+|FailedToRegisterForProvisioningFromNexus|420020|
+|FailedToRetrieveListOfTenants|420021|
+|IgnoringTenantForProvisioning|420022|
+|FailedToRetrieveNamespacesForTenant|420023|
+|StartingProvisioningForNamespace|420024|
+|FailedToProvisionForNamespace|420025|
+|SFRuntimeRequestedServiceShutdown|420026|
+|ProvisionerServiceShuttingDownDueToUnhandledException|420027|
+|StoppingProvisioningHandler|420028|
+|FailedToStopProvisioningHandler|420029|
+|ProvisionerServiceLeavingRunAsync|420030|
+|ExceptionWhenProvisioningTenant|420031|
+|ExceptionWhenDeprovisioningTenant|420032|
+|IgnoringRequestToProvisionNamespaceResourcesForTenant|420033|
+|ProvisioningProcessorProvisionedResourcesForTenant|420034|
+|NamespaceProvisioningFailed|420035|
+|ProvisioningProcessorDeprovisionedNamespace|420036|
+|NamespaceDeprovisioningFailed|420037|
+|BeganRunningCreateConfigServiceAsync|420038|
+|CreatedConfigService|420039|
+|ConfigServiceAlreadyExistsForNamespace|420040|
+|LeavingCreateConfigServiceAsync|420041|
+|BeganRunningCreateManagementServiceAsync|420042|
+|CreatedManagementService|420043|
+|ManagementServiceAlreadyExistsForNamespace|420044|
+|LeavingCreateManagementServiceAsync|420045|
+|BeganRunningDeleteServiceAsync|420046|
+|DeletedService|420047|
+|UnableToDeleteService|420048|
+|LeavingDeleteServiceAsync|420049|
+|PreviousOperationTaskWasFaulted|420050|
+|FailedToAddOperationForTypeAlreadyActive|420051|
+|OperationNotFoundAmongActiveOperations|420052|
+|OperationCannotBeRemovedSinceNotComplete|420053|
+|OperationFaultedOrCanceled|420054|
+|OperationCannotBeRemovedSinceNotFaulted|420055|
+|OperationWillBeRemovedSinceFaulted|420056|
+|OperationFaulted|420057|
+|StartingProvisioningSynchronizer|420058|
+|FailedToUpdateNamespaceScopedResourcesForAgents|420059|
+|FailedToDeleteNamespaceScopedResourcesForAgents|420060|
+|NotAllNamespaceScopedResourcesFound|420061|
+|FailedCheckingNamespaceScopedResources|420062|
+|InvalidRegionReceivedFromProvisioningNotification|420063|
+|ReceivedUpdateNamespaceRequest|420064|
+|UpdatedNamespace|420065|
+|FailedToUpdateNamespace|420066|
+|ProvisionerServiceClosing|420067|
+|ProvisionerServiceAborting|420068|
+|ProvisionerServiceStartingKestrel|420069|
+|InvalidNamespaceStatusForProvisioningNotification|420070|
+|DataSourceOwnerIsMissing|430000|
+|DataSourceOwnerIsMalformed|430001|
+|RequestContentLengthMismatch|430002|
+|ErrorForwardingLogsFromAgent|430003|
+|ProcessedTransportMessage|430004|
+|ProcessedRequestToPostAsyncForAgent|430005|
+|ErrorSyncingStatusOfAgent|430006|
+|ProcessingAgentSyncRequestWithTransferJobStatus|430007|
+|InformingAgentOfDeletedTransfer|430008|
+|GeneratingAgentUnregisterTransportMessage|430009|
+|AttemptedRegisterWithIncorrectConfig|430010|
+|AttemptedRegisterDeletedAgent|430011|
+|KnownAgentRegisterInvalidDataSource|430012|
+|NewAgentRegisterNonExistentDataSource|430013|
+|ReconnectedRegisteredAgent|430014|
+|PISystemRegisteredToAnotherAgent|430015|
+|PISystemPreviouslySoftDeleted|430016|
+|PISystemNameTooSimilarToRegistered|430017|
+|FailedToStartProvisioningResourcesForAgent|430018|
+|FailedToCompleteProvisioningForAgent|430019|
+|RemovedFaultedProvisioningTaskForAgent|430020|
+|FailedToRemoveFaultedProvisioningTaskForAgent|430021|
+|RegisteredTheAgent|430022|
+|FailedToRemoveAgentProvisioningTaskFromCollection|430023|
+|ProcessingPointQueryResultWithQueryId|430024|
+|FailedToRemovePointQueryForAgent|430025|
+|DeletingTransferWithStatus|430026|
+|FailedToStartDeletingResourcesForAgent|430027|
+|FailedToCompleteDeletionOfResourcesForAgent|430028|
+|FailedToRemoveAgentResourcesDeletingTaskFromCollection|430029|
+|MissingCollectionAclForDataSources|430030|
+|ConfigServiceConstructed|430031|
+|ConfigServiceShuttingDownDueToUnhandledException|430032|
+|ConfigServiceStartingKestrel|430033|
+|ConfigServiceClosing|430034|
+|StartingDeprovisioningAllAgentResources|430035|
+|FinishedDeprovisioningAllAgentResources|430036|
+|AgentResourcesNotDeprovisioned|430037|
+|FinishedDeprovisioningAgentResources|430038|
+|MaintenanceTasksFaulted|430039|
+|AgentResourcesNotProvisioned|430040|
+|FinishedProvisioningAgentResources|430041|
+|FailedToVerifyAgentResourcesConsistent|430042|
+|UpdatedAgentVersionForExistingAgent|430043|
+|FailedToDownloadAgentSetupKit|430044|
+|DataSourceUsedByOtherAgent|430045|
+|FailedToGetAgentSetupKitInfo|430046|
+|DeletedAgentForwardedLogs|430047|
+|FailedToRetrieveTransferMetrics|430048|
+|CreatedDataSource|430049|
+|UpdatedDataSource|430050|
+|DeletedDataSource|430051|
+|OnPremTransferJobStatusChangeDetected|430052|
+|ProcessingQueryResultWithQueryId|430053|
+|FailedToRemoveQueryForAgent|430054|
+|ErrorProcessingAgentCapabilityPublishing|430055|
+|ConfigServiceAborting|430056|
+|ErrorSendingAgentCapabilityUpdates|430057|
+|InitiatingCapabilitySyncRequest|430058|
+|ConfigServiceCapabilitySyncRequest|430059|
+|CapabilitySyncManagerSyncError|430060|
+|CapabilitySyncManagerGetUpdatesError|430061|
+|UpdatedPISystem|430062|
+|UpdatedAgent|430063|
+|AddedQueryToAgentResponseMessages|430064|
+|FailedToAddQueryToAgentResponseMessages|430065|
+|AddedPointQueryToAgentResponseMessages|430066|
+|FailedToAddPointQueryToAgentResponseMessages|430067|
+|PagingRequestOnAgentWithoutSupport|430068|
+|AgentUsedByOtherDataSource|430069|
+|AttemptedRegisterDeprecatedAgent|430070|
+|FailedToRetrieveTunableParameters|430071|
+|FailedToUpdateTransferMetrics|430072|
+|AgentRegisteredWithCapabilities|430073|
+|FailedToPublishCapabilitiesDuringRegistration|430074|
+|NoCapabilitiesReturnedFromRegistration|430075|
+|ErrorUpdatingAgentTransferAssetCreationCounts|430076|
+|ErrorDeletingClient|430077|
+|FailedToReadDataFromOCS|430078|
+|ReadingFromOcs|430079|
+|AssetFrameworkUOMNotInCache|430080|
+|AgentAFReIndexRequested|430081|
+|ErrorGettingFeatureFlagStatus|430082|
+|AgentTransferUpdateErrorBadType|430083|
+|AgentTransferUpdateErrorNullStatus|430084|
+|AgentTransferUpdateErrorEmptyGuid|430085|
+|AgentTransferUpdateErrorAgentRevTooHigh|430086|
+|AgentTransferUpdateTransferUpdateRequested|430087|
+|FailedToRemoveAgentHealthEvents|430088|
+|ErrorWritingDataToEventHub|440000|
+|CreatingStreamsForTransferJob|440001|
+|ErrorCreatingStreamsFromMetadataForTransferJob|440002|
+|FailedToGetStatusForStreamCreationForTransferJob|440003|
+|DeletedCompletedStreamCreationTaskForTransferJob|440004|
+|EventProcessorShuttingDown|440005|
+|SimpleEventProcessorInitialized|440006|
+|EventProcessErrorOnPartition|440007|
+|ProcessSingleEventAsyncFailedDueToUnhandledException|440008|
+|DeserializedDataServiceInitializationData|440009|
+|BuiltEventHubClient|440010|
+|DataServiceConstructed|440011|
+|ExceptionWhileCreatingDataService|440012|
+|DataServiceBeganRunAsync|440013|
+|RegisteredForEventProcessorHost|440014|
+|DataServiceShuttingDownDueToUnhandledException|440015|
+|DataServiceLeavingRunAsync|440016|
+|DataServiceClosing|440017|
+|UnableToUnregisterEventProcessorForEventHub|440018|
+|UnregisteredEventProcessorForEventHub|440019|
+|ExceptionAttemptingUnregisterEventProcessor|440020|
+|ErrorCreatingOrUpdatingMetadataForStream|440021|
+|ErrorCreatingOrUpdatingStream|440022|
+|ErrorWritingEventsForStream|440023|
+|ErrorGettingDataSourceOwner|440024|
+|HttpSdsRequestSinkSendError|440025|
+|ErrorDeserializingMetadataResponseForStream|440026|
+|ErrorDeserializingStreamResponseFromSds|440027|
+|UsingRootManageAccessKeyForEventHub|440028|
+|UsingLowPrivilegeAccessKeysForEventHub|440029|
+|StreamExistsWithADifferentTypeInSDS|440030|
+|DataServiceAborting|440031|
+|DataServiceStartingKestrel|440032|
+|HttpAssetRequestSinkError|440033|
+|DeserializedAssetsServiceInitializationData|440034|
+|AssetsServiceConstructed|440035|
+|ExceptionWhileCreatingAssetsService|440036|
+|AssetsServiceStartingKestrel|440037|
+|AssetsServiceBeganRunAsync|440038|
+|AssetsServiceShuttingDownDueToUnhandledException|440039|
+|AssetsServiceLeavingRunAsync|440040|
+|AssetsServiceClosing|440041|
+|AssetsServiceAborting|440042|
+|DeserializedStreamsServiceInitializationData|440043|
+|StreamsServiceConstructed|440044|
+|ExceptionWhileCreatingStreamsService|440045|
+|StreamsServiceStartingKestrel|440046|
+|StreamsServiceBeganRunAsync|440047|
+|StreamsServiceShuttingDownDueToUnhandledException|440048|
+|StreamsServiceLeavingRunAsync|440049|
+|StreamsServiceClosing|440050|
+|StreamsServiceAborting|440051|
+|AssetsServiceMultiStatusResponse|440052|
+|FailedToCreateOrUpdateAsset|440053|
+|FailedToCreateOrUpdateAssetType|440054|
+|ErrorCreatingAssetsGeneric|440055|
+|ErrorCreatingAssetsDetailed|440056|
+|ExceptionWhileRetrievingAssetsEventHub|440057|
+|IgnoringEvent|440058|
+|UnexpectedErrorInEventHubProcessor|440059|
+|EventHubInitializationData|440060|
+|IgnoringMessage|440061|
+|MessageSentToStreamsService|440062|
+|MessageSentToAssetsService|440063|
+|DataServiceFailedToCreateOrUpdateStream|440064|
+|DataServiceFailedToUpdateStreamMetadata|440065|
+|StreamsServiceFailedToUpdateValuesInSDS|440066|
+|ErrorRetrievingStreamPartitionMapping|440067|
+|WarningNoPartitionIdReceived|440068|
+|WarningEmptyPartitionIdReceived|440069|
+|ResponseInProgressSkipWebExceptionMiddleware|450000|
+|ExceptionHandledByWebExceptionMiddleware|450001|
+|WebExceptionMiddlewareReceivedException|450002|
+|ExceptionStartingProcessOfProvisioningResourcesForAgent|450003|
+|ExceptionStartingAgentDeletion|450004|
+|ExceptionGettingProvisioningStatusForAgent|450005|
+|ExceptionClearingProvisioningStatusForAgent|450006|
+|ErrorCreatingResourcesForAgent|450007|
+|CreateCloudResourcesForAgentCompleted|450008|
+|DeleteCloudResourcesForAgentCompleted|450009|
+|UnexpectedErrorDeletingCloudResourcesForAgent|450010|
+|FoundOrCreatedPIToOcsSdsTypes|450011|
+|EventHubNamespaceAlreadyExistsInAzure|450012|
+|CreatedEventHubNamespace|450013|
+|EventHubNamespaceAlreadyDoesNotExistInAzure|450014|
+|CreatedEventHub|450015|
+|EventHubNamespaceIsNotAccessible|450016|
+|CreatedDataService|450017|
+|DataServiceAlreadyExists|450018|
+|DataServiceForDeletionWasNotFound|450019|
+|DataServiceDeletionWasCanceled|450020|
+|DeletedDataService|450021|
+|SdsTypeNotFound|450022|
+|ErrorCreatingOrUpdatingSdsType|450023|
+|ManagementServiceConstructed|450024|
+|ExceptionCreatingManagementService|450025|
+|ManagementServiceBeganRunAsync|450026|
+|ManagementServiceShuttingDownDueToUnhandledException|450027|
+|ManagementServiceLeavingRunAsync|450028|
+|ManagementServiceClosing|450029|
+|MissingEventHub|450030|
+|MissingEventHubNamespace|450031|
+|ExceptionVerifyingAgentResourcesExists|450032|
+|ExceptionVerifyingAgentResourcesDeleted|450033|
+|AzureSubscriptionFullForEHNamespaces|450034|
+|EHNamespaceCreationFailed|450035|
+|SuccessfulEHNamespaceCleanup|450036|
+|BeginAgentResourceCreateVerification|450037|
+|BeginAgentResourceDeleteVerification|450038|
+|BeginTypeCreateVerification|450039|
+|BeginEventHubNamespaceCreateVerification|450040|
+|BeginEventHubCreateVerification|450041|
+|BeginDataServiceCreateVerification|450042|
+|BeginDataServiceDeleteVerification|450043|
+|BeginEventHubNamespaceDeleteVerification|450044|
+|ManagementServiceAborting|450045|
+|ManagementServiceStartingKestrel|450046|
+|BeginStreamsServiceCreateVerification|450047|
+|CreatedStreamsService|450048|
+|StreamsServiceAlreadyExists|450049|
+|BeginStreamsServiceDeleteVerification|450050|
+|StreamsServiceForDeletionWasNotFound|450051|
+|StreamsServiceDeletionWasCanceled|450052|
+|DeletedStreamsService|450053|
+|BeginAssetsServiceCreateVerification|450054|
+|CreatedAssetsService|450055|
+|AssetsServiceAlreadyExists|450056|
+|BeginAssetsServiceDeleteVerification|450057|
+|AssetsServiceForDeletionWasNotFound|450058|
+|AssetsServiceDeletionWasCanceled|450059|
+|DeletedAssetsService|450060|
+|RetrievingTransferMetrics|450061|
+|UpdatingStreamsTransferMetrics|450062|
+|UpdatingAssetsTransferMetrics|450063|
+|ProvisioningMissingResources|450064|
+|FailedToGetNamespaceLockDuringProvisioning|450065|
+|ProvisioningSynchronizerExiting|450066|
+|ProvisioningSynchronizerUnexpectedException|450067|
+|AssetsTransferSpeedMetric|450068|
+|AssetBulkCreateRequest|450069|
+|AssetCreationRequestReponseStatus|450070|
+|AssetBulkUpdateRequest|450071|
+|AssetUpdateRequestReponseStatus|450072|
+|RetrievedSqlServer|460001|
+|DatabaseAlreadyExists|460002|
+|ErrorCreatingDatabase|460003|
+|ErrorRetrievingDatabase|460004|
+|DatabaseToBeDeletedNotFound|460005|
+|ConfigServiceTerminatingDueToMissingDatabase|460006|
+|UpgradingDatabase|460007|
+|UpgradedDatabase|460008|
+|ErrorUpgradingDatabase|460009|
+|TransportMessageTooLargeForEventHub|460010|
+|TransportMessageSizeMismatch|460011|
+|RetryHandlerRetrying|460012|
+|BeginProvisioningSqlDatabase|460013|
+|SqlDatabaseProvisioningComplete|460014|
+|ErroneousForbiddenExceptionReceivedForIncorrectSqlBackupSettings|460015|
+|RetryableErrorCreatingSqlDatabase|460016|
+|ForbiddenExceptionReceivedForCorrectSqlBackupSettings|460017|
+|ProvisioningAllAgentsResources|460018|
+|FailedProvisioningAllAgentsResources|460019|
+|FailedProvisioningAgentsResources|460020|
+|ErrorCreatingOrUpdatingElasticPool|460021|
+|ErrorRetrievingElasticPool|460022|
+|ErrorDeletingElasticPool|460023|
+|ErrorUpdatingDatabase|460024|
+|ErrorPoolingDatabases|460025|
+
+---
+
+### LogLevel
+
+<a id="schemaloglevel"></a>
+<a id="schema_LogLevel"></a>
+<a id="tocSloglevel"></a>
+<a id="tocsloglevel"></a>
+
+<h4>Enumerated Values</h4>
+
+|Property|Value|
+|---|---|
+|Trace|0|
+|Debug|1|
+|Information|2|
 |Warning|3|
-|Failed|4|
+|Error|4|
+|Critical|5|
+|None|6|
+
+---
+
+### TransferHealthDto
+
+<a id="schematransferhealthdto"></a>
+<a id="schema_TransferHealthDto"></a>
+<a id="tocStransferhealthdto"></a>
+<a id="tocstransferhealthdto"></a>
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|HealthStatus|[ConsolidatedStatus](#schemaconsolidatedstatus)|false|false|None|
+|InternalStatuses|string[]|false|true|None|
+|HealthEvents|[[HealthEventDto](#schemahealtheventdto)]|false|true|None|
+|TransferRevisionNumber|int32|false|false|None|
+|LastEditDate|date-time|false|false|None|
+|LastEditBy|guid|false|false|None|
+
+```json
+{
+  "HealthStatus": 0,
+  "InternalStatuses": [
+    "string"
+  ],
+  "HealthEvents": [
+    {
+      "Id": "string",
+      "TimestampUtc": "2019-08-24T14:15:22Z",
+      "Category": 0,
+      "TransferId": "string",
+      "EventId": 400001,
+      "Severity": 0,
+      "Message": "string",
+      "ContextInformation": "string"
+    }
+  ],
+  "TransferRevisionNumber": 0,
+  "LastEditDate": "2019-08-24T14:15:22Z",
+  "LastEditBy": "string"
+}
+
+```
 
 ---
 
@@ -3487,6 +4575,7 @@ Before making additions or any modifications to this class, please consult the f
 |PIPointIds|[integer]|false|true|None|
 |AFElementIds|string[]|false|true|None|
 |HistoricalDataStartTime|date-time|false|true|None|
+|ExpectedTransferRevisionNumber|int32|false|true|None|
 
 ```json
 {
@@ -3500,7 +4589,8 @@ Before making additions or any modifications to this class, please consult the f
   "AFElementIds": [
     "string"
   ],
-  "HistoricalDataStartTime": "2019-08-24T14:15:22Z"
+  "HistoricalDataStartTime": "2019-08-24T14:15:22Z",
+  "ExpectedTransferRevisionNumber": 0
 }
 
 ```

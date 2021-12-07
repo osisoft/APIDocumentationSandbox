@@ -72,7 +72,10 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/sync/agents
             "TotalAssetsInTransfer": 0
           },
           "Name": "string",
-          "MetadataPrivacy": 0
+          "MetadataPrivacy": 0,
+          "TransferRevisionNumber": 0,
+          "LastEditDate": "2019-08-24T14:15:22Z",
+          "LastEditBy": "string"
         }
       ],
       "AFIndexProgress": 0,
@@ -321,7 +324,10 @@ Allowed for these roles:
           "TotalAssetsInTransfer": 0
         },
         "Name": "string",
-        "MetadataPrivacy": 0
+        "MetadataPrivacy": 0,
+        "TransferRevisionNumber": 0,
+        "LastEditDate": "2019-08-24T14:15:22Z",
+        "LastEditBy": "string"
       }
     ],
     "AFIndexProgress": 0,
@@ -423,7 +429,10 @@ Allowed for these roles:
         "TotalAssetsInTransfer": 0
       },
       "Name": "string",
-      "MetadataPrivacy": 0
+      "MetadataPrivacy": 0,
+      "TransferRevisionNumber": 0,
+      "LastEditDate": "2019-08-24T14:15:22Z",
+      "LastEditBy": "string"
     }
   ],
   "AFIndexProgress": 0,
@@ -458,6 +467,9 @@ Before making additions or any modifications to this class, please consult the f
 |Metrics|[TransferMetricsDto](#schematransfermetricsdto)|false|true|None|
 |Name|string|false|true|None|
 |MetadataPrivacy|[DataPrivacy](#schemadataprivacy)|false|false|None means all metadata is filtered out Low filters all but 3 metadata items Medium only filters out 2 metadata items High means no data is filtered out|
+|TransferRevisionNumber|int32|false|false|None|
+|LastEditDate|date-time|false|false|None|
+|LastEditBy|guid|false|false|None|
 
 ```json
 {
@@ -479,7 +491,10 @@ Before making additions or any modifications to this class, please consult the f
     "TotalAssetsInTransfer": 0
   },
   "Name": "string",
-  "MetadataPrivacy": 0
+  "MetadataPrivacy": 0,
+  "TransferRevisionNumber": 0,
+  "LastEditDate": "2019-08-24T14:15:22Z",
+  "LastEditBy": "string"
 }
 
 ```
