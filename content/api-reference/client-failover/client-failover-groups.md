@@ -238,7 +238,7 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailove
 |---|---|---|
 |204|None|The failover group was deleted.|
 |400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
-|403|None|Request is not authorized.|
+|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
 |404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified identifier was not found.|
 
 ---
