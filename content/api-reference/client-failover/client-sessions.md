@@ -72,7 +72,7 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/>The identifier of the failover group of the new client session.<br/><br/>
+<br/>The identifier of the failover group.<br/><br/>
 
 <h4>Request Body</h4>
 
@@ -81,13 +81,7 @@ The client session being created.<br/>
 ```json
 {
   "Id": "string",
-  "Name": "string",
-  "Role": 0,
-  "Heartbeat": {
-    "FailoverStatus": 0,
-    "LastDataProcessedTime": "2019-08-24T14:15:22Z",
-    "HeartbeatTime": "2019-08-24T14:15:22Z"
-  }
+  "Name": "string"
 }
 ```
 
@@ -185,7 +179,7 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/>The identifier of the failover group of the client session.<br/><br/>`string sessionId`
+<br/>The identifier of the failover group.<br/><br/>`string sessionId`
 <br/>The identifier of the client session.<br/><br/>
 
 <h4>Request Body</h4>
@@ -195,13 +189,7 @@ The client session being created or updated.<br/>
 ```json
 {
   "Id": "string",
-  "Name": "string",
-  "Role": 0,
-  "Heartbeat": {
-    "FailoverStatus": 0,
-    "LastDataProcessedTime": "2019-08-24T14:15:22Z",
-    "HeartbeatTime": "2019-08-24T14:15:22Z"
-  }
+  "Name": "string"
 }
 ```
 
@@ -251,8 +239,8 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailove
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/>The identifier of the failover group having its session deleted<br/><br/>`string sessionId`
-<br/>The identifier of the session being deleted.<br/><br/>
+<br/>The identifier of the failover group.<br/><br/>`string sessionId`
+<br/>The identifier of the client session.<br/><br/>
 
 <h3>Response</h3>
 
@@ -282,8 +270,8 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/>The identifier of the failover group having its heartbeat posted.<br/><br/>`string sessionId`
-<br/>The session identifier of the failover group having its heartbeat posted.<br/><br/>
+<br/>The identifier of the failover group.<br/><br/>`string sessionId`
+<br/>The identifier of the client session.<br/><br/>
 
 <h4>Request Body</h4>
 
@@ -434,25 +422,19 @@ Response error for controller methods.
 <a id="tocSclientsessionconfiguration"></a>
 <a id="tocsclientsessionconfiguration"></a>
 
+Configuration for creating a new client session.
+
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|string|false|true|None|
-|Name|string|false|true|None|
-|Role|[ClientRole](#schemaclientrole)|false|false|None|
-|Heartbeat|[IFailoverHeartbeat](#schemaifailoverheartbeat)|false|true|None|
+|Id|string|false|true|Unique client session identifier|
+|Name|string|false|true|Friendly name of client session.|
 
 ```json
 {
   "Id": "string",
-  "Name": "string",
-  "Role": 0,
-  "Heartbeat": {
-    "FailoverStatus": 0,
-    "LastDataProcessedTime": "2019-08-24T14:15:22Z",
-    "HeartbeatTime": "2019-08-24T14:15:22Z"
-  }
+  "Name": "string"
 }
 
 ```

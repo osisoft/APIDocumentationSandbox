@@ -131,7 +131,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/>The identifier of the failover group configuration being retrieved.<br/><br/>
+<br/>The identifier of the failover group.<br/><br/>
 
 <h3>Response</h3>
 
@@ -174,7 +174,7 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/>The identifier of the failover group being updated.<br/><br/>
+<br/>The identifier of the failover group.<br/><br/>
 
 <h4>Request Body</h4>
 
@@ -230,7 +230,7 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailove
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/>The Id of the failover group being deleted.<br/><br/>
+<br/>The identifier of the failover group.<br/><br/>
 
 <h3>Response</h3>
 
@@ -260,7 +260,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/>The identifier of the failover group to retrieve the status for.<br/><br/>
+<br/>The identifier of the failover group.<br/><br/>
 
 <h3>Response</h3>
 

@@ -23,7 +23,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/>The failover group identifier.<br/><br/>
+<br/>The identifier of the failover group.<br/><br/>
 
 <h3>Response</h3>
 
@@ -73,7 +73,7 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/>The failover group identifier.<br/><br/>
+<br/>The identifier of the failover group.<br/><br/>
 
 <h4>Request Body</h4>
 
