@@ -96,7 +96,7 @@ The new AccessControlList.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|None|
+|204|None|The access control list was updated.|
 |400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
 |403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
 
