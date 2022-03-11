@@ -10,7 +10,7 @@ API for collection access control.
 
 <a id="opIdCollectionAccessControl_Get Collection Acl"></a>
 
-GET /accesscontrol/clientfailover/groups/
+Gets the access control list for the collection.
 
 <h3>Request</h3>
 
@@ -28,8 +28,9 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/cl
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[AccessControlList](#schemaaccesscontrollist)|The result of the GET operation.|
-|403|None|None|
+|200|[AccessControlList](#schemaaccesscontrollist)|The access control list for the collection.|
+|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
+|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
 
 <h4>Example response body</h4>
 
@@ -57,7 +58,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/cl
 
 <a id="opIdCollectionAccessControl_Set Collection Acl"></a>
 
-PUT /accesscontrol/clientfailover/groups/
+Updates the access control list for the collection.
 
 <h3>Request</h3>
 
@@ -95,9 +96,9 @@ The new AccessControlList.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|The result of the PUT operation.|
-|400|[ErrorResponse](#schemaerrorresponse)|None|
-|403|None|None|
+|204|None|None|
+|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
+|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
 
 ---
 ## Definitions

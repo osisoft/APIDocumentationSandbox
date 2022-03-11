@@ -10,7 +10,7 @@ API for Client Failover Group access control.
 
 <a id="opIdGroupAccessControl_Get Group Acl"></a>
 
-GET /clientfailover/groups/{groupId}/accesscontrol
+Gets the access control list for the specified group.
 
 <h3>Request</h3>
 
@@ -29,9 +29,10 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[AccessControlList](#schemaaccesscontrollist)|The result of the GET operation.|
-|403|None|None|
-|404|[ErrorResponse](#schemaerrorresponse)|None|
+|200|[AccessControlList](#schemaaccesscontrollist)|The access control list for the group.|
+|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
+|403|[AccessControlList](#schemaaccesscontrollist)|Request is not authorized.|
+|404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified ID was not found.|
 
 <h4>Example response body</h4>
 
@@ -59,7 +60,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 
 <a id="opIdGroupAccessControl_Set Group Acl"></a>
 
-PUT /clientfailover/groups/{groupId}/accesscontrol
+Updates the access control list for the specified group.
 
 <h3>Request</h3>
 
@@ -98,10 +99,10 @@ The new AccessControlList.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|The result of the PUT operation.|
-|400|[ErrorResponse](#schemaerrorresponse)|None|
-|403|None|None|
-|404|[ErrorResponse](#schemaerrorresponse)|None|
+|204|None|The access control list was updated.|
+|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
+|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
+|404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified ID was not found.|
 
 ---
 ## Definitions
