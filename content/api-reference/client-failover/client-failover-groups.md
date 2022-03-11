@@ -178,7 +178,7 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 
 <h4>Request Body</h4>
 
-The configuration of the failover group being updated.<br/>
+The configuration of the failover group being created or updated.<br/>
 
 ```json
 {
