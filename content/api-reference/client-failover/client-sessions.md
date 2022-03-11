@@ -15,7 +15,7 @@ GET /clientfailover/groups/{groupId}/clientSessions
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/groups/{groupId}/clientSessions
+GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/groups/{groupId}/clientsessions
 ```
 
 <h4>Parameters</h4>
@@ -64,7 +64,7 @@ POST /clientfailover/groups/{groupId}/clientsessions
 <h3>Request</h3>
 
 ```text 
-POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/groups/{groupId}/clientSessions
+POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/groups/{groupId}/clientsessions
 ```
 
 <h4>Parameters</h4>
@@ -129,7 +129,7 @@ GET /clientfailover/groups/{groupId}/clientSessions/{sessionId}
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/groups/{groupId}/clientSessions/{sessionId}
+GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/groups/{groupId}/clientsessions/{sessionId}
 ```
 
 <h4>Parameters</h4>
@@ -177,7 +177,7 @@ PUT /clientfailover/groups/{groupId}/clientsessions/{sessionId}
 <h3>Request</h3>
 
 ```text 
-PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/groups/{groupId}/clientSessions/{sessionId}
+PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/groups/{groupId}/clientsessions/{sessionId}
 ```
 
 <h4>Parameters</h4>
@@ -243,7 +243,7 @@ DELETE /clientfailover/groups/{groupId}/clientsessions/{sessionId}
 <h3>Request</h3>
 
 ```text 
-DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/groups/{groupId}/clientSessions/{sessionId}
+DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/groups/{groupId}/clientsessions/{sessionId}
 ```
 
 <h4>Parameters</h4>
@@ -274,7 +274,7 @@ POST /clientfailover/groups/{groupId}/clientsessions/{sessionId}/heartbeat
 <h3>Request</h3>
 
 ```text 
-POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/groups/{groupId}/clientSessions/{sessionId}/heartbeat
+POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/groups/{groupId}/clientsessions/{sessionId}/heartbeat
 ```
 
 <h4>Parameters</h4>
