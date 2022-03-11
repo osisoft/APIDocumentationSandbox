@@ -28,14 +28,19 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|Inline|The result of the GET operation.|
+|200|[FailoverEndpointInfo](#schemafailoverendpointinfo)|The result of the GET operation.|
+|400|[ErrorResponse](#schemaerrorresponse)|None|
+|403|None|None|
 
-<h3>Authorization</h3>
+<h4>Example response body</h4>
 
-Allowed for these roles: 
-<ul>
-<li>Tenant Member</li>
-</ul>
+> 200 Response ([FailoverEndpointInfo](#schemafailoverendpointinfo))
+
+```json
+{
+  "Version": "string"
+}
+```
 
 ---
 ## Definitions
@@ -47,17 +52,47 @@ Allowed for these roles:
 <a id="tocSfailoverendpointinfo"></a>
 <a id="tocsfailoverendpointinfo"></a>
 
-Information on the Ocs Client Failover application
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Version|string|false|true|None|
+
+```json
+{
+  "Version": "string"
+}
+
+```
+
+---
+
+### ErrorResponse
+
+<a id="schemaerrorresponse"></a>
+<a id="schema_ErrorResponse"></a>
+<a id="tocSerrorresponse"></a>
+<a id="tocserrorresponse"></a>
+
+Response error for controller methods.
 
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Version|string|false|true|Version of the application|
+|OperationId|string|false|true|Operation identifier|
+|Error|string|false|true|Error string|
+|Reason|string|false|true|Error reason string|
+|Resolution|string|false|true|Resolution string|
 
 ```json
 {
-  "Version": "string"
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "property1": null,
+  "property2": null
 }
 
 ```
