@@ -74,7 +74,7 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/cl
 
 <h4>Request Body</h4>
 
-The new AccessControlList.<br/>
+The new access control list.<br/>
 
 ```json
 {
