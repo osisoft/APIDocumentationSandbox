@@ -28,9 +28,9 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[FailoverEndpointInfo](#schemafailoverendpointinfo)|The result of the GET operation.|
-|400|[ErrorResponse](#schemaerrorresponse)|None|
-|403|None|None|
+|200|[FailoverEndpointInfo](#schemafailoverendpointinfo)|The application information.|
+|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
+|403|[FailoverEndpointInfo](#schemafailoverendpointinfo)|Request is not authorized.|
 
 <h4>Example response body</h4>
 
