@@ -4,7 +4,7 @@ uid: ""
 ---
 
 # Group Access Control
-The API controller for group access control.
+API for Client Failover Group access control.
 
 ## `Get Group Acl`
 

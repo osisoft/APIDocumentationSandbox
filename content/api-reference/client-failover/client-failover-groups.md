@@ -4,13 +4,13 @@ uid: ""
 ---
 
 # Client Failover Groups
-The API controller for the failover groups.
+API for Client Failover Groups.
 
 ## `List Group Configurations`
 
 <a id="opIdClientFailoverGroups_List Group Configurations"></a>
 
-GET /clientfailover/groups
+Returns the list of failover groups.
 
 <h3>Request</h3>
 
@@ -25,22 +25,22 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 <br/><br/>`string namespaceId`
 <br/><br/>
 `[optional] integer skip`
-<br/>skip.<br/><br/>`[optional] integer count`
-<br/>count.<br/><br/>
+<br/>The number of items to skip.<br/><br/>`[optional] integer count`
+<br/>The number of items to return.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[GroupConfiguration](#schemagroupconfiguration)[]|The result of the GET operation.|
+|200|[GroupConfiguration](#schemagroupconfiguration)[]|A list of failover groups.|
 |400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
-|403|None|Request is not authorized.|
+|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
 
 <h4>Response Headers</h4>
 
 |Status|Header|Type|Description|
 |---|---|---|---|
-|200|Total-Count|integer|Total number of GroupConfiguration.|
+|200|Total-Count|integer|Total number of failover groups.|
 
 <h4>Example response body</h4>
 
@@ -63,7 +63,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 
 <a id="opIdClientFailoverGroups_Post Group"></a>
 
-POST /clientfailover/groups
+Creates a new failover group.
 
 <h3>Request</h3>
 
@@ -94,10 +94,10 @@ The failover group configuration being added.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|201|[GroupConfiguration](#schemagroupconfiguration)|The result from the POST operation.|
-|400|[ErrorResponse](#schemaerrorresponse)|None|
-|403|None|None|
-|409|[ErrorResponse](#schemaerrorresponse)|None|
+|201|[GroupConfiguration](#schemagroupconfiguration)|The failover group was created.|
+|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
+|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
+|409|[ErrorResponse](#schemaerrorresponse)|A failover group with the same ID already exists.|
 
 <h4>Example response body</h4>
 
@@ -118,7 +118,7 @@ The failover group configuration being added.<br/>
 
 <a id="opIdClientFailoverGroups_Get Group Configuration"></a>
 
-GET /clientfailover/groups/{groupId}
+Gets a failover group by ID.
 
 <h3>Request</h3>
 
@@ -131,16 +131,16 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/>The Id of the failover group configuration being retrieved.<br/><br/>
+<br/>The ID of the failover group configuration being retrieved.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[GroupConfiguration](#schemagroupconfiguration)|The result of the GET operation.|
-|400|[ErrorResponse](#schemaerrorresponse)|None|
-|403|None|None|
-|404|[ErrorResponse](#schemaerrorresponse)|None|
+|200|[GroupConfiguration](#schemagroupconfiguration)|Failover group with the specified ID.|
+|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
+|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
+|404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified ID was not found.|
 
 <h4>Example response body</h4>
 
@@ -196,7 +196,7 @@ The configuration of the failover group being updated.<br/>
 |200|[GroupConfiguration](#schemagroupconfiguration)|The result of the PUT operation.|
 |201|[GroupConfiguration](#schemagroupconfiguration)|The result of the PUT operation.|
 |400|[ErrorResponse](#schemaerrorresponse)|None|
-|403|None|None|
+|403|[ErrorResponse](#schemaerrorresponse)|None|
 
 <h4>Example response body</h4>
 

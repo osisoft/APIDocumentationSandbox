@@ -4,7 +4,7 @@ uid: ""
 ---
 
 # Client Sessions
-The API controller for the client sessions.
+API for Client Sessions.
 
 ## `List Client Sessions`
 

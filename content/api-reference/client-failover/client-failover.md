@@ -4,13 +4,13 @@ uid: ""
 ---
 
 # Client Failover
-The API controller for Client Failover Application information.
+API for Client Failover application information.
 
 ## `Get Information`
 
 <a id="opIdClientFailover_Get Information"></a>
 
-GET /clientfailover
+Gets the Client Failover application information.
 
 <h3>Request</h3>
 

@@ -4,7 +4,7 @@ uid: ""
 ---
 
 # Collection Access Control
-The API controller for Groups Access Control.
+API for collection access control.
 
 ## `Get Collection Acl`
 
