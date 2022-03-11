@@ -161,7 +161,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 
 <a id="opIdClientFailoverGroups_Put Group"></a>
 
-PUT /clientfailover/groups/{groupId}
+Creates or updates a failover group by ID.
 
 <h3>Request</h3>
 
@@ -174,7 +174,7 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/>The Id of the failover group being updated.<br/><br/>
+<br/>The ID of the failover group being updated.<br/><br/>
 
 <h4>Request Body</h4>
 
@@ -193,10 +193,10 @@ The configuration of the failover group being updated.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[GroupConfiguration](#schemagroupconfiguration)|The result of the PUT operation.|
-|201|[GroupConfiguration](#schemagroupconfiguration)|The result of the PUT operation.|
-|400|[ErrorResponse](#schemaerrorresponse)|None|
-|403|[ErrorResponse](#schemaerrorresponse)|None|
+|200|[GroupConfiguration](#schemagroupconfiguration)|The failover group was updated.|
+|201|[GroupConfiguration](#schemagroupconfiguration)|The failover group was created.|
+|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
+|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
 
 <h4>Example response body</h4>
 
@@ -217,7 +217,7 @@ The configuration of the failover group being updated.<br/>
 
 <a id="opIdClientFailoverGroups_Delete Group"></a>
 
-DELETE /clientfailover/groups/{groupId}
+Deletes a failover group by ID.
 
 <h3>Request</h3>
 
@@ -236,10 +236,10 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailove
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|The result of the DELETE operation.|
-|400|[ErrorResponse](#schemaerrorresponse)|None|
-|403|None|None|
-|404|[ErrorResponse](#schemaerrorresponse)|None|
+|204|None|The failover group was deleted.|
+|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
+|403|None|Request is not authorized.|
+|404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified ID was not found.|
 
 ---
 
@@ -247,7 +247,7 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailove
 
 <a id="opIdClientFailoverGroups_Get Group Status"></a>
 
-GET /clientfailover/groups/{groupid}/status
+Gets the failover group status.
 
 <h3>Request</h3>
 
@@ -260,13 +260,28 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/>The Id of the failover group configuration being retrieved.<br/><br/>
+<br/>The ID of the failover group to retrieve the status for.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|Inline|The result of the GET operation.|
+|200|[IGroupStatus](#schemaigroupstatus)|The failover group status.|
+|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
+|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
+|404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified ID was not found.|
+
+<h4>Example response body</h4>
+
+> 200 Response ([IGroupStatus](#schemaigroupstatus))
+
+```json
+{
+  "Primary": "string",
+  "PendingPrimary": "string",
+  "LastDataProcessedTime": "2019-08-24T14:15:22Z"
+}
+```
 
 ---
 ## Definitions

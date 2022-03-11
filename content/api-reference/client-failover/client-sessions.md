@@ -427,6 +427,38 @@ Response error for controller methods.
 
 ---
 
+### ClientSessionConfiguration
+
+<a id="schemaclientsessionconfiguration"></a>
+<a id="schema_ClientSessionConfiguration"></a>
+<a id="tocSclientsessionconfiguration"></a>
+<a id="tocsclientsessionconfiguration"></a>
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|string|false|true|None|
+|Name|string|false|true|None|
+|Role|[ClientRole](#schemaclientrole)|false|false|None|
+|Heartbeat|[IFailoverHeartbeat](#schemaifailoverheartbeat)|false|true|None|
+
+```json
+{
+  "Id": "string",
+  "Name": "string",
+  "Role": 0,
+  "Heartbeat": {
+    "FailoverStatus": 0,
+    "LastDataProcessedTime": "2019-08-24T14:15:22Z",
+    "HeartbeatTime": "2019-08-24T14:15:22Z"
+  }
+}
+
+```
+
+---
+
 ### FailoverResponse
 
 <a id="schemafailoverresponse"></a>
