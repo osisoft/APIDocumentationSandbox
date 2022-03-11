@@ -10,7 +10,7 @@ API for Client Sessions.
 
 <a id="opIdClientSessions_List Client Sessions"></a>
 
-GET /clientfailover/groups/{groupId}/clientSessions
+Returns the list of client sessions belonging to the specified group.
 
 <h3>Request</h3>
 
@@ -23,16 +23,16 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/>The Id of the failover group.<br/><br/>
+<br/>The ID of the failover group.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSession](#schemaclientsession)[]|The response from the GET operation.|
-|400|[ErrorResponse](#schemaerrorresponse)|None|
-|403|None|None|
-|404|[ErrorResponse](#schemaerrorresponse)|None|
+|200|[ClientSession](#schemaclientsession)[]|A list of client sessions.|
+|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
+|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
+|404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified ID was not found.|
 
 <h4>Example response body</h4>
 
@@ -59,7 +59,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 
 <a id="opIdClientSessions_Post Client Session"></a>
 
-POST /clientfailover/groups/{groupId}/clientsessions
+Creates a new client session in the specified group.
 
 <h3>Request</h3>
 
@@ -72,11 +72,11 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/>The Id of the failover group having its client sessions posted.<br/><br/>
+<br/>The ID of the failover group of the new client session.<br/><br/>
 
 <h4>Request Body</h4>
 
-The client session being posted.<br/>
+The client session being created.<br/>
 
 ```json
 {
@@ -95,11 +95,11 @@ The client session being posted.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|201|[ClientSession](#schemaclientsession)|The result from the POST operation.|
-|400|[ErrorResponse](#schemaerrorresponse)|None|
-|403|None|None|
-|404|[ErrorResponse](#schemaerrorresponse)|None|
-|409|[ErrorResponse](#schemaerrorresponse)|None|
+|201|[ClientSession](#schemaclientsession)|None|
+|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
+|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
+|404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified ID was not found.|
+|409|[ErrorResponse](#schemaerrorresponse)|A client session with the same ID already exists.|
 
 <h4>Example response body</h4>
 
@@ -124,7 +124,7 @@ The client session being posted.<br/>
 
 <a id="opIdClientSessions_Get Client Session"></a>
 
-GET /clientfailover/groups/{groupId}/clientSessions/{sessionId}
+Gets a client session by ID.
 
 <h3>Request</h3>
 
@@ -137,17 +137,17 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/>The Id of the failover group.<br/><br/>`string sessionId`
-<br/>The Id of the client session.<br/><br/>
+<br/>The ID of the failover group.<br/><br/>`string sessionId`
+<br/>The ID of the client session.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSession](#schemaclientsession)|The response from the GET operation.|
-|400|[ErrorResponse](#schemaerrorresponse)|None|
-|403|None|None|
-|404|[ErrorResponse](#schemaerrorresponse)|None|
+|200|[ClientSession](#schemaclientsession)|Client session with the specified ID.|
+|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
+|403|[ClientSession](#schemaclientsession)|Request is not authorized.|
+|404|[ErrorResponse](#schemaerrorresponse)|A failover group or client session with the specified ID was not found.|
 
 <h4>Example response body</h4>
 
@@ -172,7 +172,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 
 <a id="opIdClientSessions_Put Client Session"></a>
 
-PUT /clientfailover/groups/{groupId}/clientsessions/{sessionId}
+Creates or updates a client session by ID.
 
 <h3>Request</h3>
 
@@ -185,12 +185,12 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/>The Id of the failover group.<br/><br/>`string sessionId`
-<br/>The Id of the client session.<br/><br/>
+<br/>The ID of the failover group of the client session.<br/><br/>`string sessionId`
+<br/>The ID of the client session.<br/><br/>
 
 <h4>Request Body</h4>
 
-The client session updates.<br/>
+The client session being created or updated.<br/>
 
 ```json
 {
@@ -209,11 +209,11 @@ The client session updates.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSession](#schemaclientsession)|The response from the PUT operation.|
-|201|[ClientSession](#schemaclientsession)|The response from the PUT operation.|
-|400|[ErrorResponse](#schemaerrorresponse)|None|
-|403|None|None|
-|404|[ErrorResponse](#schemaerrorresponse)|None|
+|200|[ClientSession](#schemaclientsession)|The client session was updated.|
+|201|[ClientSession](#schemaclientsession)|The client session was created.|
+|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
+|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
+|404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified ID was not found.|
 
 <h4>Example response body</h4>
 
@@ -238,7 +238,7 @@ The client session updates.<br/>
 
 <a id="opIdClientSessions_Delete Client Session"></a>
 
-DELETE /clientfailover/groups/{groupId}/clientsessions/{sessionId}
+Deletes a client session by ID.
 
 <h3>Request</h3>
 
@@ -251,17 +251,17 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailove
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/>The Id of the failover group having its session deleted<br/><br/>`string sessionId`
-<br/>The Id of the session being deleted.<br/><br/>
+<br/>The ID of the failover group having its session deleted<br/><br/>`string sessionId`
+<br/>The ID of the session being deleted.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|The result of the DELETE operation.|
-|400|[ErrorResponse](#schemaerrorresponse)|None|
-|403|None|None|
-|404|[ErrorResponse](#schemaerrorresponse)|None|
+|204|None|The client session was deleted.|
+|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
+|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
+|404|[ErrorResponse](#schemaerrorresponse)|A failover group or client session with the specified ID was not found.|
 
 ---
 
@@ -269,7 +269,7 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailove
 
 <a id="opIdClientSessions_Post Heartbeat Message"></a>
 
-POST /clientfailover/groups/{groupId}/clientsessions/{sessionId}/heartbeat
+Posts a heartbeat to the client session.
 
 <h3>Request</h3>
 
@@ -282,12 +282,12 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/>The Id of the failover group having its heartbeat posted.<br/><br/>`string sessionId`
-<br/>The session Id of the failover group having its heartbeat posted.<br/><br/>
+<br/>The ID of the failover group having its heartbeat posted.<br/><br/>`string sessionId`
+<br/>The session ID of the failover group having its heartbeat posted.<br/><br/>
 
 <h4>Request Body</h4>
 
-The heartbeat of the failover group.<br/>
+The heartbeat of the client session.<br/>
 
 ```json
 {
@@ -301,10 +301,10 @@ The heartbeat of the failover group.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[FailoverResponse](#schemafailoverresponse)|The result from the POST operation.|
-|400|[ErrorResponse](#schemaerrorresponse)|None|
-|403|None|None|
-|404|[ErrorResponse](#schemaerrorresponse)|None|
+|200|[FailoverResponse](#schemafailoverresponse)|The failover response.|
+|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
+|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
+|404|[ErrorResponse](#schemaerrorresponse)|A failover group or client session with the specified ID was not found.|
 
 <h4>Example response body</h4>
 
