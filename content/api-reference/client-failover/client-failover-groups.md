@@ -97,7 +97,7 @@ The failover group configuration being added.<br/>
 |201|[GroupConfiguration](#schemagroupconfiguration)|The failover group was created.|
 |400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
 |403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
-|409|[ErrorResponse](#schemaerrorresponse)|A failover group with the same ID already exists.|
+|409|[ErrorResponse](#schemaerrorresponse)|A failover group with the same identifier already exists.|
 
 <h4>Example response body</h4>
 
@@ -118,7 +118,7 @@ The failover group configuration being added.<br/>
 
 <a id="opIdClientFailoverGroups_Get Group Configuration"></a>
 
-Gets a failover group by ID.
+Gets a failover group by identifier.
 
 <h3>Request</h3>
 
@@ -131,16 +131,16 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/>The ID of the failover group configuration being retrieved.<br/><br/>
+<br/>The identifier of the failover group configuration being retrieved.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[GroupConfiguration](#schemagroupconfiguration)|Failover group with the specified ID.|
+|200|[GroupConfiguration](#schemagroupconfiguration)|Failover group with the specified identifier.|
 |400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
 |403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
-|404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified ID was not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified identifier was not found.|
 
 <h4>Example response body</h4>
 
@@ -161,7 +161,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 
 <a id="opIdClientFailoverGroups_Put Group"></a>
 
-Creates or updates a failover group by ID.
+Creates or updates a failover group by identifier.
 
 <h3>Request</h3>
 
@@ -174,7 +174,7 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/>The ID of the failover group being updated.<br/><br/>
+<br/>The identifier of the failover group being updated.<br/><br/>
 
 <h4>Request Body</h4>
 
@@ -217,7 +217,7 @@ The configuration of the failover group being updated.<br/>
 
 <a id="opIdClientFailoverGroups_Delete Group"></a>
 
-Deletes a failover group by ID.
+Deletes a failover group by identifier.
 
 <h3>Request</h3>
 
@@ -239,7 +239,7 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailove
 |204|None|The failover group was deleted.|
 |400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
 |403|None|Request is not authorized.|
-|404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified ID was not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified identifier was not found.|
 
 ---
 
@@ -260,7 +260,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/>The ID of the failover group to retrieve the status for.<br/><br/>
+<br/>The identifier of the failover group to retrieve the status for.<br/><br/>
 
 <h3>Response</h3>
 
@@ -269,7 +269,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 |200|[IGroupStatus](#schemaigroupstatus)|The failover group status.|
 |400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
 |403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
-|404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified ID was not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified identifier was not found.|
 
 <h4>Example response body</h4>
 

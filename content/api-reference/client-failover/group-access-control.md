@@ -23,7 +23,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/>The failover group ID.<br/><br/>
+<br/>The failover group identifier.<br/><br/>
 
 <h3>Response</h3>
 
@@ -32,7 +32,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 |200|[AccessControlList](#schemaaccesscontrollist)|The access control list for the group.|
 |400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
 |403|[AccessControlList](#schemaaccesscontrollist)|Request is not authorized.|
-|404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified ID was not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified identifier was not found.|
 
 <h4>Example response body</h4>
 
@@ -73,7 +73,7 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/>The failover group ID.<br/><br/>
+<br/>The failover group identifier.<br/><br/>
 
 <h4>Request Body</h4>
 
@@ -102,7 +102,7 @@ The new AccessControlList.<br/>
 |204|None|The access control list was updated.|
 |400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
 |403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
-|404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified ID was not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified identifier was not found.|
 
 ---
 ## Definitions

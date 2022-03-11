@@ -30,7 +30,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover
 |---|---|---|
 |200|[FailoverEndpointInfo](#schemafailoverendpointinfo)|The application information.|
 |400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
-|403|[FailoverEndpointInfo](#schemafailoverendpointinfo)|Request is not authorized.|
+|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
 
 <h4>Example response body</h4>
 
