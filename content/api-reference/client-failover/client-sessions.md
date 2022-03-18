@@ -55,65 +55,6 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 
 ---
 
-## `Post Client Session`
-
-<a id="opIdClientSessions_Post Client Session"></a>
-
-Creates a new client session in the specified group.
-
-<h3>Request</h3>
-
-```text 
-POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/groups/{groupId}/clientsessions
-```
-
-<h4>Parameters</h4>
-
-`string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string groupId`
-<br/>The identifier of the failover group.<br/><br/>
-
-<h4>Request Body</h4>
-
-The client session being created.<br/>
-
-```json
-{
-  "Id": "string",
-  "Name": "string"
-}
-```
-
-<h3>Response</h3>
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|201|[ClientSession](#schemaclientsession)|None|
-|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
-|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
-|404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified identifier was not found.|
-|409|[ErrorResponse](#schemaerrorresponse)|A client session with the same identifier already exists.|
-
-<h4>Example response body</h4>
-
-> 201 Response ([ClientSession](#schemaclientsession))
-
-```json
-{
-  "Id": "string",
-  "Name": "string",
-  "Role": 0,
-  "Heartbeat": {
-    "FailoverStatus": 0,
-    "LastDataProcessedTime": "2019-08-24T14:15:22Z",
-    "HeartbeatTime": "2019-08-24T14:15:22Z"
-  }
-}
-```
-
----
-
 ## `Get Client Session`
 
 <a id="opIdClientSessions_Get Client Session"></a>
@@ -140,7 +81,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 |---|---|---|
 |200|[ClientSession](#schemaclientsession)|Client session with the specified identifier.|
 |400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
-|403|[ClientSession](#schemaclientsession)|Request is not authorized.|
+|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
 |404|[ErrorResponse](#schemaerrorresponse)|A failover group or client session with the specified identifier was not found.|
 
 <h4>Example response body</h4>

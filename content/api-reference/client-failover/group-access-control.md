@@ -31,7 +31,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 |---|---|---|
 |200|[AccessControlList](#schemaaccesscontrollist)|The access control list for the group.|
 |400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
-|403|[AccessControlList](#schemaaccesscontrollist)|Request is not authorized.|
+|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
 |404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified identifier was not found.|
 
 <h4>Example response body</h4>
