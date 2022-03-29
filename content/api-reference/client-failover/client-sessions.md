@@ -42,6 +42,24 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 [
   {
     "Id": "string",
+    "AccessControl": {
+      "RoleTrusteeAccessControlEntries": [
+        {
+          "Trustee": {
+            "Type": 1,
+            "ObjectId": "string",
+            "TenantId": "string"
+          },
+          "AccessType": 0,
+          "AccessRights": 0
+        }
+      ]
+    },
+    "Owner": {
+      "Type": 1,
+      "ObjectId": "string",
+      "TenantId": "string"
+    },
     "Name": "string",
     "Role": 0,
     "Heartbeat": {
@@ -91,6 +109,24 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 ```json
 {
   "Id": "string",
+  "AccessControl": {
+    "RoleTrusteeAccessControlEntries": [
+      {
+        "Trustee": {
+          "Type": 1,
+          "ObjectId": "string",
+          "TenantId": "string"
+        },
+        "AccessType": 0,
+        "AccessRights": 0
+      }
+    ]
+  },
+  "Owner": {
+    "Type": 1,
+    "ObjectId": "string",
+    "TenantId": "string"
+  },
   "Name": "string",
   "Role": 0,
   "Heartbeat": {
@@ -151,6 +187,24 @@ The client session being created or updated.<br/>
 ```json
 {
   "Id": "string",
+  "AccessControl": {
+    "RoleTrusteeAccessControlEntries": [
+      {
+        "Trustee": {
+          "Type": 1,
+          "ObjectId": "string",
+          "TenantId": "string"
+        },
+        "AccessType": 0,
+        "AccessRights": 0
+      }
+    ]
+  },
+  "Owner": {
+    "Type": 1,
+    "ObjectId": "string",
+    "TenantId": "string"
+  },
   "Name": "string",
   "Role": 0,
   "Heartbeat": {
@@ -261,6 +315,8 @@ The heartbeat of the client session.<br/>
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
 |Id|string|false|true|None|
+|AccessControl|[AccessControlList](#schemaaccesscontrollist)|false|true|None|
+|Owner|[Trustee](#schematrustee)|false|true|None|
 |Name|string|false|true|None|
 |Role|[ClientRole](#schemaclientrole)|false|false|None|
 |Heartbeat|[IFailoverHeartbeat](#schemaifailoverheartbeat)|false|true|None|
@@ -268,6 +324,24 @@ The heartbeat of the client session.<br/>
 ```json
 {
   "Id": "string",
+  "AccessControl": {
+    "RoleTrusteeAccessControlEntries": [
+      {
+        "Trustee": {
+          "Type": 1,
+          "ObjectId": "string",
+          "TenantId": "string"
+        },
+        "AccessType": 0,
+        "AccessRights": 0
+      }
+    ]
+  },
+  "Owner": {
+    "Type": 1,
+    "ObjectId": "string",
+    "TenantId": "string"
+  },
   "Name": "string",
   "Role": 0,
   "Heartbeat": {
@@ -278,6 +352,127 @@ The heartbeat of the client session.<br/>
 }
 
 ```
+
+---
+
+### AccessControlList
+
+<a id="schemaaccesscontrollist"></a>
+<a id="schema_AccessControlList"></a>
+<a id="tocSaccesscontrollist"></a>
+<a id="tocsaccesscontrollist"></a>
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|RoleTrusteeAccessControlEntries|[[AccessControlEntry](#schemaaccesscontrolentry)]|false|true|None|
+
+```json
+{
+  "RoleTrusteeAccessControlEntries": [
+    {
+      "Trustee": {
+        "Type": 1,
+        "ObjectId": "string",
+        "TenantId": "string"
+      },
+      "AccessType": 0,
+      "AccessRights": 0
+    }
+  ]
+}
+
+```
+
+---
+
+### AccessControlEntry
+
+<a id="schemaaccesscontrolentry"></a>
+<a id="schema_AccessControlEntry"></a>
+<a id="tocSaccesscontrolentry"></a>
+<a id="tocsaccesscontrolentry"></a>
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Trustee|[Trustee](#schematrustee)|false|true|None|
+|AccessType|[AccessType](#schemaaccesstype)|false|false|None|
+|AccessRights|int64|false|false|None|
+
+```json
+{
+  "Trustee": {
+    "Type": 1,
+    "ObjectId": "string",
+    "TenantId": "string"
+  },
+  "AccessType": 0,
+  "AccessRights": 0
+}
+
+```
+
+---
+
+### Trustee
+
+<a id="schematrustee"></a>
+<a id="schema_Trustee"></a>
+<a id="tocStrustee"></a>
+<a id="tocstrustee"></a>
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Type|[TrusteeType](#schematrusteetype)|false|false|None|
+|ObjectId|string|false|true|None|
+|TenantId|string|false|true|None|
+
+```json
+{
+  "Type": 1,
+  "ObjectId": "string",
+  "TenantId": "string"
+}
+
+```
+
+---
+
+### TrusteeType
+
+<a id="schematrusteetype"></a>
+<a id="schema_TrusteeType"></a>
+<a id="tocStrusteetype"></a>
+<a id="tocstrusteetype"></a>
+
+<h4>Enumerated Values</h4>
+
+|Property|Value|
+|---|---|
+|User|1|
+|Client|2|
+|Role|3|
+
+---
+
+### AccessType
+
+<a id="schemaaccesstype"></a>
+<a id="schema_AccessType"></a>
+<a id="tocSaccesstype"></a>
+<a id="tocsaccesstype"></a>
+
+<h4>Enumerated Values</h4>
+
+|Property|Value|
+|---|---|
+|Allowed|0|
+|Denied|1|
 
 ---
 
@@ -341,6 +536,7 @@ Response error for controller methods.
 |Error|string|false|true|Error string|
 |Reason|string|false|true|Error reason string|
 |Resolution|string|false|true|Resolution string|
+|AdditionalParameters|object|false|true|Additional parameters to add to the response.|
 
 ```json
 {
@@ -348,6 +544,10 @@ Response error for controller methods.
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "AdditionalParameters": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }

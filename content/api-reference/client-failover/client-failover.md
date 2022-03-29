@@ -84,6 +84,7 @@ Response error for controller methods.
 |Error|string|false|true|Error string|
 |Reason|string|false|true|Error reason string|
 |Resolution|string|false|true|Resolution string|
+|AdditionalParameters|object|false|true|Additional parameters to add to the response.|
 
 ```json
 {
@@ -91,6 +92,10 @@ Response error for controller methods.
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "AdditionalParameters": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }
