@@ -216,7 +216,7 @@ List of capabilities being published.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|No Content - the capabilities published by the agent specified by `agentId` have been received and cached.|
+|204|None|The capabilities published by the agent specified by `agentId` have been received and cached.|
 |401|None|Unauthorized|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
 
@@ -252,7 +252,7 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/sync/{agentId}/logs
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|No content - log messages from the specified on-prem `agentId` have been forwarded to Application Insights.|
+|204|None|Log messages from the specified on-prem `agentId` have been forwarded to Application Insights.|
 |401|None|Unauthorized|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
 
@@ -311,7 +311,7 @@ Allowed for these roles:
 <a id="tocSagentdto"></a>
 <a id="tocsagentdto"></a>
 
-Data Transfer Object for an Agent Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object for an Agent. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -323,11 +323,11 @@ Data Transfer Object for an Agent Before making additions or any modifications t
 |Status|[AgentStatus](#schemaagentstatus)|false|false|None|
 |Description|string|false|true|None|
 |HostName|string|false|true|None|
-|PISystem|[PISystemDto](#schemapisystemdto)|false|true|Data Transfer Object for a PI System Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability|
+|PISystem|[PISystemDto](#schemapisystemdto)|false|true|Data Transfer Object for a PI System. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability|
 |Namespace|string|false|true|None|
 |Region|string|false|true|None|
 |IsDeprecated|boolean|false|false|None|
-|TransferMetrics|[TransferMetricsDto](#schematransfermetricsdto)|false|true|Data Transfer Object for tracking metrics of a Transfer Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability|
+|TransferMetrics|[TransferMetricsDto](#schematransfermetricsdto)|false|true|Data Transfer Object for tracking metrics of a Transfer. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability|
 
 ```json
 {
@@ -471,7 +471,7 @@ Data Transfer Object for an Agent Before making additions or any modifications t
 <a id="tocSpisystemdto"></a>
 <a id="tocspisystemdto"></a>
 
-Data Transfer Object for a PI System Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object for a PI System. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -484,7 +484,7 @@ Data Transfer Object for a PI System Before making additions or any modification
 |AFName|string|false|true|None|
 |AFVersion|string|false|true|None|
 |LastCommunicationTime|date-time|false|false|None|
-|Transfers|[[TransferSummaryDto](#schematransfersummarydto)]|false|true|[Data Transfer Object summarizing a Transfer Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability]|
+|Transfers|[[TransferSummaryDto](#schematransfersummarydto)]|false|true|[Data Transfer Object summarizing a Transfer. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability]|
 |AFIndexProgress|[AFIndexProgress](#schemaafindexprogress)|false|false|None|
 |PIPointCacheProgress|[PIPointAttributeCacheProgress](#schemapipointattributecacheprogress)|false|false|None|
 |ElementsIndexed|int64|false|false|None|
@@ -577,7 +577,7 @@ Data Transfer Object for a PI System Before making additions or any modification
 <a id="tocStransfersummarydto"></a>
 <a id="tocstransfersummarydto"></a>
 
-Data Transfer Object summarizing a Transfer Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object summarizing a Transfer. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -590,7 +590,7 @@ Data Transfer Object summarizing a Transfer Before making additions or any modif
 |LatestStreamingRead|date-time|false|false|None|
 |OnPremTransferStatus|[TransferJobStatus](#schematransferjobstatus)|false|false|None|
 |PIPointCount|int32|false|false|None|
-|Metrics|[TransferMetricsDto](#schematransfermetricsdto)|false|true|Data Transfer Object for tracking metrics of a Transfer Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability|
+|Metrics|[TransferMetricsDto](#schematransfermetricsdto)|false|true|Data Transfer Object for tracking metrics of a Transfer. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability|
 |Name|string|false|true|None|
 |MetadataPrivacy|[DataPrivacy](#schemadataprivacy)|false|false|None means all metadata is filtered out. Low filters all but 3 metadata items. Medium only filters out 2 metadata items. High means no data is filtered out.|
 |TransferRevisionNumber|int32|false|false|None|
@@ -718,7 +718,7 @@ Data Transfer Object summarizing a Transfer Before making additions or any modif
 <a id="tocStransfermetricsdto"></a>
 <a id="tocstransfermetricsdto"></a>
 
-Data Transfer Object for tracking metrics of a Transfer Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object for tracking metrics of a Transfer. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 

@@ -95,7 +95,7 @@ The new Access Control List that the DataSources collection will be updated with
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|The Datasources collection Access Control List has been updated with `newAccessControlList`.|
+|204|None|The Datasources collection `AccessControlList` has been updated with `newAccessControlList`.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
 
@@ -195,7 +195,7 @@ The new Access Control List that the specified DataSource will be updated with.<
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|No Content - the Access Control List for the DataSource specified by `dataSourceId` has been updated with `newAcl`.|
+|204|None|The `AccessControlList` for the DataSource specified by `dataSourceId` has been updated with `newAcl`.|
 |401|None|Unauthorized|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
 |404|[ErrorResponse](#schemaerrorresponse)|Not Found|
@@ -281,7 +281,7 @@ The new Owner that the specified DataSource will be updated with.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|No Content - the Owner for the DataSource specified by `dataSourceId` has been updated with `newOwner`.|
+|204|None|The Owner for the DataSource specified by `dataSourceId` has been updated with `newOwner`.|
 |401|None|Unauthorized|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
 |404|[ErrorResponse](#schemaerrorresponse)|Not Found|

@@ -3563,7 +3563,7 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSou
 <a id="tocSdatasourcedto"></a>
 <a id="tocsdatasourcedto"></a>
 
-Data Transfer Object for a Data Source Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object for a Data Source. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -3574,7 +3574,7 @@ Data Transfer Object for a Data Source Before making additions or any modificati
 |Description|string|false|true|None|
 |TenantId|guid|false|false|None|
 |OcsNamespace|string|false|true|None|
-|Agent|[AgentDto](#schemaagentdto)|false|true|Data Transfer Object for an Agent Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability|
+|Agent|[AgentDto](#schemaagentdto)|false|true|Data Transfer Object for an Agent. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability|
 
 ```json
 {
@@ -3701,7 +3701,7 @@ Data Transfer Object for a Data Source Before making additions or any modificati
 <a id="tocSagentdto"></a>
 <a id="tocsagentdto"></a>
 
-Data Transfer Object for an Agent Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object for an Agent. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -3713,11 +3713,11 @@ Data Transfer Object for an Agent Before making additions or any modifications t
 |Status|[AgentStatus](#schemaagentstatus)|false|false|None|
 |Description|string|false|true|None|
 |HostName|string|false|true|None|
-|PISystem|[PISystemDto](#schemapisystemdto)|false|true|Data Transfer Object for a PI System Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability|
+|PISystem|[PISystemDto](#schemapisystemdto)|false|true|Data Transfer Object for a PI System. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability|
 |Namespace|string|false|true|None|
 |Region|string|false|true|None|
 |IsDeprecated|boolean|false|false|None|
-|TransferMetrics|[TransferMetricsDto](#schematransfermetricsdto)|false|true|Data Transfer Object for tracking metrics of a Transfer Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability|
+|TransferMetrics|[TransferMetricsDto](#schematransfermetricsdto)|false|true|Data Transfer Object for tracking metrics of a Transfer. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability|
 
 ```json
 {
@@ -3861,7 +3861,7 @@ Data Transfer Object for an Agent Before making additions or any modifications t
 <a id="tocSpisystemdto"></a>
 <a id="tocspisystemdto"></a>
 
-Data Transfer Object for a PI System Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object for a PI System. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -3874,7 +3874,7 @@ Data Transfer Object for a PI System Before making additions or any modification
 |AFName|string|false|true|None|
 |AFVersion|string|false|true|None|
 |LastCommunicationTime|date-time|false|false|None|
-|Transfers|[[TransferSummaryDto](#schematransfersummarydto)]|false|true|[Data Transfer Object summarizing a Transfer Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability]|
+|Transfers|[[TransferSummaryDto](#schematransfersummarydto)]|false|true|[Data Transfer Object summarizing a Transfer. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability]|
 |AFIndexProgress|[AFIndexProgress](#schemaafindexprogress)|false|false|None|
 |PIPointCacheProgress|[PIPointAttributeCacheProgress](#schemapipointattributecacheprogress)|false|false|None|
 |ElementsIndexed|int64|false|false|None|
@@ -3967,7 +3967,7 @@ Data Transfer Object for a PI System Before making additions or any modification
 <a id="tocStransfersummarydto"></a>
 <a id="tocstransfersummarydto"></a>
 
-Data Transfer Object summarizing a Transfer Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object summarizing a Transfer. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -3980,7 +3980,7 @@ Data Transfer Object summarizing a Transfer Before making additions or any modif
 |LatestStreamingRead|date-time|false|false|None|
 |OnPremTransferStatus|[TransferJobStatus](#schematransferjobstatus)|false|false|None|
 |PIPointCount|int32|false|false|None|
-|Metrics|[TransferMetricsDto](#schematransfermetricsdto)|false|true|Data Transfer Object for tracking metrics of a Transfer Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability|
+|Metrics|[TransferMetricsDto](#schematransfermetricsdto)|false|true|Data Transfer Object for tracking metrics of a Transfer. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability|
 |Name|string|false|true|None|
 |MetadataPrivacy|[DataPrivacy](#schemadataprivacy)|false|false|None means all metadata is filtered out. Low filters all but 3 metadata items. Medium only filters out 2 metadata items. High means no data is filtered out.|
 |TransferRevisionNumber|int32|false|false|None|
@@ -4108,7 +4108,7 @@ Data Transfer Object summarizing a Transfer Before making additions or any modif
 <a id="tocStransfermetricsdto"></a>
 <a id="tocstransfermetricsdto"></a>
 
-Data Transfer Object for tracking metrics of a Transfer Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object for tracking metrics of a Transfer. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -4396,15 +4396,15 @@ None means all metadata is filtered out. Low filters all but 3 metadata items. M
 <a id="tocSagentstatusdto"></a>
 <a id="tocsagentstatusdto"></a>
 
-Data Transfer Object for different aspects of an Agent's status Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object for different aspects of an Agent's status. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Agent|[HealthDto](#schemahealthdto)|false|true|Data Transfer Object for Health information Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability|
+|Agent|[HealthDto](#schemahealthdto)|false|true|Data Transfer Object for Health information. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability|
 |AFIndexing|[HealthDto](#schemahealthdto)|false|true|Status of any/all indexing tasks of the Agent (e.g. Asset Framework Indexing)|
-|PIPointIndexing|[HealthDto](#schemahealthdto)|false|true|Data Transfer Object for Health information Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability|
+|PIPointIndexing|[HealthDto](#schemahealthdto)|false|true|Data Transfer Object for Health information. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability|
 |Transfers|object|false|true|Status of each Transfer, keyed on the Transfer's ID|
 
 ```json
@@ -4465,7 +4465,7 @@ Data Transfer Object for different aspects of an Agent's status Before making ad
 <a id="tocShealthdto"></a>
 <a id="tocshealthdto"></a>
 
-Data Transfer Object for Health information Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object for Health information. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -4512,7 +4512,7 @@ Data Transfer Object for Health information Before making additions or any modif
 <a id="tocStransferhealthdto"></a>
 <a id="tocstransferhealthdto"></a>
 
-Data Transfer Object for Transfer edit information Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object for Transfer edit information. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -4548,7 +4548,7 @@ Data Transfer Object for Transfer edit information Before making additions or an
 <a id="tocShealtheventdto"></a>
 <a id="tocshealtheventdto"></a>
 
-Data Transfer Object for a Health Event Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object for a Health Event. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -5286,7 +5286,7 @@ Data Transfer Object for a Health Event Before making additions or any modificat
 <a id="tocStransferdto"></a>
 <a id="tocstransferdto"></a>
 
-Data Transfer Object for a Transfer Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object for a Transfer. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -5384,7 +5384,7 @@ Data Transfer Object for a Transfer Before making additions or any modifications
 <a id="tocSquerydto"></a>
 <a id="tocsquerydto"></a>
 
-Data Transfer Object for a Query Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object for a Query. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -5392,8 +5392,8 @@ Data Transfer Object for a Query Before making additions or any modifications to
 |---|---|---|---|---|
 |Id|guid|false|false|None|
 |QueryType|[QueryTypes](#schemaquerytypes)|false|false|None|
-|PI|[QueryPIDto](#schemaquerypidto)|false|true|Data Transfer Object for PI information for a Query Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability|
-|AF|[QueryAFDto](#schemaqueryafdto)|false|true|Data Transfer Object for AF Information for a Query Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability|
+|PI|[QueryPIDto](#schemaquerypidto)|false|true|Data Transfer Object for PI information for a Query. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability|
+|AF|[QueryAFDto](#schemaqueryafdto)|false|true|Data Transfer Object for AF Information for a Query. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability|
 |Status|[QueryStatus](#schemaquerystatus)|false|false|None|
 |Skip|int32|false|false|None|
 |Count|int32|false|false|None|
@@ -5471,7 +5471,7 @@ Data Transfer Object for a Query Before making additions or any modifications to
 <a id="tocSquerypidto"></a>
 <a id="tocsquerypidto"></a>
 
-Data Transfer Object for PI information for a Query Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object for PI information for a Query. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -5479,7 +5479,7 @@ Data Transfer Object for PI information for a Query Before making additions or a
 |---|---|---|---|---|
 |PointMasks|object|false|true|None|
 |PointIds|[integer]|false|true|None|
-|PointList|[QueryPIPointListExDto](#schemaquerypipointlistexdto)|false|true|Data Transfer Object for PI Point Lists Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability|
+|PointList|[QueryPIPointListExDto](#schemaquerypipointlistexdto)|false|true|Data Transfer Object for PI Point Lists. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability|
 
 ```json
 {
@@ -5509,7 +5509,7 @@ Data Transfer Object for PI information for a Query Before making additions or a
 <a id="tocSquerypipointlistexdto"></a>
 <a id="tocsquerypipointlistexdto"></a>
 
-Data Transfer Object for PI Point Lists Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object for PI Point Lists. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -5537,7 +5537,7 @@ Data Transfer Object for PI Point Lists Before making additions or any modificat
 <a id="tocSqueryafdto"></a>
 <a id="tocsqueryafdto"></a>
 
-Data Transfer Object for AF Information for a Query Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object for AF Information for a Query. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -5632,7 +5632,7 @@ Data Transfer Object for AF Information for a Query Before making additions or a
 <a id="tocSpipointquerydto"></a>
 <a id="tocspipointquerydto"></a>
 
-Data Transfer Object for a PI Point Query Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object for a PI Point Query. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -5680,7 +5680,7 @@ Data Transfer Object for a PI Point Query Before making additions or any modific
 <a id="tocSqueryresultpagedto"></a>
 <a id="tocsqueryresultpagedto"></a>
 
-Data Transfer Object for a Query Result Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object for a Query Result. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -5711,7 +5711,7 @@ Data Transfer Object for a Query Result Before making additions or any modificat
 <a id="tocSquerystatusdto"></a>
 <a id="tocsquerystatusdto"></a>
 
-Data Transfer Object for the status of a Query Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object for the status of a Query. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -5749,7 +5749,7 @@ Data Transfer Object for the status of a Query Before making additions or any mo
 <a id="tocSpipointqueryresultdto"></a>
 <a id="tocspipointqueryresultdto"></a>
 
-Data Transfer Object for a PI Point Query Result Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object for a PI Point Query Result. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -5837,7 +5837,7 @@ Data Transfer Object for a PI Point Query Result Before making additions or any 
 <a id="tocSdatasourcecreateupdatedto"></a>
 <a id="tocsdatasourcecreateupdatedto"></a>
 
-Data Transfer Object for creating or updating a Data Source Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object for creating or updating a Data Source. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -5863,7 +5863,7 @@ Data Transfer Object for creating or updating a Data Source Before making additi
 <a id="tocStransfercreatedto"></a>
 <a id="tocstransfercreatedto"></a>
 
-Data Transfer Object for creating a Transfer Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object for creating a Transfer. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -5905,15 +5905,15 @@ Data Transfer Object for creating a Transfer Before making additions or any modi
 <a id="tocSquerycreateupdatedto"></a>
 <a id="tocsquerycreateupdatedto"></a>
 
-Data Transfer Object for creating or updating a Query Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object for creating or updating a Query. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
 |QueryType|[QueryTypes](#schemaquerytypes)|false|true|None|
-|PI|[QueryPIDto](#schemaquerypidto)|false|true|Data Transfer Object for PI information for a Query Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability|
-|AF|[QueryAFDto](#schemaqueryafdto)|false|true|Data Transfer Object for AF Information for a Query Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability|
+|PI|[QueryPIDto](#schemaquerypidto)|false|true|Data Transfer Object for PI information for a Query. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability|
+|AF|[QueryAFDto](#schemaqueryafdto)|false|true|Data Transfer Object for AF Information for a Query. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability|
 |Skip|int32|false|false|None|
 |Count|int32|false|false|None|
 
@@ -5963,7 +5963,7 @@ Data Transfer Object for creating or updating a Query Before making additions or
 <a id="tocSpatchdto"></a>
 <a id="tocspatchdto"></a>
 
-Data Transfer Object for a Patch Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object for a Patch. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -6011,7 +6011,7 @@ Data Transfer Object for a Patch Before making additions or any modifications to
 <a id="tocSpipointquerycreateupdatedto"></a>
 <a id="tocspipointquerycreateupdatedto"></a>
 
-Data Transfer Object to create or update a PI Point Query Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object to create or update a PI Point Query. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -6037,7 +6037,7 @@ Data Transfer Object to create or update a PI Point Query Before making addition
 <a id="tocStransferupdatedto"></a>
 <a id="tocstransferupdatedto"></a>
 
-Data Transfer Object for a Transfer Update Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object for a Transfer Update. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -6079,7 +6079,7 @@ Data Transfer Object for a Transfer Update Before making additions or any modifi
 <a id="tocStransferupdatestatusdto"></a>
 <a id="tocstransferupdatestatusdto"></a>
 
-Data Transfer Object for the status of a Transfer Update Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+Data Transfer Object for the status of a Transfer Update. Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
