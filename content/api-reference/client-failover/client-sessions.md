@@ -66,7 +66,8 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
       "FailoverStatus": 0,
       "LastDataProcessedTime": "2019-08-24T14:15:22Z",
       "HeartbeatTime": "2019-08-24T14:15:22Z"
-    }
+    },
+    "HeartbeatPosted": true
   }
 ]
 ```
@@ -133,7 +134,8 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
     "FailoverStatus": 0,
     "LastDataProcessedTime": "2019-08-24T14:15:22Z",
     "HeartbeatTime": "2019-08-24T14:15:22Z"
-  }
+  },
+  "HeartbeatPosted": true
 }
 ```
 
@@ -211,7 +213,8 @@ The client session being created or updated.<br/>
     "FailoverStatus": 0,
     "LastDataProcessedTime": "2019-08-24T14:15:22Z",
     "HeartbeatTime": "2019-08-24T14:15:22Z"
-  }
+  },
+  "HeartbeatPosted": true
 }
 ```
 
@@ -288,6 +291,7 @@ The heartbeat of the client session.<br/>
 |400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
 |403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
 |404|[ErrorResponse](#schemaerrorresponse)|A failover group or client session with the specified identifier was not found.|
+|429|[ErrorResponse](#schemaerrorresponse)|Too many requests.|
 
 <h4>Example response body</h4>
 
@@ -320,6 +324,7 @@ The heartbeat of the client session.<br/>
 |Name|string|false|true|None|
 |Role|[ClientRole](#schemaclientrole)|false|false|None|
 |Heartbeat|[IFailoverHeartbeat](#schemaifailoverheartbeat)|false|true|None|
+|HeartbeatPosted|boolean|false|false|Whether a heartbeat has been Posted from the session.|
 
 ```json
 {
@@ -348,7 +353,8 @@ The heartbeat of the client session.<br/>
     "FailoverStatus": 0,
     "LastDataProcessedTime": "2019-08-24T14:15:22Z",
     "HeartbeatTime": "2019-08-24T14:15:22Z"
-  }
+  },
+  "HeartbeatPosted": true
 }
 
 ```
