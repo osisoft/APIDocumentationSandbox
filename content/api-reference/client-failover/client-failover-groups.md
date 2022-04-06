@@ -77,85 +77,23 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 
 ---
 
-## `Get Group Configuration`
+## `Post Group`
 
-<a id="opIdClientFailoverGroups_Get Group Configuration"></a>
+<a id="opIdClientFailoverGroups_Post Group"></a>
 
-Gets a failover group by identifier.
+Creates a failover group.
 
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/groups/{groupId}
+POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/groups
 ```
 
 <h4>Parameters</h4>
 
 `string tenantId`
 <br/><br/>`string namespaceId`
-<br/><br/>`string groupId`
-<br/>The identifier of the failover group.<br/><br/>
-
-<h3>Response</h3>
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|[GroupConfiguration](#schemagroupconfiguration)|Failover group with the specified identifier.|
-|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
-|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
-|404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified identifier was not found.|
-
-<h4>Example response body</h4>
-
-> 200 Response ([GroupConfiguration](#schemagroupconfiguration))
-
-```json
-{
-  "Id": "string",
-  "AccessControl": {
-    "RoleTrusteeAccessControlEntries": [
-      {
-        "Trustee": {
-          "Type": 1,
-          "ObjectId": "string",
-          "TenantId": "string"
-        },
-        "AccessType": 0,
-        "AccessRights": 0
-      }
-    ]
-  },
-  "Owner": {
-    "Type": 1,
-    "ObjectId": "string",
-    "TenantId": "string"
-  },
-  "Name": "string",
-  "Description": "string",
-  "FailoverTimeout": "string"
-}
-```
-
----
-
-## `Put Group`
-
-<a id="opIdClientFailoverGroups_Put Group"></a>
-
-Creates or updates a failover group by identifier.
-
-<h3>Request</h3>
-
-```text 
-PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/groups/{groupId}
-```
-
-<h4>Parameters</h4>
-
-`string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string groupId`
-<br/>The identifier of the failover group.<br/><br/>
+<br/><br/>
 
 <h4>Request Body</h4>
 
@@ -192,10 +130,71 @@ The configuration of the failover group being created or updated.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[GroupConfiguration](#schemagroupconfiguration)|The failover group was updated.|
 |201|[GroupConfiguration](#schemagroupconfiguration)|The failover group was created.|
 |400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
 |403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
+|409|[ErrorResponse](#schemaerrorresponse)|Group already exists.|
+
+<h4>Example response body</h4>
+
+> 201 Response ([GroupConfiguration](#schemagroupconfiguration))
+
+```json
+{
+  "Id": "string",
+  "AccessControl": {
+    "RoleTrusteeAccessControlEntries": [
+      {
+        "Trustee": {
+          "Type": 1,
+          "ObjectId": "string",
+          "TenantId": "string"
+        },
+        "AccessType": 0,
+        "AccessRights": 0
+      }
+    ]
+  },
+  "Owner": {
+    "Type": 1,
+    "ObjectId": "string",
+    "TenantId": "string"
+  },
+  "Name": "string",
+  "Description": "string",
+  "FailoverTimeout": "string"
+}
+```
+
+---
+
+## `Get Group Configuration`
+
+<a id="opIdClientFailoverGroups_Get Group Configuration"></a>
+
+Gets a failover group by identifier.
+
+<h3>Request</h3>
+
+```text 
+GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/groups/{groupId}
+```
+
+<h4>Parameters</h4>
+
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string groupId`
+<br/>The identifier of the failover group.<br/><br/>
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[GroupConfiguration](#schemagroupconfiguration)|Failover group with the specified identifier.|
+|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
+|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
+|404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified identifier was not found.|
 
 <h4>Example response body</h4>
 
