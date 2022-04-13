@@ -74,16 +74,16 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 
 ---
 
-## `Get Client Session`
+## `Post Client Session`
 
-<a id="opIdClientSessions_Get Client Session"></a>
+<a id="opIdClientSessions_Post Client Session"></a>
 
-Gets a client session by identifier.
+Creates a client session from specified session configuration.
 
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/groups/{groupId}/clientsessions/{sessionId}
+POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/groups/{groupId}/clientsessions
 ```
 
 <h4>Parameters</h4>
@@ -91,21 +91,32 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/>The identifier of the failover group.<br/><br/>`string sessionId`
-<br/>The identifier of the client session.<br/><br/>
+<br/>The identifier of the failover group.<br/><br/>
+
+<h4>Request Body</h4>
+
+The client session being created.<br/>
+
+```json
+{
+  "Id": "string",
+  "Name": "string"
+}
+```
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSession](#schemaclientsession)|Client session with the specified identifier.|
+|201|[ClientSession](#schemaclientsession)|The client session was created.|
 |400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
 |403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
-|404|[ErrorResponse](#schemaerrorresponse)|A failover group or client session with the specified identifier was not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified identifier was not found.|
+|409|[ErrorResponse](#schemaerrorresponse)|A client session with the specified configuration already exists.|
 
 <h4>Example response body</h4>
 
-> 200 Response ([ClientSession](#schemaclientsession))
+> 201 Response ([ClientSession](#schemaclientsession))
 
 ```json
 {
@@ -141,16 +152,16 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 
 ---
 
-## `Put Client Session`
+## `Get Client Session`
 
-<a id="opIdClientSessions_Put Client Session"></a>
+<a id="opIdClientSessions_Get Client Session"></a>
 
-Creates or updates a client session by identifier.
+Gets a client session by identifier.
 
 <h3>Request</h3>
 
 ```text 
-PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/groups/{groupId}/clientsessions/{sessionId}
+GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/groups/{groupId}/clientsessions/{sessionId}
 ```
 
 <h4>Parameters</h4>
@@ -161,26 +172,14 @@ PUT /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 <br/>The identifier of the failover group.<br/><br/>`string sessionId`
 <br/>The identifier of the client session.<br/><br/>
 
-<h4>Request Body</h4>
-
-The client session being created or updated.<br/>
-
-```json
-{
-  "Id": "string",
-  "Name": "string"
-}
-```
-
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSession](#schemaclientsession)|The client session was updated.|
-|201|[ClientSession](#schemaclientsession)|The client session was created.|
+|200|[ClientSession](#schemaclientsession)|Client session with the specified identifier.|
 |400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
 |403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
-|404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified identifier was not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|A failover group or client session with the specified identifier was not found.|
 
 <h4>Example response body</h4>
 
