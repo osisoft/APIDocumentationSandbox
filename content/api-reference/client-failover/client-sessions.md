@@ -67,7 +67,9 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
       "LastDataProcessedTime": "2019-08-24T14:15:22Z",
       "HeartbeatTime": "2019-08-24T14:15:22Z"
     },
-    "HeartbeatPosted": true
+    "HeartbeatPosted": true,
+    "Mode": true,
+    "ModeExpirationTime": "2019-08-24T14:15:22Z"
   }
 ]
 ```
@@ -146,7 +148,9 @@ The client session being created.<br/>
     "LastDataProcessedTime": "2019-08-24T14:15:22Z",
     "HeartbeatTime": "2019-08-24T14:15:22Z"
   },
-  "HeartbeatPosted": true
+  "HeartbeatPosted": true,
+  "Mode": true,
+  "ModeExpirationTime": "2019-08-24T14:15:22Z"
 }
 ```
 
@@ -213,7 +217,9 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
     "LastDataProcessedTime": "2019-08-24T14:15:22Z",
     "HeartbeatTime": "2019-08-24T14:15:22Z"
   },
-  "HeartbeatPosted": true
+  "HeartbeatPosted": true,
+  "Mode": true,
+  "ModeExpirationTime": "2019-08-24T14:15:22Z"
 }
 ```
 
@@ -304,6 +310,59 @@ The heartbeat of the client session.<br/>
 ```
 
 ---
+
+## `Post Maintenance Mode`
+
+<a id="opIdClientSessions_Post Maintenance Mode"></a>
+
+Posts maintenance mode to the client session.
+
+<h3>Request</h3>
+
+```text 
+POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/groups/{groupId}/clientsessions/{sessionId}/mode
+```
+
+<h4>Parameters</h4>
+
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string groupId`
+<br/>The identifier of the failover group.<br/><br/>`string sessionId`
+<br/>The identifier of the client session.<br/><br/>
+
+<h4>Request Body</h4>
+
+The maintenance mode detail configuration for the client session MaintenanceModeConfiguration. when modeDetail is not specified, default is to set maintenance mode to true with expireAfter TimeSpan of one hour. Optional "mode" of either true or false. When not specified, default is true. "mode" of true puts session under maintenance and false puts session out of maintenance. Optional "expireafter" of timespan in the format of "hh:mm:ss". "expireafter" value is only applicable when "mode" is true. When not specified, default value for "expireafter" is "01:00:00".<br/>
+
+```json
+{
+  "Mode": true,
+  "ExpireAfter": "string"
+}
+```
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[MaintenanceModeResponse](#schemamaintenancemoderesponse)|The failover response.|
+|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
+|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
+|404|[ErrorResponse](#schemaerrorresponse)|A failover group or client session with the specified identifier was not found.|
+
+<h4>Example response body</h4>
+
+> 200 Response ([MaintenanceModeResponse](#schemamaintenancemoderesponse))
+
+```json
+{
+  "Mode": true,
+  "ModeExpirationTime": "2019-08-24T14:15:22Z"
+}
+```
+
+---
 ## Definitions
 
 ### ClientSession
@@ -324,6 +383,8 @@ The heartbeat of the client session.<br/>
 |Role|[ClientRole](#schemaclientrole)|false|false|None|
 |Heartbeat|[IFailoverHeartbeat](#schemaifailoverheartbeat)|false|true|None|
 |HeartbeatPosted|boolean|false|false|Whether a heartbeat has been Posted from the session.|
+|Mode|boolean|false|false|Whether a Client Session is in Maintenance mode. False: Client is not in Maintenance and its Role is automatically calculated by Failover Engine. (Default). True: Client is in Maintenance and its Role is not calculated by Failover Engine.|
+|ModeExpirationTime|date-time|false|true|When the Maintenance mode expires.|
 
 ```json
 {
@@ -353,7 +414,9 @@ The heartbeat of the client session.<br/>
     "LastDataProcessedTime": "2019-08-24T14:15:22Z",
     "HeartbeatTime": "2019-08-24T14:15:22Z"
   },
-  "HeartbeatPosted": true
+  "HeartbeatPosted": true,
+  "Mode": true,
+  "ModeExpirationTime": "2019-08-24T14:15:22Z"
 }
 
 ```
@@ -631,6 +694,56 @@ Configuration for creating a new client session.
   "HeartbeatTime": "2019-08-24T14:15:22Z",
   "LastDataProcessedTime": "2019-08-24T14:15:22Z",
   "FailoverStatus": 0
+}
+
+```
+
+---
+
+### MaintenanceModeResponse
+
+<a id="schemamaintenancemoderesponse"></a>
+<a id="schema_MaintenanceModeResponse"></a>
+<a id="tocSmaintenancemoderesponse"></a>
+<a id="tocsmaintenancemoderesponse"></a>
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Mode|boolean|false|false|Maintenance mode.|
+|ModeExpirationTime|date-time|false|true|Maintenance mode expiration time.|
+
+```json
+{
+  "Mode": true,
+  "ModeExpirationTime": "2019-08-24T14:15:22Z"
+}
+
+```
+
+---
+
+### MaintenanceModeConfiguration
+
+<a id="schemamaintenancemodeconfiguration"></a>
+<a id="schema_MaintenanceModeConfiguration"></a>
+<a id="tocSmaintenancemodeconfiguration"></a>
+<a id="tocsmaintenancemodeconfiguration"></a>
+
+MaintenanceModeConfiguration.
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Mode|boolean|false|false|Maintenance mode.|
+|ExpireAfter|time-span|false|false|Maintenance mode expires after this TimeSpan elapses.|
+
+```json
+{
+  "Mode": true,
+  "ExpireAfter": "string"
 }
 
 ```
