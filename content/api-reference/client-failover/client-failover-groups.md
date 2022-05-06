@@ -130,14 +130,15 @@ The configuration of the failover group being created or updated.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
+|200|[GroupConfiguration](#schemagroupconfiguration)|Failover group with matching id and configuration exists.|
 |201|[GroupConfiguration](#schemagroupconfiguration)|The failover group was created.|
 |400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
 |403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
-|409|[ErrorResponse](#schemaerrorresponse)|Group already exists.|
+|409|[ErrorResponse](#schemaerrorresponse)|Group already exists with different configuration.|
 
 <h4>Example response body</h4>
 
-> 201 Response ([GroupConfiguration](#schemagroupconfiguration))
+> 200 Response ([GroupConfiguration](#schemagroupconfiguration))
 
 ```json
 {
