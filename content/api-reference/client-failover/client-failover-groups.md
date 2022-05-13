@@ -10,8 +10,6 @@ API for Client Failover Groups.
 
 <a id="opIdClientFailoverGroups_List Group Configurations"></a>
 
-Returns the list of failover groups.
-
 <h3>Request</h3>
 
 ```text 
@@ -25,22 +23,16 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 <br/><br/>`string namespaceId`
 <br/><br/>
 `[optional] integer skip`
-<br/>The number of items to skip.<br/><br/>`[optional] integer count`
-<br/>The number of items to return.<br/><br/>
+<br/><br/>`[optional] integer count`
+<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[GroupConfiguration](#schemagroupconfiguration)[]|A list of failover groups.|
-|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
-|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
-
-<h4>Response Headers</h4>
-
-|Status|Header|Type|Description|
-|---|---|---|---|
-|200|Total-Count|integer|Total number of failover groups.|
+|200|[GroupConfiguration](#schemagroupconfiguration)[]|None|
+|400|[ErrorResponse](#schemaerrorresponse)|None|
+|403|[ErrorResponse](#schemaerrorresponse)|None|
 
 <h4>Example response body</h4>
 
@@ -50,27 +42,13 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 [
   {
     "Id": "string",
-    "AccessControl": {
-      "RoleTrusteeAccessControlEntries": [
-        {
-          "Trustee": {
-            "Type": 1,
-            "ObjectId": "string",
-            "TenantId": "string"
-          },
-          "AccessType": 0,
-          "AccessRights": 0
-        }
-      ]
-    },
-    "Owner": {
-      "Type": 1,
-      "ObjectId": "string",
-      "TenantId": "string"
-    },
     "Name": "string",
     "Description": "string",
-    "FailoverTimeout": "string"
+    "FailoverTimeout": "string",
+    "AdditionalData": {
+      "property1": null,
+      "property2": null
+    }
   }
 ]
 ```
@@ -80,8 +58,6 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 ## `Post Group`
 
 <a id="opIdClientFailoverGroups_Post Group"></a>
-
-Creates a failover group.
 
 <h3>Request</h3>
 
@@ -97,32 +73,18 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/
 
 <h4>Request Body</h4>
 
-The configuration of the failover group being created or updated.<br/>
+<br/>
 
 ```json
 {
   "Id": "string",
-  "AccessControl": {
-    "RoleTrusteeAccessControlEntries": [
-      {
-        "Trustee": {
-          "Type": 1,
-          "ObjectId": "string",
-          "TenantId": "string"
-        },
-        "AccessType": 0,
-        "AccessRights": 0
-      }
-    ]
-  },
-  "Owner": {
-    "Type": 1,
-    "ObjectId": "string",
-    "TenantId": "string"
-  },
   "Name": "string",
   "Description": "string",
-  "FailoverTimeout": "string"
+  "FailoverTimeout": "string",
+  "AdditionalData": {
+    "property1": null,
+    "property2": null
+  }
 }
 ```
 
@@ -130,11 +92,11 @@ The configuration of the failover group being created or updated.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[GroupConfiguration](#schemagroupconfiguration)|Failover group with matching id and configuration exists.|
-|201|[GroupConfiguration](#schemagroupconfiguration)|The failover group was created.|
-|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
-|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
-|409|[ErrorResponse](#schemaerrorresponse)|Group already exists with different configuration.|
+|200|[GroupConfiguration](#schemagroupconfiguration)|None|
+|201|[GroupConfiguration](#schemagroupconfiguration)|None|
+|400|[ErrorResponse](#schemaerrorresponse)|None|
+|403|[ErrorResponse](#schemaerrorresponse)|None|
+|409|[ErrorResponse](#schemaerrorresponse)|None|
 
 <h4>Example response body</h4>
 
@@ -143,27 +105,13 @@ The configuration of the failover group being created or updated.<br/>
 ```json
 {
   "Id": "string",
-  "AccessControl": {
-    "RoleTrusteeAccessControlEntries": [
-      {
-        "Trustee": {
-          "Type": 1,
-          "ObjectId": "string",
-          "TenantId": "string"
-        },
-        "AccessType": 0,
-        "AccessRights": 0
-      }
-    ]
-  },
-  "Owner": {
-    "Type": 1,
-    "ObjectId": "string",
-    "TenantId": "string"
-  },
   "Name": "string",
   "Description": "string",
-  "FailoverTimeout": "string"
+  "FailoverTimeout": "string",
+  "AdditionalData": {
+    "property1": null,
+    "property2": null
+  }
 }
 ```
 
@@ -172,8 +120,6 @@ The configuration of the failover group being created or updated.<br/>
 ## `Get Group Configuration`
 
 <a id="opIdClientFailoverGroups_Get Group Configuration"></a>
-
-Gets a failover group by identifier.
 
 <h3>Request</h3>
 
@@ -186,16 +132,16 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/>The identifier of the failover group.<br/><br/>
+<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[GroupConfiguration](#schemagroupconfiguration)|Failover group with the specified identifier.|
-|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
-|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
-|404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified identifier was not found.|
+|200|[GroupConfiguration](#schemagroupconfiguration)|None|
+|400|[ErrorResponse](#schemaerrorresponse)|None|
+|403|[ErrorResponse](#schemaerrorresponse)|None|
+|404|[ErrorResponse](#schemaerrorresponse)|None|
 
 <h4>Example response body</h4>
 
@@ -204,27 +150,13 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 ```json
 {
   "Id": "string",
-  "AccessControl": {
-    "RoleTrusteeAccessControlEntries": [
-      {
-        "Trustee": {
-          "Type": 1,
-          "ObjectId": "string",
-          "TenantId": "string"
-        },
-        "AccessType": 0,
-        "AccessRights": 0
-      }
-    ]
-  },
-  "Owner": {
-    "Type": 1,
-    "ObjectId": "string",
-    "TenantId": "string"
-  },
   "Name": "string",
   "Description": "string",
-  "FailoverTimeout": "string"
+  "FailoverTimeout": "string",
+  "AdditionalData": {
+    "property1": null,
+    "property2": null
+  }
 }
 ```
 
@@ -233,8 +165,6 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 ## `Delete Group`
 
 <a id="opIdClientFailoverGroups_Delete Group"></a>
-
-Deletes a failover group by identifier.
 
 <h3>Request</h3>
 
@@ -247,25 +177,23 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailove
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/>The identifier of the failover group.<br/><br/>
+<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|The failover group was deleted.|
-|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
-|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
-|404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified identifier was not found.|
-|409|[ErrorResponse](#schemaerrorresponse)|The failover group has active sessions and cannot be deleted.|
+|204|None|None|
+|400|[ErrorResponse](#schemaerrorresponse)|None|
+|403|[ErrorResponse](#schemaerrorresponse)|None|
+|404|[ErrorResponse](#schemaerrorresponse)|None|
+|409|[ErrorResponse](#schemaerrorresponse)|None|
 
 ---
 
 ## `Get Group Status`
 
 <a id="opIdClientFailoverGroups_Get Group Status"></a>
-
-Gets the failover group status.
 
 <h3>Request</h3>
 
@@ -278,16 +206,16 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/>The identifier of the failover group.<br/><br/>
+<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[IGroupStatus](#schemaigroupstatus)|The failover group status.|
-|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
-|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
-|404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified identifier was not found.|
+|200|[IGroupStatus](#schemaigroupstatus)|None|
+|400|[ErrorResponse](#schemaerrorresponse)|None|
+|403|[ErrorResponse](#schemaerrorresponse)|None|
+|404|[ErrorResponse](#schemaerrorresponse)|None|
 
 <h4>Example response body</h4>
 
@@ -316,160 +244,24 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
 |Id|string|false|true|None|
-|AccessControl|[AccessControlList](#schemaaccesscontrollist)|false|true|None|
-|Owner|[Trustee](#schematrustee)|false|true|None|
 |Name|string|false|true|None|
 |Description|string|false|true|None|
 |FailoverTimeout|time-span|false|false|None|
+|AdditionalData|object|false|true|None|
 
 ```json
 {
   "Id": "string",
-  "AccessControl": {
-    "RoleTrusteeAccessControlEntries": [
-      {
-        "Trustee": {
-          "Type": 1,
-          "ObjectId": "string",
-          "TenantId": "string"
-        },
-        "AccessType": 0,
-        "AccessRights": 0
-      }
-    ]
-  },
-  "Owner": {
-    "Type": 1,
-    "ObjectId": "string",
-    "TenantId": "string"
-  },
   "Name": "string",
   "Description": "string",
-  "FailoverTimeout": "string"
+  "FailoverTimeout": "string",
+  "AdditionalData": {
+    "property1": null,
+    "property2": null
+  }
 }
 
 ```
-
----
-
-### AccessControlList
-
-<a id="schemaaccesscontrollist"></a>
-<a id="schema_AccessControlList"></a>
-<a id="tocSaccesscontrollist"></a>
-<a id="tocsaccesscontrollist"></a>
-
-<h4>Properties</h4>
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|RoleTrusteeAccessControlEntries|[[AccessControlEntry](#schemaaccesscontrolentry)]|false|true|None|
-
-```json
-{
-  "RoleTrusteeAccessControlEntries": [
-    {
-      "Trustee": {
-        "Type": 1,
-        "ObjectId": "string",
-        "TenantId": "string"
-      },
-      "AccessType": 0,
-      "AccessRights": 0
-    }
-  ]
-}
-
-```
-
----
-
-### AccessControlEntry
-
-<a id="schemaaccesscontrolentry"></a>
-<a id="schema_AccessControlEntry"></a>
-<a id="tocSaccesscontrolentry"></a>
-<a id="tocsaccesscontrolentry"></a>
-
-<h4>Properties</h4>
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Trustee|[Trustee](#schematrustee)|false|true|None|
-|AccessType|[AccessType](#schemaaccesstype)|false|false|None|
-|AccessRights|int64|false|false|None|
-
-```json
-{
-  "Trustee": {
-    "Type": 1,
-    "ObjectId": "string",
-    "TenantId": "string"
-  },
-  "AccessType": 0,
-  "AccessRights": 0
-}
-
-```
-
----
-
-### Trustee
-
-<a id="schematrustee"></a>
-<a id="schema_Trustee"></a>
-<a id="tocStrustee"></a>
-<a id="tocstrustee"></a>
-
-<h4>Properties</h4>
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Type|[TrusteeType](#schematrusteetype)|false|false|None|
-|ObjectId|string|false|true|None|
-|TenantId|string|false|true|None|
-
-```json
-{
-  "Type": 1,
-  "ObjectId": "string",
-  "TenantId": "string"
-}
-
-```
-
----
-
-### TrusteeType
-
-<a id="schematrusteetype"></a>
-<a id="schema_TrusteeType"></a>
-<a id="tocStrusteetype"></a>
-<a id="tocstrusteetype"></a>
-
-<h4>Enumerated Values</h4>
-
-|Property|Value|
-|---|---|
-|User|1|
-|Client|2|
-|Role|3|
-
----
-
-### AccessType
-
-<a id="schemaaccesstype"></a>
-<a id="schema_AccessType"></a>
-<a id="tocSaccesstype"></a>
-<a id="tocsaccesstype"></a>
-
-<h4>Enumerated Values</h4>
-
-|Property|Value|
-|---|---|
-|Allowed|0|
-|Denied|1|
 
 ---
 
@@ -480,17 +272,15 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Response error for controller methods.
-
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|false|true|Operation identifier|
-|Error|string|false|true|Error string|
-|Reason|string|false|true|Error reason string|
-|Resolution|string|false|true|Resolution string|
-|AdditionalParameters|object|false|true|Additional parameters to add to the response.|
+|OperationId|string|false|true|None|
+|Error|string|false|true|None|
+|Reason|string|false|true|None|
+|Resolution|string|false|true|None|
+|AdditionalParameters|object|false|true|None|
 
 ```json
 {
