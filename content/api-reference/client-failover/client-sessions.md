@@ -92,6 +92,7 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/
 
 |Status Code|Body Type|Description|
 |---|---|---|
+|200|[ClientSession](#schemaclientsession)|None|
 |201|[ClientSession](#schemaclientsession)|None|
 |400|[ErrorResponse](#schemaerrorresponse)|None|
 |403|[ErrorResponse](#schemaerrorresponse)|None|
@@ -100,7 +101,7 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/
 
 <h4>Example response body</h4>
 
-> 201 Response ([ClientSession](#schemaclientsession))
+> 200 Response ([ClientSession](#schemaclientsession))
 
 ```json
 {
