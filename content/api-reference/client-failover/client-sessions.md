@@ -10,6 +10,8 @@ API for Client Sessions.
 
 <a id="opIdClientSessions_List Client Sessions"></a>
 
+Returns the list of client sessions belonging to the specified group.
+
 <h3>Request</h3>
 
 ```text 
@@ -21,16 +23,16 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/><br/>
+<br/>The identifier of the failover group.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSession](#schemaclientsession)[]|None|
-|400|[ErrorResponse](#schemaerrorresponse)|None|
-|403|[ErrorResponse](#schemaerrorresponse)|None|
-|404|[ErrorResponse](#schemaerrorresponse)|None|
+|200|[ClientSession](#schemaclientsession)[]|A list of client sessions.|
+|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
+|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
+|404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified identifier was not found.|
 
 <h4>Example response body</h4>
 
@@ -64,6 +66,8 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 
 <a id="opIdClientSessions_Post Client Session"></a>
 
+Creates a client session from specified session configuration.
+
 <h3>Request</h3>
 
 ```text 
@@ -75,11 +79,11 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/><br/>
+<br/>The identifier of the failover group.<br/><br/>
 
 <h4>Request Body</h4>
 
-<br/>
+The client session being created.<br/>
 
 ```json
 {
@@ -92,12 +96,12 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSession](#schemaclientsession)|None|
-|201|[ClientSession](#schemaclientsession)|None|
-|400|[ErrorResponse](#schemaerrorresponse)|None|
-|403|[ErrorResponse](#schemaerrorresponse)|None|
-|404|[ErrorResponse](#schemaerrorresponse)|None|
-|409|[ErrorResponse](#schemaerrorresponse)|None|
+|200|[ClientSession](#schemaclientsession)|Client session with matching id and configuration exists.|
+|201|[ClientSession](#schemaclientsession)|The client session was created.|
+|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
+|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
+|404|[ErrorResponse](#schemaerrorresponse)|A failover group with the specified identifier was not found.|
+|409|[ErrorResponse](#schemaerrorresponse)|A client session with the specified configuration already exists.|
 
 <h4>Example response body</h4>
 
@@ -129,6 +133,8 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/
 
 <a id="opIdClientSessions_Get Client Session"></a>
 
+Gets a client session by identifier.
+
 <h3>Request</h3>
 
 ```text 
@@ -140,17 +146,17 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/><br/>`string sessionId`
-<br/><br/>
+<br/>The identifier of the failover group.<br/><br/>`string sessionId`
+<br/>The identifier of the client session.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientSession](#schemaclientsession)|None|
-|400|[ErrorResponse](#schemaerrorresponse)|None|
-|403|[ErrorResponse](#schemaerrorresponse)|None|
-|404|[ErrorResponse](#schemaerrorresponse)|None|
+|200|[ClientSession](#schemaclientsession)|Client session with the specified identifier.|
+|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
+|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
+|404|[ErrorResponse](#schemaerrorresponse)|A failover group or client session with the specified identifier was not found.|
 
 <h4>Example response body</h4>
 
@@ -182,6 +188,8 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
 
 <a id="opIdClientSessions_Delete Client Session"></a>
 
+Deletes a client session by identifier.
+
 <h3>Request</h3>
 
 ```text 
@@ -193,23 +201,25 @@ DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailove
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/><br/>`string sessionId`
-<br/><br/>
+<br/>The identifier of the failover group.<br/><br/>`string sessionId`
+<br/>The identifier of the client session.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|None|
-|400|[ErrorResponse](#schemaerrorresponse)|None|
-|403|[ErrorResponse](#schemaerrorresponse)|None|
-|404|[ErrorResponse](#schemaerrorresponse)|None|
+|204|None|The client session was deleted.|
+|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
+|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
+|404|[ErrorResponse](#schemaerrorresponse)|A failover group or client session with the specified identifier was not found.|
 
 ---
 
 ## `Post Heartbeat Message`
 
 <a id="opIdClientSessions_Post Heartbeat Message"></a>
+
+Posts a heartbeat to the client session.
 
 <h3>Request</h3>
 
@@ -222,12 +232,12 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/><br/>`string sessionId`
-<br/><br/>
+<br/>The identifier of the failover group.<br/><br/>`string sessionId`
+<br/>The identifier of the client session.<br/><br/>
 
 <h4>Request Body</h4>
 
-<br/>
+The heartbeat of the client session.<br/>
 
 ```json
 {
@@ -241,11 +251,11 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[FailoverResponse](#schemafailoverresponse)|None|
-|400|[ErrorResponse](#schemaerrorresponse)|None|
-|403|[ErrorResponse](#schemaerrorresponse)|None|
-|404|[ErrorResponse](#schemaerrorresponse)|None|
-|429|[ErrorResponse](#schemaerrorresponse)|None|
+|200|[FailoverResponse](#schemafailoverresponse)|The failover response.|
+|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
+|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
+|404|[ErrorResponse](#schemaerrorresponse)|A failover group or client session with the specified identifier was not found.|
+|429|[ErrorResponse](#schemaerrorresponse)|Too many requests.|
 
 <h4>Example response body</h4>
 
@@ -264,6 +274,8 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/
 
 <a id="opIdClientSessions_Post Maintenance Mode"></a>
 
+Posts maintenance mode to the client session.
+
 <h3>Request</h3>
 
 ```text 
@@ -275,12 +287,12 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string groupId`
-<br/><br/>`string sessionId`
-<br/><br/>
+<br/>The identifier of the failover group.<br/><br/>`string sessionId`
+<br/>The identifier of the client session.<br/><br/>
 
 <h4>Request Body</h4>
 
-<br/>
+The maintenance mode detail configuration for the client session MaintenanceModeConfiguration. when modeDetail is not specified, default is to set maintenance mode to true with expireAfter TimeSpan of one hour. Optional "mode" of either true or false. When not specified, default is true. "mode" of true puts session under maintenance and false puts session out of maintenance. Optional "expireafter" of timespan in the format of "hh:mm:ss". "expireafter" value is only applicable when "mode" is true. When not specified, default value for "expireafter" is "01:00:00".<br/>
 
 ```json
 {
@@ -293,10 +305,10 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[MaintenanceModeResponse](#schemamaintenancemoderesponse)|None|
-|400|[ErrorResponse](#schemaerrorresponse)|None|
-|403|[ErrorResponse](#schemaerrorresponse)|None|
-|404|[ErrorResponse](#schemaerrorresponse)|None|
+|200|[MaintenanceModeResponse](#schemamaintenancemoderesponse)|The failover response.|
+|400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
+|403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
+|404|[ErrorResponse](#schemaerrorresponse)|A failover group or client session with the specified identifier was not found.|
 
 <h4>Example response body</h4>
 
@@ -323,14 +335,14 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|string|false|true|None|
-|Name|string|false|true|None|
-|Heartbeat|[IFailoverHeartbeat](#schemaifailoverheartbeat)|false|true|None|
-|Role|[ClientRole](#schemaclientrole)|false|false|None|
-|HeartbeatPosted|boolean|false|false|None|
-|Mode|boolean|false|false|None|
-|ModeExpirationTime|date-time|false|true|None|
-|AdditionalData|object|false|true|None|
+|Id|string|false|true|Unique client session identifier|
+|Name|string|false|true|Friendly name of client session|
+|Heartbeat|[IFailoverHeartbeat](#schemaifailoverheartbeat)|false|true|Client failover heartbeat|
+|Role|[ClientRole](#schemaclientrole)|false|false|Client failover role|
+|HeartbeatPosted|boolean|false|false|Whether a heartbeat has been Posted from the session.|
+|Mode|boolean|false|false|Whether a Client Session is in Maintenance mode. False: Client is not in Maintenance and its Role is automatically calculated by Failover Engine. (Default). True: Client is in Maintenance and its Role is not calculated by Failover Engine.|
+|ModeExpirationTime|date-time|false|true|When the Maintenance mode expires.|
+|AdditionalData|object|false|true|Additional session data.|
 
 ```json
 {
@@ -362,13 +374,15 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/
 <a id="tocSifailoverheartbeat"></a>
 <a id="tocsifailoverheartbeat"></a>
 
+Failover heartbeat.
+
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|FailoverStatus|float|false|false|None|
-|LastDataProcessedTime|date-time|false|true|None|
-|HeartbeatTime|date-time|false|false|None|
+|FailoverStatus|float|false|false|The percentage of active streams managed by an adapter.|
+|LastDataProcessedTime|date-time|false|true|Last time data was processed by client.|
+|HeartbeatTime|date-time|false|false|UTC time that the client generated the heartbeat message.|
 
 ```json
 {
@@ -388,13 +402,15 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/
 <a id="tocSclientrole"></a>
 <a id="tocsclientrole"></a>
 
+Client failover roles.
+
 <h4>Enumerated Values</h4>
 
 |Property|Value|Description|
 |---|---|---|
-|Secondary|0||
-|Primary|1||
-|PendingPrimary|2||
+|Secondary|0|Client failover roles.|
+|Primary|1|Client failover roles.|
+|PendingPrimary|2|Client failover roles.|
 
 ---
 
@@ -405,15 +421,17 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
+Response error for controller methods.
+
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|false|true|None|
-|Error|string|false|true|None|
-|Reason|string|false|true|None|
-|Resolution|string|false|true|None|
-|AdditionalParameters|object|false|true|None|
+|OperationId|string|false|true|Operation identifier|
+|Error|string|false|true|Error string|
+|Reason|string|false|true|Error reason string|
+|Resolution|string|false|true|Resolution string|
+|AdditionalParameters|object|false|true|Additional parameters to add to the response.|
 
 ```json
 {
@@ -440,12 +458,14 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/
 <a id="tocSclientsessionconfiguration"></a>
 <a id="tocsclientsessionconfiguration"></a>
 
+Configuration for creating a new client session.
+
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|string|false|true|None|
-|Name|string|false|true|None|
+|Id|string|false|true|Unique client session identifier|
+|Name|string|false|true|Friendly name of client session.|
 
 ```json
 {
@@ -468,8 +488,8 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Role|[ClientRole](#schemaclientrole)|false|false|None|
-|LastDataProcessedTime|date-time|false|true|None|
+|Role|[ClientRole](#schemaclientrole)|false|false|Role of the client|
+|LastDataProcessedTime|date-time|false|true|Last time data was processed by client|
 
 ```json
 {
@@ -492,9 +512,9 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|FailoverStatus|float|false|false|None|
-|LastDataProcessedTime|date-time|false|true|None|
-|HeartbeatTime|date-time|false|false|None|
+|FailoverStatus|float|false|false|The percentage of active streams managed by an adapter.|
+|LastDataProcessedTime|date-time|false|true|Last time data was processed by client.|
+|HeartbeatTime|date-time|false|false|UTC time that the client generated the heartbeat message.|
 
 ```json
 {
@@ -514,12 +534,14 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/
 <a id="tocSmaintenancemoderesponse"></a>
 <a id="tocsmaintenancemoderesponse"></a>
 
+Response to the maintenance mode request.
+
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Mode|boolean|false|false|None|
-|ModeExpirationTime|date-time|false|true|None|
+|Mode|boolean|false|false|Maintenance mode.|
+|ModeExpirationTime|date-time|false|true|Maintenance mode expiration time.|
 
 ```json
 {
@@ -538,12 +560,14 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/
 <a id="tocSmaintenancemodeconfiguration"></a>
 <a id="tocsmaintenancemodeconfiguration"></a>
 
+Configuration settings for maintenance mode.
+
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Mode|boolean|false|false|None|
-|ExpireAfter|time-span|false|false|None|
+|Mode|boolean|false|false|Maintenance mode.|
+|ExpireAfter|time-span|false|false|Maintenance mode expires after this TimeSpan elapses.|
 
 ```json
 {
