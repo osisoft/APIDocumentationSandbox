@@ -50,8 +50,8 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
     },
     "Role": 0,
     "HeartbeatPosted": true,
-    "Mode": true,
-    "ModeExpirationTime": "2019-08-24T14:15:22Z",
+    "Override": 0,
+    "RoleOverrideExpirationTime": "2019-08-24T14:15:22Z",
     "AdditionalData": {
       "property1": null,
       "property2": null
@@ -118,8 +118,8 @@ The client session being created.<br/>
   },
   "Role": 0,
   "HeartbeatPosted": true,
-  "Mode": true,
-  "ModeExpirationTime": "2019-08-24T14:15:22Z",
+  "Override": 0,
+  "RoleOverrideExpirationTime": "2019-08-24T14:15:22Z",
   "AdditionalData": {
     "property1": null,
     "property2": null
@@ -173,8 +173,8 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/g
   },
   "Role": 0,
   "HeartbeatPosted": true,
-  "Mode": true,
-  "ModeExpirationTime": "2019-08-24T14:15:22Z",
+  "Override": 0,
+  "RoleOverrideExpirationTime": "2019-08-24T14:15:22Z",
   "AdditionalData": {
     "property1": null,
     "property2": null
@@ -270,16 +270,16 @@ The heartbeat of the client session.<br/>
 
 ---
 
-## `Post Maintenance Mode`
+## `Post Role Override`
 
-<a id="opIdClientSessions_Post Maintenance Mode"></a>
+<a id="opIdClientSessions_Post Role Override"></a>
 
-Posts maintenance mode to the client session.
+Posts role override to the client session.
 
 <h3>Request</h3>
 
 ```text 
-POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/groups/{groupId}/clientsessions/{sessionId}/mode
+POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/groups/{groupId}/clientsessions/{sessionId}/roleoverride
 ```
 
 <h4>Parameters</h4>
@@ -292,12 +292,12 @@ POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/clientfailover/
 
 <h4>Request Body</h4>
 
-The maintenance mode detail configuration for the client session MaintenanceModeConfiguration. when modeDetail is not specified, default is to set maintenance mode to true with expireAfter TimeSpan of one hour. Optional "mode" of either true or false. When not specified, default is true. "mode" of true puts session under maintenance and false puts session out of maintenance. Optional "expireafter" of timespan in the format of "hh:mm:ss". "expireafter" value is only applicable when "mode" is true. When not specified, default value for "expireafter" is "01:00:00".<br/>
+<br/>
 
 ```json
 {
-  "Mode": true,
-  "ExpireAfter": "string"
+  "Value": 0,
+  "ExpirationPeriod": "string"
 }
 ```
 
@@ -305,19 +305,19 @@ The maintenance mode detail configuration for the client session MaintenanceMode
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[MaintenanceModeResponse](#schemamaintenancemoderesponse)|The failover response.|
+|200|[RoleOverrideResponse](#schemaroleoverrideresponse)|The failover response.|
 |400|[ErrorResponse](#schemaerrorresponse)|Request is not valid. See the response body for additional details.|
 |403|[ErrorResponse](#schemaerrorresponse)|Request is not authorized.|
 |404|[ErrorResponse](#schemaerrorresponse)|A failover group or client session with the specified identifier was not found.|
 
 <h4>Example response body</h4>
 
-> 200 Response ([MaintenanceModeResponse](#schemamaintenancemoderesponse))
+> 200 Response ([RoleOverrideResponse](#schemaroleoverrideresponse))
 
 ```json
 {
-  "Mode": true,
-  "ModeExpirationTime": "2019-08-24T14:15:22Z"
+  "Value": 0,
+  "RoleOverrideExpirationTime": "2019-08-24T14:15:22Z"
 }
 ```
 
@@ -340,8 +340,8 @@ The maintenance mode detail configuration for the client session MaintenanceMode
 |Heartbeat|[IFailoverHeartbeat](#schemaifailoverheartbeat)|false|true|Client failover heartbeat|
 |Role|[ClientRole](#schemaclientrole)|false|false|Client failover role|
 |HeartbeatPosted|boolean|false|false|Whether a heartbeat has been Posted from the session.|
-|Mode|boolean|false|false|Whether a Client Session is in Maintenance mode. False: Client is not in Maintenance and its Role is automatically calculated by Failover Engine. (Default). True: Client is in Maintenance and its Role is not calculated by Failover Engine.|
-|ModeExpirationTime|date-time|false|true|When the Maintenance mode expires.|
+|Override|[RoleOverride](#schemaroleoverride)|false|false|Client Session's role override value. Off: Role is automatically calculated by Failover Engine. (Default). Primary: Client is designated as forced Primary and its Role is not calculated by Failover Engine.|
+|RoleOverrideExpirationTime|date-time|false|true|When the role override expires. If null, never expires. Only applicable when role override value is Primary. If role override value is Off, it will never expire regardless of the RoleOverrideExpirationTime.|
 |AdditionalData|object|false|true|Additional session data.|
 
 ```json
@@ -355,8 +355,8 @@ The maintenance mode detail configuration for the client session MaintenanceMode
   },
   "Role": 0,
   "HeartbeatPosted": true,
-  "Mode": true,
-  "ModeExpirationTime": "2019-08-24T14:15:22Z",
+  "Override": 0,
+  "RoleOverrideExpirationTime": "2019-08-24T14:15:22Z",
   "AdditionalData": {
     "property1": null,
     "property2": null
@@ -411,6 +411,24 @@ Client failover roles.
 |Secondary|0|Client failover roles.|
 |Primary|1|Client failover roles.|
 |PendingPrimary|2|Client failover roles.|
+
+---
+
+### RoleOverride
+
+<a id="schemaroleoverride"></a>
+<a id="schema_RoleOverride"></a>
+<a id="tocSroleoverride"></a>
+<a id="tocsroleoverride"></a>
+
+Client failover role override.
+
+<h4>Enumerated Values</h4>
+
+|Property|Value|Description|
+|---|---|---|
+|Off|0|Client failover role override.|
+|Primary|1|Client failover role override.|
 
 ---
 
@@ -527,52 +545,50 @@ Configuration for creating a new client session.
 
 ---
 
-### MaintenanceModeResponse
+### RoleOverrideResponse
 
-<a id="schemamaintenancemoderesponse"></a>
-<a id="schema_MaintenanceModeResponse"></a>
-<a id="tocSmaintenancemoderesponse"></a>
-<a id="tocsmaintenancemoderesponse"></a>
+<a id="schemaroleoverrideresponse"></a>
+<a id="schema_RoleOverrideResponse"></a>
+<a id="tocSroleoverrideresponse"></a>
+<a id="tocsroleoverrideresponse"></a>
 
-Response to the maintenance mode request.
+Response to the role override request.
 
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Mode|boolean|false|false|Maintenance mode.|
-|ModeExpirationTime|date-time|false|true|Maintenance mode expiration time.|
+|Value|[RoleOverride](#schemaroleoverride)|false|false|Role override value. RoleOverride.|
+|RoleOverrideExpirationTime|date-time|false|true|Role override expiration time. If null, never expires.|
 
 ```json
 {
-  "Mode": true,
-  "ModeExpirationTime": "2019-08-24T14:15:22Z"
+  "Value": 0,
+  "RoleOverrideExpirationTime": "2019-08-24T14:15:22Z"
 }
 
 ```
 
 ---
 
-### MaintenanceModeConfiguration
+### RoleOverrideConfiguration
 
-<a id="schemamaintenancemodeconfiguration"></a>
-<a id="schema_MaintenanceModeConfiguration"></a>
-<a id="tocSmaintenancemodeconfiguration"></a>
-<a id="tocsmaintenancemodeconfiguration"></a>
-
-Configuration settings for maintenance mode.
+<a id="schemaroleoverrideconfiguration"></a>
+<a id="schema_RoleOverrideConfiguration"></a>
+<a id="tocSroleoverrideconfiguration"></a>
+<a id="tocsroleoverrideconfiguration"></a>
 
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Mode|boolean|false|false|Maintenance mode.|
-|ExpireAfter|time-span|false|false|Maintenance mode expires after this TimeSpan elapses.|
+|Value|[RoleOverride](#schemaroleoverride)|false|false|Client session role override value.|
+|ExpirationPeriod|time-span|false|true|Override expires after this TimeSpan elapses. If null, never expires.|
 
 ```json
 {
-  "Mode": true,
-  "ExpireAfter": "string"
+  "Value": 0,
+  "ExpirationPeriod": "string"
 }
 
 ```
