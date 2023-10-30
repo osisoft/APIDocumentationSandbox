@@ -25,7 +25,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/signups/{signupI
 <br/>The tenant identifier.<br/><br/>`string namespaceId`
 <br/>The namespace identifier.<br/><br/>`string signupId`
 <br/>The signup identifier.<br/><br/>`string bookmark`
-<br/>An encoded token representing a sequential starting point from which updates are to be retrieved for the current request. A starter Bookmark token is provided in the response body of a successfully activated Signup.<br/><br/>
+<br/>An encoded token representing a sequential starting point from which users can retrieve updates for the current request. A starter Bookmark token appears in the response body of a successfully activated Signup.<br/><br/>
 
 <h3>Response</h3>
 
