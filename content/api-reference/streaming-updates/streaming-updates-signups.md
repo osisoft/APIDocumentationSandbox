@@ -677,7 +677,7 @@ Represents a signup model with encoded bookmark.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Signup|[Signup](#schemasignup)|false|true|A signup.|
+|Signup|[Signup](#schemasignup)|false|false|A signup.|
 |Bookmark|string|false|false|An encoded string representing a starting point for updates retrieval.|
 
 ```json
