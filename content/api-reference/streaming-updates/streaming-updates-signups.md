@@ -149,6 +149,8 @@ Input of the signup to be created.<br/>
 
 <a id="opIdSignupManager_Get Signup By Id"></a>
 
+Retrieves a signup by signup identifier. If a signup is successfully activated, the response will include an encoded bookmark token for retrieving updates.
+
 <h3>Request</h3>
 
 ```text 
@@ -160,17 +162,17 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/signups/{signupI
 `string tenantId`
 <br/><br/>`string namespaceId`
 <br/><br/>`string signupId`
-<br/><br/>
+<br/>Signup Identifier.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[SignupWithBookmark](#schemasignupwithbookmark)|None|
-|400|None|None|
-|403|None|None|
-|404|None|None|
-|500|None|None|
+|200|[SignupWithBookmark](#schemasignupwithbookmark)|Success. Returns the signup.|
+|400|None|Bad request.|
+|403|None|Forbidden. The client does not have the required permissions to make the request.|
+|404|None|Not Found.|
+|500|None|The server has encountered a situation it doesn't know how to handle.|
 
 <h4>Example response body</h4>
 
@@ -178,23 +180,21 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/signups/{signupI
 
 ```json
 {
-  "Signup": {
-    "Id": "string",
-    "Name": "string",
-    "Owner": {
-      "Type": 1,
-      "ObjectId": "string",
-      "TenantId": "string"
-    },
-    "CommunityId": "string",
-    "Type": "Stream",
-    "CreatedDate": "2019-08-24T14:15:22Z",
-    "LastAccessedDate": "2019-08-24T14:15:22Z",
-    "ModifiedDate": "2019-08-24T14:15:22Z",
-    "ExpiredDate": "2019-08-24T14:15:22Z",
-    "ResourcesDeleted": true,
-    "SignupState": "Activating"
+  "Id": "string",
+  "Name": "string",
+  "Owner": {
+    "Type": 1,
+    "ObjectId": "string",
+    "TenantId": "string"
   },
+  "CommunityId": "string",
+  "Type": "Stream",
+  "CreatedDate": "2019-08-24T14:15:22Z",
+  "LastAccessedDate": "2019-08-24T14:15:22Z",
+  "ModifiedDate": "2019-08-24T14:15:22Z",
+  "ExpiredDate": "2019-08-24T14:15:22Z",
+  "ResourcesDeleted": true,
+  "SignupState": "Activating",
   "Bookmark": "string"
 }
 ```
@@ -340,9 +340,9 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/signups/{signupI
 
 ---
 
-## `List Signup Resources`
+## `Get Signup Resources`
 
-<a id="opIdSignupManager_List Signup Resources"></a>
+<a id="opIdSignupManager_Get Signup Resources"></a>
 
 Retrieves a list of the signup's resources.
 
@@ -368,7 +368,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/signups/{signupI
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[SignupResource](#schemasignupresource)[]|Ok. Returns the signup's resource.|
+|200|[SignupResources](#schemasignupresources)|Ok. Returns the signup's resource.|
 |400|None|Bad request.|
 |403|None|Forbidden. The client does not have the required permissions to make the request.|
 |404|None|Not Found.|
@@ -382,15 +382,17 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/signups/{signupI
 
 <h4>Example response body</h4>
 
-> 200 Response ([SignupResource](#schemasignupresource)[])
+> 200 Response ([SignupResources](#schemasignupresources))
 
 ```json
-[
-  {
-    "ResourceId": "string",
-    "IsAccessible": true
-  }
-]
+{
+  "Resources": [
+    {
+      "ResourceId": "string",
+      "IsAccessible": true
+    }
+  ]
+}
 ```
 
 ---
@@ -677,28 +679,36 @@ Represents a signup model with encoded bookmark.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Signup|[Signup](#schemasignup)|false|false|A signup.|
+|Id|string|false|false|Signup Identifier.|
+|Name|string|false|true|Signup Name.|
+|Owner|[Trustee](#schematrustee)|false|false|Signup Owner.|
+|CommunityId|string|false|true|Community Identifier Associated with Signup.|
+|Type|[ResourceType](#schemaresourcetype)|false|false|Signup Resource Type.|
+|CreatedDate|date-time|false|false|Date Signup was Created.|
+|LastAccessedDate|date-time|false|true|Date Signup was Last Accessed.|
+|ModifiedDate|date-time|false|true|Date Signup was Last Modified.|
+|ExpiredDate|date-time|false|true|Date Signup is set to expire.|
+|ResourcesDeleted|boolean|false|true|Flag to indicate if all the partitions have successfully deleted the associated resources after expiring the signup.|
+|SignupState|[SignupState](#schemasignupstate)|false|false|Signup Status.|
 |Bookmark|string|false|false|An encoded string representing a starting point for updates retrieval.|
 
 ```json
 {
-  "Signup": {
-    "Id": "string",
-    "Name": "string",
-    "Owner": {
-      "Type": 1,
-      "ObjectId": "string",
-      "TenantId": "string"
-    },
-    "CommunityId": "string",
-    "Type": "Stream",
-    "CreatedDate": "2019-08-24T14:15:22Z",
-    "LastAccessedDate": "2019-08-24T14:15:22Z",
-    "ModifiedDate": "2019-08-24T14:15:22Z",
-    "ExpiredDate": "2019-08-24T14:15:22Z",
-    "ResourcesDeleted": true,
-    "SignupState": "Activating"
+  "Id": "string",
+  "Name": "string",
+  "Owner": {
+    "Type": 1,
+    "ObjectId": "string",
+    "TenantId": "string"
   },
+  "CommunityId": "string",
+  "Type": "Stream",
+  "CreatedDate": "2019-08-24T14:15:22Z",
+  "LastAccessedDate": "2019-08-24T14:15:22Z",
+  "ModifiedDate": "2019-08-24T14:15:22Z",
+  "ExpiredDate": "2019-08-24T14:15:22Z",
+  "ResourcesDeleted": true,
+  "SignupState": "Activating",
   "Bookmark": "string"
 }
 
@@ -724,6 +734,35 @@ The UpdateSignupInput object.
 ```json
 {
   "Name": "string"
+}
+
+```
+
+---
+
+### SignupResources
+
+<a id="schemasignupresources"></a>
+<a id="schema_SignupResources"></a>
+<a id="tocSsignupresources"></a>
+<a id="tocssignupresources"></a>
+
+A model that holds lists of recources retrieved from signup.
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Resources|[[SignupResource](#schemasignupresource)]|false|false|Collection of resources from a signup.|
+
+```json
+{
+  "Resources": [
+    {
+      "ResourceId": "string",
+      "IsAccessible": true
+    }
+  ]
 }
 
 ```
