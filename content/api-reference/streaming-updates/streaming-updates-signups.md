@@ -10,7 +10,7 @@ The Signups API allows users to create, update, view, and delete signups. Signup
 
 <a id="opIdSignupManager_Get All Signups"></a>
 
-Gets all signups in a tenant's namespace. You must call GetSignupById while your signup is in an Activating status. Keep in mind that GetSignupById will only activate your signup once setup is complete.
+Gets all signups in a tenant's namespace.
 
 <h3>Request</h3>
 
@@ -76,7 +76,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/signups
 
 <a id="opIdSignupManager_Create Signup"></a>
 
-Creates a signup for the list of resource identifiers provided. After you create your signup, it will be set to the Activating status. You must call GetSignupById while your signup is in an Activating status. Keep in mind that GetSignupById will only activate your signup once setup is complete.
+Creates a signup for the list of resource identifiers provided.
 
 <h3>Request</h3>
 
@@ -149,7 +149,7 @@ Input of the signup to be created.<br/>
 
 <a id="opIdSignupManager_Get Signup By Id"></a>
 
-Retrieves a signup by signup identifier. If a signup is successfully activated, the response will include an encoded bookmark token for retrieving updates. You must call this route while your signup is in an Activating status. Keep in mind that this route will only activate your signup once setup is complete.
+Retrieves a signup by signup identifier. If a signup is successfully activated, the response will include an encoded bookmark token for retrieving updates.
 
 <h3>Request</h3>
 
