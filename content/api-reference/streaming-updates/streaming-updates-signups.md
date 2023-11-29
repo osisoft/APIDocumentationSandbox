@@ -76,7 +76,7 @@ GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/signups
 
 <a id="opIdSignupManager_Create Signup"></a>
 
-Creates a signup for the list of resource identifiers provided.
+Creates a signup for the list of resource identifiers provided. After you create your signup, it will be set to the Activating status. You must call GetSignupById while your signup is in an Activating status. Keep in mind that GetSignupById will only activate your signup once setup is complete.
 
 <h3>Request</h3>
 
