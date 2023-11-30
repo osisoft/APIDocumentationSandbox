@@ -10,7 +10,7 @@ The Signups API allows users to create, update, view, and delete signups. Signup
 
 <a id="opIdSignupManager_Get All Signups"></a>
 
-Gets all signups in a tenant's namespace. To set any of your signups to Active status, you must call GetSignupById while your signup is in an Activating status. Keep in mind that GetSignupById will only activate your signup once setup is complete.
+Gets all signups in a tenant's namespace.
 
 <h3>Request</h3>
 
