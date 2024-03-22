@@ -595,9 +595,9 @@ The CreateSignupInput object.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Name|string|false|true|Signup Name.|
-|ResourceType|[ResourceType](#schemaresourcetype)|false|false|Resource type of the resource identifiers.|
-|ResourceIds|string[]|false|false|Collection of resource identifiers.|
+|Name|string|true|false|Signup Name.|
+|ResourceType|[ResourceType](#schemaresourcetype)|true|false|Resource type of the resource identifiers.|
+|ResourceIds|string[]|true|false|Collection of resource identifiers.|
 
 ```json
 {
