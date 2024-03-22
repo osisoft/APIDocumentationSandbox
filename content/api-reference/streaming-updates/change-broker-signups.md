@@ -60,12 +60,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/signups
       "CommunityId": "string",
       "Type": "Stream",
       "CreatedDate": "2019-08-24T14:15:22Z",
-      "LastAccessedDate": "2019-08-24T14:15:22Z",
       "ModifiedDate": "2019-08-24T14:15:22Z",
       "ExpiredDate": "2019-08-24T14:15:22Z",
-      "ResourcesDeleted": true,
-      "SignupState": "Activating",
-      "AzureBlobIndexTagsCount": 0
+      "SignupState": "Activating"
     }
   ]
 }
@@ -136,12 +133,9 @@ Input of the signup to be created.<br/>
   "CommunityId": "string",
   "Type": "Stream",
   "CreatedDate": "2019-08-24T14:15:22Z",
-  "LastAccessedDate": "2019-08-24T14:15:22Z",
   "ModifiedDate": "2019-08-24T14:15:22Z",
   "ExpiredDate": "2019-08-24T14:15:22Z",
-  "ResourcesDeleted": true,
-  "SignupState": "Activating",
-  "AzureBlobIndexTagsCount": 0
+  "SignupState": "Activating"
 }
 ```
 
@@ -192,12 +186,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/signups/{signupId}
   "CommunityId": "string",
   "Type": "Stream",
   "CreatedDate": "2019-08-24T14:15:22Z",
-  "LastAccessedDate": "2019-08-24T14:15:22Z",
   "ModifiedDate": "2019-08-24T14:15:22Z",
   "ExpiredDate": "2019-08-24T14:15:22Z",
-  "ResourcesDeleted": true,
   "SignupState": "Activating",
-  "AzureBlobIndexTagsCount": 0,
   "Bookmark": "string"
 }
 ```
@@ -259,12 +250,9 @@ Signup input object to replace the existing signup's properties.<br/>
   "CommunityId": "string",
   "Type": "Stream",
   "CreatedDate": "2019-08-24T14:15:22Z",
-  "LastAccessedDate": "2019-08-24T14:15:22Z",
   "ModifiedDate": "2019-08-24T14:15:22Z",
   "ExpiredDate": "2019-08-24T14:15:22Z",
-  "ResourcesDeleted": true,
-  "SignupState": "Activating",
-  "AzureBlobIndexTagsCount": 0
+  "SignupState": "Activating"
 }
 ```
 
@@ -489,12 +477,9 @@ Represents a signup base model.
 |CommunityId|string|false|true|Community Identifier Associated with Signup.|
 |Type|[ResourceType](#schemaresourcetype)|false|false|Signup Resource Type.|
 |CreatedDate|date-time|false|false|Date Signup was Created.|
-|LastAccessedDate|date-time|false|true|Date Signup was Last Accessed.|
 |ModifiedDate|date-time|false|true|Date Signup was Last Modified.|
 |ExpiredDate|date-time|false|true|Date Signup was expired.|
-|ResourcesDeleted|boolean|false|true|Flag to indicate if all the partitions have successfully deleted the associated resources after expiring the signup.|
 |SignupState|[SignupState](#schemasignupstate)|false|false|Signup Status.|
-|AzureBlobIndexTagsCount|int64|false|false|Number of Azure blob index tags associated with this signup's blob.|
 
 ```json
 {
@@ -508,12 +493,9 @@ Represents a signup base model.
   "CommunityId": "string",
   "Type": "Stream",
   "CreatedDate": "2019-08-24T14:15:22Z",
-  "LastAccessedDate": "2019-08-24T14:15:22Z",
   "ModifiedDate": "2019-08-24T14:15:22Z",
   "ExpiredDate": "2019-08-24T14:15:22Z",
-  "ResourcesDeleted": true,
-  "SignupState": "Activating",
-  "AzureBlobIndexTagsCount": 0
+  "SignupState": "Activating"
 }
 
 ```
@@ -659,12 +641,9 @@ A collection of signups.
       "CommunityId": "string",
       "Type": "Stream",
       "CreatedDate": "2019-08-24T14:15:22Z",
-      "LastAccessedDate": "2019-08-24T14:15:22Z",
       "ModifiedDate": "2019-08-24T14:15:22Z",
       "ExpiredDate": "2019-08-24T14:15:22Z",
-      "ResourcesDeleted": true,
-      "SignupState": "Activating",
-      "AzureBlobIndexTagsCount": 0
+      "SignupState": "Activating"
     }
   ]
 }
@@ -692,12 +671,9 @@ Represents a signup model with encoded bookmark.
 |CommunityId|string|false|true|Community Identifier Associated with Signup.|
 |Type|[ResourceType](#schemaresourcetype)|false|false|Signup Resource Type.|
 |CreatedDate|date-time|false|false|Date Signup was Created.|
-|LastAccessedDate|date-time|false|true|Date Signup was Last Accessed.|
 |ModifiedDate|date-time|false|true|Date Signup was Last Modified.|
 |ExpiredDate|date-time|false|true|Date Signup was expired.|
-|ResourcesDeleted|boolean|false|true|Flag to indicate if all the partitions have successfully deleted the associated resources after expiring the signup.|
 |SignupState|[SignupState](#schemasignupstate)|false|false|Signup Status.|
-|AzureBlobIndexTagsCount|int64|false|false|Number of Azure blob index tags associated with this signup's blob.|
 |Bookmark|string|false|false|An encoded string representing a starting point for updates retrieval.|
 
 ```json
@@ -712,12 +688,9 @@ Represents a signup model with encoded bookmark.
   "CommunityId": "string",
   "Type": "Stream",
   "CreatedDate": "2019-08-24T14:15:22Z",
-  "LastAccessedDate": "2019-08-24T14:15:22Z",
   "ModifiedDate": "2019-08-24T14:15:22Z",
   "ExpiredDate": "2019-08-24T14:15:22Z",
-  "ResourcesDeleted": true,
   "SignupState": "Activating",
-  "AzureBlobIndexTagsCount": 0,
   "Bookmark": "string"
 }
 
