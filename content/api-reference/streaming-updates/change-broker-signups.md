@@ -123,18 +123,18 @@ Input of the signup to be created.<br/>
 
 ```json
 {
-  "id": "string",
-  "name": "string",
-  "owner": {
-    "type": "Client",
-    "objectId": "string",
-    "tenantId": "string"
+  "Id": "string",
+  "Name": "string",
+  "Owner": {
+    "Type": "Client",
+    "ObjectId": "string",
+    "TenantId": "string"
   },
-  "communityId": "string",
-  "type": "Stream",
-  "createdDate": "2019-08-24T14:15:22Z",
-  "modifiedDate": "2019-08-24T14:15:22Z",
-  "signupState": "Activating"
+  "CommunityId": "string",
+  "Type": "Stream",
+  "CreatedDate": "2019-08-24T14:15:22Z",
+  "ModifiedDate": "2019-08-24T14:15:22Z",
+  "SignupState": "Activating"
 }
 ```
 
@@ -175,19 +175,19 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/signups/{signupId}
 
 ```json
 {
-  "bookmark": "string",
-  "id": "string",
-  "name": "string",
-  "owner": {
-    "type": "Client",
-    "objectId": "string",
-    "tenantId": "string"
+  "Bookmark": "string",
+  "Id": "string",
+  "Name": "string",
+  "Owner": {
+    "Type": "Client",
+    "ObjectId": "string",
+    "TenantId": "string"
   },
-  "communityId": "string",
-  "type": "Stream",
-  "createdDate": "2019-08-24T14:15:22Z",
-  "modifiedDate": "2019-08-24T14:15:22Z",
-  "signupState": "Active"
+  "CommunityId": "string",
+  "Type": "Stream",
+  "CreatedDate": "2019-08-24T14:15:22Z",
+  "ModifiedDate": "2019-08-24T14:15:22Z",
+  "SignupState": "Active"
 }
 ```
 
@@ -238,18 +238,18 @@ Signup input object to replace the existing signup's properties.<br/>
 
 ```json
 {
-  "id": "string",
-  "name": "string",
-  "owner": {
-    "type": "Client",
-    "objectId": "string",
-    "tenantId": "string"
+  "Id": "string",
+  "Name": "string",
+  "Owner": {
+    "Type": "Client",
+    "ObjectId": "string",
+    "TenantId": "string"
   },
-  "communityId": "string",
-  "type": "Stream",
-  "createdDate": "2019-08-24T14:15:22Z",
-  "modifiedDate": "2019-08-24T14:15:22Z",
-  "signupState": "Active"
+  "CommunityId": "string",
+  "Type": "Stream",
+  "CreatedDate": "2019-08-24T14:15:22Z",
+  "ModifiedDate": "2019-08-24T14:15:22Z",
+  "SignupState": "Active"
 }
 ```
 
@@ -475,7 +475,7 @@ Represents a signup base model.
 |Type|[ResourceType](#schemaresourcetype)|true|false|Signup Resource Type.|
 |CreatedDate|date-time|true|false|Date Signup was Created.|
 |ModifiedDate|date-time|true|false|Date Signup was Last Modified.|
-|ExpiredDate|date-time|false|true|Date Signup was expired.|
+|ExpiredDate|date-time|false|true|Date Signup was expired. Signups expire after 24 hours of inactivity.|
 |SignupState|[SignupState](#schemasignupstate)|true|false|Signup Status.|
 
 ```json
@@ -669,9 +669,9 @@ Represents a signup model with encoded bookmark.
 |Type|[ResourceType](#schemaresourcetype)|true|false|Signup Resource Type.|
 |CreatedDate|date-time|true|false|Date Signup was Created.|
 |ModifiedDate|date-time|true|false|Date Signup was Last Modified.|
-|ExpiredDate|date-time|false|true|Date Signup was expired.|
+|ExpiredDate|date-time|false|true|Date Signup was expired. Signups expire after 24 hours of inactivity.|
 |SignupState|[SignupState](#schemasignupstate)|true|false|Signup Status.|
-|Bookmark|string|true|false|An encoded string representing a starting point for updates retrieval.|
+|Bookmark|string|true|false|An encoded string representing a starting point for updates retrieval. Bookmarks expire after 1 hour.|
 
 ```json
 {
