@@ -172,62 +172,23 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/signups/{signupId}
 
 <h4>Example response body</h4>
 
-> 200 Response
+> 200 Response ([SignupWithBookmark](#schemasignupwithbookmark))
 
 ```json
 {
-  "1": {
-    "value": {
-      "Id": "string",
-      "Name": "string",
-      "Owner": {
-        "Type": 1,
-        "ObjectId": "string",
-        "TenantId": "string"
-      },
-      "CommunityId": "string",
-      "Type": "Stream",
-      "CreatedDate": "2019-08-24T14:15:22Z",
-      "ModifiedDate": "2019-08-24T14:15:22Z",
-      "SignupState": "Activating",
-      "Bookmark": ""
-    }
+  "Id": "string",
+  "Name": "string",
+  "Owner": {
+    "Type": 1,
+    "ObjectId": "string",
+    "TenantId": "string"
   },
-  "2": {
-    "value": {
-      "Id": "string",
-      "Name": "string",
-      "Owner": {
-        "Type": 1,
-        "ObjectId": "string",
-        "TenantId": "string"
-      },
-      "CommunityId": "string",
-      "Type": "Stream",
-      "CreatedDate": "2019-08-24T14:15:22Z",
-      "ModifiedDate": "2019-08-24T14:15:22Z",
-      "SignupState": "Active",
-      "Bookmark": "string"
-    }
-  },
-  "3": {
-    "value": {
-      "Id": "string",
-      "Name": "string",
-      "Owner": {
-        "Type": 1,
-        "ObjectId": "string",
-        "TenantId": "string"
-      },
-      "CommunityId": "string",
-      "Type": "Stream",
-      "CreatedDate": "2019-08-24T14:15:22Z",
-      "ModifiedDate": "2019-08-24T14:15:22Z",
-      "ExpiredDate": "2019-08-24T14:15:22Z",
-      "SignupState": "Expired",
-      "Bookmark": ""
-    }
-  }
+  "CommunityId": "string",
+  "Type": "Stream",
+  "CreatedDate": "2019-08-24T14:15:22Z",
+  "ModifiedDate": "2019-08-24T14:15:22Z",
+  "ExpiredDate": "2019-08-24T14:15:22Z",
+  "SignupState": "Activating"
 }
 ```
 
@@ -697,7 +658,7 @@ A collection of signups.
 <a id="tocSsignupwithbookmark"></a>
 <a id="tocssignupwithbookmark"></a>
 
-Represents a signup model with encoded bookmark. { "Id": "string", "Name": "string", "Owner": { "Type": 1, "ObjectId": "string", "TenantId": "string" }, "CommunityId": "string", "Type": "Stream", "CreatedDate": "2019-08-24T14:15:22Z", "ModifiedDate": "2019-08-24T14:15:22Z", "ExpiredDate": "2019-08-24T14:15:22Z", "SignupState": "Active", "Bookmark": "string" }
+Represents a signup model with encoded bookmark.
 
 <h4>Properties</h4>
 
