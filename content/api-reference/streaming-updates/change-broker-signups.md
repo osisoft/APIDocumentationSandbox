@@ -468,15 +468,15 @@ Represents a signup base model.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|string|false|false|Signup Identifier.|
-|Name|string|false|true|Signup Name.|
-|Owner|[Trustee](#schematrustee)|false|false|Signup Owner.|
+|Id|string|true|false|Signup Identifier.|
+|Name|string|true|false|Signup Name.|
+|Owner|[Trustee](#schematrustee)|true|false|Signup Owner.|
 |CommunityId|string|false|true|Community Identifier Associated with Signup.|
-|Type|[ResourceType](#schemaresourcetype)|false|false|Signup Resource Type.|
-|CreatedDate|date-time|false|false|Date Signup was Created.|
-|ModifiedDate|date-time|false|true|Date Signup was Last Modified.|
+|Type|[ResourceType](#schemaresourcetype)|true|false|Signup Resource Type.|
+|CreatedDate|date-time|true|false|Date Signup was Created.|
+|ModifiedDate|date-time|true|false|Date Signup was Last Modified.|
 |ExpiredDate|date-time|false|true|Date Signup was expired.|
-|SignupState|[SignupState](#schemasignupstate)|false|false|Signup Status.|
+|SignupState|[SignupState](#schemasignupstate)|true|false|Signup Status.|
 
 ```json
 {
@@ -592,7 +592,7 @@ The CreateSignupInput object.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Name|string|true|false|Signup Name.|
+|Name|string|false|true|Signup Name.|
 |ResourceType|[ResourceType](#schemaresourcetype)|true|false|Resource type of the resource identifiers.|
 |ResourceIds|string[]|true|false|Collection of resource identifiers.|
 
@@ -622,7 +622,7 @@ A collection of signups.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Signups|[[Signup](#schemasignup)]|false|false|Collection of signups.|
+|Signups|[[Signup](#schemasignup)]|true|false|Collection of signups.|
 
 ```json
 {
@@ -662,15 +662,15 @@ Represents a signup model with encoded bookmark.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|string|false|false|Signup Identifier.|
-|Name|string|false|true|Signup Name.|
-|Owner|[Trustee](#schematrustee)|false|false|Signup Owner.|
+|Id|string|true|false|Signup Identifier.|
+|Name|string|true|false|Signup Name.|
+|Owner|[Trustee](#schematrustee)|true|false|Signup Owner.|
 |CommunityId|string|false|true|Community Identifier Associated with Signup.|
-|Type|[ResourceType](#schemaresourcetype)|false|false|Signup Resource Type.|
-|CreatedDate|date-time|false|false|Date Signup was Created.|
-|ModifiedDate|date-time|false|true|Date Signup was Last Modified.|
+|Type|[ResourceType](#schemaresourcetype)|true|false|Signup Resource Type.|
+|CreatedDate|date-time|true|false|Date Signup was Created.|
+|ModifiedDate|date-time|true|false|Date Signup was Last Modified.|
 |ExpiredDate|date-time|false|true|Date Signup was expired.|
-|SignupState|[SignupState](#schemasignupstate)|false|false|Signup Status.|
+|SignupState|[SignupState](#schemasignupstate)|true|false|Signup Status.|
 
 ```json
 {
@@ -730,7 +730,7 @@ A model that holds lists of recources retrieved from signup.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Resources|[[SignupResource](#schemasignupresource)]|false|false|Collection of resources from a signup.|
+|Resources|[[SignupResource](#schemasignupresource)]|true|false|Collection of resources from a signup.|
 
 ```json
 {
@@ -759,8 +759,8 @@ A model that holds a signup resource.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|ResourceId|string|false|false|Resource Identifier.|
-|IsAccessible|boolean|false|false|Boolean indicating if resource is accessible or inaccessible.|
+|ResourceId|string|true|false|Resource Identifier.|
+|IsAccessible|boolean|true|false|Boolean indicating if resource is accessible or inaccessible.|
 
 ```json
 {
@@ -834,8 +834,8 @@ The SignupResourcesInput object.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|ResourcesToAdd|string[]|false|true|Signup resources to be added.|
-|ResourcesToRemove|string[]|false|true|Signup resources to be removed.|
+|ResourcesToAdd|string[]|true|false|Signup resources to be added.|
+|ResourcesToRemove|string[]|true|false|Signup resources to be removed.|
 
 ```json
 {
