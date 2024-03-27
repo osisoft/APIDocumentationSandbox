@@ -119,23 +119,22 @@ Input of the signup to be created.<br/>
 
 <h4>Example response body</h4>
 
-> 202 Response ([Signup](#schemasignup))
+> 202 Response
 
 ```json
 {
-  "Id": "string",
-  "Name": "string",
-  "Owner": {
-    "Type": 1,
-    "ObjectId": "string",
-    "TenantId": "string"
+  "id": "string",
+  "name": "string",
+  "owner": {
+    "type": "Client",
+    "objectId": "string",
+    "tenantId": "string"
   },
-  "CommunityId": "string",
-  "Type": "Stream",
-  "CreatedDate": "2019-08-24T14:15:22Z",
-  "ModifiedDate": "2019-08-24T14:15:22Z",
-  "ExpiredDate": "2019-08-24T14:15:22Z",
-  "SignupState": "Activating"
+  "communityId": "string",
+  "type": "Stream",
+  "createdDate": "2019-08-24T14:15:22Z",
+  "modifiedDate": "2019-08-24T14:15:22Z",
+  "signupState": "Activating"
 }
 ```
 
@@ -172,23 +171,23 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/signups/{signupId}
 
 <h4>Example response body</h4>
 
-> 200 Response ([SignupWithBookmark](#schemasignupwithbookmark))
+> 200 Response
 
 ```json
 {
-  "Id": "string",
-  "Name": "string",
-  "Owner": {
-    "Type": 1,
-    "ObjectId": "string",
-    "TenantId": "string"
+  "bookmark": "string",
+  "id": "string",
+  "name": "string",
+  "owner": {
+    "type": "Client",
+    "objectId": "string",
+    "tenantId": "string"
   },
-  "CommunityId": "string",
-  "Type": "Stream",
-  "CreatedDate": "2019-08-24T14:15:22Z",
-  "ModifiedDate": "2019-08-24T14:15:22Z",
-  "ExpiredDate": "2019-08-24T14:15:22Z",
-  "SignupState": "Activating"
+  "communityId": "string",
+  "type": "Stream",
+  "createdDate": "2019-08-24T14:15:22Z",
+  "modifiedDate": "2019-08-24T14:15:22Z",
+  "signupState": "Active"
 }
 ```
 
@@ -235,23 +234,22 @@ Signup input object to replace the existing signup's properties.<br/>
 
 <h4>Example response body</h4>
 
-> 200 Response ([Signup](#schemasignup))
+> 200 Response
 
 ```json
 {
-  "Id": "string",
-  "Name": "string",
-  "Owner": {
-    "Type": 1,
-    "ObjectId": "string",
-    "TenantId": "string"
+  "id": "string",
+  "name": "string",
+  "owner": {
+    "type": "Client",
+    "objectId": "string",
+    "tenantId": "string"
   },
-  "CommunityId": "string",
-  "Type": "Stream",
-  "CreatedDate": "2019-08-24T14:15:22Z",
-  "ModifiedDate": "2019-08-24T14:15:22Z",
-  "ExpiredDate": "2019-08-24T14:15:22Z",
-  "SignupState": "Activating"
+  "communityId": "string",
+  "type": "Stream",
+  "createdDate": "2019-08-24T14:15:22Z",
+  "modifiedDate": "2019-08-24T14:15:22Z",
+  "signupState": "Active"
 }
 ```
 
