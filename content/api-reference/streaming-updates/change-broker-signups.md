@@ -176,20 +176,58 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/signups/{signupId}
 
 ```json
 {
-  "Id": "string",
-  "Name": "string",
-  "Owner": {
-    "Type": 1,
-    "ObjectId": "string",
-    "TenantId": "string"
+  "1": {
+    "value": {
+      "Id": "string",
+      "Name": "string",
+      "Owner": {
+        "Type": 1,
+        "ObjectId": "string",
+        "TenantId": "string"
+      },
+      "CommunityId": "string",
+      "Type": "Stream",
+      "CreatedDate": "2019-08-24T14:15:22Z",
+      "ModifiedDate": "2019-08-24T14:15:22Z",
+      "SignupState": "Activating",
+      "Bookmark": ""
+    }
   },
-  "CommunityId": "string",
-  "Type": "Stream",
-  "CreatedDate": "2019-08-24T14:15:22Z",
-  "ModifiedDate": "2019-08-24T14:15:22Z",
-  "ExpiredDate": "2019-08-24T14:15:22Z",
-  "SignupState": "Active",
-  "Bookmark": "string"
+  "2": {
+    "value": {
+      "Id": "string",
+      "Name": "string",
+      "Owner": {
+        "Type": 1,
+        "ObjectId": "string",
+        "TenantId": "string"
+      },
+      "CommunityId": "string",
+      "Type": "Stream",
+      "CreatedDate": "2019-08-24T14:15:22Z",
+      "ModifiedDate": "2019-08-24T14:15:22Z",
+      "SignupState": "Active",
+      "Bookmark": "string"
+    }
+  },
+  "3": {
+    "value": {
+      "Id": "string",
+      "Name": "string",
+      "Owner": {
+        "Type": 1,
+        "ObjectId": "string",
+        "TenantId": "string"
+      },
+      "CommunityId": "string",
+      "Type": "Stream",
+      "CreatedDate": "2019-08-24T14:15:22Z",
+      "ModifiedDate": "2019-08-24T14:15:22Z",
+      "ExpiredDate": "2019-08-24T14:15:22Z",
+      "SignupState": "Expired",
+      "Bookmark": ""
+    }
+  }
 }
 ```
 
