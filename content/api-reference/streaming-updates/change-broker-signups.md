@@ -353,13 +353,13 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/signups/{signupId}/resou
 `[optional] integer skip`
 <br/>Parameter representing the zero-based offset of the first resource to retrieve. If unspecified, a default value of 0 is used.<br/><br/>`[optional] integer count`
 <br/>Maximum number of signup resources to be returned. If unspecified, a default value of 100 is used.<br/><br/>`[optional] any resourceFilter`
-<br/>SignupResourceFilter specifies the accessibility of resources to be returned. If unspecified, all resources will be returned.<br/><br/>
+<br/>Specifies the accessibility of resources to be returned. If unspecified, all resources will be returned.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[SignupResources](#schemasignupresources)|Ok. Returns the signup's resource.|
+|200|[SignupResources](#schemasignupresources)|Ok. Returns the signup's resources.|
 |400|None|Bad request.|
 |403|None|Forbidden. The client does not have the required permissions to make the request.|
 |404|None|Not Found.|
@@ -477,7 +477,7 @@ Represents a signup base model.
 |Type|[ResourceType](#schemaresourcetype)|false|false|Signup Resource Type.|
 |CreatedDate|date-time|false|false|Date Signup was Created.|
 |ModifiedDate|date-time|false|true|Date Signup was Last Modified.|
-|ExpiredDate|date-time|false|true|Date Signup is set to expire.|
+|ExpiredDate|date-time|false|true|Date Signup was expired.|
 |SignupState|[SignupState](#schemasignupstate)|false|false|Signup Status.|
 
 ```json
@@ -594,9 +594,9 @@ The CreateSignupInput object.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Name|string|false|true|Signup Name.|
-|ResourceType|[ResourceType](#schemaresourcetype)|false|false|Resource type of the resource identifiers.|
-|ResourceIds|string[]|false|false|Collection of resource identifiers.|
+|Name|string|true|false|Signup Name.|
+|ResourceType|[ResourceType](#schemaresourcetype)|true|false|Resource type of the resource identifiers.|
+|ResourceIds|string[]|true|false|Collection of resource identifiers.|
 
 ```json
 {
@@ -671,7 +671,7 @@ Represents a signup model with encoded bookmark.
 |Type|[ResourceType](#schemaresourcetype)|false|false|Signup Resource Type.|
 |CreatedDate|date-time|false|false|Date Signup was Created.|
 |ModifiedDate|date-time|false|true|Date Signup was Last Modified.|
-|ExpiredDate|date-time|false|true|Date Signup is set to expire.|
+|ExpiredDate|date-time|false|true|Date Signup was expired.|
 |SignupState|[SignupState](#schemasignupstate)|false|false|Signup Status.|
 
 ```json
@@ -806,7 +806,7 @@ The SignupInvalidResources object.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|InvalidResourcesToRemove|string[]|false|false|Invalid resources that could not be deleted.|
+|InvalidResourcesToRemove|string[]|false|false|Invalid resources to remove that the signup did not contain.|
 |FailedResourceIds|string[]|false|true|Failed resources that could not be added or removed.|
 
 ```json

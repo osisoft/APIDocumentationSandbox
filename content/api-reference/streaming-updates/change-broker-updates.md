@@ -4,7 +4,7 @@ uid: change-broker-updates
 ---
 
 # Updates
-The Updates API allows users to retrieve updates for resources (for example, streams) in a specified Signup. This API is to be used after the user has successfully created a Signup using the Signups API. The user may begin a polling flow with this API by using the starter bookmark of an active Signup, provided through the Signups API (via GET /Signups/{signupId}).
+The Updates API allows users to retrieve updates for resources (for example, streams) in a specified Signup. This API is to be used after the signup Owner has successfully created a Signup using the Signups API. The signup Owner may begin a polling flow with this API by using the starter bookmark of an active Signup, provided through the Signups API (via GET /Signups/{signupId}).
 
 ## `Get Updates`
 
