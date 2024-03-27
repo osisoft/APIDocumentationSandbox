@@ -671,6 +671,7 @@ Represents a signup model with encoded bookmark.
 |ModifiedDate|date-time|true|false|Date Signup was Last Modified.|
 |ExpiredDate|date-time|false|true|Date Signup was expired.|
 |SignupState|[SignupState](#schemasignupstate)|true|false|Signup Status.|
+|Bookmark|string|true|false|An encoded string representing a starting point for updates retrieval.|
 
 ```json
 {
@@ -686,7 +687,8 @@ Represents a signup model with encoded bookmark.
   "CreatedDate": "2019-08-24T14:15:22Z",
   "ModifiedDate": "2019-08-24T14:15:22Z",
   "ExpiredDate": "2019-08-24T14:15:22Z",
-  "SignupState": "Activating"
+  "SignupState": "Activating",
+  "Bookmark": "string"
 }
 
 ```
