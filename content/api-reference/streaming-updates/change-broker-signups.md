@@ -178,7 +178,7 @@ Input of the signup to be created.<br/>
 
 <a id="opIdSignupManager_Get Signup By Id"></a>
 
-Retrieves a signup by signup identifier. If a signup is successfully activated, the response will include an encoded bookmark token for retrieving updates. To set your signup to Active state, it is essential to invoke this route while it is in Activating state. Note that this route will only activate your signup once the setup process is finished.
+Retrieves a signup by signup identifier. If a signup is successfully activated, the response will include an encoded Bookmark token for retrieving updates. Only Active signups can have non-empty Bookmarks. To set your signup to Active state, it is essential to invoke this route while it is in Activating state. Note that this route will only activate your signup once the setup process is finished.
 
 <h3>Request</h3>
 
@@ -205,24 +205,45 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/signups/{signupId}
 
 <h4>Example response body</h4>
 
-> 200 Response ([SignupWithBookmark](#schemasignupwithbookmark))
+> 200 Response
 
 ```json
 {
-  "Id": "string",
-  "Name": "string",
-  "Owner": {
-    "Type": 1,
-    "ObjectId": "string",
-    "TenantId": "string"
+  "Active Signup": {
+    "value": {
+      "Bookmark": "string",
+      "Id": "string",
+      "Name": "string",
+      "Owner": {
+        "Type": "Client",
+        "ObjectId": "string",
+        "TenantId": "string"
+      },
+      "CommunityId": "string",
+      "Type": "Stream",
+      "CreatedDate": "2019-08-24T14:15:22Z",
+      "ModifiedDate": "2019-08-24T14:15:22Z",
+      "SignupState": "Active"
+    }
   },
-  "CommunityId": "string",
-  "Type": "Stream",
-  "CreatedDate": "2019-08-24T14:15:22Z",
-  "ModifiedDate": "2019-08-24T14:15:22Z",
-  "ExpiredDate": "2019-08-24T14:15:22Z",
-  "SignupState": "Activating",
-  "Bookmark": "string"
+  "Expired Signup": {
+    "value": {
+      "Bookmark": "string",
+      "Id": "string",
+      "Name": "string",
+      "Owner": {
+        "Type": "Client",
+        "ObjectId": "string",
+        "TenantId": "string"
+      },
+      "CommunityId": "string",
+      "Type": "Stream",
+      "CreatedDate": "2019-08-24T14:15:22Z",
+      "ModifiedDate": "2019-08-24T14:15:22Z",
+      "ExpiredDate": "2019-09-24T14:15:22Z",
+      "SignupState": "Expired"
+    }
+  }
 }
 ```
 
