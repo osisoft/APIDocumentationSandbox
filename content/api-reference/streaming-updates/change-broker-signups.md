@@ -188,7 +188,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/signups/{signupId}
   "CreatedDate": "2019-08-24T14:15:22Z",
   "ModifiedDate": "2019-08-24T14:15:22Z",
   "ExpiredDate": "2019-08-24T14:15:22Z",
-  "SignupState": "Activating"
+  "SignupState": "Activating",
+  "Bookmark": "string"
 }
 ```
 
@@ -673,6 +674,7 @@ Represents a signup model with encoded bookmark.
 |ModifiedDate|date-time|false|true|Date Signup was Last Modified.|
 |ExpiredDate|date-time|false|true|Date Signup is set to expire.|
 |SignupState|[SignupState](#schemasignupstate)|false|false|Signup Status.|
+|Bookmark|string|false|false|An encoded string representing a starting point for updates retrieval.|
 
 ```json
 {
@@ -688,7 +690,8 @@ Represents a signup model with encoded bookmark.
   "CreatedDate": "2019-08-24T14:15:22Z",
   "ModifiedDate": "2019-08-24T14:15:22Z",
   "ExpiredDate": "2019-08-24T14:15:22Z",
-  "SignupState": "Activating"
+  "SignupState": "Activating",
+  "Bookmark": "string"
 }
 
 ```
