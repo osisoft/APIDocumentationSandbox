@@ -44,7 +44,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/signups
 
 <h4>Example response body</h4>
 
-> 200 Response ([SignupCollection](#schemasignupcollection))
+> 200 Response
 
 ```json
 {
@@ -61,8 +61,36 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/signups
       "Type": "Stream",
       "CreatedDate": "2019-08-24T14:15:22Z",
       "ModifiedDate": "2019-08-24T14:15:22Z",
-      "ExpiredDate": "2019-08-24T14:15:22Z",
       "SignupState": "Activating"
+    },
+    {
+      "Id": "string",
+      "Name": "string",
+      "Owner": {
+        "Type": 1,
+        "ObjectId": "string",
+        "TenantId": "string"
+      },
+      "CommunityId": "string",
+      "Type": "Stream",
+      "CreatedDate": "2019-08-24T14:15:22Z",
+      "ModifiedDate": "2019-08-24T14:15:22Z",
+      "SignupState": "Active"
+    },
+    {
+      "Id": "string",
+      "Name": "string",
+      "Owner": {
+        "Type": 1,
+        "ObjectId": "string",
+        "TenantId": "string"
+      },
+      "CommunityId": "string",
+      "Type": "Stream",
+      "CreatedDate": "2019-08-24T14:15:22Z",
+      "ModifiedDate": "2019-08-24T14:15:22Z",
+      "ExpiredDate": "2019-08-24T14:15:22Z",
+      "SignupState": "Expired"
     }
   ]
 }
