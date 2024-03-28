@@ -178,7 +178,7 @@ Input of the signup to be created.<br/>
 
 <a id="opIdSignupManager_Get Signup By Id"></a>
 
-Retrieves a signup by signup identifier. If a signup is successfully activated, the response will include an encoded Bookmark token for retrieving updates. Only Active signups can have non-empty Bookmarks. To set your signup to Active state, it is essential to invoke this route while it is in Activating state. Note that this route will only activate your signup once the setup process is finished.
+Retrieves a signup by signup identifier. If a signup is successfully activated, the response will include an encoded Bookmark token for retrieving updates. Only Active signups will have non-empty Bookmarks. To set your signup to Active state, it is essential to invoke this route while it is in Activating state. Note that this route can only activate your signup once the setup process is finished, so retries invoking this route may be required if the Signup response is still in an Activating state.
 
 <h3>Request</h3>
 
