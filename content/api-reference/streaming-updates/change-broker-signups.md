@@ -171,15 +171,14 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/signups/{signupId}
 
 <h4>Example response body</h4>
 
-> 200 Response
+> 200 Response ([SignupWithBookmark](#schemasignupwithbookmark))
 
 ```json
 {
-  "Bookmark": "string",
   "Id": "string",
   "Name": "string",
   "Owner": {
-    "Type": "Client",
+    "Type": 1,
     "ObjectId": "string",
     "TenantId": "string"
   },
@@ -187,7 +186,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/signups/{signupId}
   "Type": "Stream",
   "CreatedDate": "2019-08-24T14:15:22Z",
   "ModifiedDate": "2019-08-24T14:15:22Z",
-  "SignupState": "Active"
+  "ExpiredDate": "2019-08-24T14:15:22Z",
+  "SignupState": "Activating",
+  "Bookmark": "string"
 }
 ```
 
