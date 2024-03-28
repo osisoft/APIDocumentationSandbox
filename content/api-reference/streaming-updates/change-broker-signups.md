@@ -42,6 +42,12 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/signups
 |403|None|Forbidden. The client does not have the required permissions to make the request.|
 |500|None|Internal Server Error. The server has encountered a situation it doesn't know how to handle.|
 
+<h4>Response Headers</h4>
+
+|Status|Header|Type|Description|
+|---|---|---|---|
+|200|Total-Count|integer|Total number of signups.|
+
 <h4>Example response body</h4>
 
 > 200 Response
