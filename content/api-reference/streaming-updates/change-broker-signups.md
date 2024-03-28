@@ -209,41 +209,19 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/signups/{signupId}
 
 ```json
 {
-  "Active Signup": {
-    "value": {
-      "Bookmark": "string",
-      "Id": "string",
-      "Name": "string",
-      "Owner": {
-        "Type": "Client",
-        "ObjectId": "string",
-        "TenantId": "string"
-      },
-      "CommunityId": "string",
-      "Type": "Stream",
-      "CreatedDate": "2019-08-24T14:15:22Z",
-      "ModifiedDate": "2019-08-24T14:15:22Z",
-      "SignupState": "Active"
-    }
+  "Bookmark": "string",
+  "Id": "string",
+  "Name": "string",
+  "Owner": {
+    "Type": "Client",
+    "ObjectId": "string",
+    "TenantId": "string"
   },
-  "Expired Signup": {
-    "value": {
-      "Bookmark": "string",
-      "Id": "string",
-      "Name": "string",
-      "Owner": {
-        "Type": "Client",
-        "ObjectId": "string",
-        "TenantId": "string"
-      },
-      "CommunityId": "string",
-      "Type": "Stream",
-      "CreatedDate": "2019-08-24T14:15:22Z",
-      "ModifiedDate": "2019-08-24T14:15:22Z",
-      "ExpiredDate": "2019-09-24T14:15:22Z",
-      "SignupState": "Expired"
-    }
-  }
+  "CommunityId": "string",
+  "Type": "Stream",
+  "CreatedDate": "2019-08-24T14:15:22Z",
+  "ModifiedDate": "2019-08-24T14:15:22Z",
+  "SignupState": "Active"
 }
 ```
 
